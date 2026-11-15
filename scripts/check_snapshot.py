@@ -4,6 +4,7 @@ import json
 from pathlib import Path
 import sys
 from urllib.parse import urlparse
+from urllib.parse import parse_qs
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 from trade_news.pipeline import aggregate, prepare, read_jsonl
@@ -15,6 +16,8 @@ read = lambda name: json.loads((data/name).read_text("utf8"))
 raw = read_jsonl(data/"headlines_raw.jsonl")
 rows, audit = prepare(raw)
 log, saved_audit = read("collection_log.json"), read("processing_audit.json")
+assert log["scope"] == "Colombian exports to the world"
+assert saved_audit["analysis_scope"] == "Colombian goods exports to the world"
 assert rows == read_jsonl(data/"headlines.jsonl"), "Enrichment is not reproducible"
 assert aggregate(rows, [r["month"] for r in log["requests"]]) == read("indices.json"), "Index rebuild differs"
 assert validate(rows, data/"annotations.csv") == read("validation_report.json"), "Validation report is stale"
@@ -27,6 +30,17 @@ for row in raw:
     assert log["start"] <= row["published_at"][:10] < log["end_exclusive"]
     assert row["record_id"] == hashlib.sha256(row["url"].encode()).hexdigest()[:20]
     assert row["retrieved_at"] and row["date_origin"]
+for request in log["requests"]:
+    query = parse_qs(urlparse(request["url"]).query)["q"][0]
+    assert "exportaciones" in query and "importaciones" not in query
+for row in rows:
+    assert row["relevant"] == (row["scope_status"] == "included")
+    if row["relevant"]:
+        assert row["export_origin_evidence"], "Included headline has no Colombian-origin trace"
+        assert row["goods_evidence"] and not row["service_evidence"]
+        assert "services" not in row["sectors"]
+assert saved_audit["scope_counts"] == {status: sum(r["scope_status"] == status for r in rows)
+                                      for status in {r["scope_status"] for r in rows}}
 for key, value in audit.items():
     assert saved_audit[key] == value
 for path in base.glob("*.ipynb"):
