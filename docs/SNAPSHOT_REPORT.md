@@ -1,23 +1,25 @@
-# Executed snapshot report
+# Executed goods-export snapshot report
 
-Computed from the included real metadata snapshot collected on 15 November 2026. These are descriptive outputs of the initial rules, not independently validated news classifications or economic findings.
+Computed from the included export-specific real metadata snapshot collected on 15 November 2026. Only headlines passing the Colombian-origin and goods-only rules enter this report's indices. These are descriptive outputs, not independently validated news classifications or economic findings.
 
 ## Corpus and scoring coverage
 
-The parser retained **160** records, and the relevance baseline selected **127**. The selected sample contains **36 publisher labels**. The sentiment lexicon scored **36 of 127 headlines (28.3%)**; the rest are explicit abstentions.
+The parser retained **152** records, and the relevance baseline selected **63**. The selected sample contains **25 publisher labels**. The sentiment lexicon scored **25 of 63 headlines (39.7%)**; the rest are explicit abstentions.
 
 Low scoring coverage limits interpretation: the index represents the scored subset, not the tone of every retrieved headline. Coverage varies by month. The minimum thresholds are operational choices, not guarantees of reliability.
 
-| Month | Relevant | Scored | Scored publishers | Scoring coverage | Provisional HTI |
-| --- | ---: | ---: | ---: | ---: | ---: |
-| 2026-05 | 17 | 3 | 2 | 17.6% | 50.00 |
-| 2026-06 | 16 | 3 | 3 | 18.8% | 0.00 |
-| 2026-07 | 37 | 9 | 6 | 24.3% | 11.11 |
-| 2026-08 | 15 | 5 | 4 | 33.3% | -12.50 |
-| 2026-09 | 12 | 4 | 3 | 33.3% | 33.33 |
-| 2026-10 | 30 | 12 | 10 | 40.0% | 40.00 |
+Scope audit: 63 included, 33 held for review and 56 excluded. Service stories and ambiguous goods/origin are not counted in the index.
 
-HTI averages scored headlines within each publisher, averages publishers equally, and scales to −100 to +100. It measures lexical tone and cannot establish stronger exports, healthier trade relations, or a causal economic trend.
+| Month | Goods-export headlines | Scored | Scored publishers | Scoring coverage | Export sentiment (−1 to +1) |
+| --- | ---: | ---: | ---: | ---: | ---: |
+| 2026-05 | 10 | 2 | 2 | 20.0% | Missing: insufficient coverage |
+| 2026-06 | 3 | 2 | 2 | 66.7% | Missing: insufficient coverage |
+| 2026-07 | 14 | 3 | 2 | 21.4% | 0.5000 |
+| 2026-08 | 10 | 2 | 2 | 20.0% | Missing: insufficient coverage |
+| 2026-09 | 6 | 4 | 4 | 66.7% | 0.6000 |
+| 2026-10 | 20 | 12 | 8 | 60.0% | 0.4000 |
+
+The primary index pools positive and negative cue counts as (P − N)/(P + N), following the polarity-balance form in the [research reference](RESEARCH_REFERENCE.md). The vocabulary and headline corpus differ from that study. The equal-publisher sensitivity measure remains in indices.json. Neither index establishes export growth, healthier trade relations or economic causality.
 
 ## Predicted labels
 
@@ -25,38 +27,39 @@ HTI averages scored headlines within each publisher, averages publishers equally
 
 | Predicted label | Headlines |
 | --- | ---: |
-| unscored | 91 |
-| positive | 19 |
-| negative | 12 |
-| neutral | 5 |
+| unscored | 38 |
+| positive | 17 |
+| negative | 6 |
+| neutral | 2 |
 
 ### Themes
 
 | Predicted label | Headlines |
 | --- | ---: |
-| trade_flows | 85 |
-| tariffs_and_policy | 49 |
-| exchange_and_prices | 3 |
+| exports | 63 |
+| logistics | 3 |
+| trade_agreements | 1 |
+| exchange_and_prices | 1 |
 
 ### Sectors
 
 | Predicted label | Headlines |
 | --- | ---: |
-| energy_and_mining | 13 |
-| agriculture | 7 |
-| food | 3 |
-| services | 1 |
-| manufacturing | 1 |
+| agriculture | 29 |
+| energy_and_mining | 22 |
+| food | 8 |
+| manufacturing | 8 |
 
 ### Partners
 
 | Predicted label | Headlines |
 | --- | ---: |
-| United States | 37 |
-| Ecuador | 18 |
-| China | 8 |
-| Venezuela | 2 |
-| Brazil | 1 |
+| United States | 6 |
+| Israel | 4 |
+| China | 3 |
+| Ecuador | 3 |
+| Philippines | 2 |
+| Venezuela | 1 |
 
 Tags may overlap and cover only the predefined vocabulary. Partner counts are explicit mentions, not measured bilateral trade or verified relationships. No tag should be inferred from a missing mention.
 

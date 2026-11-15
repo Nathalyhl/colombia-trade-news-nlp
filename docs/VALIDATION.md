@@ -12,13 +12,15 @@ For each reviewed row, provide a named reviewer or stable reviewer ID in `annota
 
 | Reference column | Allowed content | Review definition |
 | --- | --- | --- |
-| `relevance_gold` | `yes`, `no`, or blank | Does the headline explicitly concern Colombia and foreign-trade flows, trade policy, agreements or trade logistics? |
+| `relevance_gold` | `yes`, `no`, or blank | Does the headline concern goods exported from Colombia to foreign markets, including their outlook or restrictions? Services, imports, inbound foreign exports and unresolved goods/origin are outside scope. |
 | `sentiment_gold` | `positive`, `negative`, `neutral`, or blank | Overall linguistic tone of the headline; do not substitute inferred economic benefit. Neutral means no clear positive/negative tone or balanced tone. |
-| `themes_gold` | Exact keys from `THEMES`, separated by `|`; `-` for no tag; blank for unreviewed | All supported commercial themes explicitly present |
+| `themes_gold` | Exact keys from `THEMES`, separated by `|`; `-` for no tag; blank for unreviewed | All supported export themes explicitly present |
 | `sectors_gold` | Exact keys from `SECTORS`, separated by `|`; `-` for no tag; blank for unreviewed | All supported sectors explicitly present |
 | `partners_gold` | Exact keys from `PARTNERS`, separated by `|`; `-` for no tag; blank for unreviewed | All supported country/bloc mentions explicitly present |
 
 Vocabulary keys and the full dictionaries are in `trade_news/nlp.py`. An unsupported country or sector should not be forced into an existing label. Record proposed new categories in separate review notes and revise the vocabulary in a new version. A headline without enough information to judge should remain blank and be logged for discussion; blank means unreviewed, not neutral or no tag.
+
+Review `needs_review` cases for missed merchandise evidence and origin ambiguity. A generic export total must not silently become a goods-export observation. If you use source context to resolve ambiguity, retain it as a separate reviewed annotation; do not silently overwrite the reproducible headline baseline.
 
 Judge the headline as the model sees it. Source links can establish context, but do not silently use full-article information to change a headline-only reference. If article-level relevance or economic favorability is desired, define and record a separate annotation task.
 

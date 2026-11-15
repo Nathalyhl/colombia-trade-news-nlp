@@ -1,20 +1,19 @@
 # Project status
 
-## Implemented and executed
+## Implemented snapshot
 
-- Live monthly Google News RSS collection for May–October 2026, executed on 15 November 2026.
-- 160 metadata records; 127 retained as relevant by the initial rules. All six feed requests succeeded. No synthetic headlines are mixed into the corpus.
-- Metadata validation, exact deduplication, inspectable Spanish NLP rules, matched evidence and source-balanced monthly/group index calculations.
-- A snapshot-first Streamlit dashboard with filters, trends, source links and method/coverage information.
-- A Colab/Jupyter notebook, blank reference-label review sample, per-task evaluator, software tests and deterministic snapshot checks.
-- Local verification: 27 tests passed, including dashboard/filter/empty-result checks; deterministic snapshot rebuild and Ruff checks passed. These are implementation checks, not human classification metrics.
+The project now focuses on **exports of Colombian goods to the world**. The export-specific live retrieval on 15 November 2026 queried May–October 2026 and retained 152 real candidate metadata records. The headline baseline includes 63, holds 33 for review and excludes 56. Raw candidates are preserved for audit; only included goods-export records enter indices and dashboard trends.
 
-## Research decisions still requiring review
+The implementation contains real-news collection, provenance, deduplication, explicit goods/origin checks, interpretable NLP, matched evidence, monthly/group sentiment, a Streamlit dashboard, a Colab/Jupyter notebook and human-reference evaluation tools.
 
-Human reference annotation and domain accuracy remain pending. Theme dictionaries, sector coverage, partner aliases, cue weights, relevance rules and minimum coverage thresholds are initial methodological choices. The index is a descriptive lexical baseline, not an established economic indicator.
+The primary index uses the pooled polarity-balance formula from the Banco de la República reference study. The corpus, lexicon and processing differ; this is an independent methodological adaptation. The earlier equal-publisher score is retained separately for sensitivity analysis. See [RESEARCH_REFERENCE.md](RESEARCH_REFERENCE.md).
 
-No learned model has been trained or evaluated, no full-article NLP has been performed, and no causal or predictive economic finding is claimed. A hosted dashboard has not been deployed. The notebook is provided without saved execution outputs; the included JSON/JSONL files preserve the executed pipeline snapshot.
+## Research work still pending
 
-## Suggested next session
+Human reference annotation and classification accuracy remain pending. No original Bank lexicon or series has been reproduced, no full-article NLP has been performed, and no export forecast or predictive improvement is claimed. A comparison with official DANE goods-export statistics requires more historical coverage and a dated out-of-sample design. A hosted dashboard has not been deployed.
 
-Review the 40-row annotation sample, run the evaluator, discuss actual errors, and freeze a first evaluated baseline before expanding collection or comparing with a Spanish pretrained model. This makes the next academic claim depend on observed evidence rather than presentation polish.
+The notebook has no saved execution outputs. The included JSON/JSONL files preserve the executed pipeline snapshot. Software tests cover export direction, goods/services distinctions, abstentions, pooled cue counts, source weighting, scope audits and dashboard filters; passing tests does not establish domain accuracy.
+
+Local verification of this version: **38 software tests passed**, along with the deterministic snapshot rebuild and Ruff checks. The offline notebook analysis cells also execute using the included real snapshot.
+
+The prior broad-trade snapshot remains available in repository history and a local backup. It is not mixed into the current goods-export index.
