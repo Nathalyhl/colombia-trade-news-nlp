@@ -1,0 +1,20 @@
+{
+  "paper_doi": "10.32468/be.1340",
+  "paper_url": "https://repositorio.banrep.gov.co/server/api/core/bitstreams/5106d21e-a8ba-4ea4-b5ff-9596939ebc04/content",
+  "paper_sha256": "0c545e21eeaa4a31414e8aaca5f952e69c720fdc29ecacb87e2f95b0c1f7cf89",
+  "lexicon_sha256": "0ca925a51df29f208b8b15e514c17b9e3ab927ac18f4e989e0c5fe30c7cf62aa",
+  "counts": {
+    "positive": 188,
+    "negative": 376
+  },
+  "activities": 18,
+  "extraction": "PDFium text, complete Annex 3a/3b tables; column counts and duplicate checks; source pages visually inspected",
+  "license": "CC BY-NC 4.0, as stated by the repository item",
+  "license_url": "https://creativecommons.org/licenses/by-nc/4.0/",
+  "license_evidence": "https://repositorio.banrep.gov.co/items/608d9c82-f70c-4ca1-89e4-d5f8be6f6c45",
+  "modifications": "None to the source word lists or activity labels. Casefold/NFC matching is specified separately in code.",
+  "stopwords_sha256": "b01f9369d2194ff89f6ecd1b762ea53d41274ad282052bf845c656eb52d0aa40",
+  "stopwords_source": "https://raw.githubusercontent.com/nltk/nltk_data/gh-pages/packages/corpora/stopwords.zip",
+  "stopwords_count": 313,
+  "stopwords_choice": "Explicit implementation choice; the paper does not provide its exact stopword list."
+}
