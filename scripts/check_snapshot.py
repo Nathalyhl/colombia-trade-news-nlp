@@ -1,52 +1,57 @@
-"""Offline checks: source lineage, exact rebuild and unaltered annotation evaluation."""
+"""Offline feature/count reproduction; article-text NLP requires the local archive."""
 import hashlib
 import json
 from pathlib import Path
 import sys
 from urllib.parse import urlparse
-from urllib.parse import parse_qs
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
-from trade_news.pipeline import aggregate, prepare, read_jsonl
-from trade_news.validation import validate
+from trade_news.articles import read_jsonl, reference_fingerprint
+from trade_news.bank_method import aggregate, load_reference
+from trade_news.corpus import apply_reviews, evaluate_sentiment, read_reviews
 
 base = Path(__file__).resolve().parents[1]
 data = base/"data"
 read = lambda name: json.loads((data/name).read_text("utf8"))
+load_reference()
 raw = read_jsonl(data/"headlines_raw.jsonl")
-rows, audit = prepare(raw)
-log, saved_audit = read("collection_log.json"), read("processing_audit.json")
-assert log["scope"] == "Colombian exports to the world"
-assert saved_audit["analysis_scope"] == "Colombian goods exports to the world"
-assert rows == read_jsonl(data/"headlines.jsonl"), "Enrichment is not reproducible"
-assert aggregate(rows, [r["month"] for r in log["requests"]]) == read("indices.json"), "Index rebuild differs"
-assert validate(rows, data/"annotations.csv") == read("validation_report.json"), "Validation report is stale"
-assert hashlib.sha256((data/"headlines_raw.jsonl").read_bytes()).hexdigest() == saved_audit["raw_sha256"]
+manifest = read_jsonl(data/"article_manifest.jsonl")
+reviews = read_reviews(data/"annotations.csv")
+rows = apply_reviews(manifest, reviews)
+log, audit = read("collection_log.json"), read("processing_audit.json")
+months = [r["month"] for r in log["requests"]]
+assert log["start"] == "2026-01-01" and log["end_exclusive"] == "2026-11-01"
+assert len(months) == 10 and len(set(months)) == 10
 assert len(raw) == sum(r.get("accepted_items", 0) for r in log["requests"])
-assert len({r["record_id"] for r in rows}) == len(rows)
+assert {r["record_id"] for r in raw} == {r["record_id"] for r in manifest}
+assert len({r["record_id"] for r in manifest}) == len(manifest)
+assert rows == read_jsonl(data/"headlines.jsonl"), "Stored decisions are stale"
+assert {"provisional": aggregate(rows, months), "human_reviewed": aggregate(rows, months, True)} == read("indices.json")
+assert evaluate_sentiment(rows, reviews) == read("validation_report.json")
+assert audit["reference_fingerprint"] == reference_fingerprint()
+assert audit["eligible_articles"] == sum(r["eligible_for_index"] for r in rows)
+assert audit["extracted_articles"] == sum(r["fetch_status"] == "article_extracted" for r in rows)
+for name, key in [("headlines_raw.jsonl", "raw_metadata_sha256"), ("article_manifest.jsonl", "article_manifest_sha256")]:
+    assert hashlib.sha256((data/name).read_bytes()).hexdigest() == audit[key]
 for row in raw:
     assert urlparse(row["url"]).hostname == "news.google.com"
-    assert urlparse(row["feed_url"]).hostname == "news.google.com"
-    assert log["start"] <= row["published_at"][:10] < log["end_exclusive"]
     assert row["record_id"] == hashlib.sha256(row["url"].encode()).hexdigest()[:20]
-    assert row["retrieved_at"] and row["date_origin"]
-for request in log["requests"]:
-    query = parse_qs(urlparse(request["url"]).query)["q"][0]
-    assert "exportaciones" in query and "importaciones" not in query
-for row in rows:
-    assert row["relevant"] == (row["scope_status"] == "included")
-    if row["relevant"]:
-        assert row["export_origin_evidence"], "Included headline has no Colombian-origin trace"
-        assert row["goods_evidence"] and not row["service_evidence"]
-        assert "services" not in row["sectors"]
-assert saved_audit["scope_counts"] == {status: sum(r["scope_status"] == status for r in rows)
-                                      for status in {r["scope_status"] for r in rows}}
-for key, value in audit.items():
-    assert saved_audit[key] == value
-for path in base.glob("*.ipynb"):
-    notebook = json.loads(path.read_text("utf8"))
+    assert log["start"] <= row["published_at"][:10] < log["end_exclusive"]
+for row in manifest:
+    assert not any(key in row for key in ["body", "article_text", "html", "text"]), "Publisher bodies must remain in the local archive"
+    if row["fetch_status"] != "article_extracted":
+        continue
+    assert row["reference_fingerprint"] == reference_fingerprint()
+    assert row["text_source"] == "publisher_article"
+    assert log["start"] <= row["publication_date"] < log["end_exclusive"]
+    assert row["month"] == row["publication_date"][:7]
+    assert sum(t["count"] for t in row["matched_terms"] if t["polarity"] == "positive") == row["positive_count"]
+    assert sum(t["count"] for t in row["matched_terms"] if t["polarity"] == "negative") == row["negative_count"]
+for notebook_path in base.glob("*.ipynb"):
+    notebook = json.loads(notebook_path.read_text("utf8"))
     assert notebook["nbformat"] == 4
+    assert len({c["id"] for c in notebook["cells"]}) == len(notebook["cells"])
     for cell in notebook["cells"]:
         if cell["cell_type"] == "code" and not any(s.lstrip().startswith(("!", "%")) for s in cell["source"]):
-            compile("".join(cell["source"]), path.name, "exec")
-print(f"Verified {len(raw)} real metadata records, {len(rows)} deterministic enriched records, indices and validation state.")
+            compile("".join(cell["source"]), notebook_path.name, "exec")
+print(f"Verified lineage for {len(raw)} real candidates; reproduced article decisions, monthly feature aggregates and human-label evaluation offline.")
