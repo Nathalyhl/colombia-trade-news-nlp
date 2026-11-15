@@ -1,19 +1,17 @@
 # Project status
 
-## Implemented snapshot
+## Implemented
 
-The project now focuses on **exports of Colombian goods to the world**. The export-specific live retrieval on 15 November 2026 queried May–October 2026 and retained 152 real candidate metadata records. The headline baseline includes 63, holds 33 for review and excludes 56. Raw candidates are preserved for audit; only included goods-export records enter indices and dashboard trends.
+Version 0.3 replaces the custom headline baseline with a publisher-article measurement pipeline using the complete BE1340 Annex 3 vocabulary, the published sentiment/uncertainty formulas and the Annex 2 activity labels. The main dashboard shows the general Colombian goods-export news series. Activity exploration and article searches do not alter that primary series. The export-theme filter and the former source-weighted headline score are retired.
 
-The implementation contains real-news collection, provenance, deduplication, explicit goods/origin checks, interpretable NLP, matched evidence, monthly/group sentiment, a Streamlit dashboard, a Colab/Jupyter notebook and human-reference evaluation tools.
+The executed Jan–Oct 2026 snapshot contains 247 real candidate records, 196 retrieved article texts and 172 provisionally eligible deduplicated articles. Retrieval failures and publication-date checks are auditable. Raw publisher text remains local and ignored; derived features can be checked offline.
 
-The primary index uses the pooled polarity-balance formula from the Banco de la República reference study. The corpus, lexicon and processing differ; this is an independent methodological adaptation. The earlier equal-publisher score is retained separately for sensitivity analysis. See [RESEARCH_REFERENCE.md](RESEARCH_REFERENCE.md).
+The project includes a local Streamlit dashboard, a Colab/Jupyter analysis notebook, actual source lineage, a human-review interface and sheet, source-reference hashes and software checks. The previous headline snapshot is preserved in repository history and a separate local backup.
 
-## Research work still pending
+Local release verification passed 28 software tests, the offline source-feature/aggregate check and Ruff checks. Every offline notebook code cell executed, producing three figures from the real snapshot with fresh collection disabled. The local dashboard was also inspected in the browser. These checks do not measure classification accuracy on real news.
 
-Human reference annotation and classification accuracy remain pending. No original Bank lexicon or series has been reproduced, no full-article NLP has been performed, and no export forecast or predictive improvement is claimed. A comparison with official DANE goods-export statistics requires more historical coverage and a dated out-of-sample design. A hosted dashboard has not been deployed.
+## Remaining research work
 
-The notebook has no saved execution outputs. The included JSON/JSONL files preserve the executed pipeline snapshot. Software tests cover export direction, goods/services distinctions, abstentions, pooled cue counts, source weighting, scope audits and dashboard filters; passing tests does not establish domain accuracy.
+Human corpus review, activity verification, extraction inspection and independent sentiment labels remain pending. No Bank-equivalent accuracy, official endorsement, economic validation, nowcasting or forecasting result is claimed. The exact original stopword list, tokenizer and curated dataset are unavailable from the paper and are not represented as reproduced.
 
-Local verification of this version: **38 software tests passed**, along with the deterministic snapshot rebuild and Ruff checks. The offline notebook analysis cells also execute using the included real snapshot.
-
-The prior broad-trade snapshot remains available in repository history and a local backup. It is not mixed into the current goods-export index.
+November and December 2026 are not estimated in this frozen snapshot. A hosted dashboard has not been deployed. Software checks validate calculations and behavior; they are not a substitute for the remaining research review.

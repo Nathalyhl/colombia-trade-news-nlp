@@ -1,68 +1,38 @@
-# Executed goods-export snapshot report
+# Executed snapshot report
 
-Computed from the included export-specific real metadata snapshot collected on 15 November 2026. Only headlines passing the Colombian-origin and goods-only rules enter this report's indices. These are descriptive outputs, not independently validated news classifications or economic findings.
+Frozen publisher-publication window: 2026-01-01 inclusive to 2026-11-01 exclusive. Candidate retrieval and article-access UTC timestamps remain in the source records. This report is generated from executed feature aggregates; no observations or human decisions are synthesized.
 
-## Corpus and scoring coverage
+## Funnel
 
-The parser retained **152** records, and the relevance baseline selected **63**. The selected sample contains **25 publisher labels**. The sentiment lexicon scored **25 of 63 headlines (39.7%)**; the rest are explicit abstentions.
+- Candidate retrieval records: 247.
+- Retrieved article texts: 196.
+- Provisionally eligible, deduplicated articles: 172.
+- Human decisions: 0.
+- Exact duplicates identified: 0.
 
-Low scoring coverage limits interpretation: the index represents the scored subset, not the tone of every retrieved headline. Coverage varies by month. The minimum thresholds are operational choices, not guarantees of reliability.
-
-Scope audit: 63 included, 33 held for review and 56 excluded. Service stories and ambiguous goods/origin are not counted in the index.
-
-| Month | Goods-export headlines | Scored | Scored publishers | Scoring coverage | Export sentiment (−1 to +1) |
-| --- | ---: | ---: | ---: | ---: | ---: |
-| 2026-05 | 10 | 2 | 2 | 20.0% | Missing: insufficient coverage |
-| 2026-06 | 3 | 2 | 2 | 66.7% | Missing: insufficient coverage |
-| 2026-07 | 14 | 3 | 2 | 21.4% | 0.5000 |
-| 2026-08 | 10 | 2 | 2 | 20.0% | Missing: insufficient coverage |
-| 2026-09 | 6 | 4 | 4 | 66.7% | 0.6000 |
-| 2026-10 | 20 | 12 | 8 | 60.0% | 0.4000 |
-
-The primary index pools positive and negative cue counts as (P − N)/(P + N), following the polarity-balance form in the [research reference](RESEARCH_REFERENCE.md). The vocabulary and headline corpus differ from that study. The equal-publisher sensitivity measure remains in indices.json. Neither index establishes export growth, healthier trade relations or economic causality.
-
-## Predicted labels
-
-### Sentiment
-
-| Predicted label | Headlines |
+| Retrieval outcome | Records |
 | --- | ---: |
-| unscored | 38 |
-| positive | 17 |
-| negative | 6 |
-| neutral | 2 |
+| article_extracted | 196 |
+| fetch_failed | 6 |
+| paywall_not_accessed | 12 |
+| publication_date_unverified | 25 |
+| robots_unavailable | 8 |
 
-### Themes
+## General monthly series: provisional
 
-| Predicted label | Headlines |
-| --- | ---: |
-| exports | 63 |
-| logistics | 3 |
-| trade_agreements | 1 |
-| exchange_and_prices | 1 |
+| Publication month | Articles | Publishers | Positive words | Negative words | Sentiment | Uncertainty / 1,000 |
+| --- | ---: | ---: | ---: | ---: | ---: | ---: |
+| 2026-01 | 14 | 6 | 29 | 46 | -0.226667 | 0.55535 |
+| 2026-02 | 17 | 10 | 38 | 53 | -0.164835 | 0.164096 |
+| 2026-03 | 10 | 5 | 20 | 5 | 0.6 | 0.0 |
+| 2026-04 | 26 | 9 | 73 | 104 | -0.175141 | 0.662189 |
+| 2026-05 | 12 | 7 | 29 | 67 | -0.395833 | 0.81367 |
+| 2026-06 | 4 | 3 | 13 | 16 | -0.103448 | 0.401445 |
+| 2026-07 | 37 | 13 | 81 | 65 | 0.109589 | 0.058319 |
+| 2026-08 | 15 | 8 | 46 | 61 | -0.140187 | 0.3125 |
+| 2026-09 | 11 | 6 | 24 | 54 | -0.384615 | 0.183217 |
+| 2026-10 | 26 | 13 | 70 | 79 | -0.060403 | 0.087192 |
 
-### Sectors
+These are lexical measurements within an automatically screened, non-exhaustive retrieved sample. They do not establish export growth, causality or a forecast. Changes in publisher mix and article volume can change the balance. Inspect the matched words and source articles rather than treating a sign as a substantive economic conclusion.
 
-| Predicted label | Headlines |
-| --- | ---: |
-| agriculture | 29 |
-| energy_and_mining | 22 |
-| food | 8 |
-| manufacturing | 8 |
-
-### Partners
-
-| Predicted label | Headlines |
-| --- | ---: |
-| United States | 6 |
-| Israel | 4 |
-| China | 3 |
-| Ecuador | 3 |
-| Philippines | 2 |
-| Venezuela | 1 |
-
-Tags may overlap and cover only the predefined vocabulary. Partner counts are explicit mentions, not measured bilateral trade or verified relationships. No tag should be inferred from a missing mention.
-
-## What remains to establish
-
-Human references are still blank. Accuracy, macro-F1 and multi-label quality therefore remain pending. The next defensible research result is an annotated error analysis using [the validation protocol](VALIDATION.md). The snapshot already supports inspection of actual headlines, provenance, cue evidence and calculation behavior.
+The human-reviewed series is separate. Its initial missing values reflect absent human corpus decisions. Human sentiment accuracy is also pending; a working formula or passing software test supplies no substitute label.

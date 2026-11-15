@@ -1,70 +1,46 @@
-# Research methodology
+# Measurement and corpus protocol
 
-## Question and unit of observation
+## Research question and unit
 
-How does lexical tone in a retrieved sample of Spanish-language headlines about exports of Colombian goods to the world vary by month, export theme, mentioned sector and mentioned market?
+How does the language used in news about Colombian merchandise exports vary across publication months in 2026? The unit is a retrieved publisher article, not a headline, individual export transaction or official statistical observation. The primary series pools all eligible articles; Annex 2 activities provide a separate descriptive view.
 
-The unit is a headline record returned by Google News RSS, not a full article, trade transaction or economic outcome. This is a descriptive prototype. Associations in media framing cannot establish economic causality or predict export values.
+The frozen window is 2026-01-01 inclusive through 2026-11-01 exclusive. All ten completed publication months are retained, including months with missing estimates. There is no imputation for November or December and no claim that this is a complete year.
 
-## Collection and cleaning
+## Discovery, access and dates
 
-`collect.py` requests one search feed per calendar month, in the Colombian Spanish locale. It retains headlines, publisher attribution, Google News article links, RSS publication timestamps and collection provenance. The requested end date is exclusive. The parser independently filters provider timestamps to the requested UTC-date interval; malformed or out-of-window items are counted in the log. Network failures are recorded, never replaced with synthetic headlines.
+1. Query Google News RSS once per month using `Colombia (exportaciones OR exportación OR exporta OR exportadores OR exportador)` and explicit date boundaries; locale `es-419`, country `CO`. Save response hashes and candidate metadata. Search coverage and rankings are provider-dependent.
+2. Resolve each public RSS article link to the publisher URL. Check its publisher domain, robots rules and public access. Log failures; do not substitute text from another story, a headline, a search snippet or a model-generated summary.
+3. Read explicit publisher `datePublished` in Article/NewsArticle/BlogPosting JSON-LD, then `article:published_time` if needed. Missing or out-of-window dates prevent inclusion. This independently checks the publisher’s reported date, not the truth of its publication history. `dateModified` is not a publication date.
+4. Extract the article body with the pinned Trafilatura precision configuration, excluding comments and tables. Remove a leading repeated title. Store raw HTML and extracted text locally with SHA-256 hashes; keep publisher text out of the released feature files. Extraction completeness and boilerplate still need human inspection.
 
-`pipeline.prepare` validates nonempty titles, HTTP(S) URLs and timezone-aware dates. It sorts records deterministically, removes duplicate URLs or exactly equal normalized headlines, and records excluded IDs. Normalization removes markup, expands HTML entities, collapses spaces, lowercases and removes diacritics for matching. The source title remains intact; the cleaned representation also removes the trailing `| El Colombiano` outlet brand so it cannot be mistaken for Colombian origin. Near-duplicate or syndicated stories with different headlines can remain; no semantic deduplication is claimed.
+## Corpus and activities
 
-## Interpretable NLP baseline
+The Bank’s study manually selected economic news and assigned activities. This project does not claim to have recreated that manual review. `classification.py` offers transparent keyword proposals for Colombian origin, export context, goods and activity. Ambiguous inbound exports, unresolved goods and mixed service headlines remain for review; obvious service or unrelated headlines are excluded. Co-occurrence rules can still be wrong.
 
-`nlp.py` contains the complete versioned dictionaries and functions. No learned sentiment model, fine-tuning, embedding model or discovered-topic model is used in this version.
+An article enters the provisional series only when dated article text has eligible processed sentences and its scope proposal is include, or a documented human decision includes it. Human rejection and unresolved manual review exclude it. Canonical-URL and exact extracted-text duplicates contribute once; a human-included record takes priority over an unreviewed duplicate. Near-duplicate syndicated stories are not automatically resolved and may overweight one event.
 
-The project-authored lexicon explicitly lists selected verb inflections (for example, growth and decline forms). It is versioned as `spanish_headline_lexicon_v2`; no trained lemmatizer or reproduction of the source study's dictionary is claimed.
+Each retained article has one exact Annex 2 activity. Multiple activity proposals map to Global Context; unresolved foreign trade maps to Other Activity. A human reviewer can choose any of the 18 original labels. The automated cues are project-specific suggestions, not a classifier or code supplied by the Bank. They do not alter the main all-export index.
 
-| Task | Implemented method | Interpretation |
-| --- | --- | --- |
-| Relevance | Explicit export cue, bounded phrases linking exports to Colombia, and an explicit goods cue; inbound/conflicting origin, services and ambiguous cases kept outside the index | Conservative headline-level rules, subject to false positives/negatives |
-| Export themes | Whole normalized phrase matches | Multi-label dictionary tags, not unsupervised topics |
-| Sectors | Whole normalized phrase matches | Explicit sector cues; categories may overlap |
-| Partners | Country/bloc names and selected demonyms | Mentions only; no relation extraction or verified trading relationship |
-| Sentiment | Fixed +1/−1 cue weights, negation in the preceding three tokens | Lexical headline tone, not favorable/unfavorable impact on Colombia |
+## Diagram 1 processing
 
-For headline *i*, score `s_i` is the mean of its signed cue weights and lies in [−1, +1]. Positive, negative or exactly balanced scores map to `positive`, `negative` and `neutral`. A headline with no recognized cue receives `tone_score = null` and `sentiment = unscored`. Abstention is never silently converted to neutrality. The matched terms, weights and negation flags accompany each record.
+- Discard cleaned texts shorter than 50 characters.
+- Split at sentence punctuation, paragraphs and bullet boundaries. Lowercase with Unicode casefold and preserve accents using NFC.
+- Tokenize alphabetic Unicode sequences. Remove the frozen 313-word NLTK Spanish stopword file.
+- Keep sentences with more than five remaining words, following the order shown in Diagram 1.
+- Count exact occurrences of all positive and negative forms in Annex 3a/3b. Do not add inflections, stem, lemmatize or reverse polarity near negation: these extra rules are not specified by the diagram.
 
-Negation is a deliberately simple local heuristic. Removing punctuation can broaden its scope incorrectly; double negation, quotations, irony, conditional statements and economic context require further work. “Aumentan los aranceles para Colombia” receives positive lexical tone because `aumentan` is a positive cue; it is not evidence that rising tariffs benefit Colombia. This synthetic diagnostic is explicitly tested to expose the method's semantics.
+The exact tokenizer and stopword list are not supplied in the paper. Our punctuation boundaries and NLTK file are explicit implementation choices. Stopword removal includes negation words such as `no`, so negation sensitivity is a limitation of this operational reproduction. The published list is general economic vocabulary; no export-specific dictionary has been invented.
 
-## Export News Sentiment Index
+## Equations 1 and 2
 
-The primary measure follows the polarity-balance form of equation (1) in [Mora-Quiñones, Orozco-Gallo and Mora-Pérez (2026)](https://doi.org/10.32468/be.1340), applied to our own headline corpus and provisional lexicon. See [the reference comparison](RESEARCH_REFERENCE.md). For month *m* and group *g*, pool all signed cue occurrences from included headlines after deduplication and filters:
+For each month, sum positive `P_t`, negative `N_t`, uncertainty `U_t` and processed word `W_t` occurrences across eligible article bodies. Compute `(P_t-N_t)/(P_t+N_t)` and `1000*U_t/W_t`. Counts are pooled before division; article scores and publisher scores are not averaged. No minimum-three-articles/two-publishers rule is imposed by this implementation.
 
-```text
-P_m,g = number of positive cue occurrences after the local negation rule
-N_m,g = number of negative cue occurrences after the local negation rule
-export_sentiment_index = (P_m,g - N_m,g) / (P_m,g + N_m,g)
-```
+The uncertainty forms are `incertidumbre`, `incertidumbres`, `incierto`, `inciertos`, `incierta`, `inciertas`. They may overlap with the negative dictionary. Empty sentiment denominators remain missing; positive and negative counts that are equal and nonzero produce zero. Empty word denominators remain missing; zero uncertainty with a positive word denominator is a valid zero. Activity views repeat these equations on subsets, without double counting articles across multiple activities.
 
-The range is [−1, +1]. A zero cue denominator gives a missing index, never zero. Headlines with more recognized cues contribute more to this pooled measure. This differs from averaging headline scores.
+Monthly values are stored to six decimal places; article-level counts remain integers. `neutral` is the project’s diagnostic label for an article with equal nonzero polarity counts, not a separate published lexicon category. An article with no polarity matches abstains.
 
-For sensitivity analysis, `headline_tone_index` retains the earlier equal-publisher measure on a [−100, +100] scale:
+## Interpretation and validation boundary
 
-```text
-publisher_mean_p = mean(tone_score_i for scored headlines attributed to p)
-headline_tone_index = 100 * mean(publisher_mean_p over scored publishers)
-```
+Report the provisional and human-reviewed subsets separately, with article/publisher volume, matched counts, retrieval outcomes and missingness. A series value measures lexical balance within the retrieved sample. It cannot establish export performance, causality, risk probabilities or forecasting ability.
 
-Equal publisher weights reduce domination by an outlet with more retrieved headlines. They do not correct retrieval bias, publisher-name aliases, syndication, or nonindependent coverage. A source is the RSS publisher label, not a verified independent editorial organization.
-
-An index is shown only with at least **3 scored headlines** and **2 scored publisher labels** in the month/group. These are transparent operational thresholds, not statistically derived confidence criteria. Other groups retain `null` with `insufficient_coverage`. Adequate groups remain `provisional`; a coverage threshold does not establish validity. No confidence interval or significance claim is made.
-
-Outputs retain total records, scored records, scored publishers and scoring coverage. The month grid includes requested months with no observations; their index remains missing. Each multi-label group is calculated separately, so category counts are not additive. The dashboard recomputes these same functions after filters; a missing point does not become zero.
-
-## Goods-only scope decisions
-
-The scope is legal merchandise exports, including agricultural products, manufactured goods, minerals, fuels and electricity. Services (including software, tourism and cybersecurity), illicit trade and player-transfer stories are outside scope. A headline must contain goods cues as well as Colombian export-origin evidence. General export totals are not assumed to refer to goods; if the headline does not resolve that distinction, it receives `needs_review`. Mixed goods/services headlines remain outside the index because their whole-headline tone cannot be assigned specifically to goods.
-
-Export-related tariffs, logistics and trade agreements are secondary themes only after the headline passes the goods-export scope. Country tags indicate mentions and do not establish destinations. The filter is intentionally conservative and can miss relevant stories. `goods_evidence`, `export_origin_evidence`, `service_evidence`, `scope_status` and `scope_reason` make those choices inspectable.
-
-## Evaluation and research extensions
-
-The repository supplies a deterministic, hash-selected review sample of up to 40 records from all retained records, including relevance exclusions. Gold fields begin blank. Review instructions and executable metrics are in [VALIDATION.md](VALIDATION.md). Unit fixtures test implementation behavior; the included live metadata and offline snapshot checks test lineage and reproducibility. Neither supplies human domain accuracy.
-
-A future economic validation should compare the index with official [DANE goods-export statistics](https://www.dane.gov.co/index.php/estadisticas-por-tema/comercio-internacional/exportaciones), preserving publication dates and distinguishing values from quantities. No such test or forecasting experiment has been executed. Six months of retrospectively collected search headlines cannot establish predictive performance.
-
-Next research steps are independent annotation, error analysis, vocabulary revision on a development split, a publisher/time-held-out test set, a comparison with a documented Spanish sentiment model, contextual economic favorability labels, better syndication handling and expanded query coverage. These are proposals, not completed experiments.
+Independent human corpus review and domain labels are pending. Software tests establish implementation behavior only. No nowcasting, DFM/ARMAX comparison, economic-performance validation or Bank-equivalent benchmark result is claimed.
