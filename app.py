@@ -1,135 +1,166 @@
-"""Goods-export dashboard; filters recompute pooled sentiment and source sensitivity."""
-from collections import Counter
+"""Inspect the general export-news index before optional activity breakdowns."""
+import csv
 import json
 from pathlib import Path
-import pandas as pd
-import plotly.express as px
-import streamlit as st
-from trade_news.pipeline import aggregate, read_jsonl
 
-st.set_page_config(page_title="Colombia | Goods Export Sentiment", page_icon="🌎", layout="wide")
-BASE = Path(__file__).resolve().parent / "data"
+import pandas as pd
+import plotly.graph_objects as go
+import streamlit as st
+
+from trade_news.articles import read_jsonl
+from trade_news.classification import ACTIVITIES
+from trade_news.corpus import REVIEW_FIELDS, build, read_reviews
+
+BASE = Path(__file__).resolve().parent
+DATA = BASE/"data"
+st.set_page_config(page_title="Colombian Goods Export News", page_icon="🇨🇴", layout="wide")
 
 
 def load_json(name):
-    return json.loads((BASE / name).read_text("utf8"))
+    return json.loads((DATA/name).read_text("utf8"))
 
 
-st.caption("COLOMBIAN GOODS EXPORTS TO THE WORLD · EXPLORATORY NLP")
-st.title("Goods Export News Observatory")
-st.markdown("Explore Spanish-language news about exports of Colombian goods to the world. "
-            "Follow monthly tone, export themes, sectors and explicitly mentioned markets.")
-if not (BASE / "headlines.jsonl").exists():
-    st.info("Collect a real snapshot first: python -m trade_news all")
-    st.stop()
-rows = read_jsonl(BASE / "headlines.jsonl")
-log, audit, report = (load_json(n) for n in ["collection_log.json", "processing_audit.json", "validation_report.json"])
-months = [r["month"] for r in log["requests"]]
-relevant = [r for r in rows if r["relevant"]]
-st.caption(f"Provider-date window: {log['start']} to {log['end_exclusive']} (exclusive) · "
-           f"Retrieved {log['requests'][-1]['retrieved_at'][:10]} · Google News RSS metadata")
+def index_chart(frame, column, title, bounds=None):
+    fig = go.Figure(go.Scatter(x=frame["month"], y=frame[column], mode="lines+markers", connectgaps=False,
+        customdata=frame[["articles", "publishers"]],
+        hovertemplate="%{x}<br>Value: %{y:.3f}<br>Articles: %{customdata[0]}<br>Publishers: %{customdata[1]}<extra></extra>"))
+    fig.update_layout(title=title, xaxis_title="Publication month", yaxis_title=column.replace("_", " "), height=340)
+    if bounds:
+        fig.update_yaxes(range=bounds, zeroline=True)
+    return fig
 
-with st.sidebar:
-    st.header("Explore the snapshot")
-    selected_months = st.multiselect("Months", months, default=months)
-    def options(field):
-        return sorted({v for r in relevant for v in r[field]})
-    sectors = st.multiselect("Sectors mentioned", options("sectors"))
-    partners = st.multiselect("Markets mentioned", options("partners"))
-    themes = st.multiselect("Export themes", options("themes"))
-    search = st.text_input("Find words in a headline")
-    st.caption("Choices within one filter mean OR; different filters mean AND. "
-               "Market mentions do not prove the country is the export destination.")
 
-filtered = [r for r in relevant if r["month"] in selected_months
-            and (not sectors or set(sectors) & set(r["sectors"]))
-            and (not partners or set(partners) & set(r["partners"]))
-            and (not themes or set(themes) & set(r["themes"]))
-            and search.casefold() in r["title_clean"].casefold()]
-scored = [r for r in filtered if r["tone_score"] is not None]
+rows = read_jsonl(DATA/"headlines.jsonl")
+indices, audit, log, validation = [load_json(name) for name in
+    ["indices.json", "processing_audit.json", "collection_log.json", "validation_report.json"]]
+st.caption("COLOMBIAN GOODS EXPORTS TO THE WORLD · 2026 · ARTICLE-TEXT NLP")
+st.title("Export News Sentiment & Uncertainty")
+st.write("A general monthly reading of the language used in news about Colombian goods exports. "
+         "Activity breakdowns are available separately, following the reference study’s categories.")
+st.caption(f"Publication window: {log['start']} to {log['end_exclusive']} (exclusive). "
+           "The frozen snapshot covers January–October; November and December are not estimated.")
+st.info("Provisional research series. Corpus inclusion and economic activities are automatic proposals pending human review. "
+        "The formulas and 564-word dictionary follow Banco de la República, BE1340. This is an independent adaptation, not an official Bank index.")
 c1, c2, c3, c4 = st.columns(4)
-c1.metric("Goods export headlines", len(filtered))
-c2.metric("Publishers", len({r["publisher"] for r in filtered}))
-c3.metric("Scored headlines", len(scored))
-c4.metric("Lexicon coverage", f"{len(scored)/len(filtered):.0%}" if filtered else "—")
-st.info("Research baseline: the Export News Sentiment Index measures lexical tone in this retrieved sample, "
-        "not economic performance. Human classification review is pending." if report["status"] == "human_labels_pending"
-        else "Research baseline: the index measures sample headline tone. See Quality & method for reference-label evaluation.")
-trends, explore, quality = st.tabs(["Trends", "Headlines & evidence", "Quality & method"])
+c1.metric("Eligible article texts", audit["eligible_articles"])
+c2.metric("Retrieved article texts", audit["extracted_articles"])
+c3.metric("Candidate news records", audit["candidate_records"])
+c4.metric("Human decisions recorded", audit["human_reviewed_articles"])
+general, activities, evidence, method, review_tab = st.tabs(
+    ["General index", "Economic activities", "Articles & evidence", "Method & coverage", "Human review"])
 
-with trends:
-    monthly = pd.DataFrame([r for r in aggregate(filtered, selected_months) if r["dimension"] == "overall"])
-    if monthly.empty:
-        st.info("Choose at least one month to explore trends.")
+with general:
+    series = pd.DataFrame([r for r in indices["provisional"] if r["activity"] == "All exports"])
+    st.subheader("All Colombian goods export news in the eligible sample")
+    st.write("Sentiment pools positive and negative word occurrences across articles each month. "
+             "Uncertainty counts the six published uncertainty forms per 1,000 processed words.")
+    left, right = st.columns(2)
+    left.plotly_chart(index_chart(series, "sentiment", "Monthly sentiment", [-1.05, 1.05]), width="stretch")
+    right.plotly_chart(index_chart(series, "uncertainty_per_1000", "Monthly uncertainty"), width="stretch")
+    st.caption("Gaps mean no estimate. Zero sentiment requires equal nonzero positive and negative counts; "
+               "zero uncertainty is possible when processed text contains none of the six uncertainty forms.")
+    st.dataframe(series[["month", "articles", "publishers", "positive_count", "negative_count", "uncertainty_count",
+                         "processed_tokens", "sentiment", "uncertainty_per_1000", "status"]], hide_index=True)
+    reviewed = pd.DataFrame([r for r in indices["human_reviewed"] if r["activity"] == "All exports"])
+    if reviewed["articles"].sum():
+        st.plotly_chart(index_chart(reviewed, "sentiment", "Human-reviewed subset", [-1.05, 1.05]), width="stretch")
+        st.caption("This subset uses the same formulas. It may differ in size and composition from the provisional series.")
     else:
-        figure = px.line(monthly, x="month", y="export_sentiment_index", markers=True,
-                         title="Monthly Export News Sentiment Index", range_y=[-1.05, 1.05],
-                         hover_data=["n_records", "n_scored", "n_scored_publishers", "positive_cues", "negative_cues", "status"],
-                         labels={"month": "Provider publication month", "export_sentiment_index": "Goods export-news sentiment (−1 to +1)"})
-        figure.update_traces(connectgaps=False)
-        figure.add_hline(y=0, line_dash="dot", line_color="gray")
-        st.plotly_chart(figure, width="stretch")
-        st.caption("The index pools positive and negative cues: (positive − negative) / (positive + negative). A point requires at least "
-                   "3 scored headlines from 2 publishers; missing values remain gaps. All points are provisional.")
-        left, right = st.columns(2)
-        with left:
-            st.plotly_chart(px.bar(monthly, x="month", y="n_records", title="Retrieved relevant headline volume",
-                                  labels={"month": "Month", "n_records": "Headlines"}), width="stretch")
-        with right:
-            counts = Counter(r["sentiment"] for r in filtered)
-            tone = pd.DataFrame([{"label": k, "count": counts[k]} for k in ["positive", "neutral", "negative", "unscored"]])
-            st.plotly_chart(px.bar(tone, x="label", y="count", title="Lexical tone and abstentions",
-                                  color="label", color_discrete_map={"positive": "#167d6d", "neutral": "#788496", "negative": "#bb5462", "unscored": "#d8ae5e"}), width="stretch")
-    for field, title in [("themes", "Export themes"), ("sectors", "Sectors mentioned"), ("partners", "Markets mentioned")]:
-        counts = Counter(v for r in filtered for v in r[field])
-        if counts:
-            table = pd.DataFrame(counts.most_common(), columns=["label", "headlines"])
-            st.plotly_chart(px.bar(table, x="headlines", y="label", orientation="h", title=title), width="stretch")
-    st.caption("A headline may have several tags, so tag totals can exceed the number of headlines.")
-    st.subheader("Compare export-news tone by sector or mentioned market")
-    dimension = st.selectbox("Comparison dimension", ["sector", "partner", "theme"])
-    comparisons = [r for r in aggregate(filtered, selected_months) if r["dimension"] == dimension]
-    st.dataframe(pd.DataFrame(comparisons), hide_index=True, width="stretch")
+        st.warning("The human-reviewed series will appear after corpus review.")
 
-with explore:
-    st.write("Open the source link and inspect the words behind each classification.")
-    display = [{"Date (UTC)": r["published_at"][:10], "Headline": r["title_clean"], "Publisher": r["publisher"],
-                "Tone": r["sentiment"], "Score": r["tone_score"], "Themes": ", ".join(r["themes"]),
-                "Sectors": ", ".join(r["sectors"]), "Partners": ", ".join(r["partners"]), "Source": r["url"], "ID": r["record_id"]} for r in filtered]
-    st.dataframe(pd.DataFrame(display), column_config={"Source": st.column_config.LinkColumn("Source", display_text="Open source")}, hide_index=True, width="stretch")
-    if filtered:
-        selected_id = st.selectbox("Inspect an individual headline", [r["record_id"] for r in filtered],
-                                   format_func=lambda rid: next(r["title_clean"] for r in filtered if r["record_id"] == rid))
-        record = next(r for r in filtered if r["record_id"] == selected_id)
-        st.json({k: record[k] for k in ["title_clean", "scope_reason", "export_origin_evidence", "goods_evidence", "sentiment", "tone_score", "sentiment_evidence", "tag_evidence", "date_origin"]})
+with activities:
+    st.subheader("Economic activities: a secondary view")
+    st.write("The reference study uses 18 economic-activity labels. Several activities in one article map to Global Context. "
+             "Foreign-trade articles without a resolved activity map to Other Activity. The study used manual classification; "
+             "these project proposals require review.")
+    selected = st.selectbox("Economic activity (Annex 2)", ACTIVITIES)
+    activity_rows = [r for r in indices["provisional"] if r["activity"] == selected]
+    activity_lookup = {r["month"]: r for r in activity_rows}
+    empty = {"articles": 0, "publishers": 0, "sentiment": None, "uncertainty_per_1000": None}
+    activity_frame = pd.DataFrame([{**empty, **activity_lookup.get(month, {}), "month": month} for month in series["month"]])
+    if activity_frame["articles"].sum():
+        st.plotly_chart(index_chart(activity_frame, "sentiment", selected, [-1.05, 1.05]), width="stretch")
+        st.dataframe(activity_frame, hide_index=True)
+    else:
+        st.info("No eligible article is currently assigned to this activity. The general index above is unchanged.")
 
-with quality:
-    st.subheader("From a real search response to an inspectable result")
-    st.write(f"{audit['input_records']} metadata records → {audit['retained_records']} retained → "
-             f"{audit['relevant_records']} selected by the relevance baseline. "
-             f"Duplicates removed: {len(audit['duplicates'])}; invalid metadata: {len(audit['rejected_metadata'])}.")
-    st.markdown("**Goods-only scope.** The index requires explicit goods cues and phrases linking exports to Colombian origin. "
-                "Services, imports and inbound exports to Colombia are outside the index. Unresolved direction, unspecified goods "
-                "and mixed goods/services headlines are held for review. These are provisional rules, not verified relations.")
-    st.json(audit["scope_counts"])
-    with st.expander("Inspect scope exclusions and unresolved headlines"):
-        st.dataframe(pd.DataFrame([{"Headline": r["title_clean"], "Status": r["scope_status"], "Reason": r["scope_reason"], "Source": r["url"]}
-                                  for r in rows if not r["relevant"]]),
-                     column_config={"Source": st.column_config.LinkColumn("Source", display_text="Open source")}, hide_index=True)
-    st.dataframe(pd.DataFrame([{k: r.get(k) for k in ["month", "status", "provider_items", "accepted_items", "rejected_items", "possible_provider_cap"]} for r in log["requests"]]), hide_index=True, width="stretch")
-    st.markdown("**Method.** Accent-insensitive phrase matching assigns topics, sectors and partner mentions. "
-                "A small Spanish lexicon scores positive and negative cues, with a three-token negation window. "
-                "Headlines with no cue are **unscored**, not neutral. The primary index pools signed cue counts across selected "
-                "headlines. A separate source-balanced tone score is retained in the comparison table as a sensitivity measure.")
-    st.markdown("**Research reference.** The pooled sentiment formula follows the approach in "
-                "[Mora-Quiñones, Orozco-Gallo and Mora-Pérez (2026), Borradores de Economía 1340](https://doi.org/10.32468/be.1340). "
-                "This prototype uses headlines and its own provisional lexicon; it is an independent adaptation, not the Bank’s index. "
-                "See docs/RESEARCH_REFERENCE.md for the comparison.")
-    st.markdown("**Interpretation.** Search results are a changing, non-exhaustive sample. Dates come from RSS and "
-                "are not independently verified publication dates. A positive word can describe an adverse economic "
-                "event (for example, rising tariffs). Headline tone and economic favorability need separate human judgments.")
-    st.subheader("Human reference-label evaluation")
-    st.json(report)
-    st.write("Review data/annotations.csv using docs/VALIDATION.md, then run python -m trade_news validate. "
-             "No accuracy score is reported before reference labels exist. Reviewers can assess relevance, tone and all tag families.")
-    st.caption("The repository contains collection provenance, annotation instructions and reproducibility steps.")
+with evidence:
+    st.subheader("Trace each estimate to its articles and matched words")
+    search = st.text_input("Find words in an article title")
+    only_eligible = st.checkbox("Show only eligible articles", value=True)
+    visible = [r for r in rows if (not only_eligible or r["eligible_for_index"]) and
+               search.casefold() in (r.get("publisher_title") or r["title"]).casefold()]
+    st.caption(f"{len(visible)} matching records. Search changes this table only; it does not change the general index.")
+    if not visible:
+        st.info("No matching articles. Clear the search or include retrieval failures to inspect coverage.")
+    else:
+        columns = ["record_id", "title", "publication_date", "publisher", "article_url", "fetch_status", "scope_proposal",
+                   "activity", "review_status", "eligible_for_index", "positive_count", "negative_count", "sentiment_score"]
+        table = pd.DataFrame(visible).reindex(columns=columns)
+        st.dataframe(table, hide_index=True, column_config={"article_url": st.column_config.LinkColumn("Publisher article")})
+        chosen = st.selectbox("Inspect a record", [r["record_id"] for r in visible],
+                              format_func=lambda key: next((r.get("publisher_title") or r["title"]) for r in visible if r["record_id"] == key))
+        item = next(r for r in visible if r["record_id"] == chosen)
+        st.json({k: item.get(k) for k in ["article_url", "publication_date", "date_source", "text_source", "text_sha256",
+            "processing_status", "processed_tokens", "matched_terms", "uncertainty_count", "scope_reason", "goods_evidence",
+            "activity_evidence", "duplicate_of", "fetch_error", "resolution_error"]})
+
+with method:
+    st.subheader("What follows the paper, and what changes")
+    st.markdown("Reference: [Mora-Quiñones, Orozco-Gallo & Mora-Pérez (2026), BE1340](https://doi.org/10.32468/be.1340). "
+                "See the repository methodology for the implementation matrix and source attribution.")
+    st.latex(r"SENT_t = \frac{P_t-N_t}{P_t+N_t}")
+    st.latex(r"UNCERT_t = 1000\,\frac{U_t}{W_t}")
+    st.write("The article-body pipeline discards texts shorter than 50 characters, splits sentences, lowercases, removes stopwords, "
+             "and retains sentences with more than five remaining words. Matching uses the complete published Annex 3 dictionary: "
+             "188 positive and 376 negative forms. No extra inflections, automatic negation reversal or growth-word additions are used.")
+    st.write("The paper does not supply its exact tokenizer or stopword file. This implementation documents its Unicode tokenizer "
+             "and freezes the 313-word NLTK Spanish stopword file. Google News retrieval, public web extraction and automatic "
+             "scope/activity proposals also differ from the Bank’s manually curated corpus. The paper’s nowcasting models are not reproduced.")
+    st.write("‘Duplican’ and ‘triplicaron’ are not in Annex 3. An article may still receive a score from other published dictionary terms "
+             "in its body. No matches means no sentiment estimate, rather than a neutral score. News tone is not export growth or a forecast.")
+    st.subheader("Retrieval coverage")
+    st.dataframe(pd.DataFrame(audit["fetch_status_counts"].items(), columns=["Retrieval outcome", "Records"]), hide_index=True)
+    st.caption("Search results are not an exhaustive or representative news census. Publisher access, extraction and dictionary coverage "
+               "affect the series. Full publisher text is kept in the ignored local archive; the repository distributes links, hashes and derived counts.")
+    st.json(validation)
+
+with review_tab:
+    st.subheader("Record a human corpus review")
+    st.write("Read the linked publisher article. Decide whether it concerns Colombian goods exports, assign one Annex 2 activity, "
+             "and identify the reviewer. Leave uncertain cases as review. Sentiment reference labels are optional and must be your own judgments.")
+    reviews = read_reviews(DATA/"annotations.csv")
+    if not reviews:
+        st.info("No full-text article is available to review.")
+    else:
+        frame = pd.DataFrame(list(reviews.values()), columns=REVIEW_FIELDS).fillna("")
+        with st.form("corpus_review"):
+            edited = st.data_editor(frame, hide_index=True, disabled=["record_id", "title", "url", "annotation_origin"],
+                column_config={"url": st.column_config.LinkColumn("Read publisher article"),
+                    "include": st.column_config.SelectboxColumn("Include", options=["", "yes", "no", "review"]),
+                    "activity": st.column_config.SelectboxColumn("Activity", options=[""]+ACTIVITIES),
+                    "sentiment_gold": st.column_config.SelectboxColumn("Optional sentiment label", options=["", "positive", "negative", "neutral"])},
+                width="stretch")
+            confirm = st.checkbox("I personally reviewed the decisions or reference labels I am saving.")
+            save = st.form_submit_button("Save human review and rebuild")
+        if save:
+            if not confirm:
+                st.error("Confirm that the saved decisions are your own human review.")
+            else:
+                pending = edited.fillna("").to_dict("records")
+                for row in pending:
+                    if row["include"] in {"yes", "no"} or row["sentiment_gold"]:
+                        row["annotation_origin"] = "human"
+                from trade_news.corpus import apply_reviews
+                try:
+                    apply_reviews(read_jsonl(DATA/"article_manifest.jsonl"), {r["record_id"]: r for r in pending})
+                    with (DATA/"annotations.csv").open("w", encoding="utf8", newline="") as stream:
+                        writer = csv.DictWriter(stream, fieldnames=REVIEW_FIELDS)
+                        writer.writeheader()
+                        writer.writerows(pending)
+                    build(DATA)
+                except ValueError as error:
+                    st.error(str(error))
+                else:
+                    st.success("Human review saved; monthly estimates rebuilt.")
+                    st.rerun()

@@ -1,7 +1,7 @@
 [project]
 name = "colombia-trade-news-nlp"
-version = "0.2.0"
-description = "Colombian goods exports to the world: real headlines, transparent NLP and a provisional news-tone index"
+version = "0.3.0"
+description = "Colombian goods export news: an auditable adaptation of BE1340 article-text sentiment and uncertainty measurement"
 requires-python = ">=3.11"
 
 [tool.ruff.lint]
