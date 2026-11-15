@@ -1,11 +1,465 @@
 {
-  "input_records": 160,
-  "retained_records": 160,
+  "input_records": 152,
+  "retained_records": 152,
   "duplicates": [],
   "rejected_metadata": [],
-  "relevant_records": 127,
-  "method": "spanish_headline_lexicon_v1",
-  "raw_sha256": "e57593904bc18f1f8b46e485065e7329977b808196d6acf4cd8c438c615b61d8",
+  "relevant_records": 63,
+  "method": "spanish_headline_lexicon_v2",
+  "relevance_method": "colombian_goods_export_headline_v3",
+  "analysis_scope": "Colombian goods exports to the world",
+  "scope_counts": {
+    "included": 63,
+    "excluded": 56,
+    "needs_review": 33
+  },
+  "scope_exclusions": [
+    {
+      "record_id": "21fbc7e966ed64a38d2b",
+      "status": "excluded",
+      "reason": "no_explicit_export_cue"
+    },
+    {
+      "record_id": "9a923d86d346d1711be8",
+      "status": "needs_review",
+      "reason": "goods_not_explicit_in_headline"
+    },
+    {
+      "record_id": "4011e88bd70e8f856bc7",
+      "status": "excluded",
+      "reason": "services_outside_scope"
+    },
+    {
+      "record_id": "c80b4d916f951aaefa89",
+      "status": "excluded",
+      "reason": "no_explicit_export_cue"
+    },
+    {
+      "record_id": "b1139bd882b7549a0952",
+      "status": "needs_review",
+      "reason": "Colombia_and_exports_but_origin_not_resolved"
+    },
+    {
+      "record_id": "2e159ddb86f13c4f85a4",
+      "status": "excluded",
+      "reason": "illicit_trade_or_sports_transfer_outside_goods_scope"
+    },
+    {
+      "record_id": "3a1f80498f35cf0f97a1",
+      "status": "excluded",
+      "reason": "illicit_trade_or_sports_transfer_outside_goods_scope"
+    },
+    {
+      "record_id": "c0177a46fa9173fca43b",
+      "status": "excluded",
+      "reason": "services_outside_scope"
+    },
+    {
+      "record_id": "0da733c868ffae51e1b5",
+      "status": "excluded",
+      "reason": "no_explicit_Colombian_origin"
+    },
+    {
+      "record_id": "b0028940cfe9ee63203d",
+      "status": "excluded",
+      "reason": "no_explicit_Colombian_origin"
+    },
+    {
+      "record_id": "733c2491e0093b5f076d",
+      "status": "excluded",
+      "reason": "no_explicit_Colombian_origin"
+    },
+    {
+      "record_id": "af44d673384b5ea11f0c",
+      "status": "needs_review",
+      "reason": "goods_not_explicit_in_headline"
+    },
+    {
+      "record_id": "dc3dbf38d0c10d25931c",
+      "status": "excluded",
+      "reason": "no_explicit_Colombian_origin"
+    },
+    {
+      "record_id": "087d95c7ea8b33504964",
+      "status": "excluded",
+      "reason": "illicit_trade_or_sports_transfer_outside_goods_scope"
+    },
+    {
+      "record_id": "f42d940157b3ca698d89",
+      "status": "excluded",
+      "reason": "no_explicit_export_cue"
+    },
+    {
+      "record_id": "35b01a93ae9514bd294b",
+      "status": "excluded",
+      "reason": "services_outside_scope"
+    },
+    {
+      "record_id": "6b9d317265ce46d492de",
+      "status": "excluded",
+      "reason": "no_explicit_export_cue"
+    },
+    {
+      "record_id": "e0134c30891962abea3a",
+      "status": "needs_review",
+      "reason": "goods_not_explicit_in_headline"
+    },
+    {
+      "record_id": "683dd28abc811fe0d7a4",
+      "status": "needs_review",
+      "reason": "goods_not_explicit_in_headline"
+    },
+    {
+      "record_id": "24e342aac3a929409210",
+      "status": "excluded",
+      "reason": "no_explicit_Colombian_origin"
+    },
+    {
+      "record_id": "8f113dfc2c8ce072cd15",
+      "status": "needs_review",
+      "reason": "goods_not_explicit_in_headline"
+    },
+    {
+      "record_id": "650a1128e91e992cc120",
+      "status": "excluded",
+      "reason": "no_explicit_Colombian_origin"
+    },
+    {
+      "record_id": "5739b18e3541ec24ff73",
+      "status": "needs_review",
+      "reason": "goods_not_explicit_in_headline"
+    },
+    {
+      "record_id": "f62c5b03bc1e70b03bc9",
+      "status": "needs_review",
+      "reason": "goods_not_explicit_in_headline"
+    },
+    {
+      "record_id": "fc5f9312ea9865f4c97a",
+      "status": "needs_review",
+      "reason": "goods_not_explicit_in_headline"
+    },
+    {
+      "record_id": "dab39739f922f8d4d22c",
+      "status": "excluded",
+      "reason": "no_explicit_Colombian_origin"
+    },
+    {
+      "record_id": "5c015b44f0b56c8c4760",
+      "status": "needs_review",
+      "reason": "goods_not_explicit_in_headline"
+    },
+    {
+      "record_id": "1d527b2381556b5419ae",
+      "status": "needs_review",
+      "reason": "goods_not_explicit_in_headline"
+    },
+    {
+      "record_id": "f9e15d66196d601f93a4",
+      "status": "excluded",
+      "reason": "inbound_or_conflicting_export_origin"
+    },
+    {
+      "record_id": "4aaea85757cc7c70076c",
+      "status": "needs_review",
+      "reason": "goods_not_explicit_in_headline"
+    },
+    {
+      "record_id": "c8753e4c2eab66f0262f",
+      "status": "needs_review",
+      "reason": "goods_not_explicit_in_headline"
+    },
+    {
+      "record_id": "39f4b4be61183f982d58",
+      "status": "excluded",
+      "reason": "inbound_or_conflicting_export_origin"
+    },
+    {
+      "record_id": "3bf7d0f788759fc5e56d",
+      "status": "excluded",
+      "reason": "no_explicit_export_cue"
+    },
+    {
+      "record_id": "9c081444420520a47ee4",
+      "status": "needs_review",
+      "reason": "goods_reference_is_inbound_policy_context"
+    },
+    {
+      "record_id": "e2e61c229f3a6406e610",
+      "status": "excluded",
+      "reason": "no_explicit_export_cue"
+    },
+    {
+      "record_id": "29658b955f8d57da8b8c",
+      "status": "needs_review",
+      "reason": "goods_not_explicit_in_headline"
+    },
+    {
+      "record_id": "a87dff0391fede86c531",
+      "status": "needs_review",
+      "reason": "goods_not_explicit_in_headline"
+    },
+    {
+      "record_id": "663fdd06269ea4d00060",
+      "status": "excluded",
+      "reason": "no_explicit_Colombian_origin"
+    },
+    {
+      "record_id": "0d6e3dadad3bcb4bb8e1",
+      "status": "needs_review",
+      "reason": "goods_not_explicit_in_headline"
+    },
+    {
+      "record_id": "afe7218df55bdd21c236",
+      "status": "excluded",
+      "reason": "no_explicit_Colombian_origin"
+    },
+    {
+      "record_id": "6ce572ef9af111a83ea2",
+      "status": "needs_review",
+      "reason": "goods_not_explicit_in_headline"
+    },
+    {
+      "record_id": "f0aef367eff5d7af5216",
+      "status": "needs_review",
+      "reason": "goods_not_explicit_in_headline"
+    },
+    {
+      "record_id": "0e3e1d1c280f5952fbee",
+      "status": "excluded",
+      "reason": "no_explicit_export_cue"
+    },
+    {
+      "record_id": "aacfc55f69ccd2b0b40f",
+      "status": "needs_review",
+      "reason": "goods_not_explicit_in_headline"
+    },
+    {
+      "record_id": "ce50f943d54d038d1614",
+      "status": "excluded",
+      "reason": "no_explicit_export_cue"
+    },
+    {
+      "record_id": "d07904dc08ce96ee4b85",
+      "status": "needs_review",
+      "reason": "goods_not_explicit_in_headline"
+    },
+    {
+      "record_id": "9d0a2ecc02c1f83c97f9",
+      "status": "excluded",
+      "reason": "inbound_or_conflicting_export_origin"
+    },
+    {
+      "record_id": "59480a3f9beab8ea56c5",
+      "status": "needs_review",
+      "reason": "goods_not_explicit_in_headline"
+    },
+    {
+      "record_id": "b658040792eb283680d4",
+      "status": "needs_review",
+      "reason": "goods_not_explicit_in_headline"
+    },
+    {
+      "record_id": "ce226ee5f3e7a3f0b3bb",
+      "status": "excluded",
+      "reason": "no_explicit_Colombian_origin"
+    },
+    {
+      "record_id": "a1348320f184c51f24f5",
+      "status": "needs_review",
+      "reason": "Colombia_and_exports_but_origin_not_resolved"
+    },
+    {
+      "record_id": "76f6e85d1369f4da7b43",
+      "status": "excluded",
+      "reason": "no_explicit_export_cue"
+    },
+    {
+      "record_id": "dcd66533a7b4e947b4e1",
+      "status": "excluded",
+      "reason": "no_explicit_Colombian_origin"
+    },
+    {
+      "record_id": "0d5e56bfae010d3951c5",
+      "status": "excluded",
+      "reason": "no_explicit_export_cue"
+    },
+    {
+      "record_id": "02ec266d23a961a076ca",
+      "status": "excluded",
+      "reason": "illicit_trade_or_sports_transfer_outside_goods_scope"
+    },
+    {
+      "record_id": "089d1cde10a2b4612a41",
+      "status": "excluded",
+      "reason": "illicit_trade_or_sports_transfer_outside_goods_scope"
+    },
+    {
+      "record_id": "cf21d655503b171c4740",
+      "status": "excluded",
+      "reason": "illicit_trade_or_sports_transfer_outside_goods_scope"
+    },
+    {
+      "record_id": "397f0d6fa13a77712d45",
+      "status": "excluded",
+      "reason": "no_explicit_Colombian_origin"
+    },
+    {
+      "record_id": "8f1be34c71275ed2f203",
+      "status": "excluded",
+      "reason": "no_explicit_Colombian_origin"
+    },
+    {
+      "record_id": "1562a800dae26fcc08f2",
+      "status": "needs_review",
+      "reason": "goods_not_explicit_in_headline"
+    },
+    {
+      "record_id": "9129695adc672f8e61e6",
+      "status": "excluded",
+      "reason": "no_explicit_Colombian_origin"
+    },
+    {
+      "record_id": "69c222f060ca3c82818d",
+      "status": "excluded",
+      "reason": "no_explicit_Colombian_origin"
+    },
+    {
+      "record_id": "cc050f3b40b4a2ebaa8a",
+      "status": "needs_review",
+      "reason": "goods_not_explicit_in_headline"
+    },
+    {
+      "record_id": "89f838ff3b39e288d2c4",
+      "status": "needs_review",
+      "reason": "Colombia_and_exports_but_origin_not_resolved"
+    },
+    {
+      "record_id": "baaa89e9178d0dd4ab78",
+      "status": "needs_review",
+      "reason": "goods_not_explicit_in_headline"
+    },
+    {
+      "record_id": "a03afb851ff6d67e546c",
+      "status": "needs_review",
+      "reason": "goods_not_explicit_in_headline"
+    },
+    {
+      "record_id": "2fe5ca06b67fd9ec71ad",
+      "status": "excluded",
+      "reason": "no_explicit_Colombian_origin"
+    },
+    {
+      "record_id": "8bbe675513706190628c",
+      "status": "excluded",
+      "reason": "no_explicit_export_cue"
+    },
+    {
+      "record_id": "098072c737d7644193d2",
+      "status": "excluded",
+      "reason": "no_explicit_Colombian_origin"
+    },
+    {
+      "record_id": "036032dedcec28ddb27f",
+      "status": "needs_review",
+      "reason": "goods_not_explicit_in_headline"
+    },
+    {
+      "record_id": "1972d312e9bc57b7b2e5",
+      "status": "excluded",
+      "reason": "no_explicit_export_cue"
+    },
+    {
+      "record_id": "c0d29aa286e3b0a0ee68",
+      "status": "excluded",
+      "reason": "services_outside_scope"
+    },
+    {
+      "record_id": "c6e166b3d1cbffdcae29",
+      "status": "excluded",
+      "reason": "static_page_or_general_news_roundup"
+    },
+    {
+      "record_id": "af132f58c75fa2bdd3cd",
+      "status": "needs_review",
+      "reason": "Colombia_and_exports_but_origin_not_resolved"
+    },
+    {
+      "record_id": "0ee5d7426d1fd5bd36bb",
+      "status": "excluded",
+      "reason": "static_page_or_general_news_roundup"
+    },
+    {
+      "record_id": "ad86630cde468b4807ba",
+      "status": "excluded",
+      "reason": "no_explicit_export_cue"
+    },
+    {
+      "record_id": "351f2a7071ce85ea4145",
+      "status": "excluded",
+      "reason": "static_page_or_general_news_roundup"
+    },
+    {
+      "record_id": "81b81ca3a76eeeec807e",
+      "status": "excluded",
+      "reason": "static_page_or_general_news_roundup"
+    },
+    {
+      "record_id": "56d2ced3bbc23661b628",
+      "status": "excluded",
+      "reason": "static_page_or_general_news_roundup"
+    },
+    {
+      "record_id": "939e0179f21bd3c62b64",
+      "status": "excluded",
+      "reason": "static_page_or_general_news_roundup"
+    },
+    {
+      "record_id": "535f84f7b9d16bb40dcc",
+      "status": "excluded",
+      "reason": "static_page_or_general_news_roundup"
+    },
+    {
+      "record_id": "1ed0ef5ce75ae9c6ec54",
+      "status": "excluded",
+      "reason": "static_page_or_general_news_roundup"
+    },
+    {
+      "record_id": "0374c3fae3569f81c8d5",
+      "status": "excluded",
+      "reason": "static_page_or_general_news_roundup"
+    },
+    {
+      "record_id": "632ced73a56c50dd4afa",
+      "status": "excluded",
+      "reason": "no_explicit_export_cue"
+    },
+    {
+      "record_id": "899e5159d9219d49c491",
+      "status": "needs_review",
+      "reason": "goods_not_explicit_in_headline"
+    },
+    {
+      "record_id": "4cfc465ea5a8ab411245",
+      "status": "excluded",
+      "reason": "static_page_or_general_news_roundup"
+    },
+    {
+      "record_id": "8c06a7264088dac6f82f",
+      "status": "excluded",
+      "reason": "no_explicit_export_cue"
+    },
+    {
+      "record_id": "7b4cf78b3c40e39dec98",
+      "status": "needs_review",
+      "reason": "goods_not_explicit_in_headline"
+    },
+    {
+      "record_id": "e3825bdd89860f00f59a",
+      "status": "excluded",
+      "reason": "static_page_or_general_news_roundup"
+    }
+  ],
+  "raw_sha256": "0c866782511afb62ad6955afb2b2ecf559cd85fcb63743c29af8f5be0f069815",
   "human_validation_status": "pending",
   "collection_failures": 0
 }
