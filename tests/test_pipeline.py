@@ -4,20 +4,29 @@ import json
 from pathlib import Path
 import tempfile
 import unittest
-from trade_news.collect import month_windows, parse_feed
+from trade_news.collect import month_windows, parse_feed, search_url
 from trade_news.nlp import analyze, normalize, sentiment, tag, PARTNERS
 from trade_news.pipeline import aggregate, build, prepare, read_jsonl
 from trade_news.validation import validate
 
 
-def fixture(identity="a", title="Colombia exportaciones crecen", publisher="Publisher A", score=1):
+def fixture(identity="a", title="Colombia exportaciones de café crecen", publisher="Publisher A", score=1):
     return {"record_id": identity, "title": title, "url": "https://example.org/"+identity,
             "publisher": publisher, "published_at": "2026-05-04T12:00:00+00:00",
             "relevant": True, "month": "2026-05", "tone_score": score,
-            "sentiment": "positive", "themes": ["trade_flows"], "sectors": [], "partners": []}
+            "sentiment": "positive", "themes": ["exports"], "sectors": [], "partners": [],
+            "sentiment_evidence": [] if score is None else [{"weight": score, "term": "synthetic_cue", "negated": False}]}
 
 
 class CollectionTests(unittest.TestCase):
+    def test_query_is_export_specific(self):
+        from urllib.parse import parse_qs, urlparse
+        query = parse_qs(urlparse(search_url("2026-05-01", "2026-06-01")).query)["q"][0]
+        self.assertIn("exportaciones", query)
+        self.assertNotIn("importaciones", query)
+        self.assertNotIn("aranceles", query)
+        self.assertIn("before:2026-06-01", query)
+
     def test_month_boundary_and_year_rollover(self):
         self.assertEqual(list(month_windows("2025-12-01", "2026-02-01")),
                          [("2025-12-01", "2026-01-01"), ("2026-01-01", "2026-02-01")])
@@ -40,6 +49,74 @@ class CollectionTests(unittest.TestCase):
 
 
 class NLPTests(unittest.TestCase):
+    def test_outbound_export_scope(self):
+        included = [
+            "Exportaciones de café de Colombia a China crecen",
+            "Exportaciones de flores desde Colombia hacia Brasil",
+            "Colombia exporta flores a Estados Unidos",
+            "Flores colombianas duplican exportaciones a EE. UU.",
+            "Exportaciones de café colombiano caen",
+            "Colombia reanuda exportaciones de energía a Ecuador",
+            "Estados Unidos compra el café que exporta Colombia",
+            "Exportadores de café colombiano piden mejores fletes",
+        ]
+        for title in included:
+            with self.subTest(title=title):
+                row = analyze(title)
+                self.assertTrue(row["relevant"])
+                self.assertTrue(row["export_origin_evidence"])
+                self.assertEqual(row["scope_status"], "included")
+                self.assertTrue(row["goods_evidence"])
+                self.assertFalse(row["service_evidence"])
+
+    def test_services_outside_goods_scope(self):
+        for title in ["Colombia exporta servicios digitales", "El software colombiano aumenta sus exportaciones",
+                      "Colombia exporta ciberseguridad", "Exportaciones de turismo en Colombia crecen"]:
+            with self.subTest(title=title):
+                row = analyze(title)
+                self.assertFalse(row["relevant"])
+                self.assertEqual(row["scope_status"], "excluded")
+
+    def test_mixed_goods_services_held_for_review(self):
+        row = analyze("Colombia aumenta sus exportaciones de café y servicios")
+        self.assertFalse(row["relevant"])
+        self.assertEqual(row["scope_reason"], "mixed_goods_and_services_headline")
+
+    def test_unspecified_exports_not_assumed_to_be_goods(self):
+        row = analyze("Exportaciones de Colombia crecen en mayo")
+        self.assertFalse(row["relevant"])
+        self.assertEqual(row["scope_reason"], "goods_not_explicit_in_headline")
+
+    def test_exporter_response_to_import_policy_not_assumed_goods_exports(self):
+        row = analyze("Colombia exportadores piden prohibir el ingreso de mercancías con trabajo forzoso")
+        self.assertFalse(row["relevant"])
+        self.assertEqual(row["scope_reason"], "goods_reference_is_inbound_policy_context")
+
+    def test_imports_and_foreign_exports_not_indexed(self):
+        excluded = [
+            "Colombia aumenta sus importaciones desde China",
+            "Ecuador anuncia exportación de arroz hacia Colombia",
+            "Exportaciones de Perú a Colombia aumentan",
+            "China exporta vehículos a Colombia",
+            "Exportación a Colombia de alimentos de origen animal",
+            "Colombia y Ecuador revisan aranceles",
+            "Colombia exporta futbolistas al mundo",
+            "Colombia exporta más cocaína que petróleo",
+        ]
+        for title in excluded:
+            with self.subTest(title=title):
+                self.assertFalse(analyze(title)["relevant"])
+
+    def test_ambiguous_origin_held_for_review(self):
+        row = analyze("Exportaciones crecen mientras Colombia debate nuevas medidas")
+        self.assertFalse(row["relevant"])
+        self.assertEqual(row["scope_status"], "needs_review")
+
+    def test_publisher_brand_is_not_origin(self):
+        row = analyze("Esta es la hoja de ruta del sector exportador | El Colombiano")
+        self.assertFalse(row["relevant"])
+        self.assertNotIn("El Colombiano", row["title_clean"])
+
     def test_html_accents_and_whitespace(self):
         self.assertEqual(normalize("<b>CAFÉ</b> &amp;  carbón"), "cafe carbon")
 
@@ -70,6 +147,11 @@ class NLPTests(unittest.TestCase):
         self.assertEqual(result["tone_score"], -1)
         self.assertTrue(result["sentiment_evidence"][0]["negated"])
 
+    def test_explicit_verb_inflections(self):
+        self.assertEqual(sentiment("Las exportaciones de café colombiano crecieron")["tone_score"], 1)
+        self.assertEqual(sentiment("Las exportaciones de café de Colombia cayeron")["tone_score"], -1)
+        self.assertEqual(sentiment("El petróleo colombiano perdió mercado")["tone_score"], -1)
+
     def test_no_cue_is_abstention(self):
         self.assertEqual(sentiment("Colombia exportaciones de flores")["sentiment"], "unscored")
         self.assertIsNone(sentiment("Colombia exportaciones")["tone_score"])
@@ -86,7 +168,7 @@ class NLPTests(unittest.TestCase):
 
 class PipelineTests(unittest.TestCase):
     def test_exact_url_and_normalized_title_dedup(self):
-        rows, audit = prepare([fixture(), fixture("b", "COLOMBIA exportaciones crecen!"), fixture("a", "Another title")])
+        rows, audit = prepare([fixture(), fixture("b", "COLOMBIA exportaciones de CAFE crecen!"), fixture("a", "Another title")])
         self.assertEqual(len(rows), 1)
         self.assertEqual(len(audit["duplicates"]), 2)
 
@@ -101,6 +183,14 @@ class PipelineTests(unittest.TestCase):
         rows = [fixture(str(i)) for i in range(9)] + [fixture("other", publisher="Publisher B", score=-1)]
         overall = next(r for r in aggregate(rows) if r["dimension"] == "overall")
         self.assertEqual(overall["headline_tone_index"], 0)  # Article-weighted mean would be +80.
+        self.assertEqual(overall["export_sentiment_index"], .8)  # Pooled positive/negative token balance.
+
+    def test_primary_index_pools_cues_not_headline_means(self):
+        rows = [fixture("a"), fixture("b", publisher="B", score=-1), fixture("c", score=1)]
+        rows[0]["sentiment_evidence"] *= 8
+        result = next(r for r in aggregate(rows) if r["dimension"] == "overall")
+        self.assertEqual((result["positive_cues"], result["negative_cues"]), (9, 1))
+        self.assertEqual(result["export_sentiment_index"], .8)
 
     def test_one_source_suppressed(self):
         result = aggregate([fixture(str(i)) for i in range(5)])[0]
@@ -160,7 +250,7 @@ class ValidationTests(unittest.TestCase):
         self.assertEqual(result["unscored_rate"], .25)
 
     def test_multilabel_and_relevance(self):
-        result = self.run_labels([{"record_id": "a", "relevance_gold": "yes", "themes_gold": "trade_flows|logistics", "sectors_gold": "-",
+        result = self.run_labels([{"record_id": "a", "relevance_gold": "yes", "themes_gold": "exports|logistics", "sectors_gold": "-",
                                    "annotator": "Synthetic unit fixture", "annotation_origin": "human"}])
         self.assertEqual(result["tasks"]["relevance"]["accuracy"], 1)
         self.assertAlmostEqual(result["tasks"]["themes"]["micro_f1"], 2/3)
