@@ -15,6 +15,7 @@ The project connects data collection, text processing, interpretable NLP, aggreg
 | Real data, query history and field definitions | [Data sources](docs/DATA_SOURCES.md) |
 | Reference-label review and evaluation | [Validation guide](docs/VALIDATION.md) |
 | Executed work and next research steps | [Project status](docs/PROJECT_STATUS.md) |
+| Descriptive outputs of the executed snapshot | [Snapshot report](docs/SNAPSHOT_REPORT.md) |
 
 ## Included real snapshot
 
