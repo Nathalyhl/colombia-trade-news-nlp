@@ -1,265 +1,182 @@
-"""Synthetic unit fixtures test software behavior, never domain accuracy."""
-import csv
-import json
+"""Synthetic software diagnostics, separate from real news and human validation."""
 from pathlib import Path
 import tempfile
 import unittest
-from trade_news.collect import month_windows, parse_feed, search_url
-from trade_news.nlp import analyze, normalize, sentiment, tag, PARTNERS
-from trade_news.pipeline import aggregate, build, prepare, read_jsonl
-from trade_news.validation import validate
+
+from trade_news.articles import publication_metadata, fetch_public_article, reference_fingerprint, write_jsonl
+from trade_news.bank_method import aggregate, load_reference, process_text
+from trade_news.classification import ACTIVITIES, propose
+from trade_news.collect import month_windows, parse_feed
+from trade_news.corpus import apply_reviews, build, evaluate_sentiment
+
+TEXT = "El panorama colombiano ofrece oportunidades y recuperación junto con dificultades e incertidumbre comercial internacional."
 
 
-def fixture(identity="a", title="Colombia exportaciones de café crecen", publisher="Publisher A", score=1):
-    return {"record_id": identity, "title": title, "url": "https://example.org/"+identity,
-            "publisher": publisher, "published_at": "2026-05-04T12:00:00+00:00",
-            "relevant": True, "month": "2026-05", "tone_score": score,
-            "sentiment": "positive", "themes": ["exports"], "sectors": [], "partners": [],
-            "sentiment_evidence": [] if score is None else [{"weight": score, "term": "synthetic_cue", "negated": False}]}
+def article(identity="one", **changes):
+    row = dict(record_id=identity, title="Exportaciones colombianas de café", publisher="Synthetic test publisher",
+        article_url="https://example.org/"+identity, publication_date="2026-01-05", month="2026-01",
+        text_sha256=identity, fetch_status="article_extracted", scope_proposal="include", activity_proposal="Agriculture",
+        reference_fingerprint=reference_fingerprint(), **process_text(TEXT))
+    row.update(changes)
+    return row
 
 
-class CollectionTests(unittest.TestCase):
-    def test_query_is_export_specific(self):
-        from urllib.parse import parse_qs, urlparse
-        query = parse_qs(urlparse(search_url("2026-05-01", "2026-06-01")).query)["q"][0]
-        self.assertIn("exportaciones", query)
-        self.assertNotIn("importaciones", query)
-        self.assertNotIn("aranceles", query)
-        self.assertIn("before:2026-06-01", query)
-
-    def test_month_boundary_and_year_rollover(self):
-        self.assertEqual(list(month_windows("2025-12-01", "2026-02-01")),
-                         [("2025-12-01", "2026-01-01"), ("2026-01-01", "2026-02-01")])
-
-    def test_invalid_window(self):
-        for start, end in [("2026-05-02", "2026-06-01"), ("2026-06-01", "2026-05-01")]:
-            with self.assertRaises(ValueError):
-                list(month_windows(start, end))
-
-    def test_feed_rejects_invalid_and_outside_dates(self):
-        xml = b'''<rss><channel>
-        <item><title>Colombia exportaciones - Outlet</title><link>https://example.org/1</link><pubDate>Tue, 05 May 2026 12:00:00 GMT</pubDate><source url="https://example.org">Outlet</source></item>
-        <item><title>Out of range</title><link>https://example.org/2</link><pubDate>Mon, 01 Jun 2026 00:00:00 GMT</pubDate></item>
-        <item><title>Invalid</title><link>javascript:bad</link><pubDate>bad</pubDate></item>
-        </channel></rss>'''
-        rows, diagnostic = parse_feed(xml, "https://example.org/rss", "2026-11-15T00:00:00Z", "2026-05-01", "2026-06-01")
-        self.assertEqual(len(rows), 1)
-        self.assertEqual(rows[0]["title"], "Colombia exportaciones")
-        self.assertEqual(diagnostic, {"provider_items": 3, "rejected_items": 2})
+def human(identity="one", **changes):
+    row = dict(record_id=identity, include="yes", activity="Agriculture", reviewer="Synthetic test reviewer",
+               annotation_origin="human", sentiment_gold="", title="", url="", notes="")
+    row.update(changes)
+    return row
 
 
-class NLPTests(unittest.TestCase):
-    def test_outbound_export_scope(self):
-        included = [
-            "Exportaciones de café de Colombia a China crecen",
-            "Exportaciones de flores desde Colombia hacia Brasil",
-            "Colombia exporta flores a Estados Unidos",
-            "Flores colombianas duplican exportaciones a EE. UU.",
-            "Exportaciones de café colombiano caen",
-            "Colombia reanuda exportaciones de energía a Ecuador",
-            "Estados Unidos compra el café que exporta Colombia",
-            "Exportadores de café colombiano piden mejores fletes",
-        ]
-        for title in included:
-            with self.subTest(title=title):
-                row = analyze(title)
-                self.assertTrue(row["relevant"])
-                self.assertTrue(row["export_origin_evidence"])
-                self.assertEqual(row["scope_status"], "included")
-                self.assertTrue(row["goods_evidence"])
-                self.assertFalse(row["service_evidence"])
+class MeasurementTests(unittest.TestCase):
+    def test_complete_published_dictionary(self):
+        lexicon, stops = load_reference()
+        self.assertEqual(sum(p == "positive" for p in lexicon.values()), 188)
+        self.assertEqual(sum(p == "negative" for p in lexicon.values()), 376)
+        self.assertEqual(len(stops), 313)
+        self.assertNotIn("duplican", lexicon)
+        self.assertNotIn("triplicaron", lexicon)
 
-    def test_services_outside_goods_scope(self):
-        for title in ["Colombia exporta servicios digitales", "El software colombiano aumenta sus exportaciones",
-                      "Colombia exporta ciberseguridad", "Exportaciones de turismo en Colombia crecen"]:
-            with self.subTest(title=title):
-                row = analyze(title)
-                self.assertFalse(row["relevant"])
-                self.assertEqual(row["scope_status"], "excluded")
+    def test_actual_occurrences_and_uncertainty_formula(self):
+        result = process_text(TEXT)
+        self.assertEqual((result["positive_count"], result["negative_count"], result["uncertainty_count"]), (2, 2, 1))
+        self.assertEqual(result["sentiment_score"], 0)
+        self.assertAlmostEqual(result["uncertainty_per_1000"], 1000/result["processed_tokens"])
 
-    def test_mixed_goods_services_held_for_review(self):
-        row = analyze("Colombia aumenta sus exportaciones de café y servicios")
-        self.assertFalse(row["relevant"])
-        self.assertEqual(row["scope_reason"], "mixed_goods_and_services_headline")
+    def test_minimum_text_length(self):
+        self.assertEqual(process_text("oportunidades")["processing_status"], "too_short")
 
-    def test_unspecified_exports_not_assumed_to_be_goods(self):
-        row = analyze("Exportaciones de Colombia crecen en mayo")
-        self.assertFalse(row["relevant"])
-        self.assertEqual(row["scope_reason"], "goods_not_explicit_in_headline")
+    def test_sentence_threshold_after_stopwords(self):
+        text = "oportunidades economía comercio mundial bienes. "*4
+        self.assertEqual(process_text(text)["processed_tokens"], 0)
+        result = process_text("oportunidades economía comercio mundial bienes Colombia. "*2)
+        self.assertEqual(result["processed_tokens"], 12)
 
-    def test_exporter_response_to_import_policy_not_assumed_goods_exports(self):
-        row = analyze("Colombia exportadores piden prohibir el ingreso de mercancías con trabajo forzoso")
-        self.assertFalse(row["relevant"])
-        self.assertEqual(row["scope_reason"], "goods_reference_is_inbound_policy_context")
+    def test_repetition_counts_and_case_normalization(self):
+        result = process_text("OPORTUNIDADES oportunidades recuperación economía comercio colombiano mundial.")
+        self.assertEqual(result["positive_count"], 3)
 
-    def test_imports_and_foreign_exports_not_indexed(self):
-        excluded = [
-            "Colombia aumenta sus importaciones desde China",
-            "Ecuador anuncia exportación de arroz hacia Colombia",
-            "Exportaciones de Perú a Colombia aumentan",
-            "China exporta vehículos a Colombia",
-            "Exportación a Colombia de alimentos de origen animal",
-            "Colombia y Ecuador revisan aranceles",
-            "Colombia exporta futbolistas al mundo",
-            "Colombia exporta más cocaína que petróleo",
-        ]
-        for title in excluded:
-            with self.subTest(title=title):
-                self.assertFalse(analyze(title)["relevant"])
+    def test_no_invented_inflection_or_negation_flip(self):
+        result = process_text("No duplican ni triplicaron exportaciones colombianas bienes textiles mundiales.")
+        self.assertIsNone(result["sentiment_score"])
+        result = process_text("No oportunidades economía comercio mundial bienes colombianos textiles.")
+        self.assertEqual(result["positive_count"], 1)
 
-    def test_ambiguous_origin_held_for_review(self):
-        row = analyze("Exportaciones crecen mientras Colombia debate nuevas medidas")
-        self.assertFalse(row["relevant"])
-        self.assertEqual(row["scope_status"], "needs_review")
+    def test_no_polar_match_is_missing_not_neutral(self):
+        result = process_text("Colombia exportaciones bienes textiles mercados comercio internacional mensual.")
+        self.assertEqual(result["sentiment_label"], "no_polar_matches")
+        self.assertIsNone(result["sentiment_score"])
+        self.assertEqual(result["uncertainty_per_1000"], 0)
 
-    def test_publisher_brand_is_not_origin(self):
-        row = analyze("Esta es la hoja de ruta del sector exportador | El Colombiano")
-        self.assertFalse(row["relevant"])
-        self.assertNotIn("El Colombiano", row["title_clean"])
+    def test_balance_is_neutral_only_with_matches(self):
+        result = process_text("oportunidades dificultades economía comercio internacional colombiano mensual.")
+        self.assertEqual(result["sentiment_label"], "neutral")
+        self.assertEqual(result["sentiment_score"], 0)
 
-    def test_html_accents_and_whitespace(self):
-        self.assertEqual(normalize("<b>CAFÉ</b> &amp;  carbón"), "cafe carbon")
+    def test_monthly_formula_pools_counts_not_article_scores(self):
+        rows = apply_reviews([article(positive_count=9, negative_count=1), article("two", positive_count=0, negative_count=1)], {})
+        index = aggregate(rows, ["2026-01"])[0]
+        self.assertEqual(index["sentiment"], round(7/11, 6))
+        self.assertEqual(index["articles"], 2)
 
-    def test_word_boundary(self):
-        self.assertEqual(tag("Indias y mexicanismo", PARTNERS), {})
+    def test_missing_month_and_reviewed_subset(self):
+        rows = apply_reviews([article()], {})
+        result = aggregate(rows, ["2026-01", "2026-02"])
+        missing = next(r for r in result if r["month"] == "2026-02")
+        self.assertIsNone(missing["sentiment"])
+        self.assertIsNone(missing["uncertainty_per_1000"])
+        self.assertEqual(aggregate(rows, ["2026-01"], reviewed_only=True)[0]["articles"], 0)
 
-    def test_no_country_inferred_from_person(self):
-        self.assertEqual(tag("Trump anuncia cambios", PARTNERS), {})
+    def test_activities_are_exact_reference_labels(self):
+        self.assertEqual(len(ACTIVITIES), 18)
+        self.assertIn("Other Activity", ACTIVITIES)
+        result = propose("Exportaciones colombianas de café y petróleo", "Colombia exporta café y petróleo al mundo.")
+        self.assertEqual(result["activity_proposal"], "Global Context")
+        self.assertEqual(result["topic"], "exports")
 
-    def test_explicit_geographic_and_trade_terms(self):
-        row = analyze("Exportaciones de café de Colombia a Estados Unidos crecen")
-        self.assertTrue(row["relevant"])
-        self.assertEqual(row["partners"], ["United States"])
-        self.assertEqual(row["sectors"], ["agriculture"])
-        self.assertEqual(row["tag_evidence"]["sectors"]["agriculture"], ["cafe"])
+    def test_services_and_inbound_need_distinct_treatment(self):
+        self.assertEqual(propose("Colombia exporta servicios de software", "Colombia exporta servicios de software.")["scope_proposal"], "exclude")
+        self.assertEqual(propose("Brasil exporta café a Colombia", "Exportaciones de café hacia Colombia.")["scope_proposal"], "review")
 
-    def test_non_colombia_rejected(self):
-        self.assertFalse(analyze("Exportaciones de café de Brasil crecen")["relevant"])
-
-    def test_non_trade_rejected(self):
-        self.assertFalse(analyze("Colombia gana un partido")["relevant"])
-
-    def test_static_page_rejected(self):
-        self.assertFalse(analyze("Colombia exportaciones - Observatorio de Complejidad")["relevant"])
-
-    def test_negation_inverts_evidence(self):
-        result = sentiment("Colombia no crece en exportaciones")
-        self.assertEqual(result["tone_score"], -1)
-        self.assertTrue(result["sentiment_evidence"][0]["negated"])
-
-    def test_explicit_verb_inflections(self):
-        self.assertEqual(sentiment("Las exportaciones de café colombiano crecieron")["tone_score"], 1)
-        self.assertEqual(sentiment("Las exportaciones de café de Colombia cayeron")["tone_score"], -1)
-        self.assertEqual(sentiment("El petróleo colombiano perdió mercado")["tone_score"], -1)
-
-    def test_no_cue_is_abstention(self):
-        self.assertEqual(sentiment("Colombia exportaciones de flores")["sentiment"], "unscored")
-        self.assertIsNone(sentiment("Colombia exportaciones")["tone_score"])
-
-    def test_balanced_cues_neutral(self):
-        result = sentiment("Colombia crece pero enfrenta crisis")
-        self.assertEqual(result["sentiment"], "neutral")
-        self.assertEqual(result["tone_score"], 0)
-
-    def test_known_semantic_limit_is_visible(self):
-        # Literal tone is not economic favorability: a documented diagnostic, not a solved case.
-        self.assertEqual(sentiment("Aumentan los aranceles para Colombia")["sentiment"], "positive")
+    def test_multitopic_roundup_is_not_an_export_article(self):
+        self.assertEqual(propose("Colombia, exportaciones, Ucrania: las noticias del jueves", "Colombia exporta productos y café.")["scope_proposal"], "review")
 
 
-class PipelineTests(unittest.TestCase):
-    def test_exact_url_and_normalized_title_dedup(self):
-        rows, audit = prepare([fixture(), fixture("b", "COLOMBIA exportaciones de CAFE crecen!"), fixture("a", "Another title")])
-        self.assertEqual(len(rows), 1)
-        self.assertEqual(len(audit["duplicates"]), 2)
+class ProvenanceTests(unittest.TestCase):
+    def test_no_headline_fallback(self):
+        row = article(fetch_status="article_text_unavailable", text_source=None)
+        self.assertFalse(apply_reviews([row], {})[0]["eligible_for_index"])
 
-    def test_invalid_metadata_audited(self):
-        row = fixture()
-        row["published_at"] = "2026-05-01"  # Missing timezone.
-        rows, audit = prepare([row])
-        self.assertEqual(rows, [])
-        self.assertEqual(audit["rejected_metadata"], ["a"])
+    def test_missing_publisher_dates_remain_auditable(self):
+        missing = article("missing", publication_date=None, fetch_status="publication_date_unverified")
+        rows = apply_reviews([article(), missing], {})
+        self.assertEqual(len(rows), 2)
+        self.assertFalse(next(r for r in rows if r["record_id"] == "missing")["eligible_for_index"])
 
-    def test_equal_publisher_weights(self):
-        rows = [fixture(str(i)) for i in range(9)] + [fixture("other", publisher="Publisher B", score=-1)]
-        overall = next(r for r in aggregate(rows) if r["dimension"] == "overall")
-        self.assertEqual(overall["headline_tone_index"], 0)  # Article-weighted mean would be +80.
-        self.assertEqual(overall["export_sentiment_index"], .8)  # Pooled positive/negative token balance.
+    def test_human_decisions_require_provenance(self):
+        with self.assertRaisesRegex(ValueError, "reviewer"):
+            apply_reviews([article()], {"one": human(reviewer="")})
+        with self.assertRaisesRegex(ValueError, "annotation_origin"):
+            apply_reviews([article()], {"one": human(annotation_origin="model")})
 
-    def test_primary_index_pools_cues_not_headline_means(self):
-        rows = [fixture("a"), fixture("b", publisher="B", score=-1), fixture("c", score=1)]
-        rows[0]["sentiment_evidence"] *= 8
-        result = next(r for r in aggregate(rows) if r["dimension"] == "overall")
-        self.assertEqual((result["positive_cues"], result["negative_cues"]), (9, 1))
-        self.assertEqual(result["export_sentiment_index"], .8)
-
-    def test_one_source_suppressed(self):
-        result = aggregate([fixture(str(i)) for i in range(5)])[0]
-        self.assertIsNone(result["headline_tone_index"])
-
-    def test_missing_month_remains_null(self):
-        result = aggregate([], ["2026-06"])[0]
-        self.assertEqual(result["n_records"], 0)
-        self.assertIsNone(result["headline_tone_index"])
-
-    def test_unscored_excluded_from_score_not_counts(self):
-        rows = [fixture("1"), fixture("2"), fixture("3", publisher="B", score=-1), fixture("4", publisher="C", score=None)]
-        result = next(r for r in aggregate(rows) if r["dimension"] == "overall")
-        self.assertEqual((result["n_records"], result["n_scored"], result["n_scored_publishers"]), (4, 3, 2))
-        self.assertEqual(result["headline_tone_index"], 0)
-
-    def test_build_preserves_human_work(self):
-        with tempfile.TemporaryDirectory() as directory:
-            base = Path(directory)
-            (base / "headlines_raw.jsonl").write_text(json.dumps(fixture())+"\n", encoding="utf8")
-            (base / "collection_log.json").write_text(json.dumps({"requests": [{"month": "2026-05", "status": 200}]}), encoding="utf8")
-            (base / "annotations.csv").write_text("Human work must be preserved", encoding="utf8")
-            build(base)
-            self.assertEqual((base / "annotations.csv").read_text("utf8"), "Human work must be preserved")
-            self.assertEqual(len(read_jsonl(base / "headlines.jsonl")), 1)
-
-
-class ValidationTests(unittest.TestCase):
-    def run_labels(self, annotations, rows=None):
-        with tempfile.TemporaryDirectory() as directory:
-            path = Path(directory)/"annotations.csv"
-            fields = ["record_id", "sentiment_gold", "relevance_gold", "themes_gold", "sectors_gold", "partners_gold", "annotator", "annotation_origin"]
-            with path.open("w", encoding="utf8", newline="") as stream:
-                writer = csv.DictWriter(stream, fieldnames=fields)
-                writer.writeheader()
-                writer.writerows(annotations)
-            return validate(rows or [fixture()], path)
-
-    def test_pending_not_zero_accuracy(self):
-        result = self.run_labels([{"record_id": "a"}])
-        self.assertEqual(result["n_labeled"], 0)
-        self.assertIsNone(result["accuracy"])
-
-    def test_machine_labels_cannot_be_silently_gold(self):
+    def test_human_include_requires_text_and_valid_activity(self):
         with self.assertRaises(ValueError):
-            self.run_labels([{"record_id": "a", "sentiment_gold": "positive", "annotator": "model", "annotation_origin": "model"}])
-
-    def test_known_confusion_counts_and_abstention(self):
-        references = [{"record_id": str(i), "sentiment_gold": gold, "annotator": "Synthetic unit fixture", "annotation_origin": "human"}
-                      for i, gold in enumerate(["positive", "negative", "neutral", "positive"])]
-        rows = [fixture(str(i)) for i in range(4)]
-        for row, prediction in zip(rows, ["positive", "negative", "neutral", "unscored"]):
-            row["sentiment"] = prediction
-        result = self.run_labels(references, rows)
-        self.assertEqual(result["accuracy"], .75)
-        self.assertAlmostEqual(result["macro_f1"], 8/9)
-        self.assertEqual(result["unscored_rate"], .25)
-
-    def test_multilabel_and_relevance(self):
-        result = self.run_labels([{"record_id": "a", "relevance_gold": "yes", "themes_gold": "exports|logistics", "sectors_gold": "-",
-                                   "annotator": "Synthetic unit fixture", "annotation_origin": "human"}])
-        self.assertEqual(result["tasks"]["relevance"]["accuracy"], 1)
-        self.assertAlmostEqual(result["tasks"]["themes"]["micro_f1"], 2/3)
-        self.assertEqual(result["tasks"]["sectors"]["exact_match"], 1)
-
-    def test_duplicate_references_rejected(self):
-        a = {"record_id": "a", "sentiment_gold": "positive", "annotator": "Fixture", "annotation_origin": "human"}
+            apply_reviews([article(fetch_status="fetch_failed")], {"one": human()})
         with self.assertRaises(ValueError):
-            self.run_labels([a, a])
+            apply_reviews([article()], {"one": human(activity="invented")})
+
+    def test_review_or_rejection_excludes_article(self):
+        for decision in ["no", "review"]:
+            self.assertFalse(apply_reviews([article()], {"one": human(include=decision)})[0]["eligible_for_index"])
+
+    def test_dedup_prioritizes_actual_human_inclusion(self):
+        rows = apply_reviews([article(), article("two", text_sha256="one")], {"two": human("two")})
+        lookup = {r["record_id"]: r for r in rows}
+        self.assertTrue(lookup["two"]["eligible_for_index"])
+        self.assertEqual(lookup["one"]["duplicate_of"], "two")
+
+    def test_no_labels_no_accuracy(self):
+        report = evaluate_sentiment([article()], {})
+        self.assertEqual(report["n_labeled"], 0)
+        self.assertIsNone(report["accuracy"])
+
+    def test_evaluation_counts_abstentions_as_errors(self):
+        rows = [article(sentiment_label="no_polar_matches")]
+        report = evaluate_sentiment(rows, {"one": human(sentiment_gold="positive")})
+        self.assertEqual(report["accuracy"], 0)
+        self.assertEqual(report["confusion_matrix"]["positive"]["abstention"], 1)
+
+    def test_publication_date_is_not_date_modified(self):
+        html = b'<script type="application/ld+json">{"@type":"NewsArticle","dateModified":"2026-01-01"}</script>'
+        self.assertIsNone(publication_metadata(html)["publication_date"])
+
+    def test_explicit_publisher_date_and_paywall(self):
+        html = b'<script type="application/ld+json">{"@graph":[{"@type":"NewsArticle","datePublished":"2026-03-02T10:00:00Z"}]}</script>'
+        self.assertEqual(publication_metadata(html)["publication_date"], "2026-03-02")
+        self.assertTrue(publication_metadata(b'<script type="application/ld+json">{"@type":"Article","isAccessibleForFree":false}</script>')["paywall"])
+
+    def test_publisher_host_cannot_be_substituted(self):
+        row = dict(record_id="test", title="Synthetic", publisher_url="https://example.org")
+        result = fetch_public_article(row, "https://unrelated.example/article", Path("."), {}, "2026-01-01", "2026-11-01")
+        self.assertEqual(result["fetch_status"], "publisher_domain_mismatch")
+
+    def test_feed_out_of_period_rejected(self):
+        xml = b'<rss><channel><item><title>Example</title><link>https://example.org</link><pubDate>Mon, 01 Dec 2025 12:00:00 GMT</pubDate></item></channel></rss>'
+        self.assertEqual(parse_feed(xml, "https://example.org", "now", "2026-01-01", "2026-02-01")[1]["rejected_items"], 1)
+
+    def test_month_boundaries(self):
+        self.assertEqual(len(list(month_windows("2026-01-01", "2026-11-01"))), 10)
+        with self.assertRaises(ValueError):
+            list(month_windows("2026-01-02", "2026-11-01"))
+
+    def test_changed_archive_hash_prevents_reanalysis(self):
+        with tempfile.TemporaryDirectory() as folder:
+            directory = Path(folder)
+            (directory/"raw/articles").mkdir(parents=True)
+            write_jsonl(directory/"article_manifest.jsonl", [article(text_sha256="wrong")])
+            (directory/"raw/articles/one.txt").write_text(TEXT, encoding="utf8")
+            with self.assertRaisesRegex(ValueError, "hash"):
+                build(directory, verify_local_text=True)
 
 
 if __name__ == "__main__":
