@@ -9,6 +9,13 @@ from urllib.parse import urlencode, urlparse
 from urllib.request import Request, urlopen
 import xml.etree.ElementTree as ET
 
+SCOPE = "Colombian exports to the world"
+
+
+def search_url(start, end):
+    query = f'Colombia (exportaciones OR exportación OR exporta OR exportadores OR exportador) after:{start} before:{end}'
+    return "https://news.google.com/rss/search?" + urlencode({"q": query, "hl": "es-419", "gl": "CO", "ceid": "CO:es-419"})
+
 
 def month_windows(start, end):
     first, stop = date.fromisoformat(start), date.fromisoformat(end)
@@ -59,8 +66,7 @@ def collect(start, end, output, pause=1.0):
     raw.mkdir(parents=True, exist_ok=True)
     all_records, requests = [], []
     for left, right in month_windows(start, end):
-        query = f'Colombia (exportaciones OR importaciones OR "comercio exterior" OR aranceles) after:{left} before:{right}'
-        url = "https://news.google.com/rss/search?" + urlencode({"q": query, "hl": "es-419", "gl": "CO", "ceid": "CO:es-419"})
+        url = search_url(left, right)
         retrieved = datetime.now(timezone.utc).isoformat()
         request = Request(url, headers={"User-Agent": "ColombiaTradeNewsResearch/0.1 (headline metadata only)"})
         try:
@@ -81,7 +87,7 @@ def collect(start, end, output, pause=1.0):
                              "status": "failed", "error": f"{type(error).__name__}: {error}"})
         time.sleep(pause)
     (output / "collection_log.json").write_text(json.dumps({"start": start, "end_exclusive": end,
-        "source": "Google News RSS search", "requests": requests}, indent=2, ensure_ascii=False) + "\n", encoding="utf8")
+        "source": "Google News RSS search", "scope": SCOPE, "requests": requests}, indent=2, ensure_ascii=False) + "\n", encoding="utf8")
     (output / "headlines_raw.jsonl").write_text("".join(json.dumps(r, ensure_ascii=False) + "\n" for r in all_records), encoding="utf8")
     if not all_records:
         raise RuntimeError("No real records collected. Inspect collection_log.json; no fallback data were generated.")

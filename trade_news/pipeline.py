@@ -1,5 +1,5 @@
-"""Clean records, audit duplicates, and calculate source-balanced headline tone."""
-from collections import defaultdict
+"""Audit goods-export scope and calculate pooled sentiment plus source sensitivity."""
+from collections import Counter, defaultdict
 import csv
 from datetime import datetime
 import hashlib
@@ -8,7 +8,7 @@ from pathlib import Path
 from statistics import mean
 from urllib.parse import urlparse
 
-from .nlp import analyze, normalize, METHOD
+from .nlp import analyze, normalize, METHOD, SCOPE_METHOD, ANALYSIS_SCOPE
 
 
 def read_jsonl(path):
@@ -59,11 +59,15 @@ def aggregate(rows, months=None, min_scored=3, min_sources=2):
         scored = [r for r in records if r["tone_score"] is not None]
         for row in scored:
             by_source[row["publisher"]].append(row["tone_score"])
+        cues = [e["weight"] for row in scored for e in row["sentiment_evidence"]]
+        positive, negative = sum(w > 0 for w in cues), sum(w < 0 for w in cues)
         sufficient = len(scored) >= min_scored and len(by_source) >= min_sources
         output.append({"month": month, "dimension": dimension, "group": group,
                        "n_records": len(records), "n_scored": len(scored),
                        "n_scored_publishers": len(by_source),
                        "score_coverage": len(scored)/len(records) if records else 0.0,
+                       "positive_cues": positive, "negative_cues": negative,
+                       "export_sentiment_index": round((positive-negative)/(positive+negative), 6) if sufficient and positive+negative else None,
                        "headline_tone_index": round(100*mean(mean(v) for v in by_source.values()), 4) if sufficient else None,
                        "status": "provisional" if sufficient else "insufficient_coverage",
                        "min_scored": min_scored, "min_sources": min_sources})
@@ -80,7 +84,10 @@ def build(data_dir):
     (data_dir / "headlines.jsonl").write_text("".join(json.dumps(r, ensure_ascii=False)+"\n" for r in rows), encoding="utf8")
     write_json(data_dir / "indices.json", indices)
     write_json(data_dir / "processing_audit.json", {**audit, "relevant_records": sum(r["relevant"] for r in rows),
-        "method": METHOD, "raw_sha256": hashlib.sha256(raw_path.read_bytes()).hexdigest(),
+        "method": METHOD, "relevance_method": SCOPE_METHOD, "analysis_scope": ANALYSIS_SCOPE,
+        "scope_counts": dict(Counter(r["scope_status"] for r in rows)),
+        "scope_exclusions": [{"record_id": r["record_id"], "status": r["scope_status"], "reason": r["scope_reason"]} for r in rows if not r["relevant"]],
+        "raw_sha256": hashlib.sha256(raw_path.read_bytes()).hexdigest(),
         "human_validation_status": "pending", "collection_failures": sum(r["status"] == "failed" for r in log["requests"])})
     # Include excluded relevance predictions so false negatives can be reviewed too.
     selected = sorted(rows, key=lambda r: hashlib.sha256(r["record_id"].encode()).hexdigest())[:40]

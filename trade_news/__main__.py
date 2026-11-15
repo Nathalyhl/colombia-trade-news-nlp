@@ -5,7 +5,7 @@ from .collect import collect
 from .pipeline import build, read_jsonl, write_json
 from .validation import validate
 
-parser = argparse.ArgumentParser(description="Colombian trade news NLP research prototype")
+parser = argparse.ArgumentParser(description="Colombian goods exports to the world: news NLP research prototype")
 parser.add_argument("command", choices=["collect", "analyze", "validate", "all"])
 parser.add_argument("--start", default="2026-05-01")
 parser.add_argument("--end", default="2026-11-01", help="Exclusive month boundary")
