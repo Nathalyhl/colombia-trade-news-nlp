@@ -1,0 +1,39 @@
+{
+  "status": "human_labels_pending",
+  "n_labeled": 0,
+  "accuracy": null,
+  "macro_f1": null,
+  "tasks": {
+    "sentiment": {
+      "status": "human_labels_pending",
+      "n_labeled": 0,
+      "accuracy": null,
+      "macro_f1": null
+    },
+    "relevance": {
+      "status": "human_labels_pending",
+      "n_labeled": 0,
+      "accuracy": null,
+      "macro_f1": null
+    },
+    "themes": {
+      "status": "human_labels_pending",
+      "n_labeled": 0,
+      "accuracy": null,
+      "macro_f1": null
+    },
+    "sectors": {
+      "status": "human_labels_pending",
+      "n_labeled": 0,
+      "accuracy": null,
+      "macro_f1": null
+    },
+    "partners": {
+      "status": "human_labels_pending",
+      "n_labeled": 0,
+      "accuracy": null,
+      "macro_f1": null
+    }
+  },
+  "note": "Reference provenance is annotator-declared. Software tests do not establish domain accuracy; developer-reviewed samples do not establish held-out generalization."
+}

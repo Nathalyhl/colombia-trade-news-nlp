@@ -1,0 +1,11 @@
+{
+  "input_records": 160,
+  "retained_records": 160,
+  "duplicates": [],
+  "rejected_metadata": [],
+  "relevant_records": 127,
+  "method": "spanish_headline_lexicon_v1",
+  "raw_sha256": "e57593904bc18f1f8b46e485065e7329977b808196d6acf4cd8c438c615b61d8",
+  "human_validation_status": "pending",
+  "collection_failures": 0
+}
