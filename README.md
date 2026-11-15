@@ -1,6 +1,6 @@
-# Colombia Trade News Observatory
+# Colombia Goods Export Sentiment Observatory
 
-An exploratory NLP project on Colombian foreign trade and its relationships with the world. It collects real Spanish-language headline metadata, identifies commercial themes and explicit sector/partner mentions, computes a monthly **Headline Tone Index**, and exposes the results in an interactive dashboard.
+An exploratory NLP project measuring news sentiment about **exports of Colombian goods to the world**. It collects real Spanish-language headline metadata, identifies goods, export themes, sectors and explicit market mentions, and presents a monthly **Export News Sentiment Index** in an interactive dashboard. Services are outside the analysis scope.
 
 The project connects data collection, text processing, interpretable NLP, aggregation, evaluation and research communication in one reproducible workflow. The interface and documentation are in English; source headlines remain in Spanish.
 
@@ -12,6 +12,7 @@ The project connects data collection, text processing, interpretable NLP, aggreg
 | Interactive dashboard | [app.py](app.py) |
 | Collection and text-analysis code | [trade_news](trade_news) |
 | Research design and index formula | [Methodology](docs/METHODOLOGY.md) |
+| Banco de la República reference and adaptation choices | [Research reference](docs/RESEARCH_REFERENCE.md) |
 | Real data, query history and field definitions | [Data sources](docs/DATA_SOURCES.md) |
 | Reference-label review and evaluation | [Validation guide](docs/VALIDATION.md) |
 | Executed work and next research steps | [Project status](docs/PROJECT_STATUS.md) |
@@ -19,9 +20,13 @@ The project connects data collection, text processing, interpretable NLP, aggreg
 
 ## Included real snapshot
 
-The initial collection was executed on **15 November 2026**, querying six complete calendar months: **May–October 2026**. It retained **160 real metadata records**, of which **127** satisfy the initial headline relevance rules. Every record preserves a source link, publisher, provider date, collection time and search URL. These are a retrieved search sample, not a complete inventory of Colombian trade news.
+The export-specific collection was executed on **15 November 2026**, querying **May–October 2026**. It retained **152 real candidate metadata records**. The goods-and-origin baseline selects **63** headlines, holds **33** for review and excludes **56**. Every candidate preserves a source link, publisher, provider date, collection time and search URL. Only included goods-export headlines enter the index; the search sample is not a complete inventory of Colombian export news.
+
+The scope requires an explicit export cue, a phrase linking exports to Colombian origin and an explicit goods cue. Imports, inbound exports to Colombia and services do not enter the index. Unspecified goods, unresolved direction and mixed goods/services headlines are held for review.
 
 The baseline keeps its decisions inspectable: the exact words behind every topic, sector, partner and sentiment cue are stored with each headline. The dashboard supports month, sector, partner, theme and text filters, recalculates the index after filtering, and displays volume, tone coverage, source links and quality information.
+
+**Research reference:** the primary index adopts the pooled positive/negative balance formula from [Mora-Quiñones, Orozco-Gallo and Mora-Pérez (2026), Borradores de Economía 1340](https://doi.org/10.32468/be.1340). This is an independent adaptation using headlines, a different provisional lexicon and explicit goods-export filters. It does not reproduce the Bank’s series or predictive results.
 
 **Research interpretation:** the index describes lexical tone in this sample. It does not measure trade performance or predict the Colombian economy. Classification quality awaits human reference labels; no accuracy score or benchmark result is invented. This is an operational research baseline, with evaluation tools ready for the next stage.
 
@@ -62,10 +67,10 @@ Colab supports the analysis workflow. Run the Streamlit dashboard locally using 
 
 ## Research workflow
 
-1. Retrieve Google News RSS search results in explicit month windows; log requests, failures and raw-response hashes.
+1. Retrieve export-related Google News RSS search results in explicit month windows; log requests, failures and raw-response hashes.
 2. Validate metadata, normalize accents/case, remove exact URLs or normalized-headline duplicates, and audit exclusions.
 3. Apply transparent Spanish phrase dictionaries and a cue-based sentiment baseline, preserving matched evidence.
-4. Aggregate scored headlines within publishers, then average publishers equally; report sample coverage alongside the index.
+4. Pool positive and negative cue occurrences by month/group: `(positive - negative) / (positive + negative)`, from −1 to +1. Retain an equal-publisher tone score separately for sensitivity analysis; show coverage with both measures.
 5. Review relevance, sentiment and multi-label tags against human references using the supplied annotation sheet and metrics.
 6. Explore trends, comparisons and individual decisions in the dashboard; retain the source trail for academic discussion.
 

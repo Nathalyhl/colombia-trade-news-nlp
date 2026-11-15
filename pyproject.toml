@@ -1,7 +1,7 @@
 [project]
 name = "colombia-trade-news-nlp"
-version = "0.1.0"
-description = "Real Colombian trade headlines, transparent NLP and a provisional news-tone index"
+version = "0.2.0"
+description = "Colombian goods exports to the world: real headlines, transparent NLP and a provisional news-tone index"
 requires-python = ">=3.11"
 
 [tool.ruff.lint]
