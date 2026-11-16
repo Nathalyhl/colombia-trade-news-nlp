@@ -13,6 +13,7 @@ from trade_news.collect import month_windows
 from trade_news.corpus import apply_reviews, evaluate_sentiment, read_reviews
 from trade_news.destinations import configuration_hash, identify, MARKETS
 from trade_news.country_review import evaluate_countries, read_country_reviews
+from trade_news.contextual import verify_scores, aggregate_scores
 
 base = Path(__file__).resolve().parents[1]
 data = base/"data"
@@ -74,6 +75,14 @@ for feature in destinations:
         assert hit["start"] >= 0 and hit["end"] > hit["start"]
     assert not any(key in feature for key in ["body", "article_text", "text", "html"])
 assert evaluate_countries(rows, destinations, read_country_reviews(data, rows)) == read("destination_validation.json")
+if (data/"contextual_manifest.json").exists():
+    contextual_manifest = read("contextual_manifest.json")
+    assert contextual_manifest["status"] == "complete", "Do not release partial model inference"
+    contextual_scores = read_jsonl(data/"contextual_scores.jsonl")
+    verify_scores(data, contextual_scores, contextual_manifest)
+    assert {"all_eligible": aggregate_scores(contextual_scores, rows, months),
+            "dictionary_matched": aggregate_scores(contextual_scores, rows, months, True)} == read("contextual_indices.json")
+    assert contextual_manifest["human_reference_labels"] == read("validation_report.json")["n_labeled"]
 sample_manifest = read("review_sample_manifest.json")
 assert sample_manifest["source_features_sha256"] == hashlib.sha256((data/"headlines.jsonl").read_bytes()).hexdigest()
 with (data/"review_sample.csv").open(encoding="utf8", newline="") as stream:
