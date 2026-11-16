@@ -35,7 +35,8 @@ def collect_archive(directory, start, end):
     robots.parse(robots_bytes.decode("utf8", "replace").splitlines())
     (archive/"robots.txt").write_bytes(robots_bytes)
     candidates = {r["record_id"]: r for r in read_jsonl(directory/"headlines_raw.jsonl")}
-    manifest = {r["record_id"]: r for r in read_jsonl(directory/"article_manifest.jsonl")}
+    manifest_path = directory/"article_manifest.jsonl"
+    manifest = {r["record_id"]: r for r in read_jsonl(manifest_path)} if manifest_path.exists() else {}
     requests = []
     page, total_pages = 1, 1
     while page <= total_pages:
