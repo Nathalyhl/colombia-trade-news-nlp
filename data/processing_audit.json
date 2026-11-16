@@ -1,27 +1,156 @@
 {
-  "method": "be1340_annex3_surface_counts_v1",
+  "method": "be1340_annex3_surface_counts_v2",
   "reference_fingerprint": "5005a9e70ff87079f703054320543bbc8370b8f2cfecc8f57f2a2ca400b8da46",
-  "candidate_records": 247,
-  "extracted_articles": 196,
-  "eligible_articles": 172,
+  "candidate_records": 1374,
+  "extracted_articles": 840,
+  "eligible_articles": 696,
   "human_reviewed_articles": 0,
-  "duplicates": [],
+  "duplicates": [
+    {
+      "record_id": "bc763b04870eb5a0da32",
+      "duplicate_of": "f32f32cec1f9fa1c1ba3"
+    },
+    {
+      "record_id": "c63981bc69d67d3807ab",
+      "duplicate_of": "570bfe62e1c3efdf0b09"
+    },
+    {
+      "record_id": "fe5d41fe9f8efa3c5e17",
+      "duplicate_of": "b59b43e5931b984cffdc"
+    },
+    {
+      "record_id": "c8f6885b2e4fd630b415",
+      "duplicate_of": "9b5fb80e273b2d097658"
+    },
+    {
+      "record_id": "d2f19c7fc5f9ef288f80",
+      "duplicate_of": "48c6475019cc3e16c687"
+    },
+    {
+      "record_id": "df6efbd0ea2ffceca9f7",
+      "duplicate_of": "b9465ca940c1aa8480a6"
+    },
+    {
+      "record_id": "5da869195925e9002f02",
+      "duplicate_of": "48e60bbe41aae084df91"
+    },
+    {
+      "record_id": "d173f90ed66a24b25477",
+      "duplicate_of": "7fa78c94fcc43232e27c"
+    },
+    {
+      "record_id": "d7dce284fa1632452fa1",
+      "duplicate_of": "040311b2539d31edfa35"
+    },
+    {
+      "record_id": "972d0484ca6352c65cc8",
+      "duplicate_of": "778301cc5e74ad541d5a"
+    },
+    {
+      "record_id": "b5ca0252492cd47522ad",
+      "duplicate_of": "183b746c0f4f467aab24"
+    },
+    {
+      "record_id": "ed5f73ec62f66ac0f95e",
+      "duplicate_of": "b41bf6b877553188b0f7"
+    },
+    {
+      "record_id": "bda3be2737d65aea6e9c",
+      "duplicate_of": "44c553fdc94fff87df83"
+    },
+    {
+      "record_id": "e2b61a249cf2fd636d7c",
+      "duplicate_of": "cd954595474895173631"
+    },
+    {
+      "record_id": "e8511ba7a03d52d8437e",
+      "duplicate_of": "cf00e3b0e261e7ceb61a"
+    },
+    {
+      "record_id": "60c091687ad2508e1b37",
+      "duplicate_of": "543f81f16313da0579e7"
+    },
+    {
+      "record_id": "9d290540ab3657fe1621",
+      "duplicate_of": "41932539e1fe9c8f5977"
+    },
+    {
+      "record_id": "cd71cca7e1058d41b5c1",
+      "duplicate_of": "b9f863c623b51e740818"
+    },
+    {
+      "record_id": "b0028940cfe9ee63203d",
+      "duplicate_of": "264f702b1cbf0f9e3769"
+    },
+    {
+      "record_id": "f42d940157b3ca698d89",
+      "duplicate_of": "165d019ea14a61d014f5"
+    },
+    {
+      "record_id": "58e584a54a6a0bb75ce4",
+      "duplicate_of": "477d992dce8ea80a610a"
+    },
+    {
+      "record_id": "92601aeecd54be008ffb",
+      "duplicate_of": "8f113dfc2c8ce072cd15"
+    },
+    {
+      "record_id": "f5ffb99d9c44e4015c91",
+      "duplicate_of": "683dd28abc811fe0d7a4"
+    },
+    {
+      "record_id": "6fb857c10a4433b0a0ec",
+      "duplicate_of": "663fdd06269ea4d00060"
+    },
+    {
+      "record_id": "e2e61c229f3a6406e610",
+      "duplicate_of": "500ae705fde76b2fffa5"
+    },
+    {
+      "record_id": "f0aef367eff5d7af5216",
+      "duplicate_of": "115c4760ae7a21a4c5f1"
+    },
+    {
+      "record_id": "d07904dc08ce96ee4b85",
+      "duplicate_of": "c17f1e6b3f9ee80940c9"
+    },
+    {
+      "record_id": "69c222f060ca3c82818d",
+      "duplicate_of": "5ffa81bcc382832fc5b3"
+    },
+    {
+      "record_id": "baaa89e9178d0dd4ab78",
+      "duplicate_of": "85eba0ec01d781b842f3"
+    },
+    {
+      "record_id": "ad86630cde468b4807ba",
+      "duplicate_of": "136424088a14c30ce7e0"
+    }
+  ],
   "fetch_status_counts": {
+    "url_unresolved": 483,
     "paywall_not_accessed": 12,
     "robots_unavailable": 8,
     "publication_date_unverified": 25,
     "fetch_failed": 6,
-    "article_extracted": 196
+    "article_extracted": 840
   },
   "scope_proposals": {
-    "not_extracted": 51,
-    "include": 172,
-    "review": 14,
-    "exclude": 10
+    "not_extracted": 534,
+    "include": 723,
+    "review": 63,
+    "exclude": 54
   },
-  "collection_failures": 0,
-  "raw_metadata_sha256": "d269179c8d5627b3b673598938fd0e2b4a0dd802a358e1b8ec390d41c2bc0b82",
-  "article_manifest_sha256": "1c0d668b471b4a784130c70d4d5dde7446ee43133b7963934aac67ae47ff9208",
-  "analysis_scope": "Colombian goods exports, 2026; retrieved publisher article-body text only",
+  "collection_failures": 18,
+  "raw_metadata_sha256": "c5ff566d40b880efc402cf735eb76963c73be52757aef1b8f2e59f35372edc84",
+  "article_manifest_sha256": "559698d36fa96666e529f8d8f8e063b89d8294e2eaca6ab8322fc986185d0a36",
+  "analysis_scope": "Colombian goods exports, 2020-03-01 to 2026-11-01 exclusive; publisher article-body text only",
+  "months_requested": 80,
+  "months_with_eligible_articles": 80,
+  "discovery_status_counts": {
+    "200": 48,
+    "failed": 18,
+    "not_attempted": 14
+  },
   "manual_corpus_validation": "pending"
 }

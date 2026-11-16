@@ -1,9 +1,627 @@
 {
-  "start": "2026-01-01",
+  "start": "2020-03-01",
   "end_exclusive": "2026-11-01",
   "source": "Google News RSS search",
   "scope": "Colombian exports to the world",
   "requests": [
+    {
+      "month": "2020-03",
+      "url": "https://news.google.com/rss/search?q=Colombia+%28exportaciones+OR+exportaci%C3%B3n+OR+exporta+OR+exportadores+OR+exportador%29+after%3A2020-03-01+before%3A2020-04-01&hl=es-419&gl=CO&ceid=CO%3Aes-419",
+      "retrieved_at": "2026-11-16T19:46:23.289031+00:00",
+      "status": 200,
+      "sha256": "1b679126de8a6204f05011f6a55a35a3a05cce213354a603ed76179fbc198f24",
+      "accepted_items": 6,
+      "provider_items": 8,
+      "rejected_items": 2,
+      "possible_provider_cap": false
+    },
+    {
+      "month": "2020-04",
+      "url": "https://news.google.com/rss/search?q=Colombia+%28exportaciones+OR+exportaci%C3%B3n+OR+exporta+OR+exportadores+OR+exportador%29+after%3A2020-04-01+before%3A2020-05-01&hl=es-419&gl=CO&ceid=CO%3Aes-419",
+      "retrieved_at": "2026-11-16T19:46:24.340334+00:00",
+      "status": 200,
+      "sha256": "b98e31c9db6a104749d45da01a39de55a32787b344803174ba61a9078ca81f61",
+      "accepted_items": 5,
+      "provider_items": 5,
+      "rejected_items": 0,
+      "possible_provider_cap": false
+    },
+    {
+      "month": "2020-05",
+      "url": "https://news.google.com/rss/search?q=Colombia+%28exportaciones+OR+exportaci%C3%B3n+OR+exporta+OR+exportadores+OR+exportador%29+after%3A2020-05-01+before%3A2020-06-01&hl=es-419&gl=CO&ceid=CO%3Aes-419",
+      "retrieved_at": "2026-11-16T19:55:39.257420+00:00",
+      "status": "failed",
+      "http_status": 429,
+      "retry_after": null,
+      "error": "HTTPError: HTTP Error 429: Too Many Requests"
+    },
+    {
+      "month": "2020-06",
+      "url": "https://news.google.com/rss/search?q=Colombia+%28exportaciones+OR+exportaci%C3%B3n+OR+exporta+OR+exportadores+OR+exportador%29+after%3A2020-06-01+before%3A2020-07-01&hl=es-419&gl=CO&ceid=CO%3Aes-419",
+      "retrieved_at": "2026-11-16T19:46:26.221605+00:00",
+      "status": "failed",
+      "error": "HTTPError: HTTP Error 429: Too Many Requests"
+    },
+    {
+      "month": "2020-07",
+      "url": "https://news.google.com/rss/search?q=Colombia+%28exportaciones+OR+exportaci%C3%B3n+OR+exporta+OR+exportadores+OR+exportador%29+after%3A2020-07-01+before%3A2020-08-01&hl=es-419&gl=CO&ceid=CO%3Aes-419",
+      "retrieved_at": "2026-11-16T19:46:27.174391+00:00",
+      "status": 200,
+      "sha256": "18157da9cb3c34673a927e12537071d50422bd36009519b9890b58b6724a49f4",
+      "accepted_items": 10,
+      "provider_items": 10,
+      "rejected_items": 0,
+      "possible_provider_cap": false
+    },
+    {
+      "month": "2020-08",
+      "url": "https://news.google.com/rss/search?q=Colombia+%28exportaciones+OR+exportaci%C3%B3n+OR+exporta+OR+exportadores+OR+exportador%29+after%3A2020-08-01+before%3A2020-09-01&hl=es-419&gl=CO&ceid=CO%3Aes-419",
+      "retrieved_at": "2026-11-16T19:46:28.140017+00:00",
+      "status": 200,
+      "sha256": "928a6d27460716fb1d79a650fb6f599af680a0213ad15965c00447f0d18d0c20",
+      "accepted_items": 10,
+      "provider_items": 10,
+      "rejected_items": 0,
+      "possible_provider_cap": false
+    },
+    {
+      "month": "2020-09",
+      "url": "https://news.google.com/rss/search?q=Colombia+%28exportaciones+OR+exportaci%C3%B3n+OR+exporta+OR+exportadores+OR+exportador%29+after%3A2020-09-01+before%3A2020-10-01&hl=es-419&gl=CO&ceid=CO%3Aes-419",
+      "retrieved_at": "2026-11-16T19:46:29.080698+00:00",
+      "status": 200,
+      "sha256": "c9102d08cc1c442ae717af0a1f235b9f5979aa9bf5d102759d744c5100ef69db",
+      "accepted_items": 17,
+      "provider_items": 18,
+      "rejected_items": 1,
+      "possible_provider_cap": false
+    },
+    {
+      "month": "2020-10",
+      "url": "https://news.google.com/rss/search?q=Colombia+%28exportaciones+OR+exportaci%C3%B3n+OR+exporta+OR+exportadores+OR+exportador%29+after%3A2020-10-01+before%3A2020-11-01&hl=es-419&gl=CO&ceid=CO%3Aes-419",
+      "retrieved_at": "2026-11-16T19:46:30.000590+00:00",
+      "status": 200,
+      "sha256": "077c6867be3e36a1fde200551c0d26ca5521df01d2cea47c6b457b54ab36f85b",
+      "accepted_items": 10,
+      "provider_items": 11,
+      "rejected_items": 1,
+      "possible_provider_cap": false
+    },
+    {
+      "month": "2020-11",
+      "url": "https://news.google.com/rss/search?q=Colombia+%28exportaciones+OR+exportaci%C3%B3n+OR+exporta+OR+exportadores+OR+exportador%29+after%3A2020-11-01+before%3A2020-12-01&hl=es-419&gl=CO&ceid=CO%3Aes-419",
+      "retrieved_at": "2026-11-16T19:46:31.003155+00:00",
+      "status": "failed",
+      "error": "HTTPError: HTTP Error 429: Too Many Requests"
+    },
+    {
+      "month": "2020-12",
+      "url": "https://news.google.com/rss/search?q=Colombia+%28exportaciones+OR+exportaci%C3%B3n+OR+exporta+OR+exportadores+OR+exportador%29+after%3A2020-12-01+before%3A2021-01-01&hl=es-419&gl=CO&ceid=CO%3Aes-419",
+      "retrieved_at": "2026-11-16T19:46:32.017664+00:00",
+      "status": 200,
+      "sha256": "ebc9c3ddf1932418a28fbfe2a847a09156b877d703b3dfd6f9188620b9308827",
+      "accepted_items": 6,
+      "provider_items": 6,
+      "rejected_items": 0,
+      "possible_provider_cap": false
+    },
+    {
+      "month": "2021-01",
+      "url": "https://news.google.com/rss/search?q=Colombia+%28exportaciones+OR+exportaci%C3%B3n+OR+exporta+OR+exportadores+OR+exportador%29+after%3A2021-01-01+before%3A2021-02-01&hl=es-419&gl=CO&ceid=CO%3Aes-419",
+      "retrieved_at": "2026-11-16T19:46:33.019354+00:00",
+      "status": 200,
+      "sha256": "92ae958d2bc269b4d78b589d286badf38d915f0391d5b2b99e994d9398338938",
+      "accepted_items": 9,
+      "provider_items": 9,
+      "rejected_items": 0,
+      "possible_provider_cap": false
+    },
+    {
+      "month": "2021-02",
+      "url": "https://news.google.com/rss/search?q=Colombia+%28exportaciones+OR+exportaci%C3%B3n+OR+exporta+OR+exportadores+OR+exportador%29+after%3A2021-02-01+before%3A2021-03-01&hl=es-419&gl=CO&ceid=CO%3Aes-419",
+      "retrieved_at": "2026-11-16T19:46:34.187407+00:00",
+      "status": 200,
+      "sha256": "3e285044cd623c75f7ce9a58baf1a01a8158058772d1d09e20ac459d06b0ed8e",
+      "accepted_items": 16,
+      "provider_items": 16,
+      "rejected_items": 0,
+      "possible_provider_cap": false
+    },
+    {
+      "month": "2021-03",
+      "url": "https://news.google.com/rss/search?q=Colombia+%28exportaciones+OR+exportaci%C3%B3n+OR+exporta+OR+exportadores+OR+exportador%29+after%3A2021-03-01+before%3A2021-04-01&hl=es-419&gl=CO&ceid=CO%3Aes-419",
+      "retrieved_at": "2026-11-16T19:46:35.209234+00:00",
+      "status": 200,
+      "sha256": "7e8471be440e0a9fbdba14ac8f724e0964ce1f6263b47e962b5e9e1ba734c3f1",
+      "accepted_items": 9,
+      "provider_items": 9,
+      "rejected_items": 0,
+      "possible_provider_cap": false
+    },
+    {
+      "month": "2021-04",
+      "url": "https://news.google.com/rss/search?q=Colombia+%28exportaciones+OR+exportaci%C3%B3n+OR+exporta+OR+exportadores+OR+exportador%29+after%3A2021-04-01+before%3A2021-05-01&hl=es-419&gl=CO&ceid=CO%3Aes-419",
+      "retrieved_at": "2026-11-16T19:46:36.173891+00:00",
+      "status": 200,
+      "sha256": "0395eceeded399cc3047154313b05ac973d5174dd7c1f735656049a8bc8e2314",
+      "accepted_items": 11,
+      "provider_items": 11,
+      "rejected_items": 0,
+      "possible_provider_cap": false
+    },
+    {
+      "month": "2021-05",
+      "url": "https://news.google.com/rss/search?q=Colombia+%28exportaciones+OR+exportaci%C3%B3n+OR+exporta+OR+exportadores+OR+exportador%29+after%3A2021-05-01+before%3A2021-06-01&hl=es-419&gl=CO&ceid=CO%3Aes-419",
+      "retrieved_at": "2026-11-16T19:46:37.188552+00:00",
+      "status": 200,
+      "sha256": "a1d47be447a07137b1bbcb88061d68193dbd1972b44cd6fe5ec2ec73520251c2",
+      "accepted_items": 8,
+      "provider_items": 8,
+      "rejected_items": 0,
+      "possible_provider_cap": false
+    },
+    {
+      "month": "2021-06",
+      "url": "https://news.google.com/rss/search?q=Colombia+%28exportaciones+OR+exportaci%C3%B3n+OR+exporta+OR+exportadores+OR+exportador%29+after%3A2021-06-01+before%3A2021-07-01&hl=es-419&gl=CO&ceid=CO%3Aes-419",
+      "retrieved_at": "2026-11-16T19:46:38.149487+00:00",
+      "status": 200,
+      "sha256": "ed4a65eca0e11ea0fc4d67aef78afddd32f3307b78a6b4c225dea2c387d9247f",
+      "accepted_items": 11,
+      "provider_items": 12,
+      "rejected_items": 1,
+      "possible_provider_cap": false
+    },
+    {
+      "month": "2021-07",
+      "url": "https://news.google.com/rss/search?q=Colombia+%28exportaciones+OR+exportaci%C3%B3n+OR+exporta+OR+exportadores+OR+exportador%29+after%3A2021-07-01+before%3A2021-08-01&hl=es-419&gl=CO&ceid=CO%3Aes-419",
+      "retrieved_at": "2026-11-16T19:46:39.154356+00:00",
+      "status": 200,
+      "sha256": "792c22680e4e718a9e43c90dbeeff235c6862f19908c5e28a4376b8c0675fba3",
+      "accepted_items": 10,
+      "provider_items": 10,
+      "rejected_items": 0,
+      "possible_provider_cap": false
+    },
+    {
+      "month": "2021-08",
+      "url": "https://news.google.com/rss/search?q=Colombia+%28exportaciones+OR+exportaci%C3%B3n+OR+exporta+OR+exportadores+OR+exportador%29+after%3A2021-08-01+before%3A2021-09-01&hl=es-419&gl=CO&ceid=CO%3Aes-419",
+      "retrieved_at": "2026-11-16T19:46:40.144354+00:00",
+      "status": 200,
+      "sha256": "d66ec443a52f9c07a900f8354b596c55b532c2019c2992a2375fe1b27861682a",
+      "accepted_items": 12,
+      "provider_items": 14,
+      "rejected_items": 2,
+      "possible_provider_cap": false
+    },
+    {
+      "month": "2021-09",
+      "url": "https://news.google.com/rss/search?q=Colombia+%28exportaciones+OR+exportaci%C3%B3n+OR+exporta+OR+exportadores+OR+exportador%29+after%3A2021-09-01+before%3A2021-10-01&hl=es-419&gl=CO&ceid=CO%3Aes-419",
+      "retrieved_at": "2026-11-16T19:46:41.354078+00:00",
+      "status": 200,
+      "sha256": "74ff896ee106954360c9a0fdae6f55bebe04a022b4ecb72ca47f54d23876c49a",
+      "accepted_items": 10,
+      "provider_items": 11,
+      "rejected_items": 1,
+      "possible_provider_cap": false
+    },
+    {
+      "month": "2021-10",
+      "url": "https://news.google.com/rss/search?q=Colombia+%28exportaciones+OR+exportaci%C3%B3n+OR+exporta+OR+exportadores+OR+exportador%29+after%3A2021-10-01+before%3A2021-11-01&hl=es-419&gl=CO&ceid=CO%3Aes-419",
+      "retrieved_at": "2026-11-16T19:46:42.366855+00:00",
+      "status": "failed",
+      "error": "HTTPError: HTTP Error 429: Too Many Requests"
+    },
+    {
+      "month": "2021-11",
+      "url": "https://news.google.com/rss/search?q=Colombia+%28exportaciones+OR+exportaci%C3%B3n+OR+exporta+OR+exportadores+OR+exportador%29+after%3A2021-11-01+before%3A2021-12-01&hl=es-419&gl=CO&ceid=CO%3Aes-419",
+      "retrieved_at": "2026-11-16T19:46:43.475539+00:00",
+      "status": 200,
+      "sha256": "571edbb7a5e1627f75e2f2eeb517624b2a431a4841a6d6a9976da5c40d944a38",
+      "accepted_items": 13,
+      "provider_items": 13,
+      "rejected_items": 0,
+      "possible_provider_cap": false
+    },
+    {
+      "month": "2021-12",
+      "url": "https://news.google.com/rss/search?q=Colombia+%28exportaciones+OR+exportaci%C3%B3n+OR+exporta+OR+exportadores+OR+exportador%29+after%3A2021-12-01+before%3A2022-01-01&hl=es-419&gl=CO&ceid=CO%3Aes-419",
+      "retrieved_at": "2026-11-16T19:46:44.436300+00:00",
+      "status": 200,
+      "sha256": "644fe5cf12ed8af7cd07fa06d47178c13045623da61137256a144d8fa6ebee9d",
+      "accepted_items": 11,
+      "provider_items": 11,
+      "rejected_items": 0,
+      "possible_provider_cap": false
+    },
+    {
+      "month": "2022-01",
+      "url": "https://news.google.com/rss/search?q=Colombia+%28exportaciones+OR+exportaci%C3%B3n+OR+exporta+OR+exportadores+OR+exportador%29+after%3A2022-01-01+before%3A2022-02-01&hl=es-419&gl=CO&ceid=CO%3Aes-419",
+      "retrieved_at": "2026-11-16T19:46:45.618592+00:00",
+      "status": "failed",
+      "error": "HTTPError: HTTP Error 429: Too Many Requests"
+    },
+    {
+      "month": "2022-02",
+      "url": "https://news.google.com/rss/search?q=Colombia+%28exportaciones+OR+exportaci%C3%B3n+OR+exporta+OR+exportadores+OR+exportador%29+after%3A2022-02-01+before%3A2022-03-01&hl=es-419&gl=CO&ceid=CO%3Aes-419",
+      "retrieved_at": "2026-11-16T19:46:46.638032+00:00",
+      "status": 200,
+      "sha256": "341857e545e0d927efb30fbc5cb31736346fa735c480f10bd13adba851ea8ba3",
+      "accepted_items": 13,
+      "provider_items": 14,
+      "rejected_items": 1,
+      "possible_provider_cap": false
+    },
+    {
+      "month": "2022-03",
+      "url": "https://news.google.com/rss/search?q=Colombia+%28exportaciones+OR+exportaci%C3%B3n+OR+exporta+OR+exportadores+OR+exportador%29+after%3A2022-03-01+before%3A2022-04-01&hl=es-419&gl=CO&ceid=CO%3Aes-419",
+      "retrieved_at": "2026-11-16T19:46:47.705774+00:00",
+      "status": 200,
+      "sha256": "dc3c5331214ec6c29efd356e5dd09e655441afc2f0c59ebed09a4931c527fdc2",
+      "accepted_items": 12,
+      "provider_items": 12,
+      "rejected_items": 0,
+      "possible_provider_cap": false
+    },
+    {
+      "month": "2022-04",
+      "url": "https://news.google.com/rss/search?q=Colombia+%28exportaciones+OR+exportaci%C3%B3n+OR+exporta+OR+exportadores+OR+exportador%29+after%3A2022-04-01+before%3A2022-05-01&hl=es-419&gl=CO&ceid=CO%3Aes-419",
+      "retrieved_at": "2026-11-16T19:46:48.655008+00:00",
+      "status": "failed",
+      "error": "HTTPError: HTTP Error 429: Too Many Requests"
+    },
+    {
+      "month": "2022-05",
+      "url": "https://news.google.com/rss/search?q=Colombia+%28exportaciones+OR+exportaci%C3%B3n+OR+exporta+OR+exportadores+OR+exportador%29+after%3A2022-05-01+before%3A2022-06-01&hl=es-419&gl=CO&ceid=CO%3Aes-419",
+      "retrieved_at": "2026-11-16T19:46:49.733040+00:00",
+      "status": "failed",
+      "error": "HTTPError: HTTP Error 429: Too Many Requests"
+    },
+    {
+      "month": "2022-06",
+      "url": "https://news.google.com/rss/search?q=Colombia+%28exportaciones+OR+exportaci%C3%B3n+OR+exporta+OR+exportadores+OR+exportador%29+after%3A2022-06-01+before%3A2022-07-01&hl=es-419&gl=CO&ceid=CO%3Aes-419",
+      "retrieved_at": "2026-11-16T19:46:50.761224+00:00",
+      "status": 200,
+      "sha256": "5495d79e713ae373199b6128c5132113cb8706f8380c8ed5e2970c94235cc72e",
+      "accepted_items": 10,
+      "provider_items": 10,
+      "rejected_items": 0,
+      "possible_provider_cap": false
+    },
+    {
+      "month": "2022-07",
+      "url": "https://news.google.com/rss/search?q=Colombia+%28exportaciones+OR+exportaci%C3%B3n+OR+exporta+OR+exportadores+OR+exportador%29+after%3A2022-07-01+before%3A2022-08-01&hl=es-419&gl=CO&ceid=CO%3Aes-419",
+      "retrieved_at": "2026-11-16T19:46:51.748037+00:00",
+      "status": "failed",
+      "error": "HTTPError: HTTP Error 429: Too Many Requests"
+    },
+    {
+      "month": "2022-08",
+      "url": "https://news.google.com/rss/search?q=Colombia+%28exportaciones+OR+exportaci%C3%B3n+OR+exporta+OR+exportadores+OR+exportador%29+after%3A2022-08-01+before%3A2022-09-01&hl=es-419&gl=CO&ceid=CO%3Aes-419",
+      "retrieved_at": "2026-11-16T19:46:52.831685+00:00",
+      "status": 200,
+      "sha256": "915d28fcf59eb9ebac14e9aa2af49a93010c5c37e2945dcf0f48f7dd987638e9",
+      "accepted_items": 10,
+      "provider_items": 10,
+      "rejected_items": 0,
+      "possible_provider_cap": false
+    },
+    {
+      "month": "2022-09",
+      "url": "https://news.google.com/rss/search?q=Colombia+%28exportaciones+OR+exportaci%C3%B3n+OR+exporta+OR+exportadores+OR+exportador%29+after%3A2022-09-01+before%3A2022-10-01&hl=es-419&gl=CO&ceid=CO%3Aes-419",
+      "retrieved_at": "2026-11-16T19:46:53.792461+00:00",
+      "status": 200,
+      "sha256": "55926618bf4e7090f239bd937e4be256045aca6de148e3d5294a352e1c2ba4d6",
+      "accepted_items": 14,
+      "provider_items": 14,
+      "rejected_items": 0,
+      "possible_provider_cap": false
+    },
+    {
+      "month": "2022-10",
+      "url": "https://news.google.com/rss/search?q=Colombia+%28exportaciones+OR+exportaci%C3%B3n+OR+exporta+OR+exportadores+OR+exportador%29+after%3A2022-10-01+before%3A2022-11-01&hl=es-419&gl=CO&ceid=CO%3Aes-419",
+      "retrieved_at": "2026-11-16T19:46:54.721821+00:00",
+      "status": 200,
+      "sha256": "09af93ba7836c01b620109f3d900f996174e5cfba826af44591a8e9c1c5f453d",
+      "accepted_items": 10,
+      "provider_items": 10,
+      "rejected_items": 0,
+      "possible_provider_cap": false
+    },
+    {
+      "month": "2022-11",
+      "url": "https://news.google.com/rss/search?q=Colombia+%28exportaciones+OR+exportaci%C3%B3n+OR+exporta+OR+exportadores+OR+exportador%29+after%3A2022-11-01+before%3A2022-12-01&hl=es-419&gl=CO&ceid=CO%3Aes-419",
+      "retrieved_at": "2026-11-16T19:46:55.940843+00:00",
+      "status": 200,
+      "sha256": "92623dd990dc62400ab46306f60251d6480134e2221d2d102a39eea69e5ea592",
+      "accepted_items": 16,
+      "provider_items": 16,
+      "rejected_items": 0,
+      "possible_provider_cap": false
+    },
+    {
+      "month": "2022-12",
+      "url": "https://news.google.com/rss/search?q=Colombia+%28exportaciones+OR+exportaci%C3%B3n+OR+exporta+OR+exportadores+OR+exportador%29+after%3A2022-12-01+before%3A2023-01-01&hl=es-419&gl=CO&ceid=CO%3Aes-419",
+      "retrieved_at": "2026-11-16T19:46:56.928822+00:00",
+      "status": "failed",
+      "error": "HTTPError: HTTP Error 429: Too Many Requests"
+    },
+    {
+      "month": "2023-01",
+      "url": "https://news.google.com/rss/search?q=Colombia+%28exportaciones+OR+exportaci%C3%B3n+OR+exporta+OR+exportadores+OR+exportador%29+after%3A2023-01-01+before%3A2023-02-01&hl=es-419&gl=CO&ceid=CO%3Aes-419",
+      "retrieved_at": "2026-11-16T19:46:57.966751+00:00",
+      "status": "failed",
+      "error": "HTTPError: HTTP Error 429: Too Many Requests"
+    },
+    {
+      "month": "2023-02",
+      "url": "https://news.google.com/rss/search?q=Colombia+%28exportaciones+OR+exportaci%C3%B3n+OR+exporta+OR+exportadores+OR+exportador%29+after%3A2023-02-01+before%3A2023-03-01&hl=es-419&gl=CO&ceid=CO%3Aes-419",
+      "retrieved_at": "2026-11-16T19:46:58.994469+00:00",
+      "status": 200,
+      "sha256": "9cd9da38d3c55c537f13d3dc40851265faca33013d5770c19a276bd2c26194da",
+      "accepted_items": 16,
+      "provider_items": 18,
+      "rejected_items": 2,
+      "possible_provider_cap": false
+    },
+    {
+      "month": "2023-03",
+      "url": "https://news.google.com/rss/search?q=Colombia+%28exportaciones+OR+exportaci%C3%B3n+OR+exporta+OR+exportadores+OR+exportador%29+after%3A2023-03-01+before%3A2023-04-01&hl=es-419&gl=CO&ceid=CO%3Aes-419",
+      "retrieved_at": "2026-11-16T19:47:00.563198+00:00",
+      "status": 200,
+      "sha256": "7d6726a4f8e7d756769dc5f9eeefd3b736739cf27f467b976b0e77ca7728bb86",
+      "accepted_items": 18,
+      "provider_items": 18,
+      "rejected_items": 0,
+      "possible_provider_cap": false
+    },
+    {
+      "month": "2023-04",
+      "url": "https://news.google.com/rss/search?q=Colombia+%28exportaciones+OR+exportaci%C3%B3n+OR+exporta+OR+exportadores+OR+exportador%29+after%3A2023-04-01+before%3A2023-05-01&hl=es-419&gl=CO&ceid=CO%3Aes-419",
+      "retrieved_at": "2026-11-16T19:47:01.596521+00:00",
+      "status": "failed",
+      "error": "HTTPError: HTTP Error 429: Too Many Requests"
+    },
+    {
+      "month": "2023-05",
+      "url": "https://news.google.com/rss/search?q=Colombia+%28exportaciones+OR+exportaci%C3%B3n+OR+exporta+OR+exportadores+OR+exportador%29+after%3A2023-05-01+before%3A2023-06-01&hl=es-419&gl=CO&ceid=CO%3Aes-419",
+      "retrieved_at": "2026-11-16T19:47:02.585720+00:00",
+      "status": "failed",
+      "error": "HTTPError: HTTP Error 429: Too Many Requests"
+    },
+    {
+      "month": "2023-06",
+      "url": "https://news.google.com/rss/search?q=Colombia+%28exportaciones+OR+exportaci%C3%B3n+OR+exporta+OR+exportadores+OR+exportador%29+after%3A2023-06-01+before%3A2023-07-01&hl=es-419&gl=CO&ceid=CO%3Aes-419",
+      "retrieved_at": "2026-11-16T19:47:03.704823+00:00",
+      "status": 200,
+      "sha256": "df11a9f73eb834a0fb4e53d6c25dc6b0eb7eb3f4714ec7b0cbd37e0ec6e3547e",
+      "accepted_items": 16,
+      "provider_items": 16,
+      "rejected_items": 0,
+      "possible_provider_cap": false
+    },
+    {
+      "month": "2023-07",
+      "url": "https://news.google.com/rss/search?q=Colombia+%28exportaciones+OR+exportaci%C3%B3n+OR+exporta+OR+exportadores+OR+exportador%29+after%3A2023-07-01+before%3A2023-08-01&hl=es-419&gl=CO&ceid=CO%3Aes-419",
+      "retrieved_at": "2026-11-16T19:47:04.767804+00:00",
+      "status": "failed",
+      "error": "HTTPError: HTTP Error 429: Too Many Requests"
+    },
+    {
+      "month": "2023-08",
+      "url": "https://news.google.com/rss/search?q=Colombia+%28exportaciones+OR+exportaci%C3%B3n+OR+exporta+OR+exportadores+OR+exportador%29+after%3A2023-08-01+before%3A2023-09-01&hl=es-419&gl=CO&ceid=CO%3Aes-419",
+      "retrieved_at": "2026-11-16T19:47:05.793838+00:00",
+      "status": 200,
+      "sha256": "867bdaa658186fc79f91da638e3d0c32fcb0e82da9169b9b42aaba8bb0c98461",
+      "accepted_items": 10,
+      "provider_items": 11,
+      "rejected_items": 1,
+      "possible_provider_cap": false
+    },
+    {
+      "month": "2023-09",
+      "url": "https://news.google.com/rss/search?q=Colombia+%28exportaciones+OR+exportaci%C3%B3n+OR+exporta+OR+exportadores+OR+exportador%29+after%3A2023-09-01+before%3A2023-10-01&hl=es-419&gl=CO&ceid=CO%3Aes-419",
+      "retrieved_at": "2026-11-16T19:47:06.937959+00:00",
+      "status": "failed",
+      "error": "HTTPError: HTTP Error 429: Too Many Requests"
+    },
+    {
+      "month": "2023-10",
+      "url": "https://news.google.com/rss/search?q=Colombia+%28exportaciones+OR+exportaci%C3%B3n+OR+exporta+OR+exportadores+OR+exportador%29+after%3A2023-10-01+before%3A2023-11-01&hl=es-419&gl=CO&ceid=CO%3Aes-419",
+      "retrieved_at": "2026-11-16T19:47:08.060571+00:00",
+      "status": "failed",
+      "error": "HTTPError: HTTP Error 429: Too Many Requests"
+    },
+    {
+      "month": "2023-11",
+      "url": "https://news.google.com/rss/search?q=Colombia+%28exportaciones+OR+exportaci%C3%B3n+OR+exporta+OR+exportadores+OR+exportador%29+after%3A2023-11-01+before%3A2023-12-01&hl=es-419&gl=CO&ceid=CO%3Aes-419",
+      "retrieved_at": "2026-11-16T19:47:09.003492+00:00",
+      "status": "failed",
+      "error": "HTTPError: HTTP Error 429: Too Many Requests"
+    },
+    {
+      "month": "2023-12",
+      "url": "https://news.google.com/rss/search?q=Colombia+%28exportaciones+OR+exportaci%C3%B3n+OR+exporta+OR+exportadores+OR+exportador%29+after%3A2023-12-01+before%3A2024-01-01&hl=es-419&gl=CO&ceid=CO%3Aes-419",
+      "retrieved_at": "2026-11-16T19:47:10.120664+00:00",
+      "status": 200,
+      "sha256": "79ef620f5e3920bdc6904691d6cf0ce8620625f80d98d1dcd6cc999f0fdb9444",
+      "accepted_items": 10,
+      "provider_items": 10,
+      "rejected_items": 0,
+      "possible_provider_cap": false
+    },
+    {
+      "month": "2024-01",
+      "url": "https://news.google.com/rss/search?q=Colombia+%28exportaciones+OR+exportaci%C3%B3n+OR+exporta+OR+exportadores+OR+exportador%29+after%3A2024-01-01+before%3A2024-02-01&hl=es-419&gl=CO&ceid=CO%3Aes-419",
+      "retrieved_at": "2026-11-16T19:47:11.084399+00:00",
+      "status": 200,
+      "sha256": "3659983cd556a676d45319cebb0e633013ba727bf963ee934ce46aba266d335c",
+      "accepted_items": 9,
+      "provider_items": 9,
+      "rejected_items": 0,
+      "possible_provider_cap": false
+    },
+    {
+      "month": "2024-02",
+      "url": "https://news.google.com/rss/search?q=Colombia+%28exportaciones+OR+exportaci%C3%B3n+OR+exporta+OR+exportadores+OR+exportador%29+after%3A2024-02-01+before%3A2024-03-01&hl=es-419&gl=CO&ceid=CO%3Aes-419",
+      "retrieved_at": "2026-11-16T19:47:12.140256+00:00",
+      "status": 200,
+      "sha256": "630c47aaa1e0e24da78c1c760e2c169a584e98912f45d24d4fdfa00d392133b9",
+      "accepted_items": 31,
+      "provider_items": 31,
+      "rejected_items": 0,
+      "possible_provider_cap": false
+    },
+    {
+      "month": "2024-03",
+      "url": "https://news.google.com/rss/search?q=Colombia+%28exportaciones+OR+exportaci%C3%B3n+OR+exporta+OR+exportadores+OR+exportador%29+after%3A2024-03-01+before%3A2024-04-01&hl=es-419&gl=CO&ceid=CO%3Aes-419",
+      "retrieved_at": "2026-11-16T19:47:13.148278+00:00",
+      "status": 200,
+      "sha256": "6b8bc7f283ed23e664bdeeb2ac96db5b9673227becf818732672d76014aac70c",
+      "accepted_items": 13,
+      "provider_items": 15,
+      "rejected_items": 2,
+      "possible_provider_cap": false
+    },
+    {
+      "month": "2024-04",
+      "url": "https://news.google.com/rss/search?q=Colombia+%28exportaciones+OR+exportaci%C3%B3n+OR+exporta+OR+exportadores+OR+exportador%29+after%3A2024-04-01+before%3A2024-05-01&hl=es-419&gl=CO&ceid=CO%3Aes-419",
+      "retrieved_at": "2026-11-16T19:47:14.136356+00:00",
+      "status": "failed",
+      "error": "HTTPError: HTTP Error 429: Too Many Requests"
+    },
+    {
+      "month": "2024-05",
+      "url": "https://news.google.com/rss/search?q=Colombia+%28exportaciones+OR+exportaci%C3%B3n+OR+exporta+OR+exportadores+OR+exportador%29+after%3A2024-05-01+before%3A2024-06-01&hl=es-419&gl=CO&ceid=CO%3Aes-419",
+      "retrieved_at": "2026-11-16T19:47:15.094464+00:00",
+      "status": 200,
+      "sha256": "e421e961a9fa8b7cf1ed8316911485396cff0e50593b9b37ac39835c7e855ecf",
+      "accepted_items": 19,
+      "provider_items": 19,
+      "rejected_items": 0,
+      "possible_provider_cap": false
+    },
+    {
+      "month": "2024-06",
+      "url": "https://news.google.com/rss/search?q=Colombia+%28exportaciones+OR+exportaci%C3%B3n+OR+exporta+OR+exportadores+OR+exportador%29+after%3A2024-06-01+before%3A2024-07-01&hl=es-419&gl=CO&ceid=CO%3Aes-419",
+      "retrieved_at": "2026-11-16T19:47:16.320666+00:00",
+      "status": 200,
+      "sha256": "b4f5f084cc148c053ef1f5bcfa7b0061f63c2d124ff84062ba169b8c58d38321",
+      "accepted_items": 28,
+      "provider_items": 29,
+      "rejected_items": 1,
+      "possible_provider_cap": false
+    },
+    {
+      "month": "2024-07",
+      "url": "https://news.google.com/rss/search?q=Colombia+%28exportaciones+OR+exportaci%C3%B3n+OR+exporta+OR+exportadores+OR+exportador%29+after%3A2024-07-01+before%3A2024-08-01&hl=es-419&gl=CO&ceid=CO%3Aes-419",
+      "retrieved_at": "2026-11-16T19:47:17.399435+00:00",
+      "status": 200,
+      "sha256": "92766c1efd19d9e8e1dc83358d531a487220413f9bef8dda780527bdb6930f62",
+      "accepted_items": 11,
+      "provider_items": 11,
+      "rejected_items": 0,
+      "possible_provider_cap": false
+    },
+    {
+      "month": "2024-08",
+      "url": "https://news.google.com/rss/search?q=Colombia+%28exportaciones+OR+exportaci%C3%B3n+OR+exporta+OR+exportadores+OR+exportador%29+after%3A2024-08-01+before%3A2024-09-01&hl=es-419&gl=CO&ceid=CO%3Aes-419",
+      "retrieved_at": "2026-11-16T19:47:18.371799+00:00",
+      "status": 200,
+      "sha256": "b625a83cc806613cd323db274df86ae5dcffa8388f804c69eebdffa7575961d9",
+      "accepted_items": 18,
+      "provider_items": 18,
+      "rejected_items": 0,
+      "possible_provider_cap": false
+    },
+    {
+      "month": "2024-09",
+      "url": "https://news.google.com/rss/search?q=Colombia+%28exportaciones+OR+exportaci%C3%B3n+OR+exporta+OR+exportadores+OR+exportador%29+after%3A2024-09-01+before%3A2024-10-01&hl=es-419&gl=CO&ceid=CO%3Aes-419",
+      "retrieved_at": "2026-11-16T19:47:19.586671+00:00",
+      "status": 200,
+      "sha256": "7ec98084e9969691bcd1ccc20bbd78fdebd87bacdc23b9696813896a5e207fa8",
+      "accepted_items": 15,
+      "provider_items": 17,
+      "rejected_items": 2,
+      "possible_provider_cap": false
+    },
+    {
+      "month": "2024-10",
+      "url": "https://news.google.com/rss/search?q=Colombia+%28exportaciones+OR+exportaci%C3%B3n+OR+exporta+OR+exportadores+OR+exportador%29+after%3A2024-10-01+before%3A2024-11-01&hl=es-419&gl=CO&ceid=CO%3Aes-419",
+      "retrieved_at": "2026-11-16T19:50:39.405779+00:00",
+      "status": "failed",
+      "http_status": 429,
+      "retry_after": null,
+      "error": "HTTPError: HTTP Error 429: Too Many Requests"
+    },
+    {
+      "month": "2024-11",
+      "status": "not_attempted",
+      "reason": "Provider limit encountered earlier in this run"
+    },
+    {
+      "month": "2024-12",
+      "status": "not_attempted",
+      "reason": "Provider limit encountered earlier in this run"
+    },
+    {
+      "month": "2025-01",
+      "status": "not_attempted",
+      "reason": "Provider limit encountered earlier in this run"
+    },
+    {
+      "month": "2025-02",
+      "status": "not_attempted",
+      "reason": "Provider limit encountered earlier in this run"
+    },
+    {
+      "month": "2025-03",
+      "status": "not_attempted",
+      "reason": "Provider limit encountered earlier in this run"
+    },
+    {
+      "month": "2025-04",
+      "status": "not_attempted",
+      "reason": "Provider limit encountered earlier in this run"
+    },
+    {
+      "month": "2025-05",
+      "status": "not_attempted",
+      "reason": "Provider limit encountered earlier in this run"
+    },
+    {
+      "month": "2025-06",
+      "status": "not_attempted",
+      "reason": "Provider limit encountered earlier in this run"
+    },
+    {
+      "month": "2025-07",
+      "status": "not_attempted",
+      "reason": "Provider limit encountered earlier in this run"
+    },
+    {
+      "month": "2025-08",
+      "status": "not_attempted",
+      "reason": "Provider limit encountered earlier in this run"
+    },
+    {
+      "month": "2025-09",
+      "status": "not_attempted",
+      "reason": "Provider limit encountered earlier in this run"
+    },
+    {
+      "month": "2025-10",
+      "status": "not_attempted",
+      "reason": "Provider limit encountered earlier in this run"
+    },
+    {
+      "month": "2025-11",
+      "status": "not_attempted",
+      "reason": "Provider limit encountered earlier in this run"
+    },
+    {
+      "month": "2025-12",
+      "status": "not_attempted",
+      "reason": "Provider limit encountered earlier in this run"
+    },
     {
       "month": "2026-01",
       "url": "https://news.google.com/rss/search?q=Colombia+%28exportaciones+OR+exportaci%C3%B3n+OR+exporta+OR+exportadores+OR+exportador%29+after%3A2026-01-01+before%3A2026-02-01&hl=es-419&gl=CO&ceid=CO%3Aes-419",
@@ -114,5 +732,85 @@
       "rejected_items": 0,
       "possible_provider_cap": false
     }
-  ]
+  ],
+  "historical_retrieval_note": "Retrospective discovery is non-exhaustive. Earlier months were collected separately; the existing 2026 raw snapshot is preserved.",
+  "publisher_archive": {
+    "source": "Analdex public WordPress archive",
+    "search": "exportaciones",
+    "start": "2020-03-01",
+    "end_exclusive": "2026-11-01",
+    "requests": [
+      {
+        "url": "https://www.analdex.org/wp-json/wp/v2/posts?search=exportaciones&after=2020-03-01T00%3A00%3A00&before=2026-11-01T00%3A00%3A00&per_page=100&page=1&orderby=date&order=asc&_fields=id%2Cdate%2Cdate_gmt%2Clink%2Ctitle%2Ccontent",
+        "retrieved_at": "2026-11-16T19:57:35.347839+00:00",
+        "status": 200,
+        "page": 1,
+        "total_pages": 7,
+        "provider_total": 644,
+        "sha256": "31215d83b582e7c5eb955f3cb4872faf4b9c04e6c9bdb976c4b26d2895249810",
+        "accepted_items": 100
+      },
+      {
+        "url": "https://www.analdex.org/wp-json/wp/v2/posts?search=exportaciones&after=2020-03-01T00%3A00%3A00&before=2026-11-01T00%3A00%3A00&per_page=100&page=2&orderby=date&order=asc&_fields=id%2Cdate%2Cdate_gmt%2Clink%2Ctitle%2Ccontent",
+        "retrieved_at": "2026-11-16T19:57:40.011883+00:00",
+        "status": 200,
+        "page": 2,
+        "total_pages": 7,
+        "provider_total": 644,
+        "sha256": "864066b95c2fa25689a20fd40ee8e0060b92468139a5b7d0b06ee27f445d4f8b",
+        "accepted_items": 100
+      },
+      {
+        "url": "https://www.analdex.org/wp-json/wp/v2/posts?search=exportaciones&after=2020-03-01T00%3A00%3A00&before=2026-11-01T00%3A00%3A00&per_page=100&page=3&orderby=date&order=asc&_fields=id%2Cdate%2Cdate_gmt%2Clink%2Ctitle%2Ccontent",
+        "retrieved_at": "2026-11-16T19:57:44.605589+00:00",
+        "status": 200,
+        "page": 3,
+        "total_pages": 7,
+        "provider_total": 644,
+        "sha256": "cd7990bdab61ea400f1fc04de5a8bdda0af0e1454ef0e33ad86ffff95a82b359",
+        "accepted_items": 100
+      },
+      {
+        "url": "https://www.analdex.org/wp-json/wp/v2/posts?search=exportaciones&after=2020-03-01T00%3A00%3A00&before=2026-11-01T00%3A00%3A00&per_page=100&page=4&orderby=date&order=asc&_fields=id%2Cdate%2Cdate_gmt%2Clink%2Ctitle%2Ccontent",
+        "retrieved_at": "2026-11-16T19:57:49.295656+00:00",
+        "status": 200,
+        "page": 4,
+        "total_pages": 7,
+        "provider_total": 644,
+        "sha256": "f1c94b3c966125835468cbc504a190a98134686c1613f79f0fa00e8ae4514656",
+        "accepted_items": 100
+      },
+      {
+        "url": "https://www.analdex.org/wp-json/wp/v2/posts?search=exportaciones&after=2020-03-01T00%3A00%3A00&before=2026-11-01T00%3A00%3A00&per_page=100&page=5&orderby=date&order=asc&_fields=id%2Cdate%2Cdate_gmt%2Clink%2Ctitle%2Ccontent",
+        "retrieved_at": "2026-11-16T19:57:54.854250+00:00",
+        "status": 200,
+        "page": 5,
+        "total_pages": 7,
+        "provider_total": 644,
+        "sha256": "12323cbb06c969e449c6f3fab316e06dbf717bd59a84939a3bb0cd03c100a84d",
+        "accepted_items": 100
+      },
+      {
+        "url": "https://www.analdex.org/wp-json/wp/v2/posts?search=exportaciones&after=2020-03-01T00%3A00%3A00&before=2026-11-01T00%3A00%3A00&per_page=100&page=6&orderby=date&order=asc&_fields=id%2Cdate%2Cdate_gmt%2Clink%2Ctitle%2Ccontent",
+        "retrieved_at": "2026-11-16T19:58:00.049660+00:00",
+        "status": 200,
+        "page": 6,
+        "total_pages": 7,
+        "provider_total": 644,
+        "sha256": "bc57a73efcec39c56f2b443c131ec694131132dc80f44451904facd11bfb43cd",
+        "accepted_items": 100
+      },
+      {
+        "url": "https://www.analdex.org/wp-json/wp/v2/posts?search=exportaciones&after=2020-03-01T00%3A00%3A00&before=2026-11-01T00%3A00%3A00&per_page=100&page=7&orderby=date&order=asc&_fields=id%2Cdate%2Cdate_gmt%2Clink%2Ctitle%2Ccontent",
+        "retrieved_at": "2026-11-16T19:58:05.590239+00:00",
+        "status": 200,
+        "page": 7,
+        "total_pages": 7,
+        "provider_total": 644,
+        "sha256": "0024ee235e63611b7bf7882f655e3f03c4ab6461d783d73f6f69ea9f2653c127",
+        "accepted_items": 44
+      }
+    ],
+    "note": "Institutional source supplement; search is not exhaustive. Source/date composition differs from general press."
+  }
 }
