@@ -32,7 +32,7 @@ class ContextualTests(unittest.TestCase):
                  "positive_count": i, "negative_count": 0} for i in range(2)]
         scores = [{"record_id": str(i), "body": {"score": score, "label": label}} for i, score, label in [(0, .8, "POS"), (1, -.2, "NEG")]]
         all_rows = aggregate_scores(scores, rows, ["2026-01", "2026-02"])
-        self.assertAlmostEqual(all_rows[0]["mean_probability_balance"], .3)
+        self.assertEqual(all_rows[0]["mean_probability_balance"], .3)
         self.assertIsNone(all_rows[1]["mean_probability_balance"])
         subset = aggregate_scores(scores, rows, ["2026-01"], dictionary_matched=True)
         self.assertAlmostEqual(subset[0]["mean_probability_balance"], -.2)
