@@ -4,7 +4,7 @@ import tempfile
 import unittest
 
 from trade_news.articles import publication_metadata, fetch_public_article, reference_fingerprint, write_jsonl
-from trade_news.bank_method import aggregate, load_reference, process_text
+from trade_news.bank_method import aggregate, load_reference, process_text, trailing_quarterly_mean
 from trade_news.classification import ACTIVITIES, propose
 from trade_news.collect import month_windows, parse_feed
 from trade_news.corpus import apply_reviews, build, evaluate_sentiment
@@ -29,6 +29,22 @@ def human(identity="one", **changes):
 
 
 class MeasurementTests(unittest.TestCase):
+    def test_numbered_lists_do_not_supply_words_or_merge_short_sentences(self):
+        result = process_text("a) oportunidades economía comercio mundial bienes\nb) recuperación economía comercio mundial bienes")
+        self.assertEqual(result["processed_tokens"], 0)
+        self.assertEqual(result["candidate_sentences"], 2)
+        self.assertEqual(result["tokens_before_stopwords"], 10)
+        self.assertEqual(result["tokens_after_stopwords"], 10)
+
+    def test_trailing_mean_requires_three_consecutive_nonmissing_months(self):
+        rows = [{"month": f"2020-0{i}", "sentiment": value} for i, value in enumerate([1, 0, -1, None, 1, 1, 1], 1)]
+        self.assertEqual(trailing_quarterly_mean(rows, "sentiment"), [None, None, 0, None, None, None, 1])
+        self.assertEqual(trailing_quarterly_mean([rows[0], rows[2], rows[4]], "sentiment"), [None, None, None])
+
+    def test_historical_window_includes_all_calendar_months(self):
+        windows = list(month_windows("2020-03-01", "2026-11-01"))
+        self.assertEqual((len(windows), windows[0], windows[-1]), (80, ("2020-03-01", "2020-04-01"), ("2026-10-01", "2026-11-01")))
+
     def test_complete_published_dictionary(self):
         lexicon, stops = load_reference()
         self.assertEqual(sum(p == "positive" for p in lexicon.values()), 188)

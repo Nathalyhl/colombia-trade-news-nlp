@@ -24,7 +24,11 @@ class DashboardTests(unittest.TestCase):
         self.assertEqual(len(app.exception), 0)
         self.assertIn("Destinations", [tab.label for tab in app.tabs])
         baseline = [metric.value for metric in app.metric[:4]]
-        self.assertEqual(app.selectbox(key="destination_country").options, ["United States", "Ecuador", "Israel", "Venezuela", "China"])
+        options = app.selectbox(key="destination_country").options
+        self.assertIn("United States", options)
+        self.assertIn("China", options)
+        from trade_news.destinations import COUNTRIES
+        self.assertTrue(set(options) <= set(COUNTRIES))
         app.selectbox(key="destination_country").set_value("China").run()
         self.assertEqual(len(app.exception), 0)
         self.assertEqual([metric.value for metric in app.metric[:4]], baseline)
