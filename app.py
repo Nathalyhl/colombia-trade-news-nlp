@@ -10,36 +10,20 @@ import streamlit as st
 from trade_news.articles import read_jsonl
 from trade_news.corpus import REVIEW_FIELDS, build, read_reviews
 from trade_news.bank_method import aggregate, trailing_quarterly_mean
+from trade_news.charts import index_chart, available
 from trade_news.destinations import COUNTRIES, RULE_LABELS
 from trade_news.country_review import (assignments, country_coverage, evaluate_countries,
     read_country_reviews, save_country_review, title_hash)
 
 BASE = Path(__file__).resolve().parent
 DATA = BASE/"data"
+ROLE_LABELS = {"statistical_reporting_candidate": "Statistical reporting cues", "event_or_expectation_candidate": "Event or expectation cues",
+               "mixed_cues": "Mixed reporting and event cues", "unresolved": "Role unresolved"}
 st.set_page_config(page_title="Colombian Goods Export News", page_icon="🇨🇴", layout="wide")
 
 
 def load_json(name):
     return json.loads((DATA/name).read_text("utf8"))
-
-
-def index_chart(frame, column, title, bounds=None):
-    records = frame.to_dict("records")
-    fig = go.Figure(go.Scatter(x=frame["month"], y=frame[column], mode="lines", name="Monthly estimate",
-        line={"color": "#b2b9c1", "width": 1}, connectgaps=False,
-        customdata=frame[["articles", "publishers"]],
-        hovertemplate="%{x}<br>Value: %{y:.3f}<br>Articles: %{customdata[0]}<br>Publishers: %{customdata[1]}<extra></extra>"))
-    fig.add_trace(go.Scatter(x=frame["month"], y=trailing_quarterly_mean(records, column),
-        mode="lines", name="Trailing 3-month mean", line={"color": "#142330", "width": 2.5}, connectgaps=False))
-    fig.update_layout(title=title, xaxis_title="Publication month", yaxis_title=column.replace("_", " "), height=390,
-        template="plotly_white", font={"family": "Georgia, serif", "color": "#182631"},
-        paper_bgcolor="white", plot_bgcolor="white", legend={"orientation": "h", "y": -0.25},
-        margin={"l": 40, "r": 20, "t": 55, "b": 70})
-    fig.update_xaxes(type="date", dtick="M12", tickformat="%b %Y", showgrid=False)
-    fig.update_yaxes(zeroline=True, zerolinecolor="#657380")
-    if bounds:
-        fig.update_yaxes(range=bounds, zeroline=True)
-    return fig
 
 
 rows = read_jsonl(DATA/"headlines.jsonl")
@@ -58,11 +42,11 @@ st.write("A dictionary-based study of Spanish-language news about exports of Col
 st.caption("March 2020–October 2026 · Publication months · Independent adaptation of BE1340 · Corpus review pending")
 c1, c2, c3, c4 = st.columns(4)
 c1.metric("Eligible news articles", len(eligible))
-c2.metric("News sources", len({r["publisher"] for r in eligible}))
-c3.metric("Publication months", len(months))
+c2.metric("Publisher domains", len({r.get("publisher_group", r["publisher"]) for r in eligible}))
+c3.metric("Months with news / window", f"{len({r['month'] for r in eligible})} / {len(months)}")
 c4.metric("Articles linked to countries", len({r["record_id"] for r in country_rows}))
-general, destinations_tab, evidence, quality, method = st.tabs(
-    ["General index", "Destinations", "Articles & evidence", "Quality & review", "Method"])
+overview_tab, general, destinations_tab, evidence, quality, method = st.tabs(
+    ["Study overview", "General index", "Destinations", "Articles & evidence", "Quality & review", "Method"])
 
 
 def article_evidence(article, context):
@@ -74,6 +58,10 @@ def article_evidence(article, context):
         st.info("Publisher article text was not retrieved for this record. No article sentiment or uncertainty estimate is available.")
         st.json({k: article.get(k) for k in ["fetch_status", "fetch_error", "resolution_error", "date_source"]})
         return
+    st.write("**Document role proposal:** "+ROLE_LABELS.get(article.get("document_role_proposal"), "Role unresolved"))
+    with st.expander("Inspect the document-role cues"):
+        st.json(article.get("document_role_evidence", {}))
+        st.caption("These observed cues propose a review category. They do not establish that the article repeats official data or adds predictive information.")
     a, b, c = st.columns(3)
     a.metric("Positive word occurrences", article.get("positive_count", 0))
     b.metric("Negative word occurrences", article.get("negative_count", 0))
@@ -97,20 +85,44 @@ def article_evidence(article, context):
             "processing_status", "scope_reason", "goods_evidence", "fetch_status", "fetch_error"]})
 
 
+with overview_tab:
+    st.subheader("Research question")
+    st.write("Can Spanish-language export news provide information beyond already published merchandise-export statistics?")
+    st.write("This research prototype implements a transparent dictionary baseline, audits the corpus and exposes its measurement limits. "
+             "Additional information and predictive value remain hypotheses to test with independent labels and dated trade releases.")
+    st.subheader("What the executed sample demonstrates")
+    stages = [("Discovery records", audit["candidate_records"]), ("Retrieved publisher texts", audit["extracted_articles"]),
+              ("Eligible after conservative export-focus screening and deduplication", len(eligible)),
+              ("Eligible texts with dictionary polarity matches", sum(r["positive_count"]+r["negative_count"] > 0 for r in eligible))]
+    st.table(pd.DataFrame(stages, columns=["Executed stage", "Records"]).set_index("Executed stage"))
+    st.subheader("Statistical reporting versus other news")
+    role_counts = pd.Series([ROLE_LABELS.get(r.get("document_role_proposal"), "Role unresolved") for r in eligible]).value_counts()
+    st.dataframe(role_counts.rename_axis("Document-role proposal").rename("Articles").reset_index(), hide_index=True)
+    st.caption("Role labels are transparent cue-based proposals, not human reference judgments. An event or expectation cue does not establish "
+               "that information is new, forward-looking or useful for prediction. Analdex's name alone does not determine a document's role.")
+    st.subheader("Read this as a code sample")
+    st.markdown("1. Inspect the **General index** and source/document-role sensitivity.\n"
+                "2. Open **Destinations** to see actual monthly observations and their article support.\n"
+                "3. Trace a real article in **Articles & evidence**, then inspect **Method** and the source code.\n"
+                "4. Review the explicit validation design in **Quality & review** and `docs/RESEARCH_BRIEF.md`.")
+    st.info("Research status: implemented and reproducible measurement baseline. Human classification accuracy and incremental economic value "
+            "have not yet been established. The repository includes a deterministic, unlabeled review sample for the next empirical step.")
+
 with general:
     st.subheader("Export-news sentiment index")
     st.caption("Coverage: 2020–2025 currently contains Analdex institutional publications only; 2026 adds other publishers. "
                "Use the fixed-source comparison below before interpreting changes across this boundary.")
     series = pd.DataFrame([r for r in indices["provisional"] if r["activity"] == "All exports"])
     st.plotly_chart(index_chart(series, "sentiment", "Colombian goods export news · sentiment", [-1.05, 1.05]), width="stretch", key="general_sentiment")
-    st.caption("Thin gray: monthly estimate. Dark line: trailing mean of three consecutive available months, with no gap filling or future values. "
+    st.caption("Points: monthly index values calculated from article words, not export forecasts. Dark line: mean of the current and previous two "
+               "consecutive available monthly values, with no gap filling or future values. "
                "The Bank's Figure 3 uses a quarterly moving average; trailing alignment is our documented convention.")
     st.subheader("Export-news uncertainty index")
     st.plotly_chart(index_chart(series, "uncertainty_per_1000", "Colombian goods export news · uncertainty"), width="stretch", key="general_uncertainty")
     st.caption("Sentiment balances positive and negative dictionary words from −1 to +1. Uncertainty counts the six reference forms per 1,000 processed words. "
                "These measures describe news language; they do not measure export growth. Missing estimates stay missing.")
     st.subheader("How much news supports each month?")
-    institutional = [sum(r["month"] == month and r["publisher"] == "Analdex" for r in eligible) for month in months]
+    institutional = [sum(r["month"] == month and r.get("publisher_group") == "analdex.org" for r in eligible) for month in months]
     volume = go.Figure()
     volume.add_bar(x=months, y=institutional, name="Analdex · institutional source", marker_color="#8a9cae")
     volume.add_bar(x=months, y=[int(n)-a for n, a in zip(series["articles"], institutional)], name="Other publishers", marker_color="#1e465e")
@@ -120,7 +132,7 @@ with general:
     with st.expander("Source sensitivity: keep Analdex fixed across the whole period"):
         st.write("The same dictionary and equations are applied to eligible Analdex articles in every month. "
                  "This removes the 2026 addition of other publishers from this comparison; it does not remove institutional selection bias.")
-        fixed_rows = [r for r in eligible if r["publisher"] == "Analdex"]
+        fixed_rows = [r for r in eligible if r.get("publisher_group") == "analdex.org"]
         fixed_series = pd.DataFrame([r for r in aggregate(fixed_rows, months) if r["activity"] == "All exports"])
         for column, label in [("sentiment", "Sentiment"), ("uncertainty_per_1000", "Uncertainty per 1,000 words")]:
             comparison = go.Figure()
@@ -133,6 +145,14 @@ with general:
             st.plotly_chart(comparison, width="stretch", key="fixed_source_"+column)
         st.dataframe(fixed_series[["month", "articles", "positive_count", "negative_count", "uncertainty_count",
                                  "processed_tokens", "sentiment", "uncertainty_per_1000"]], hide_index=True)
+    with st.expander("Document-role sensitivity: hold out statistical-reporting and mixed candidates"):
+        subset = [r for r in eligible if r.get("document_role_proposal") not in {"statistical_reporting_candidate", "mixed_cues"}]
+        st.write(f"{len(subset)} of {len(eligible)} eligible articles remain after this diagnostic holdout. "
+                 "Unresolved roles remain; this is not a verified non-statistical or forward-looking corpus. The published dictionary stays unchanged.")
+        subset_series = pd.DataFrame([r for r in aggregate(subset, months) if r["activity"] == "All exports"])
+        st.plotly_chart(index_chart(subset_series, "sentiment", "Lexical tone after cue-based reporting holdout", [-1.05, 1.05]),
+                        width="stretch", key="document_role_sensitivity")
+        st.dataframe(subset_series[["month", "articles", "publishers", "sentiment", "uncertainty_per_1000"]], hide_index=True)
     st.info("Historical coverage is incomplete. Analdex's public archive supplements limited Google News discovery. "
             "The source mix changes over time, so movements may reflect coverage as well as news language. Human corpus review is pending.")
     with st.expander("Monthly construction table: P, N, U, W and estimates"):
@@ -152,16 +172,26 @@ with destinations_tab:
     else:
         country = st.selectbox("Destination country", [r["country"] for r in overview], key="destination_country")
         selected_country = [r for r in view if r["country"] == country]
+        destination_records = [r for r in aggregate(selected_country, months) if r["activity"] == "All exports"]
+        observed = [r for r in destination_records if r["articles"]]
+        smooth_count = sum(available(v) for v in trailing_quarterly_mean(destination_records, "sentiment"))
         d1, d2, d3 = st.columns(3)
         d1.metric("Linked articles", len(selected_country))
-        d2.metric("Sources for this country", len({r["publisher"] for r in selected_country}))
-        d3.metric("Human-confirmed links", sum(r["country_status"] == "Human confirmed" for r in selected_country))
-        destination_frame = pd.DataFrame([r for r in aggregate(selected_country, months) if r["activity"] == "All exports"])
-        dl, dr = st.columns(2)
-        dl.plotly_chart(index_chart(destination_frame, "sentiment", f"{country}: article sentiment", [-1.05, 1.05]),
+        d2.metric("Months with news", len(observed))
+        d3.metric("Publisher domains", len({r.get("publisher_group", r["publisher"]) for r in selected_country}))
+        st.caption(f"{len(selected_country)} articles contribute to {len(observed)} publication months within the {len(months)}-month window. "
+                   f"Human-confirmed country links: {sum(r['country_status'] == 'Human confirmed' for r in selected_country)}.")
+        if not smooth_count:
+            st.info("No 3-month moving average is available: this country has no three consecutive months with a sentiment value. "
+                    "The charts show the available monthly points; gaps are not zeroes and do not establish a continuous trend.")
+        destination_frame = pd.DataFrame(destination_records)
+        st.plotly_chart(index_chart(destination_frame, "sentiment", f"{country} · lexical tone of linked articles", [-1.05, 1.05], focus_observed=True),
                         width="stretch", key="country_sentiment")
-        dr.plotly_chart(index_chart(destination_frame, "uncertainty_per_1000", f"{country}: article uncertainty"),
+        st.plotly_chart(index_chart(destination_frame, "uncertainty_per_1000", f"{country} · uncertainty-word frequency", focus_observed=True),
                         width="stretch", key="country_uncertainty")
+        st.subheader("Observed months and their article support")
+        st.dataframe(pd.DataFrame(observed)[["month", "articles", "publishers", "positive_count", "negative_count", "uncertainty_count",
+                                           "processed_tokens", "sentiment", "uncertainty_per_1000"]], hide_index=True)
         st.caption("Automatic links remain proposals until reviewed. Scores use the whole article body, not country-specific sentences. "
                    "News may discuss historical, potential or interrupted exports. The general index stays fixed.")
         st.subheader("Why these articles belong to this country")
@@ -193,7 +223,7 @@ with evidence:
     else:
         st.dataframe(pd.DataFrame([{"Date": r.get("publication_date"), "Headline": r.get("publisher_title") or r["title"],
             "Source": r["publisher"], "Dictionary balance": r.get("sentiment_score"), "P": r.get("positive_count"),
-            "N": r.get("negative_count"), "Eligible": r["eligible_for_index"],
+            "N": r.get("negative_count"), "Role proposal": r.get("document_role_proposal"), "Eligible": r["eligible_for_index"],
             "Retrieval": r["fetch_status"]} for r in visible]), hide_index=True)
         chosen = st.selectbox("Inspect an article", [r["record_id"] for r in visible], key="inspect_article",
             format_func=lambda identity: next((r.get("publisher_title") or r["title"]) for r in visible if r["record_id"] == identity))
