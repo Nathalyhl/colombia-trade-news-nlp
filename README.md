@@ -4,9 +4,9 @@ An independent research project studying Spanish-language news about **exports o
 
 The project implements the article-text measurement procedure described in [Mora-Quiñones, Orozco-Gallo & Mora-Pérez (2026), Borradores de Economía 1340](https://doi.org/10.32468/be.1340): the published positive/negative dictionary, sentiment and uncertainty formulas, text-length and sentence-length conditions, and economic-activity taxonomy. It is an **adaptation to an export-news corpus**, not the Bank’s official series or a reproduction of its forecasting results.
 
-The main result is a **general monthly export-news index**. Economic activities are a secondary breakdown. There is one subject—exports—rather than a separate export-theme taxonomy.
+The main result is a **general monthly export-news index**. Destination countries are a secondary view, with evidence and review tools. There is one subject—exports—rather than a separate export-theme taxonomy.
 
-The **Destinations** tab adds a separate geographic view: select a country, region or bloc to inspect monthly article sentiment, uncertainty, coverage and linked source evidence. Its default mode uses explicit export/destination wording in headlines; an optional broader mode explores geographic mentions in article text. These are automatic proposals, not verified trade flows or destination-specific sentence sentiment. Counts measure news coverage, not export values. See the [destination protocol](docs/DESTINATIONS.md).
+The **Destinations** tab contains countries only. Select a country to inspect linked articles, whole-article sentiment, uncertainty and the reason for each assignment. **Quality & review** shows actual review status, a corrected real-world error and forms for independent country, corpus and sentiment judgments. There is no economic-activity tab, regional/bloc selector or general geographic-mention mode. See the [country protocol](docs/DESTINATIONS.md).
 
 ## Executed snapshot
 
@@ -19,7 +19,7 @@ The **Destinations** tab adds a separate geographic view: select a country, regi
 
 The frozen publication window is **1 January–31 October 2026**, with 1 November excluded. November is incomplete as of the project preparation date, 16 November 2026; December has not occurred. Neither month is filled with zeroes or fabricated news. Retrieval timestamps retain their original UTC values.
 
-The articles are real; corpus inclusion and activities are **automatic proposals pending human review**. The dashboard keeps the provisional series separate from a human-reviewed subset. No human accuracy score exists yet. Access failures, missing publisher dates and exclusions remain visible in the audit.
+The articles are real; corpus inclusion and country links are **automatic proposals pending human review**. Country assignments distinguish automatic proposals from human-confirmed decisions; rejection or uncertainty holds the assignment out. Country accuracy is **not measured** until human labels are supplied. Scores compare automatic predictions before corrections, so manual fixes cannot manufacture perfect accuracy. Access failures, missing publisher dates and exclusions remain visible in the audit.
 
 ## Measurement
 
@@ -47,7 +47,7 @@ python -m pip install -r requirements.txt
 python -m streamlit run app.py
 ```
 
-The dashboard opens the committed snapshot without collecting news. The general index remains fixed while exploring an activity or searching article titles.
+The dashboard opens the committed snapshot without collecting news. The general index remains fixed while exploring a country or searching article titles.
 
 ```bash
 # Rebuild decisions and monthly counts from committed article features, offline.
@@ -74,10 +74,10 @@ Google News is a non-exhaustive discovery source. Publisher-reported `datePublis
 
 ## Academic review and Colab
 
-Start with [methodology](docs/METHODOLOGY.md), [reference comparison](docs/RESEARCH_REFERENCE.md), [snapshot report](docs/SNAPSHOT_REPORT.md), and [human validation protocol](docs/VALIDATION.md). Inspect `trade_news/bank_method.py` for measurement and `trade_news/corpus.py` for corpus decisions and aggregation. `data/annotations.csv` and the dashboard’s Human review tab support documented manual decisions.
+Start with [methodology](docs/METHODOLOGY.md), [reference comparison](docs/RESEARCH_REFERENCE.md), [snapshot report](docs/SNAPSHOT_REPORT.md), and [human validation protocol](docs/VALIDATION.md). Inspect `trade_news/bank_method.py` for measurement and `trade_news/corpus.py` for corpus decisions and aggregation. Quality & review supports documented human decisions: country labels use `data/destination_reviews.csv`, while corpus inclusion and sentiment use `data/annotations.csv`.
 
 For Colab, upload `Colombia_Trade_News.ipynb`, then upload a ZIP downloaded from this private repository while signed in. The notebook does not request a GitHub token. Its offline cells reproduce the feature aggregates; optional retrieval is disabled by default. Run Streamlit locally for the dashboard.
 
 The repository distributes article metadata, source links, hashes, matched dictionary forms and derived counts. Publisher bodies and HTML stay in the ignored local `data/raw/` archive. This makes the released feature calculations reproducible; repeating text extraction and NLP requires that archive or a new public retrieval, whose contents may change.
 
-The source study’s exact tokenizer, stopword file and original curated corpus were not supplied with the paper. We document those implementation choices rather than claiming identical source code. Its econometric validation is outside this ten-month implementation. Third-party dictionary and stopword attribution is in [THIRD_PARTY_NOTICES.md](docs/THIRD_PARTY_NOTICES.md).
+The Annex 2 activity vocabulary remains in the reference files for source fidelity and historical compatibility, but its sparse dashboard view has been removed. The source study’s exact tokenizer, stopword file and original curated corpus were not supplied with the paper. We document those implementation choices rather than claiming identical source code. Its econometric validation is outside this ten-month implementation. Third-party dictionary and stopword attribution is in [THIRD_PARTY_NOTICES.md](docs/THIRD_PARTY_NOTICES.md).

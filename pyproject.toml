@@ -1,6 +1,6 @@
 [project]
 name = "colombia-trade-news-nlp"
-version = "0.4.0"
+version = "0.5.0"
 description = "Colombian goods export news: an auditable adaptation of BE1340 article-text sentiment and uncertainty measurement"
 requires-python = ">=3.11"
 
