@@ -1,5 +1,6 @@
 """Offline feature/count reproduction; article-text NLP requires the local archive."""
 import hashlib
+import csv
 import json
 from pathlib import Path
 import sys
@@ -73,6 +74,16 @@ for feature in destinations:
         assert hit["start"] >= 0 and hit["end"] > hit["start"]
     assert not any(key in feature for key in ["body", "article_text", "text", "html"])
 assert evaluate_countries(rows, destinations, read_country_reviews(data, rows)) == read("destination_validation.json")
+sample_manifest = read("review_sample_manifest.json")
+assert sample_manifest["source_features_sha256"] == hashlib.sha256((data/"headlines.jsonl").read_bytes()).hexdigest()
+with (data/"review_sample.csv").open(encoding="utf8", newline="") as stream:
+    sample = list(csv.DictReader(stream))
+assert len(sample) == sample_manifest["selected_size"] == len({r["record_id"] for r in sample})
+assert {r["record_id"] for r in sample} == set(sample_manifest["record_ids"]) <= set(lookup)
+for review in sample:
+    assert review["document_role_gold"] in {"", "statistical_reporting", "event_or_expectation", "mixed", "unsure"}
+    if review["include"] in {"yes", "no"} or review["sentiment_gold"] or review["document_role_gold"]:
+        assert review["reviewer"].strip() and review["annotation_origin"] == "human"
 for notebook_path in base.glob("*.ipynb"):
     notebook = json.loads(notebook_path.read_text("utf8"))
     assert notebook["nbformat"] == 4
