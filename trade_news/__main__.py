@@ -9,7 +9,7 @@ from .validation import validate
 
 def main():
     parser = argparse.ArgumentParser(description="Colombian goods export news: BE1340 measurement adaptation")
-    parser.add_argument("command", choices=["collect", "fetch", "analyze", "validate", "all"])
+    parser.add_argument("command", choices=["collect", "fetch", "analyze", "destinations", "validate", "all"])
     parser.add_argument("--start", default="2026-01-01")
     parser.add_argument("--end", default="2026-11-01", help="Exclusive month boundary; frozen Jan–Oct 2026 snapshot")
     parser.add_argument("--data-dir", default="data")
@@ -25,6 +25,10 @@ def main():
     if args.command in {"analyze", "all"}:
         rows, _ = build(directory, verify_local_text=args.verify_local_text)
         print(f"Prepared {len(rows)} retrieval records; {sum(r['eligible_for_index'] for r in rows)} eligible articles")
+    if args.command == "destinations":
+        from .destinations import build_destinations
+        features = build_destinations(directory, read_jsonl(directory/"headlines.jsonl"))
+        print(f"Prepared destination evidence for {len(features)} real news records")
     if args.command in {"validate", "all"}:
         report = validate(read_jsonl(directory/"headlines.jsonl"), directory/"annotations.csv")
         write_json(directory/"validation_report.json", report)

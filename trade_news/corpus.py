@@ -148,4 +148,6 @@ def build(directory, verify_local_text=False):
              "manual_corpus_validation": "pending" if not any(r["review_status"] == "human_reviewed" for r in rows) else "partially_reviewed"}
     write_json(directory/"processing_audit.json", audit)
     write_json(directory/"validation_report.json", evaluate_sentiment(rows, reviews))
+    from .destinations import build_destinations
+    build_destinations(directory, rows)
     return rows, indices
