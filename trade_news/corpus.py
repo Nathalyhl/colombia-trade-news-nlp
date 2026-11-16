@@ -52,9 +52,11 @@ def apply_reviews(records, reviews):
             raise ValueError("Use positive, negative or neutral reference sentiment")
         valid_text = row.get("fetch_status") == "article_extracted" and row.get("processing_status") == "processed"
         if decision == "yes":
-            if not valid_text or review.get("activity") not in ACTIVITIES:
-                raise ValueError("An included article needs verified dated text and one valid Annex 2 activity")
-        row["activity"] = review["activity"] if decision == "yes" else row.get("activity_proposal", "Other Activity")
+            if not valid_text:
+                raise ValueError("An included article needs verified dated text")
+            if review.get("activity") and review["activity"] not in ACTIVITIES:
+                raise ValueError("An optional activity override must use an Annex 2 label")
+        row["activity"] = review["activity"] if decision == "yes" and review.get("activity") else row.get("activity_proposal", "Other Activity")
         row["review_status"] = "human_reviewed" if decision in {"yes", "no"} else "pending"
         row["review_decision"] = decision or "pending"
         row["eligible_for_index"] = valid_text and (decision == "yes" or (not decision and row.get("scope_proposal") == "include"))

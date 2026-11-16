@@ -32,6 +32,8 @@ def main():
     if args.command in {"validate", "all"}:
         report = validate(read_jsonl(directory/"headlines.jsonl"), directory/"annotations.csv")
         write_json(directory/"validation_report.json", report)
+        from .country_review import refresh_country_validation
+        refresh_country_validation(directory, read_jsonl(directory/"headlines.jsonl"), read_jsonl(directory/"destinations.jsonl"))
         print(report["status"])
 
 

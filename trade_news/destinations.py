@@ -14,7 +14,7 @@ from .articles import read_jsonl, write_jsonl
 from .bank_method import aggregate
 from .classification import normalized
 
-METHOD = "headline_export_destinations_and_market_mentions_v1"
+METHOD = "country_export_links_with_comparison_guard_v2"
 COUNTRIES = {
     "United States": ["estados unidos", "ee uu", "eeuu", "e e u u"],
     "China": ["china"], "Ecuador": ["ecuador"], "Venezuela": ["venezuela"],
@@ -44,24 +44,23 @@ COUNTRIES = {
     "Thailand": ["tailandia"], "Pakistan": ["pakistan"], "Bangladesh": ["banglades"],
     "Australia": ["australia"], "New Zealand": ["nueva zelanda"],
 }
-REGIONS = {
-    "European Union": ["union europea", "ue"], "Europe": ["europa"],
-    "Asia": ["asia"], "Asia-Pacific": ["asia pacifico"], "Middle East": ["medio oriente", "oriente medio"],
-    "Africa": ["africa"], "Latin America": ["america latina", "latinoamerica"],
-    "Central America": ["america central", "centroamerica"],
-    "South America": ["america del sur", "suramerica", "sudamerica"],
-    "Mercosur": ["mercosur"], "Pacific Alliance": ["alianza del pacifico"],
-}
-MARKETS = {**COUNTRIES, **REGIONS}
+MARKETS = COUNTRIES
 EXPORT = r"\b(?:export\w*|ventas?\s+externas?|ventas?\s+internacionales?|vender|vende\w*|vendio)\b"
 ORIGIN = r"\b(?:colombia|colombian[oa]s?)\b"
 DIRECTION = r"(?:\bexport\w*|\bventas?\s+externas?|\bvender|\bvende\w*|\bvendio)(?:\s+\w+){0,16}\s+(?:a|hacia|para)(?:\s+(?:el|los|la|las))?\s*$"
 ROLE = r"^(?:\s+\w+){0,10}\s+(?:destino|comprador|compradores|cliente|clientes)\b"
 BUYER = r"^(?:\s+\w+){0,4}\s+(?:compra\w*|importa\w*|adquier\w*)\b"
+COMPARISON = r"\b(?:frente\s+a|respecto\s+a|en\s+comparacion\s+con|compite\s+con|competencia\s+de|competidor\s+de|proveniente\s+de|procedente\s+de)\s*$"
+RULE_LABELS = {
+    "export_to_market_in_headline": "The headline links Colombian exports to this country with directional wording.",
+    "named_destination_or_buyer_role_in_headline": "The headline explicitly describes this country as a destination, buyer or customer.",
+    "named_buyer_in_Colombian_export_headline": "The headline names this country as a buyer in a Colombian-export context.",
+    "comparison_or_source_not_destination": "The country appears as a comparison, competitor or source, rather than an export destination.",
+}
 
 
 def configuration_hash():
-    settings = [METHOD, MARKETS, EXPORT, ORIGIN, DIRECTION, ROLE, BUYER]
+    settings = [METHOD, MARKETS, EXPORT, ORIGIN, DIRECTION, ROLE, BUYER, COMPARISON]
     return hashlib.sha256(json.dumps(settings, ensure_ascii=False, sort_keys=True).encode()).hexdigest()
 
 
@@ -74,7 +73,7 @@ def market_hits(text, field):
             for match in re.finditer(r"(?<!\w)"+re.escape(alias)+r"(?!\w)", value):
                 matches.append({"market": market, "alias": alias, "field": field,
                                 "start": match.start(), "end": match.end()})
-    # Longest alias wins when spans overlap (Asia-Pacific must not also become Asia).
+    # Longest country alias wins when spans overlap.
     accepted = []
     for match in sorted(matches, key=lambda m: (-(m["end"]-m["start"]), m["start"], m["market"])):
         if not any(match["start"] < other["end"] and other["start"] < match["end"] for other in accepted):
@@ -85,12 +84,15 @@ def market_hits(text, field):
 def identify(title, body=""):
     value, title_hits = market_hits(title, "title")
     _, body_hits = market_hits(body, "article_body")
-    explicit = []
+    explicit, rejected = [], []
     if re.search(EXPORT, value) and re.search(ORIGIN, value):
         for hit in title_hits:
             before, after = value[:hit["start"]], value[hit["end"]:]
             rule = None
-            if re.search(DIRECTION, before):
+            if re.search(COMPARISON, before):
+                rejected.append({**hit, "rule": "comparison_or_source_not_destination"})
+                continue
+            if re.search(DIRECTION, before) and re.search(ORIGIN, before):
                 rule = "export_to_market_in_headline"
             elif re.search(ROLE, after):
                 rule = "named_destination_or_buyer_role_in_headline"
@@ -101,6 +103,7 @@ def identify(title, body=""):
     return {"destinations": sorted({h["market"] for h in explicit}),
             "market_mentions": sorted({h["market"] for h in title_hits+body_hits}),
             "destination_evidence": explicit,
+            "non_destination_evidence": rejected,
             # First occurrence per market/field is enough to audit a mention.
             "mention_evidence": list({(h["market"], h["field"]): h for h in reversed(title_hits+body_hits)}.values())}
 
@@ -131,6 +134,8 @@ def build_destinations(directory, rows):
             "title_sha256": title_hash, "body_sha256": text_hash,
             "status": "automatic_proposals_pending_human_review", **identify(title, body)})
     write_jsonl(path, output)
+    from .country_review import refresh_country_validation
+    refresh_country_validation(directory, rows, output)
     return output
 
 
@@ -142,7 +147,9 @@ def select_articles(rows, features, market, mode="destinations"):
 
 
 def coverage(rows, features, mode="destinations", kind="Countries"):
-    allowed = set(COUNTRIES if kind == "Countries" else REGIONS if kind == "Regions and blocs" else MARKETS)
+    if kind != "Countries":
+        raise ValueError("Only country destinations are supported")
+    allowed = set(COUNTRIES)
     lookup = {r["record_id"]: r for r in features}
     counts = Counter(market for row in rows if row.get("eligible_for_index")
                      for market in set(lookup.get(row["record_id"], {}).get(mode, [])) if market in allowed)
