@@ -4,10 +4,11 @@ import csv
 import hashlib
 import json
 from pathlib import Path
+from urllib.parse import urlparse
 
 from .articles import read_jsonl, write_jsonl, reference_fingerprint
 from .bank_method import aggregate, process_text, METHOD
-from .classification import ACTIVITIES, propose
+from .classification import ACTIVITIES, propose, SCREENING_METHOD
 
 REVIEW_FIELDS = ["record_id", "title", "url", "include", "activity", "reviewer", "annotation_origin", "notes", "sentiment_gold"]
 
@@ -109,10 +110,13 @@ def build(directory, verify_local_text=False):
     records = read_jsonl(directory/"article_manifest.jsonl")
     fingerprint = reference_fingerprint()
     for row in records:
+        host = urlparse(row.get("publisher_url") or row.get("article_url") or "").hostname
+        row["publisher_group"] = host.removeprefix("www.") if host else row["publisher"]
         if row.get("fetch_status") != "article_extracted":
             continue
         text_path = directory/"raw"/"articles"/(row["record_id"]+".txt")
-        stale = row.get("reference_fingerprint") != fingerprint or row.get("method") != METHOD
+        stale = (row.get("reference_fingerprint") != fingerprint or row.get("method") != METHOD
+                 or row.get("screening_method") != SCREENING_METHOD)
         if text_path.exists() and (verify_local_text or stale):
             text = text_path.read_text("utf8")
             if hashlib.sha256(text.encode()).hexdigest() != row["text_sha256"]:
@@ -147,6 +151,7 @@ def build(directory, verify_local_text=False):
              "duplicates": [{"record_id": r["record_id"], "duplicate_of": r["duplicate_of"]} for r in rows if r.get("duplicate_of")],
              "fetch_status_counts": dict(Counter(r["fetch_status"] for r in rows)),
              "scope_proposals": dict(Counter(r.get("scope_proposal", "not_extracted") for r in rows)),
+             "document_role_proposals": dict(Counter(r.get("document_role_proposal", "not_extracted") for r in rows)),
              "collection_failures": sum(r["status"] == "failed" for r in log["requests"]),
              "raw_metadata_sha256": hashlib.sha256((directory/"headlines_raw.jsonl").read_bytes()).hexdigest(),
              "article_manifest_sha256": hashlib.sha256((directory/"article_manifest.jsonl").read_bytes()).hexdigest(),

@@ -8,6 +8,7 @@ import csv
 import hashlib
 import html
 import json
+import math
 from pathlib import Path
 import re
 import unicodedata
@@ -106,7 +107,7 @@ def aggregate(records, months, reviewed_only=False):
             tokens = sum(r["processed_tokens"] for r in rows)
             uncertain = sum(r["uncertainty_count"] for r in rows)
             output.append({"month": month, "activity": activity, "articles": len(rows),
-                           "publishers": len({r["publisher"] for r in rows}),
+                           "publishers": len({r.get("publisher_group", r["publisher"]) for r in rows}),
                            "articles_with_polar_matches": sum(r["positive_count"]+r["negative_count"] > 0 for r in rows),
                            "processed_tokens": tokens, "positive_count": positive, "negative_count": negative,
                            "uncertainty_count": uncertain,
@@ -131,5 +132,5 @@ def trailing_quarterly_mean(series, column):
         ordinals = [d.year*12+d.month for d in dates]
         consecutive = len(window) == 3 and ordinals == list(range(ordinals[0], ordinals[0]+3))
         values = [r.get(column) for r in window]
-        output.append(sum(values)/3 if consecutive and all(v is not None for v in values) else None)
+        output.append(sum(values)/3 if consecutive and all(v is not None and math.isfinite(v) for v in values) else None)
     return output

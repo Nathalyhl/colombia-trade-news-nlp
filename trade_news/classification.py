@@ -5,6 +5,7 @@ import re
 import unicodedata
 
 REFERENCE = Path(__file__).resolve().parents[1] / "reference"
+SCREENING_METHOD = "export_focus_and_document_cues_v2"
 with (REFERENCE / "activities.csv").open(encoding="utf8", newline="") as stream:
     ACTIVITIES = [row["activity"] for row in csv.DictReader(stream)]
 
@@ -47,9 +48,25 @@ def propose(title, body):
         scope, reason = "review" if matches(headline, GOODS) else "exclude", "services_or_mixed_headline"
     elif not goods:
         scope, reason = "review", "merchandise_not_resolved"
+    elif not re.search(r"\bexport\w*\b", headline):
+        scope, reason = "review", "headline_export_focus_unresolved"
+    elif re.search(r"\b(importaciones|importacion|importar)\b", headline):
+        scope, reason = "review", "mixed_trade_flow_headline_requires_review"
     evidence = {activity: matches(text, terms) for activity, terms in ACTIVITY_CUES.items()}
     evidence = {activity: terms for activity, terms in evidence.items() if terms}
     activity = next(iter(evidence)) if len(evidence) == 1 else "Global Context" if evidence else "Other Activity"
+    report_cues = matches(headline, ["informe de exportaciones", "informe exportaciones", "informe de comercio exterior",
+                                   "informe comercio exterior", "balance de exportaciones"])
+    statistical_source = matches(text, ["dane", "dian", "cifras oficiales", "estadisticas de exportaciones"])
+    retrospective = bool(re.search(r"\b(crecieron|cayeron|aumentaron|disminuyeron|registraron|alcanzaron|sumaron|fueron)\b", headline))
+    event_cues = matches(headline, ["expectativas", "perspectivas", "espera", "esperan", "exportara", "exportaran",
+        "exportaria", "exportarian", "reactivara", "reactivaran", "restriccion", "restricciones", "arancel", "aranceles",
+        "prohibicion", "acuerdo", "acuerdos", "pedidos", "suspension", "suspende", "retomara", "retomaran"])
+    reporting = bool(report_cues or (retrospective and statistical_source))
+    role = "mixed_cues" if reporting and event_cues else "statistical_reporting_candidate" if reporting else "event_or_expectation_candidate" if event_cues else "unresolved"
     return {"scope_proposal": scope, "scope_reason": reason, "goods_evidence": goods,
+            "screening_method": SCREENING_METHOD, "document_role_proposal": role,
+            "document_role_evidence": {"report_title_cues": report_cues, "statistical_source_cues": statistical_source,
+                                       "retrospective_title_verb": retrospective, "event_title_cues": event_cues},
             "activity_proposal": activity, "activity_evidence": evidence,
             "classification_status": "automatic_proposal_pending_human_review", "topic": "exports"}
