@@ -9,6 +9,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 from trade_news.articles import read_jsonl, reference_fingerprint
 from trade_news.bank_method import aggregate, load_reference
 from trade_news.corpus import apply_reviews, evaluate_sentiment, read_reviews
+from trade_news.destinations import configuration_hash, identify, MARKETS
 
 base = Path(__file__).resolve().parents[1]
 data = base/"data"
@@ -47,6 +48,25 @@ for row in manifest:
     assert row["month"] == row["publication_date"][:7]
     assert sum(t["count"] for t in row["matched_terms"] if t["polarity"] == "positive") == row["positive_count"]
     assert sum(t["count"] for t in row["matched_terms"] if t["polarity"] == "negative") == row["negative_count"]
+destinations = read_jsonl(data/"destinations.jsonl")
+lookup = {r["record_id"]: r for r in rows}
+assert len(destinations) == len(rows)
+assert {r["record_id"] for r in destinations} == set(lookup)
+for feature in destinations:
+    row = lookup[feature["record_id"]]
+    title = row.get("publisher_title") or row["title"]
+    strict = identify(title)
+    assert feature["configuration_sha256"] == configuration_hash()
+    assert feature["title_sha256"] == hashlib.sha256(title.encode()).hexdigest()
+    assert feature["destinations"] == strict["destinations"]
+    assert feature["destination_evidence"] == strict["destination_evidence"]
+    assert set(strict["market_mentions"]) <= set(feature["market_mentions"]) <= set(MARKETS)
+    if feature["body_sha256"]:
+        assert feature["body_sha256"] == row.get("text_sha256")
+    for hit in feature["mention_evidence"]:
+        assert hit["alias"] in MARKETS[hit["market"]]
+        assert hit["start"] >= 0 and hit["end"] > hit["start"]
+    assert not any(key in feature for key in ["body", "article_text", "text", "html"])
 for notebook_path in base.glob("*.ipynb"):
     notebook = json.loads(notebook_path.read_text("utf8"))
     assert notebook["nbformat"] == 4
