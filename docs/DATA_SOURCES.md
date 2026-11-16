@@ -13,7 +13,9 @@
 | `indices.json` | Separate provisional and human-reviewed monthly aggregates |
 | `processing_audit.json` | Counts, failures, scope proposals, duplicates and snapshot hashes |
 | `validation_report.json` | Actual supplied human-reference evaluation, initially pending with null scores |
-| `destinations.jsonl` | Separate automatic headline destination proposals and article/title market mentions, with aliases, normalized offsets, source hashes and rule configuration hash |
+| `destinations.jsonl` | Countries-only automatic links, country mentions and rejected comparison/source evidence, with source and configuration hashes |
+| `destination_reviews.csv` | Actual human article-country decisions, reviewer, rationale, declared human origin and source headline hash; initially header only |
+| `destination_validation.json` | Metrics against supplied human country labels, evaluated before overrides; initially pending with null scores |
 
 ## Local-only source archive
 

@@ -1,29 +1,37 @@
-# Destinations and geographic evidence
+# Country destinations and classification quality
 
-This tab is a project-specific exploratory extension. It is not a destination taxonomy, relation model or result supplied by Banco de la República. The general all-export index and its eligible corpus are unchanged.
+The dashboard contains countries only. The Economic activities tab, regional/bloc choices and broad geographic-mention browsing mode have been removed. The source study's activity vocabulary remains in reference/internal metadata for historical compatibility; it is not a visible analysis feature.
 
-## Two distinct modes
+## Automatic country links
 
-**Explicit export links in headlines** is the default. A headline must name Colombia or a Colombian adjective and contain export/foreign-sales wording. A recognized foreign market also needs a bounded directional phrase such as exports *to* a market, or a named buyer/destination role. Only headline evidence is used for these conservative relation proposals. A country merely mentioned in the body is not promoted into this category.
+Country proposals use finite Spanish country names and aliases in headlines about Colombian exports. They require directional wording or a named buyer/customer/destination role. A country name alone is not promoted to a destination. Broader country mentions in the archived body remain candidate evidence for review, not assignments in the destination view. No country is inferred from Europe, Asia, a trade bloc or a regional label.
 
-**All market mentions in article text** includes recognized names in the title or retrieved body. These names can identify buyers, suppliers, competitors, policy actors or unrelated context. This mode is explicitly exploratory and cannot establish export direction. It is useful for finding source articles that the conservative headline rules miss.
+The direction rule requires Colombian-origin wording before the destination country. Comparison/source phrases such as `frente a`, `compite con` and `procedente de` prevent the country from being assigned by that directional rule. These guards reduce known errors but are not a complete semantic parser or a validated classifier.
 
-Both modes are automatic proposals pending human inspection. Explicit wording can describe a historical, potential, disrupted or negated trade relationship; it does not verify a current shipment or its commercial value. No destination has been independently certified by these rules. Missing tags are unresolved evidence, not evidence of no exports.
+### Actual diagnostic corrected
 
-## Geography and evidence
+Record `a1348320f184c51f24f5`, **Exportaciones de ganado caen 49,6 % y el peso fuerte le resta mercado a Colombia frente a Brasil**, previously proposed Brazil because a long token window connected export wording to a later `a Brasil`. The article discusses Brazil as a competitor with a currency advantage. The revised rule records comparison evidence and leaves Brazil out of the automatic destination assignments. The source link and this explanation are visible in Quality & review.
 
-`trade_news/destinations.py` contains a finite, inspectable vocabulary of Spanish market names and common aliases. Matching ignores accents and case and uses word boundaries. The longest overlapping alias wins, so Asia-Pacific is not automatically counted as Asia. This vocabulary is not a complete named-entity recognizer; unsupported names and ambiguous wording can be missed.
+This case was inspected by the agent against the stored headline and article. It is an observed diagnostic, not a human reference label, held-out example or accuracy estimate. The current country subset has 24 provisionally linked articles across five countries: United States, Ecuador, Israel, Venezuela and China. Other countries may be discussed in article bodies; unresolved relations are not treated as verified destinations.
 
-Countries and regions/blocs can be explored separately. Europe is distinct from the European Union. No countries are inferred from a regional label, and no bloc membership is inferred from a country mention. Colombia is not offered as a foreign destination.
+## How to check an assignment
 
-`data/destinations.jsonl` holds one evidence record per news record, with the recognized markets, matched aliases, evidence source, offsets in the normalized field, relation rule, title hash, optional body hash and configuration hash. It includes no publisher article body or newly copied article excerpt. The linked publisher article allows a reader to examine context.
+The country view shows the source headline, publication date, source link, plain-language rule, automatic/human status and dictionary word evidence. This allows a reader to see why a label or lexical score was produced. Explanations expose decisions; they do not establish their correctness.
 
-`python -m trade_news destinations` rebuilds the evidence without web collection, using the existing local body archive when available. Without that archive, compatible body-derived evidence is preserved from the committed cache; headline evidence remains reproducible directly. Changes to the rules, title or body hash invalidate cached body evidence and require the archived text for a complete rebuild. `python -m trade_news analyze` also refreshes destination evidence after rebuilding the corpus.
+Quality & review provides an article-country review form. Read the source, judge whether the country is discussed as a destination for Colombian goods exports, and enter yes/no/unsure, reviewer and rationale. Historical, potential, denied or interrupted export relationships can still be discussed destinations; the label does not certify a current shipment. A competitor or supplier mention alone is not a destination. The automatic explanation is collapsed so a reviewer can judge first.
 
-## Charts and interpretation
+Only actual submitted human decisions are stored in `destination_reviews.csv`. Names, explanations, source hashes and declared human origin are required. Yes confirms or adds an assignment; no removes it; unsure holds it out and is excluded from binary accuracy calculations. A reviewed-only filter shows only actual human yes decisions. No human judgments have been supplied in the initial release.
 
-Only eligible, deduplicated articles from the existing corpus enter a market view. Each article contributes once to a selected market. Articles mentioning several markets can appear in several views, so totals across markets overlap. The overview ranks **news coverage**, not export values, trade-partner importance or market shares. No missing geography is redistributed to a country.
+## Accuracy and evaluation
 
-Monthly sentiment and uncertainty pool the saved word counts for the entire article texts in the selected subset, using the same formulas as the general series. They do not isolate sentiment in sentences specifically about that market. An article covering several countries can therefore contribute the same whole-article counts to each subset. Publication-month coverage and source composition matter; empty months remain missing.
+`destination_validation.json` compares current **automatic predictions before overrides** with the supplied human labels on eligible article-country pairs. It reports reviewed/evaluated pair counts, confusion counts, accuracy, precision and recall when their denominators exist. Correcting an automatic error changes the view but remains an error in this comparison. Pending human labels produce null metrics and the dashboard says Not measured.
 
-The general index does not change when the user selects a destination, a geography group or an evidence mode. Geographic relation accuracy and independent destination annotation remain pending. Human corpus/activity decisions and sentiment labels in the existing review sheet do not certify destination tags.
+A convenience review is not an independent held-out benchmark and its recall is conditional on reviewed pairs, not full-corpus recall. A credible evaluation needs a predeclared sample across months/sources, both proposed links and unresolved mentions, independent judgment before model output, and a recorded disagreement/adjudication protocol. Passing software tests is not destination accuracy.
+
+Country review does not validate corpus inclusion, extraction completeness, sentiment accuracy or economic predictions. Those require separate reference data. The sentiment display exposes the actual published-dictionary matches and explains why missing matches are not neutral. The fixed reference vocabulary does not understand all negation, comparisons or export-specific language.
+
+## Counts and reproducibility
+
+Country article counts describe news coverage, not export values or partner shares. Each article contributes once per country; an article can occur under several countries. Monthly indices pool whole-article word counts, not country-specific sentences. Empty months stay missing and country selection does not alter the general index.
+
+`destinations.jsonl` stores country aliases, normalized offsets, automatic and rejected relation evidence, source hashes and configuration hash. It contains no publisher body. Rebuilding broader body mentions requires the local archive or a compatible cache; stale body caches are rejected. `python -m trade_news destinations` refreshes the features and country-validation report without new web collection and preserves existing human reviews.

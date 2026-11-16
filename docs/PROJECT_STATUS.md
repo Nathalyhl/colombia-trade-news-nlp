@@ -1,19 +1,13 @@
 # Project status
 
-## Implemented
+Version 0.5 focuses the dashboard on General index, Destinations, Articles & evidence, Quality & review and Method. The economic-activity view and all region/bloc destination controls have been removed. Country labels expose headlines, source links, reasons and review status. Sentiment inspection exposes actual matched words and occurrence counts.
 
-Version 0.4 adds a Destinations tab to the publisher-article measurement pipeline introduced in version 0.3. The pipeline uses the complete BE1340 Annex 3 vocabulary, the published sentiment/uncertainty formulas and the Annex 2 activity labels. The main dashboard shows the general Colombian goods-export news series. Activity and destination exploration and article searches do not alter that primary series. The export-theme filter and the former source-weighted headline score are retired.
+The frozen Jan–Oct 2026 snapshot remains 247 real candidates, 196 retrieved article texts and 172 provisionally eligible articles. The general index is byte-identical to the previous release. The revised country rules produce 24 article-country links across five countries; this is limited explicit-headline coverage, not a census of Colombia's foreign destinations.
 
-The executed Jan–Oct 2026 snapshot contains 247 real candidate records, 196 retrieved article texts and 172 provisionally eligible deduplicated articles. Retrieval failures and publication-date checks are auditable. Raw publisher text remains local and ignored; derived features can be checked offline.
+An actual false destination was found and corrected: Brazil was a competitor in a headline containing `frente a Brasil`. The agent inspected the stored article and headline. That diagnostic is shown transparently and is not counted as a human gold label or benchmark. The direction rule also rejects cases where Colombia is mentioned only after another country's export flow.
 
-The project includes a local Streamlit dashboard, a Colab/Jupyter analysis notebook, actual source lineage, a human-review interface and sheet, source-reference hashes and software checks. The previous headline snapshot is preserved in repository history and a separate local backup.
+Country review is stored separately from corpus/sentiment review. Yes/no/unsure decisions require reviewer provenance, a source explanation and a personal-review declaration. Human changes affect country views, while accuracy compares the automatic predictions before those changes with supplied reference labels. Pending references produce no percentage. Human labels, extraction review and domain accuracy remain pending.
 
-Local release verification passed 38 software tests, the offline source-feature/aggregate check and Ruff checks. The tests include destination aliases, explicit links versus geographic mentions, overlapping groups, subset formulas, cached body evidence and stable general-index behavior. Every offline notebook code cell executed, producing three figures from the real snapshot with fresh collection disabled. These checks do not measure classification accuracy on real news.
+Local verification passed 50 software tests, the feature/aggregate provenance check and Ruff checks. Tests cover the real competitor regression, country-only layout, source evidence, provenance requirements, review persistence, evaluation before overrides and stable general indices. Notebook cells run offline with three plots and fresh collection disabled. None of these software results is an accuracy estimate on real news.
 
-Destination rules are a project-specific extension, distinct from the Bank's activity taxonomy and measurement method. Strict headline links and broad body/title mentions are separate modes. The published general indices remain byte-identical to version 0.3. See [DESTINATIONS.md](DESTINATIONS.md) for interpretation and limitations.
-
-## Remaining research work
-
-Human corpus review, activity verification, extraction inspection and independent sentiment labels remain pending. No Bank-equivalent accuracy, official endorsement, economic validation, nowcasting or forecasting result is claimed. The exact original stopword list, tokenizer and curated dataset are unavailable from the paper and are not represented as reproduced.
-
-November and December 2026 are not estimated in this frozen snapshot. A hosted dashboard has not been deployed. Software checks validate calculations and behavior; they are not a substitute for the remaining research review.
+The published dictionary and sentiment/uncertainty formulas remain unchanged. Exact original tokenizer/stopword files, the Bank's curated corpus, econometric validation and forecasting results are not reproduced. Raw publisher text stays in the ignored local archive. November/December are not estimated and a hosted dashboard has not been deployed.

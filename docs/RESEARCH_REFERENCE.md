@@ -12,7 +12,7 @@ Page references below use the printed page numbers; PDF page numbers include thr
 | Uncertainty | Eq. 2, p. 8 (PDF 11) | Same six forms per 1,000 processed words |
 | Short text/sentences | Diagram 1, p. 9 (PDF 12) | 50-character text cutoff and >5 post-stopword words per sentence |
 | Polarity dictionary | Annex 3a/3b, pp. 37–38 (PDF 40–41), attributed to Moreno & González (2020) | All 188 positive and 376 negative forms, unchanged, with source page per entry |
-| Activities | Annex 2, p. 36 (PDF 39) | All 18 original labels; Global Context for several activities, Other Activity includes foreign trade |
+| Activities | Annex 2, p. 36 (PDF 39) | All 18 labels retained internally for reference fidelity; the sparse activity dashboard has been retired |
 | Tokenizer and stopword file | Exact files/code not supplied | Documented Unicode tokenizer and frozen NLTK Spanish stopwords; not claimed to be identical |
 | Corpus construction | Professional manual selection and classification | Google News discovery and public publisher extraction; automatic proposals pending actual human review |
 | Time and geography | March 2020–September 2024; national and seven regional groupings | Jan–Oct 2026; Colombian goods exports to the world; no regional series inferred |

@@ -2,7 +2,7 @@
 
 ## Research question and unit
 
-How does the language used in news about Colombian merchandise exports vary across publication months in 2026? The unit is a retrieved publisher article, not a headline, individual export transaction or official statistical observation. The primary series pools all eligible articles; Annex 2 activities provide a separate descriptive view.
+How does the language used in news about Colombian merchandise exports vary across publication months in 2026? The unit is a retrieved publisher article, not a headline, individual export transaction or official statistical observation. The primary series pools all eligible articles. The dashboard adds a countries-only view and a separate evidence/review workflow.
 
 The frozen window is 2026-01-01 inclusive through 2026-11-01 exclusive. All ten completed publication months are retained, including months with missing estimates. There is no imputation for November or December and no claim that this is a complete year.
 
@@ -19,7 +19,7 @@ The Bank’s study manually selected economic news and assigned activities. This
 
 An article enters the provisional series only when dated article text has eligible processed sentences and its scope proposal is include, or a documented human decision includes it. Human rejection and unresolved manual review exclude it. Canonical-URL and exact extracted-text duplicates contribute once; a human-included record takes priority over an unreviewed duplicate. Near-duplicate syndicated stories are not automatically resolved and may overweight one event.
 
-Each retained article has one exact Annex 2 activity. Multiple activity proposals map to Global Context; unresolved foreign trade maps to Other Activity. A human reviewer can choose any of the 18 original labels. The automated cues are project-specific suggestions, not a classifier or code supplied by the Bank. They do not alter the main all-export index.
+Each retained article has one exact Annex 2 activity. Multiple activity proposals map to Global Context; unresolved foreign trade maps to Other Activity. The 18 labels are retained internally for reference compatibility; the activity dashboard has been removed. Corpus inclusion review no longer requires an activity label. An optional explicit activity override can still be supplied in the CSV. The automated cues are project-specific suggestions, not a classifier or code supplied by the Bank. They do not alter the main all-export index.
 
 ## Diagram 1 processing
 
@@ -35,7 +35,7 @@ The exact tokenizer and stopword list are not supplied in the paper. Our punctua
 
 For each month, sum positive `P_t`, negative `N_t`, uncertainty `U_t` and processed word `W_t` occurrences across eligible article bodies. Compute `(P_t-N_t)/(P_t+N_t)` and `1000*U_t/W_t`. Counts are pooled before division; article scores and publisher scores are not averaged. No minimum-three-articles/two-publishers rule is imposed by this implementation.
 
-The uncertainty forms are `incertidumbre`, `incertidumbres`, `incierto`, `inciertos`, `incierta`, `inciertas`. They may overlap with the negative dictionary. Empty sentiment denominators remain missing; positive and negative counts that are equal and nonzero produce zero. Empty word denominators remain missing; zero uncertainty with a positive word denominator is a valid zero. Activity views repeat these equations on subsets, without double counting articles across multiple activities.
+The uncertainty forms are `incertidumbre`, `incertidumbres`, `incierto`, `inciertos`, `incierta`, `inciertas`. They may overlap with the negative dictionary. Empty sentiment denominators remain missing; positive and negative counts that are equal and nonzero produce zero. Empty word denominators remain missing; zero uncertainty with a positive word denominator is a valid zero. Country views repeat these equations on article subsets. Each article contributes once per country; articles covering several countries can occur in several subsets.
 
 Monthly values are stored to six decimal places; article-level counts remain integers. `neutral` is the project’s diagnostic label for an article with equal nonzero polarity counts, not a separate published lexicon category. An article with no polarity matches abstains.
 
