@@ -62,3 +62,13 @@ Independent human corpus review and domain labels are pending. Software tests es
 ## Fixed-source sensitivity comparison
 
 The current eligible 2020–2025 texts all come from Analdex. The General index tab additionally recomputes both measures using only eligible Analdex articles in every month, then compares their trailing three-month means with the all-source series. This keeps the named publisher fixed across the 2026 addition of other media. It is a source-composition sensitivity diagnostic, not a representativeness correction, accuracy metric or causal test. Its monthly P, N, U and W remain inspectable.
+
+## Conservative export focus and document-role proposals (version 0.7)
+
+Automatic inclusion now additionally requires an export-related headline and holds mixed import/export headlines for human review. This improves inspectability but can lose relevant contextual stories; no precision/recall improvement is claimed without reference judgments. Explicit human decisions remain separate. A screening-method version change requires reprocessing from the archived text. Original candidate records, extraction outcomes and non-eligible records are preserved.
+
+Document roles are proposed by transparent title/body cues: report-title phrases or retrospective title verbs plus statistical-source mentions suggest statistical reporting; an enumerated title vocabulary identifies event/expectation cues. Overlap gives mixed cues, and absence gives unresolved. Each component is stored as evidence. These project rules are not supplied by the Bank, are not validated classifications and do not establish information novelty. The diagnostic holdout excludes statistical-reporting and mixed candidates without calling the remainder a verified forward-looking corpus.
+
+Source counts now group the saved publisher URL's hostname after removing www, while preserving the original publisher label. The fixed Analdex comparison uses analdex.org, avoiding alias labels being counted as other media. This is domain grouping, not media-ownership reconciliation.
+
+Monthly chart values use visible markers, including isolated observations and valid zeroes. Missing months are not connected, the zero reference line is disabled, and a moving-average trace is created only when at least one three-month window exists. NaN is treated as missing. Country views expose the number of supported months, observed-span axes and the monthly construction table; sparse points do not justify a continuous country-trend claim.

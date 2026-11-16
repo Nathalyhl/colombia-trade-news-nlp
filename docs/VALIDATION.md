@@ -35,3 +35,11 @@ These convenience labels do not by themselves establish held-out performance or 
 ## Economic validation boundary
 
 The Bank also tests its indices against economic activity in forecasting models. This project has not reproduced that stage. A credible export comparison needs a longer historical news series, official DANE merchandise-export data aligned to publication timing, a dated out-of-sample design and predeclared baselines. Do not equate a positive news score with a rise in exports or claim improved forecasts from this implementation.
+
+## Prepared diagnostic review sample
+
+`data/review_sample.csv` contains 60 real retrieved articles, with blank human fields and no automatic score columns. Two prespecified diagnostic cases are followed by round-robin years and document-role/scope/domain/lexical-support facets, with fixed SHA-256 ordering within facets. The seed, IDs and source-feature hash are recorded separately. Selection is purposive, not probability sampling or an independent held-out benchmark. The generator refuses to overwrite existing review work.
+
+Read the original article before predictions. Complete include (yes/no/review), reviewer, annotation_origin=human and an evidence note. Optional sentiment_gold concerns the export-related interpretation, not the dictionary word count. For document_role_gold use statistical_reporting, event_or_expectation, mixed or unsure according to the actual article; reported_period and comparison_base remain blank unless verified. A source mentioning DANE can still contain other information. If the role or period is ambiguous, preserve uncertainty instead of inventing a value.
+
+This sheet is a separate review artifact. Filling it does not silently replace active annotations or create accuracy metrics. Record and adjudicate judgments before deliberate integration with the active corpus. Do not report the enriched sample's scores as representative accuracy; a separate locked evaluation design remains necessary. See RESEARCH_BRIEF.md for the release-aware economic validation plan.

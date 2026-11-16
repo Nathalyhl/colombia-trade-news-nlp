@@ -34,3 +34,7 @@ Google News search is not an exhaustive census, a stable historical archive or a
 The public retrieval pipeline checks publisher domains and robots rules, skips explicit subscription-only material, and records access or extraction failures. It never uses a headline score as a replacement for unavailable article text. Automatic extraction can retain boilerplate or miss portions of text; review the linked article and local archive before treating the corpus as curated. Exact duplicate detection does not remove all syndication or event-level duplication.
 
 Candidate RSS dates and publisher publication dates are retained separately. Only explicit in-window publisher dates determine the index month. Reporting months within an article are different from publication months; the index groups by publication, not by the export-statistics reference period.
+
+## Additional review artifacts
+
+review_sample.csv contains 60 real retrieved-source metadata records with blank human judgments; review_sample_manifest.json records deterministic diagnostic selection and its feature hash. These are separate from active annotations.csv and do not change human-label metrics. Document-role and screening proposals are derived features, not source-supplied labels. Publisher domains are grouped without overwriting the original publisher label.

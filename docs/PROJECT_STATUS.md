@@ -1,14 +1,7 @@
-# Research status · version 0.6
+# Research status · version 0.7
 
-The implementation reproduces the specified BE1340 measurement rules on a Colombian goods-export corpus, with documented operational choices. It is independent of Banco de la República.
+The published measurement baseline, real-source lineage, conservative screening and sparse-safe dashboard are implemented. There are 1374 discovery records, 840 extracted texts and 410 eligible deduplicated articles. The 80-month window has 78 months with text and 77 sentiment values. Missing observations remain missing.
 
-- Historical axis: March 2020–October 2026, 80 months.
-- Executed discovery: 1374 real candidates, 840 retrieved publisher texts, 696 eligible deduplicated provisional articles.
-- Frozen dictionary: 188 positive and 376 negative forms; six uncertainty forms; no forced export-growth additions.
-- Monthly output: pooled P, N, U, W, sentiment and uncertainty; separate trailing three-month display; no filled gaps.
-- Dashboard: general index, country-only destinations, article evidence, actual review status and construction method. Economic activities remain outside the UI.
-- Trace: source dates/URLs/hashes, preprocessing stage counts and monthly construction table.
+The previous 696-article sample is superseded by conservative headline-focus screening. Statistical-reporting/event-role cues are separate unvalidated proposals, not evidence of forward-looking content. Source counts group domains; the fixed Analdex analysis includes its alternate publisher labels. A 60-record deterministic diagnostic review sheet is prepared with all human fields blank.
 
-Google discovery is incomplete after rate limits; Analdex supplies a separately identified public institutional archive. Source-mix changes and automated extraction/scope decisions limit inference. Historical coverage is not a census or a representative sampling design.
-
-No human corpus, sentiment or country reference labels have been supplied. Accuracy remains unmeasured. The numerical export dataset will be supplied later; no economic correlation, predictive result or validated export-performance signal is claimed. Before academic substantive inference, review corpus inclusion and extraction, establish an independent reference sample, assess source-composition sensitivity, and then align statistical reference periods for numerical comparison.
+No human reference judgments, verified document-role accuracy, economic correlation or predictive improvement are claimed. Historical 2020–2025 eligible text remains Analdex-only. The next substantive steps are independent scope/role/sentiment review, source expansion and release-aware economic evaluation when numerical data are supplied. The code sample is suitable for inspecting research design and implementation; it is not a completed validated economic indicator.
