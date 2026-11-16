@@ -8,6 +8,7 @@ from urllib.parse import urlparse
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 from trade_news.articles import read_jsonl, reference_fingerprint
 from trade_news.bank_method import aggregate, load_reference
+from trade_news.collect import month_windows
 from trade_news.corpus import apply_reviews, evaluate_sentiment, read_reviews
 from trade_news.destinations import configuration_hash, identify, MARKETS
 from trade_news.country_review import evaluate_countries, read_country_reviews
@@ -22,9 +23,11 @@ reviews = read_reviews(data/"annotations.csv")
 rows = apply_reviews(manifest, reviews)
 log, audit = read("collection_log.json"), read("processing_audit.json")
 months = [r["month"] for r in log["requests"]]
-assert log["start"] == "2026-01-01" and log["end_exclusive"] == "2026-11-01"
-assert len(months) == 10 and len(set(months)) == 10
-assert len(raw) == sum(r.get("accepted_items", 0) for r in log["requests"])
+assert log["start"] == "2020-03-01" and log["end_exclusive"] == "2026-11-01"
+assert months == [left[:7] for left, _ in month_windows(log["start"], log["end_exclusive"])]
+assert len(months) == 80
+assert len(raw) == sum(r.get("accepted_items", 0) for r in log["requests"])+sum(
+    r.get("accepted_items", 0) for r in log.get("publisher_archive", {}).get("requests", []))
 assert {r["record_id"] for r in raw} == {r["record_id"] for r in manifest}
 assert len({r["record_id"] for r in manifest}) == len(manifest)
 assert rows == read_jsonl(data/"headlines.jsonl"), "Stored decisions are stale"
@@ -36,7 +39,7 @@ assert audit["extracted_articles"] == sum(r["fetch_status"] == "article_extracte
 for name, key in [("headlines_raw.jsonl", "raw_metadata_sha256"), ("article_manifest.jsonl", "article_manifest_sha256")]:
     assert hashlib.sha256((data/name).read_bytes()).hexdigest() == audit[key]
 for row in raw:
-    assert urlparse(row["url"]).hostname == "news.google.com"
+    assert urlparse(row["url"]).hostname in {"news.google.com", "analdex.org", "www.analdex.org"}
     assert row["record_id"] == hashlib.sha256(row["url"].encode()).hexdigest()[:20]
     assert log["start"] <= row["published_at"][:10] < log["end_exclusive"]
 for row in manifest:
