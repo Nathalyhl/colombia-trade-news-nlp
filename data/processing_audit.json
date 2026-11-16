@@ -3,7 +3,7 @@
   "reference_fingerprint": "5005a9e70ff87079f703054320543bbc8370b8f2cfecc8f57f2a2ca400b8da46",
   "candidate_records": 1374,
   "extracted_articles": 840,
-  "eligible_articles": 696,
+  "eligible_articles": 410,
   "human_reviewed_articles": 0,
   "duplicates": [
     {
@@ -137,16 +137,23 @@
   },
   "scope_proposals": {
     "not_extracted": 534,
-    "include": 723,
-    "review": 63,
+    "include": 431,
+    "review": 355,
     "exclude": 54
+  },
+  "document_role_proposals": {
+    "not_extracted": 534,
+    "unresolved": 652,
+    "statistical_reporting_candidate": 146,
+    "event_or_expectation_candidate": 40,
+    "mixed_cues": 2
   },
   "collection_failures": 18,
   "raw_metadata_sha256": "c5ff566d40b880efc402cf735eb76963c73be52757aef1b8f2e59f35372edc84",
-  "article_manifest_sha256": "559698d36fa96666e529f8d8f8e063b89d8294e2eaca6ab8322fc986185d0a36",
+  "article_manifest_sha256": "01f808a9392fbec6301dd5344f144e5642e06c6293d6cd264109bf205d8d9dcc",
   "analysis_scope": "Colombian goods exports, 2020-03-01 to 2026-11-01 exclusive; publisher article-body text only",
   "months_requested": 80,
-  "months_with_eligible_articles": 80,
+  "months_with_eligible_articles": 78,
   "discovery_status_counts": {
     "200": 48,
     "failed": 18,
