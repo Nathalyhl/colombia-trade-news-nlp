@@ -10,6 +10,7 @@ from trade_news.articles import read_jsonl, reference_fingerprint
 from trade_news.bank_method import aggregate, load_reference
 from trade_news.corpus import apply_reviews, evaluate_sentiment, read_reviews
 from trade_news.destinations import configuration_hash, identify, MARKETS
+from trade_news.country_review import evaluate_countries, read_country_reviews
 
 base = Path(__file__).resolve().parents[1]
 data = base/"data"
@@ -60,6 +61,7 @@ for feature in destinations:
     assert feature["title_sha256"] == hashlib.sha256(title.encode()).hexdigest()
     assert feature["destinations"] == strict["destinations"]
     assert feature["destination_evidence"] == strict["destination_evidence"]
+    assert feature["non_destination_evidence"] == strict["non_destination_evidence"]
     assert set(strict["market_mentions"]) <= set(feature["market_mentions"]) <= set(MARKETS)
     if feature["body_sha256"]:
         assert feature["body_sha256"] == row.get("text_sha256")
@@ -67,6 +69,7 @@ for feature in destinations:
         assert hit["alias"] in MARKETS[hit["market"]]
         assert hit["start"] >= 0 and hit["end"] > hit["start"]
     assert not any(key in feature for key in ["body", "article_text", "text", "html"])
+assert evaluate_countries(rows, destinations, read_country_reviews(data, rows)) == read("destination_validation.json")
 for notebook_path in base.glob("*.ipynb"):
     notebook = json.loads(notebook_path.read_text("utf8"))
     assert notebook["nbformat"] == 4
