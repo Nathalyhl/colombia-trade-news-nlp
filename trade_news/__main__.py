@@ -9,9 +9,9 @@ from .validation import validate
 
 def main():
     parser = argparse.ArgumentParser(description="Colombian goods export news: BE1340 measurement adaptation")
-    parser.add_argument("command", choices=["collect", "fetch", "analyze", "destinations", "validate", "all"])
-    parser.add_argument("--start", default="2026-01-01")
-    parser.add_argument("--end", default="2026-11-01", help="Exclusive month boundary; frozen Jan–Oct 2026 snapshot")
+    parser.add_argument("command", choices=["collect", "publisher-archive", "fetch", "analyze", "destinations", "validate", "all"])
+    parser.add_argument("--start", default="2020-03-01")
+    parser.add_argument("--end", default="2026-11-01", help="Exclusive month boundary; last completed month in the frozen snapshot")
     parser.add_argument("--data-dir", default="data")
     parser.add_argument("--verify-local-text", action="store_true")
     args = parser.parse_args()
@@ -22,6 +22,9 @@ def main():
         print(f"Collected {len(collect(args.start, args.end, directory))} real candidate metadata records")
     if args.command in {"fetch", "all"}:
         print(f"Recorded {len(acquire(directory))} retrieval outcomes")
+    if args.command == "publisher-archive":
+        from .publisher_archive import collect_archive
+        collect_archive(directory, args.start, args.end)
     if args.command in {"analyze", "all"}:
         rows, _ = build(directory, verify_local_text=args.verify_local_text)
         print(f"Prepared {len(rows)} retrieval records; {sum(r['eligible_for_index'] for r in rows)} eligible articles")

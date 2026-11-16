@@ -135,17 +135,38 @@ def fetch_public_article(record, url, directory, robots_cache, start, end):
         return {**row, "fetch_status": "fetch_failed", "fetch_error": f"{type(error).__name__}: {error}"}
 
 
-def acquire(directory, batch_size=30):
-    from googlenewsdecoder import gnews_decoder_async
+class ProviderLimited(RuntimeError):
+    """An access/rate limit ends discovery; no alternate hosts or proxies."""
+
+
+async def decode_batch(urls):
+    from googlenewsdecoder.decoder_async import GoogleDecoderAsync
+
+    async def check_response(response):
+        await response.aread()
+        if response.status_code in {403, 429} or "captcha" in response.text.lower() or "/sorry" in str(response.url):
+            raise ProviderLimited(f"HTTP {response.status_code}; Retry-After={response.headers.get('Retry-After')}")
+        await asyncio.sleep(1.2)
+
+    async with GoogleDecoderAsync(timeout=15) as decoder:
+        decoder.client.event_hooks = {"response": [check_response]}
+        return await decoder.decode_google_news_urls(urls, concurrency=1, interval=1)
+
+
+def acquire(directory, batch_size=10, cached_only=False):
     directory = Path(directory)
     candidates = read_jsonl(directory / "headlines_raw.jsonl")
     log = json.loads((directory / "collection_log.json").read_text("utf8"))
     cache_path = directory / "resolved_urls.jsonl"
     resolutions = {r["record_id"]: r for r in read_jsonl(cache_path)} if cache_path.exists() else {}
-    missing = [r for r in candidates if r["record_id"] not in resolutions]
+    missing = [] if cached_only else [r for r in candidates if r["record_id"] not in resolutions]
     for offset in range(0, len(missing), batch_size):
         batch = missing[offset:offset+batch_size]
-        decoded = asyncio.run(gnews_decoder_async([r["url"] for r in batch], concurrency=2, timeout=10, interval=.3))
+        try:
+            decoded = asyncio.run(decode_batch([r["url"] for r in batch]))
+        except ProviderLimited as error:
+            print(f"Provider access/rate limit: {error}; remaining resolutions postponed", flush=True)
+            break
         if not isinstance(decoded, list) or len(decoded) != len(batch):
             raise RuntimeError("Unexpected decoder batch result; no article URL will be guessed")
         for record, result in zip(batch, decoded):
@@ -161,7 +182,8 @@ def acquire(directory, batch_size=30):
     robots_cache = {}
     for record in candidates:
         identity = record["record_id"]
-        if identity in records:
+        # A postponed URL can be acquired on a later run once it is resolved.
+        if identity in records and not (records[identity]["fetch_status"] == "url_unresolved" and resolutions.get(identity, {}).get("success")):
             continue
         decoded = resolutions.get(identity, {})
         if not decoded.get("success"):

@@ -13,7 +13,7 @@ import re
 import unicodedata
 
 REFERENCE = Path(__file__).resolve().parents[1] / "reference"
-METHOD = "be1340_annex3_surface_counts_v1"
+METHOD = "be1340_annex3_surface_counts_v2"
 UNCERTAINTY = {"incertidumbre", "incertidumbres", "incierto", "inciertos", "incierta", "inciertas"}
 
 
@@ -48,6 +48,7 @@ def process_text(text):
     text = clean_text(text)
     result = {"method": METHOD, "text_characters": len(text), "processed_tokens": 0,
               "retained_sentences": 0, "discarded_short_sentences": 0,
+              "candidate_sentences": 0, "tokens_before_stopwords": 0, "tokens_after_stopwords": 0,
               "positive_count": 0, "negative_count": 0, "uncertainty_count": 0,
               "sentiment_score": None, "uncertainty_per_1000": None,
               "sentiment_label": "not_estimated", "matched_terms": [], "processing_status": "too_short"}
@@ -55,11 +56,18 @@ def process_text(text):
     if len(text) < 50:
         return result
     tokens = []
-    # Explicit tokenizer choice: paragraphs, terminal punctuation and bullet boundaries.
-    sentences = re.split(r"(?<=[.!?;])\s+|\n+|[•▪]", normalize(text))
+    # Operational boundaries: Diagram 1 lists punctuation, paragraphs, numbering
+    # and bullets. Number/letter/roman list markers only apply at line starts.
+    prepared = re.sub(r"(?m)^\s*(?:\d+|[a-z]|[ivxlcdm]+)[.)]\s+", "", normalize(text))
+    sentences = re.split(r"(?<=[.!?;])\s+|\n+|[•▪●]", prepared)
     for sentence in sentences:
         words = re.findall(r"[^\W\d_]+", sentence, flags=re.UNICODE)
+        if not words:
+            continue
+        result["candidate_sentences"] += 1
+        result["tokens_before_stopwords"] += len(words)
         words = [word for word in words if word not in stopwords]
+        result["tokens_after_stopwords"] += len(words)
         # Diagram 1 places stopword removal before the >5-word sentence condition.
         if len(words) <= 5:
             result["discarded_short_sentences"] += bool(words)
@@ -106,4 +114,22 @@ def aggregate(records, months, reviewed_only=False):
                            "uncertainty_per_1000": round(1000*uncertain/tokens, 6) if tokens else None,
                            "status": "no_articles" if not rows else "no_polar_matches" if not positive+negative else
                                      "reviewed_sample" if reviewed_only else "provisional_scope_review_pending"})
+    return output
+
+
+def trailing_quarterly_mean(series, column):
+    """Three consecutive calendar months, no filling or future observations.
+
+    Figure 3 says quarterly moving average without specifying alignment. The
+    trailing alignment here is an explicit project convention, not Bank code.
+    """
+    from datetime import date
+    output = []
+    for i, row in enumerate(series):
+        window = series[max(0, i-2):i+1]
+        dates = [date.fromisoformat(r["month"]+"-01") for r in window]
+        ordinals = [d.year*12+d.month for d in dates]
+        consecutive = len(window) == 3 and ordinals == list(range(ordinals[0], ordinals[0]+3))
+        values = [r.get(column) for r in window]
+        output.append(sum(values)/3 if consecutive and all(v is not None for v in values) else None)
     return output

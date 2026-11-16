@@ -112,23 +112,27 @@ def build(directory, verify_local_text=False):
         if row.get("fetch_status") != "article_extracted":
             continue
         text_path = directory/"raw"/"articles"/(row["record_id"]+".txt")
-        if text_path.exists() and (verify_local_text or row.get("reference_fingerprint") != fingerprint):
+        stale = row.get("reference_fingerprint") != fingerprint or row.get("method") != METHOD
+        if text_path.exists() and (verify_local_text or stale):
             text = text_path.read_text("utf8")
             if hashlib.sha256(text.encode()).hexdigest() != row["text_sha256"]:
                 raise ValueError("The local article archive differs from its saved hash")
             row.update(process_text(text))
             row.update(propose(row.get("publisher_title") or row["title"], text))
             row["reference_fingerprint"] = fingerprint
-        elif row.get("reference_fingerprint") != fingerprint:
+        elif stale:
             raise ValueError("Source features use a different reference version; reprocess the local article archive")
     write_jsonl(directory/"article_manifest.jsonl", records)
     sheet = directory/"annotations.csv"
-    if not sheet.exists():
+    existing_reviews = read_reviews(sheet)
+    missing_reviews = [r for r in records if r.get("fetch_status") == "article_extracted" and r["record_id"] not in existing_reviews]
+    if not sheet.exists() or missing_reviews:
         with sheet.open("w", encoding="utf8", newline="") as stream:
             writer = csv.DictWriter(stream, fieldnames=REVIEW_FIELDS)
             writer.writeheader()
+            writer.writerows(existing_reviews.values())
             writer.writerows({"record_id": r["record_id"], "title": r.get("publisher_title") or r["title"],
-                              "url": r.get("article_url") or r.get("resolved_url")} for r in records if r.get("fetch_status") == "article_extracted")
+                              "url": r.get("article_url") or r.get("resolved_url")} for r in missing_reviews)
     reviews = read_reviews(sheet)
     rows = apply_reviews(records, reviews)
     log = json.loads((directory/"collection_log.json").read_text("utf8"))
@@ -146,7 +150,10 @@ def build(directory, verify_local_text=False):
              "collection_failures": sum(r["status"] == "failed" for r in log["requests"]),
              "raw_metadata_sha256": hashlib.sha256((directory/"headlines_raw.jsonl").read_bytes()).hexdigest(),
              "article_manifest_sha256": hashlib.sha256((directory/"article_manifest.jsonl").read_bytes()).hexdigest(),
-             "analysis_scope": "Colombian goods exports, 2026; retrieved publisher article-body text only",
+             "analysis_scope": f"Colombian goods exports, {log['start']} to {log['end_exclusive']} exclusive; publisher article-body text only",
+             "months_requested": len(months),
+             "months_with_eligible_articles": len({r['month'] for r in rows if r['eligible_for_index']}),
+             "discovery_status_counts": dict(Counter(str(r['status']) for r in log['requests'])),
              "manual_corpus_validation": "pending" if not any(r["review_status"] == "human_reviewed" for r in rows) else "partially_reviewed"}
     write_json(directory/"processing_audit.json", audit)
     write_json(directory/"validation_report.json", evaluate_sentiment(rows, reviews))

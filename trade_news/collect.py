@@ -7,6 +7,7 @@ from pathlib import Path
 import time
 from urllib.parse import urlencode, urlparse
 from urllib.request import Request, urlopen
+from urllib.error import HTTPError
 import xml.etree.ElementTree as ET
 
 SCOPE = "Colombian exports to the world"
@@ -65,7 +66,11 @@ def collect(start, end, output, pause=1.0):
     raw = output / "raw"
     raw.mkdir(parents=True, exist_ok=True)
     all_records, requests = [], []
+    limited = False
     for left, right in month_windows(start, end):
+        if limited:
+            requests.append({"month": left[:7], "status": "not_attempted", "reason": "Provider access/rate limit earlier in this run"})
+            continue
         url = search_url(left, right)
         retrieved = datetime.now(timezone.utc).isoformat()
         request = Request(url, headers={"User-Agent": "ColombiaTradeNewsResearch/0.1 (headline metadata only)"})
@@ -82,6 +87,12 @@ def collect(start, end, output, pause=1.0):
                              "status": status, "sha256": hashlib.sha256(payload).hexdigest(),
                              "accepted_items": len(rows), **diagnostics,
                              "possible_provider_cap": diagnostics["provider_items"] >= 100})
+        except HTTPError as error:
+            requests.append({"month": left[:7], "url": url, "retrieved_at": retrieved,
+                             "status": "failed", "http_status": error.code,
+                             "retry_after": error.headers.get("Retry-After"), "error": f"HTTPError: {error}"})
+            if error.code in {429, 403}:
+                limited = True  # Preserve the calendar and respect provider limits.
         except Exception as error:
             requests.append({"month": left[:7], "url": url, "retrieved_at": retrieved,
                              "status": "failed", "error": f"{type(error).__name__}: {error}"})
