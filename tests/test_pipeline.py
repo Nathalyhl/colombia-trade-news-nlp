@@ -125,6 +125,11 @@ class ProvenanceTests(unittest.TestCase):
         with self.assertRaises(ValueError):
             apply_reviews([article()], {"one": human(activity="invented")})
 
+    def test_scope_review_does_not_require_retired_activity_ui(self):
+        result = apply_reviews([article()], {"one": human(activity="")})[0]
+        self.assertTrue(result["eligible_for_index"])
+        self.assertEqual(result["activity"], "Agriculture")
+
     def test_review_or_rejection_excludes_article(self):
         for decision in ["no", "review"]:
             self.assertFalse(apply_reviews([article()], {"one": human(include=decision)})[0]["eligible_for_index"])

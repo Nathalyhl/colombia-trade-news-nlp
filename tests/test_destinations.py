@@ -33,13 +33,22 @@ class DestinationTests(unittest.TestCase):
     def test_buyer_role_and_no_country_from_region(self):
         self.assertEqual(identify("Estados Unidos compra cerca de 40% del café que exporta Colombia")["destinations"], ["United States"])
         result = identify("Colombia exporta bienes hacia Europa")
-        self.assertEqual(result["destinations"], ["Europe"])
+        self.assertEqual(result["destinations"], [])
         self.assertNotIn("European Union", result["market_mentions"])
         self.assertNotIn("Germany", result["market_mentions"])
 
     def test_longest_alias_and_word_boundaries(self):
-        self.assertEqual(identify("Colombia exporta carne hacia Asia-Pacífico")["destinations"], ["Asia-Pacific"])
+        self.assertEqual(identify("Colombia exporta carne hacia Asia-Pacífico")["destinations"], [])
         self.assertEqual(identify("La industria colombiana exporta mercancías")["market_mentions"], [])
+
+    def test_real_competitor_headline_is_not_a_destination(self):
+        title = "Exportaciones de ganado caen 49,6 % y el peso fuerte le resta mercado a Colombia frente a Brasil"
+        result = identify(title)
+        self.assertEqual(result["destinations"], [])
+        self.assertEqual(result["non_destination_evidence"][0]["rule"], "comparison_or_source_not_destination")
+
+    def test_colombia_mentioned_after_foreign_trade_is_not_its_origin(self):
+        self.assertEqual(identify("Exportaciones de Perú a China superan las de Colombia")["destinations"], [])
 
     def test_counts_overlap_but_articles_contribute_once_per_market(self):
         features = [{"record_id": "one", **identify("Colombia exporta bienes a China", "China China Estados Unidos.")}]
