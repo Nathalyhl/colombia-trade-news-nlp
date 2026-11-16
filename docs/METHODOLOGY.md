@@ -2,9 +2,9 @@
 
 ## Research question and unit
 
-How does the language used in news about Colombian merchandise exports vary across publication months in 2026? The unit is a retrieved publisher article, not a headline, individual export transaction or official statistical observation. The primary series pools all eligible articles. The dashboard adds a countries-only view and a separate evidence/review workflow.
+How does the language used in news about Colombian merchandise exports vary across publication months from March 2020 onward? The unit is a retrieved publisher article, not a headline, individual export transaction or official statistical observation. The primary series pools all eligible articles. The dashboard adds a countries-only view and a separate evidence/review workflow.
 
-The frozen window is 2026-01-01 inclusive through 2026-11-01 exclusive. All ten completed publication months are retained, including months with missing estimates. There is no imputation for November or December and no claim that this is a complete year.
+The frozen window is 2020-03-01 inclusive through 2026-11-01 exclusive. All 80 completed publication months are retained, including months with missing estimates. There is no imputation for November or December and no claim that this is a complete year.
 
 ## Discovery, access and dates
 
@@ -12,6 +12,10 @@ The frozen window is 2026-01-01 inclusive through 2026-11-01 exclusive. All ten 
 2. Resolve each public RSS article link to the publisher URL. Check its publisher domain, robots rules and public access. Log failures; do not substitute text from another story, a headline, a search snippet or a model-generated summary.
 3. Read explicit publisher `datePublished` in Article/NewsArticle/BlogPosting JSON-LD, then `article:published_time` if needed. Missing or out-of-window dates prevent inclusion. This independently checks the publisher’s reported date, not the truth of its publication history. `dateModified` is not a publication date.
 4. Extract the article body with the pinned Trafilatura precision configuration, excluding comments and tables. Remove a leading repeated title. Store raw HTML and extracted text locally with SHA-256 hashes; keep publisher text out of the released feature files. Extraction completeness and boilerplate still need human inspection.
+
+The public Analdex WordPress archive is a separate institutional-source supplement. The query searches `exportaciones` in posts between the same date boundaries, ordered by date, with public pagination. Each response has a timestamp, request URL, SHA-256 and provider page counts. Post `date` is the publisher-local publication date; `date_gmt` is retained for UTC lineage. Neither `modified` nor the statistical period discussed in the article supplies the index date. Article content comes from `content.rendered`, extracted with the same pinned precision configuration. Full API responses and content stay in the ignored local archive. Analdex post IDs distinguish this route from Google RSS discovery.
+
+The monthly source-composition chart distinguishes Analdex from other publishers. It is a coverage diagnostic, not a correction for selection bias. The historical sample cannot establish media representativeness; publisher-mix changes may affect the time series. HTTP 429/403 stops provider requests; unattempted requests remain visible. No alternate hosts, proxies or access-control bypasses are used.
 
 ## Corpus and activities
 
@@ -24,7 +28,7 @@ Each retained article has one exact Annex 2 activity. Multiple activity proposal
 ## Diagram 1 processing
 
 - Discard cleaned texts shorter than 50 characters.
-- Split at sentence punctuation, paragraphs and bullet boundaries. Lowercase with Unicode casefold and preserve accents using NFC.
+- Split at sentence punctuation, paragraphs and bullet boundaries; remove numeric, letter and roman list markers at line starts. Lowercase with Unicode casefold and preserve accents using NFC.
 - Tokenize alphabetic Unicode sequences. Remove the frozen 313-word NLTK Spanish stopword file.
 - Keep sentences with more than five remaining words, following the order shown in Diagram 1.
 - Count exact occurrences of all positive and negative forms in Annex 3a/3b. Do not add inflections, stem, lemmatize or reverse polarity near negation: these extra rules are not specified by the diagram.
@@ -38,6 +42,16 @@ For each month, sum positive `P_t`, negative `N_t`, uncertainty `U_t` and proces
 The uncertainty forms are `incertidumbre`, `incertidumbres`, `incierto`, `inciertos`, `incierta`, `inciertas`. They may overlap with the negative dictionary. Empty sentiment denominators remain missing; positive and negative counts that are equal and nonzero produce zero. Empty word denominators remain missing; zero uncertainty with a positive word denominator is a valid zero. Country views repeat these equations on article subsets. Each article contributes once per country; articles covering several countries can occur in several subsets.
 
 Monthly values are stored to six decimal places; article-level counts remain integers. `neutral` is the project’s diagnostic label for an article with equal nonzero polarity counts, not a separate published lexicon category. An article with no polarity matches abstains.
+
+## Three-month display and construction trace
+
+The monthly equations remain the estimators. Following the quarterly-moving-average presentation in the reference Figure 3, the dark display line is the arithmetic mean of the current and previous two monthly estimates. All three must exist and be consecutive calendar months. March and April 2020 have raw estimates but no three-month mean. A gap interrupts the smoother; no zero, interpolation or future observation fills it. The paper does not specify centering or endpoint handling, so trailing alignment is an explicit project convention. This does not reproduce the Bank's original curve or event annotations.
+
+Every processed article records cleaned characters, candidate sentences, alphabetic tokens before and after stopword removal, retained/short sentences, retained tokens, P, N, U and matched polarity forms. The Method tab maps these stages to the published construction sequence. The monthly construction table exposes article/source support, pooled P, N, U, W and both resulting indices. A method-version change requires reprocessing from the hash-checked local archive, rather than mixing old and new preprocessing features.
+
+## Publication versus statistical reference periods
+
+The index is timed by publication, not the period an article reports. A January 2026 article can legitimately discuss December 2025, the 2025 annual total or a comparison with January 2025. Words such as `creció` do not identify the comparison base by themselves. Statistical reference and comparison periods have not been automatically asserted or aligned to numerical exports. Any later validation must extract and verify those periods and separately distinguish value, volume, year-on-year and cumulative changes. The researcher's numerical data will be supplied later.
 
 ## Interpretation and validation boundary
 

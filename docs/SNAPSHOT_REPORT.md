@@ -1,38 +1,121 @@
-# Executed snapshot report
+# Executed historical snapshot
 
-Frozen publisher-publication window: 2026-01-01 inclusive to 2026-11-01 exclusive. Candidate retrieval and article-access UTC timestamps remain in the source records. This report is generated from executed feature aggregates; no observations or human decisions are synthesized.
+Publication window: 2020-03-01 inclusive to 2026-11-01 exclusive. Retrieval took place on 15–16 November 2026; per-record UTC timestamps are preserved. No observations or human judgments are synthesized.
 
-## Funnel
+- Candidates: 1374; RSS: 730; Analdex public archive: 644.
+- Retrieved publisher texts: 840.
+- Eligible deduplicated articles, provisional scope: 696.
+- Estimated publication months: 80 of 80.
+- Human corpus decisions: 0; sentiment/country accuracy: not measured.
 
-- Candidate retrieval records: 247.
-- Retrieved article texts: 196.
-- Provisionally eligible, deduplicated articles: 172.
-- Human decisions: 0.
-- Exact duplicates identified: 0.
+## Source composition among eligible articles
 
-| Retrieval outcome | Records |
+| Year | Analdex | Other publishers | Total |
+| --- | ---: | ---: | ---: |
+| 2020 | 65 | 0 | 65 |
+| 2021 | 73 | 0 | 73 |
+| 2022 | 87 | 0 | 87 |
+| 2023 | 82 | 0 | 82 |
+| 2024 | 77 | 0 | 77 |
+| 2025 | 83 | 0 | 83 |
+| 2026 | 73 | 156 | 229 |
+
+These changing source proportions constrain comparisons over time. They are not media-market weights.
+
+## Monthly construction table
+
+| Month | Articles | Sources | P | N | U | W | SENT | UNCERT / 1,000 |
+| --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
+| 2020-03 | 2 | 1 | 2 | 1 | 0 | 762 | 0.333333 | 0.0 |
+| 2020-04 | 3 | 1 | 3 | 4 | 0 | 1073 | -0.142857 | 0.0 |
+| 2020-05 | 3 | 1 | 6 | 4 | 0 | 870 | 0.2 | 0.0 |
+| 2020-06 | 8 | 1 | 27 | 20 | 0 | 2031 | 0.148936 | 0.0 |
+| 2020-07 | 10 | 1 | 36 | 28 | 2 | 3525 | 0.125 | 0.567376 |
+| 2020-08 | 7 | 1 | 26 | 14 | 0 | 3925 | 0.3 | 0.0 |
+| 2020-09 | 13 | 1 | 54 | 46 | 1 | 3981 | 0.08 | 0.251193 |
+| 2020-10 | 6 | 1 | 20 | 13 | 0 | 1733 | 0.212121 | 0.0 |
+| 2020-11 | 5 | 1 | 13 | 9 | 0 | 1601 | 0.181818 | 0.0 |
+| 2020-12 | 8 | 1 | 27 | 25 | 2 | 3483 | 0.038462 | 0.574218 |
+| 2021-01 | 4 | 1 | 20 | 2 | 0 | 1680 | 0.818182 | 0.0 |
+| 2021-02 | 8 | 1 | 19 | 12 | 0 | 2059 | 0.225806 | 0.0 |
+| 2021-03 | 6 | 1 | 12 | 22 | 2 | 2868 | -0.294118 | 0.69735 |
+| 2021-04 | 5 | 1 | 17 | 7 | 1 | 1712 | 0.416667 | 0.584112 |
+| 2021-05 | 6 | 1 | 22 | 14 | 0 | 1110 | 0.222222 | 0.0 |
+| 2021-06 | 4 | 1 | 30 | 7 | 0 | 1498 | 0.621622 | 0.0 |
+| 2021-07 | 7 | 1 | 26 | 6 | 0 | 2370 | 0.625 | 0.0 |
+| 2021-08 | 11 | 1 | 67 | 43 | 1 | 5224 | 0.218182 | 0.191424 |
+| 2021-09 | 8 | 1 | 55 | 35 | 0 | 4024 | 0.222222 | 0.0 |
+| 2021-10 | 7 | 1 | 21 | 17 | 1 | 2022 | 0.105263 | 0.49456 |
+| 2021-11 | 4 | 1 | 4 | 8 | 0 | 1285 | -0.333333 | 0.0 |
+| 2021-12 | 3 | 1 | 14 | 3 | 0 | 1392 | 0.647059 | 0.0 |
+| 2022-01 | 3 | 1 | 2 | 1 | 0 | 909 | 0.333333 | 0.0 |
+| 2022-02 | 4 | 1 | 13 | 6 | 0 | 2748 | 0.368421 | 0.0 |
+| 2022-03 | 8 | 1 | 32 | 21 | 0 | 3848 | 0.207547 | 0.0 |
+| 2022-04 | 4 | 1 | 10 | 10 | 0 | 1079 | 0.0 | 0.0 |
+| 2022-05 | 6 | 1 | 12 | 7 | 0 | 1892 | 0.263158 | 0.0 |
+| 2022-06 | 5 | 1 | 14 | 7 | 0 | 2174 | 0.333333 | 0.0 |
+| 2022-07 | 5 | 1 | 22 | 29 | 0 | 2762 | -0.137255 | 0.0 |
+| 2022-08 | 11 | 1 | 28 | 18 | 1 | 4373 | 0.217391 | 0.228676 |
+| 2022-09 | 9 | 1 | 30 | 4 | 0 | 2439 | 0.764706 | 0.0 |
+| 2022-10 | 5 | 1 | 4 | 5 | 0 | 1734 | -0.111111 | 0.0 |
+| 2022-11 | 19 | 1 | 68 | 85 | 4 | 9243 | -0.111111 | 0.43276 |
+| 2022-12 | 8 | 1 | 23 | 20 | 0 | 3482 | 0.069767 | 0.0 |
+| 2023-01 | 12 | 1 | 40 | 58 | 1 | 5272 | -0.183673 | 0.189681 |
+| 2023-02 | 10 | 1 | 27 | 20 | 0 | 3267 | 0.148936 | 0.0 |
+| 2023-03 | 6 | 1 | 7 | 7 | 1 | 1932 | 0.0 | 0.517598 |
+| 2023-04 | 8 | 1 | 23 | 13 | 0 | 3901 | 0.277778 | 0.0 |
+| 2023-05 | 6 | 1 | 7 | 10 | 0 | 2185 | -0.176471 | 0.0 |
+| 2023-06 | 6 | 1 | 39 | 13 | 1 | 3242 | 0.5 | 0.308452 |
+| 2023-07 | 4 | 1 | 11 | 14 | 1 | 1567 | -0.12 | 0.638162 |
+| 2023-08 | 6 | 1 | 8 | 8 | 0 | 2325 | 0.0 | 0.0 |
+| 2023-09 | 6 | 1 | 19 | 17 | 2 | 3263 | 0.055556 | 0.612933 |
+| 2023-10 | 7 | 1 | 26 | 13 | 1 | 3406 | 0.333333 | 0.2936 |
+| 2023-11 | 7 | 1 | 18 | 10 | 0 | 2688 | 0.285714 | 0.0 |
+| 2023-12 | 4 | 1 | 7 | 6 | 0 | 1664 | 0.076923 | 0.0 |
+| 2024-01 | 4 | 1 | 7 | 7 | 1 | 1589 | 0.0 | 0.629327 |
+| 2024-02 | 8 | 1 | 19 | 16 | 0 | 2951 | 0.085714 | 0.0 |
+| 2024-03 | 6 | 1 | 10 | 4 | 0 | 2133 | 0.428571 | 0.0 |
+| 2024-04 | 5 | 1 | 10 | 1 | 0 | 1392 | 0.818182 | 0.0 |
+| 2024-05 | 9 | 1 | 16 | 29 | 1 | 4065 | -0.288889 | 0.246002 |
+| 2024-06 | 7 | 1 | 5 | 20 | 0 | 2496 | -0.6 | 0.0 |
+| 2024-07 | 6 | 1 | 22 | 9 | 0 | 2479 | 0.419355 | 0.0 |
+| 2024-08 | 11 | 1 | 23 | 25 | 1 | 4478 | -0.041667 | 0.223314 |
+| 2024-09 | 5 | 1 | 5 | 9 | 0 | 1527 | -0.285714 | 0.0 |
+| 2024-10 | 8 | 1 | 17 | 9 | 0 | 3115 | 0.307692 | 0.0 |
+| 2024-11 | 4 | 1 | 13 | 12 | 0 | 1720 | 0.04 | 0.0 |
+| 2024-12 | 4 | 1 | 9 | 4 | 0 | 1656 | 0.384615 | 0.0 |
+| 2025-01 | 8 | 1 | 28 | 14 | 1 | 3231 | 0.333333 | 0.309502 |
+| 2025-02 | 10 | 1 | 29 | 47 | 0 | 4056 | -0.236842 | 0.0 |
+| 2025-03 | 6 | 1 | 10 | 11 | 0 | 2305 | -0.047619 | 0.0 |
+| 2025-04 | 8 | 1 | 25 | 16 | 1 | 3545 | 0.219512 | 0.282087 |
+| 2025-05 | 8 | 1 | 43 | 30 | 3 | 5319 | 0.178082 | 0.564016 |
+| 2025-06 | 7 | 1 | 21 | 5 | 0 | 3869 | 0.615385 | 0.0 |
+| 2025-07 | 9 | 1 | 61 | 46 | 3 | 6145 | 0.140187 | 0.488202 |
+| 2025-08 | 7 | 1 | 29 | 40 | 1 | 3593 | -0.15942 | 0.278319 |
+| 2025-09 | 6 | 1 | 31 | 16 | 0 | 3454 | 0.319149 | 0.0 |
+| 2025-10 | 5 | 1 | 15 | 9 | 1 | 2954 | 0.25 | 0.338524 |
+| 2025-11 | 5 | 1 | 10 | 2 | 0 | 1788 | 0.666667 | 0.0 |
+| 2025-12 | 4 | 1 | 8 | 4 | 0 | 1599 | 0.333333 | 0.0 |
+| 2026-01 | 19 | 6 | 42 | 85 | 6 | 9229 | -0.338583 | 0.650125 |
+| 2026-02 | 22 | 11 | 59 | 67 | 1 | 8924 | -0.063492 | 0.112057 |
+| 2026-03 | 13 | 5 | 23 | 8 | 0 | 4515 | 0.483871 | 0.0 |
+| 2026-04 | 33 | 10 | 102 | 110 | 7 | 14874 | -0.037736 | 0.47062 |
+| 2026-05 | 21 | 8 | 46 | 83 | 6 | 9948 | -0.286822 | 0.603136 |
+| 2026-06 | 13 | 3 | 43 | 28 | 1 | 6966 | 0.211268 | 0.143554 |
+| 2026-07 | 47 | 14 | 140 | 98 | 2 | 26171 | 0.176471 | 0.07642 |
+| 2026-08 | 17 | 9 | 48 | 61 | 2 | 7150 | -0.119266 | 0.27972 |
+| 2026-09 | 14 | 6 | 44 | 60 | 1 | 7616 | -0.153846 | 0.131303 |
+| 2026-10 | 30 | 13 | 71 | 80 | 1 | 13968 | -0.059603 | 0.071592 |
+
+## Retrieval outcomes
+
+| Outcome | Records |
 | --- | ---: |
-| article_extracted | 196 |
+| article_extracted | 840 |
 | fetch_failed | 6 |
 | paywall_not_accessed | 12 |
 | publication_date_unverified | 25 |
 | robots_unavailable | 8 |
+| url_unresolved | 483 |
 
-## General monthly series: provisional
-
-| Publication month | Articles | Publishers | Positive words | Negative words | Sentiment | Uncertainty / 1,000 |
-| --- | ---: | ---: | ---: | ---: | ---: | ---: |
-| 2026-01 | 14 | 6 | 29 | 46 | -0.226667 | 0.55535 |
-| 2026-02 | 17 | 10 | 38 | 53 | -0.164835 | 0.164096 |
-| 2026-03 | 10 | 5 | 20 | 5 | 0.6 | 0.0 |
-| 2026-04 | 26 | 9 | 73 | 104 | -0.175141 | 0.662189 |
-| 2026-05 | 12 | 7 | 29 | 67 | -0.395833 | 0.81367 |
-| 2026-06 | 4 | 3 | 13 | 16 | -0.103448 | 0.401445 |
-| 2026-07 | 37 | 13 | 81 | 65 | 0.109589 | 0.058319 |
-| 2026-08 | 15 | 8 | 46 | 61 | -0.140187 | 0.3125 |
-| 2026-09 | 11 | 6 | 24 | 54 | -0.384615 | 0.183217 |
-| 2026-10 | 26 | 13 | 70 | 79 | -0.060403 | 0.087192 |
-
-These are lexical measurements within an automatically screened, non-exhaustive retrieved sample. They do not establish export growth, causality or a forecast. Changes in publisher mix and article volume can change the balance. Inspect the matched words and source articles rather than treating a sign as a substantive economic conclusion.
-
-The human-reviewed series is separate. Its initial missing values reflect absent human corpus decisions. Human sentiment accuracy is also pending; a working formula or passing software test supplies no substitute label.
+Unresolved historical Google links never contribute headline sentiment. Failed or unattempted Google months are documented separately from the Analdex supplement. A month with eligible institutional articles can have an estimate even if its RSS discovery failed. No claims of complete historical coverage, economic validation or Bank-equivalent forecasting performance follow.

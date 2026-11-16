@@ -4,7 +4,7 @@
 
 | File | Meaning |
 | --- | --- |
-| `headlines_raw.jsonl` | Real Google News candidate titles, provider timestamps, publishers and source links; not the NLP input |
+| `headlines_raw.jsonl` | Real Google News and Analdex public archive discovery records, provider timestamps, publishers and source links; not the NLP input |
 | `collection_log.json` | Per-month query URLs, retrieval times, HTTP outcomes, item counts and raw RSS hashes |
 | `resolved_urls.jsonl` | Public RSS URL resolution outcomes and resolved publisher links |
 | `article_manifest.jsonl` | Every article retrieval outcome; extracted articles carry publisher dates, body hashes, reference fingerprint, counts, matched words and scope/activity proposals |
@@ -22,6 +22,10 @@
 `data/raw/YYYY-MM.xml` holds RSS responses. `data/raw/articles/<record_id>.html` and `.txt` hold the retrieved public publisher response and extracted article text. The whole directory is ignored by Git. No publisher article body, search snippet or AI-generated substitute is distributed in the feature snapshot.
 
 The repository can reproduce monthly arithmetic and review decisions offline from committed features. Exact source-to-count NLP reproduction requires the local text archive and its saved hashes. A new web retrieval may change or fail, and cannot be assumed byte-identical. The source PDF has its own hash in `reference/manifest.json`.
+
+`data/raw/publisher_api/` stores Analdex public API response pages, metadata and robots rules. `collection_log.json.publisher_archive` records the exact search, page count, accepted item count, hashes and retrieval times. `discovery_source=analdex_public_wordpress_archive` and `source_post_id` identify these records. They use SHA-256 of the publisher link for the record ID, while RSS candidates use the RSS link. Canonical URL and exact extracted-text deduplication are applied across routes.
+
+Analdex is an industry association/institutional publisher. Its historical articles and trade reports differ from a general press sample. Its WordPress API publication fields are explicit publisher dates, a distinct provenance from web-page JSON-LD metadata. Full content is used locally but is not redistributed. Counts and title links alone permit feature-aggregate reproduction; text-level reproduction requires the archive.
 
 ## Constraints and selection effects
 
