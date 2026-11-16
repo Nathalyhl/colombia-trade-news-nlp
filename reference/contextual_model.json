@@ -1,0 +1,15 @@
+{
+  "model_id": "pysentimiento/robertuito-sentiment-analysis",
+  "model_revision": "a2cc0f67ebd705c55191e25a05ba23d885fcc09b",
+  "upstream_source_commit": "60822acfd805ad5d95437c695daa33c18dbda060",
+  "model_files_sha256": {
+    "config.json": "ad429d8f11a61d01ae929d8f8b47497cea4b1ff1fc30b77575e9c55c0e1c42ae",
+    "model.safetensors": "dd3826c93c1fb39e3aca178e133ec8de9e10cb800d00feea68431e70e677a1ed",
+    "special_tokens_map.json": "d05497f1da52c5e09554c0cd874037a083e1dc1b9cfd48034d1c717f1afc07a7",
+    "tokenizer.json": "7417cb8c0ea491f8b85bda4704e264e960ea0cf35057911a63b20bd657630098",
+    "tokenizer_config.json": "c93326bc2a4b4057fce557d4aba2fad01db943aadba30107360c801d469f520d"
+  },
+  "source_code_url": "https://github.com/pysentimiento/pysentimiento",
+  "model_origin": "Spanish TASS tweets; not validated on Colombian export news",
+  "license": "Scientific and non-commercial research; see PYSENTIMIENTO_LICENSE.txt and upstream TASS restrictions"
+}
