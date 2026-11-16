@@ -45,8 +45,8 @@ c1.metric("Eligible news articles", len(eligible))
 c2.metric("Publisher domains", len({r.get("publisher_group", r["publisher"]) for r in eligible}))
 c3.metric("Months with news / window", f"{len({r['month'] for r in eligible})} / {len(months)}")
 c4.metric("Articles linked to countries", len({r["record_id"] for r in country_rows}))
-overview_tab, general, destinations_tab, evidence, quality, method = st.tabs(
-    ["Study overview", "General index", "Destinations", "Articles & evidence", "Quality & review", "Method"])
+overview_tab, general, model_tab, destinations_tab, evidence, quality, method = st.tabs(
+    ["Study overview", "General index", "Comparación NLP", "Destinations", "Articles & evidence", "Quality & review", "Method"])
 
 
 def article_evidence(article, context):
@@ -160,6 +160,79 @@ with general:
                              "processed_tokens", "sentiment", "uncertainty_per_1000"]], hide_index=True)
     st.caption("Source: authors' calculations from retrieved publisher texts, using the BE1340 dictionary and formulas. "
                "This is an independent export-news adaptation, not an official Bank series. The snapshot ends before 1 November 2026.")
+
+with model_tab:
+    st.subheader("Adaptación de un modelo publicado en español")
+    st.markdown("Modelo: [PySentimiento / RoBERTuito](https://huggingface.co/pysentimiento/robertuito-sentiment-analysis). "
+                "Referencia económica relacionada: [Dávila y Chasi, Banco Central del Ecuador](https://doi.org/10.47550/RCE/35.2.1). "
+                "Esta es una adaptación propia a exportaciones colombianas; sus resultados de validación no se trasladan a nuestra muestra.")
+    if not (DATA/"contextual_manifest.json").exists():
+        st.info("La comparación requiere ejecutar primero el modelo opcional sobre el archivo local de artículos.")
+    elif load_json("contextual_manifest.json").get("status") != "complete":
+        st.info("La ejecución del modelo todavía no está completa. No se presenta una serie parcial como resultado final.")
+    else:
+        from trade_news.contextual import verify_scores
+        model_manifest = load_json("contextual_manifest.json")
+        model_scores = read_jsonl(DATA/"contextual_scores.jsonl")
+        try:
+            verify_scores(DATA, model_scores, model_manifest)
+        except ValueError as error:
+            st.error("Las predicciones no corresponden a la versión actual del corpus: "+str(error))
+        else:
+            model_indices = load_json("contextual_indices.json")
+            score_lookup = {r["record_id"]: r for r in model_scores}
+            row_lookup = {r["record_id"]: r for r in eligible}
+            mc1, mc2, mc3 = st.columns(3)
+            mc1.metric("Artículos procesados", len(model_scores))
+            mc2.metric("Meses con textos", sum(r["articles"] > 0 for r in model_indices["all_eligible"]))
+            mc3.metric("Etiquetas humanas", validation["n_labeled"])
+            st.write("El nuevo puntaje es P(positivo) − P(negativo). Para textos largos se promedian las probabilidades de fragmentos "
+                     "ponderando por sus tokens; después se calcula un promedio por artículo para cada mes. El diccionario conserva su "
+                     "fórmula original de conteos agrupados. Son dos medidas distintas de tono textual.")
+            cohort = st.radio("Artículos de la comparación", ["Con coincidencias en el diccionario", "Todos los artículos elegibles"],
+                              horizontal=True, key="contextual_cohort")
+            cohort_key = "dictionary_matched" if cohort == "Con coincidencias en el diccionario" else "all_eligible"
+            contextual_series = pd.DataFrame(model_indices[cohort_key])
+            bank_series = [r for r in indices["provisional"] if r["activity"] == "All exports"]
+            model_comparison = go.Figure()
+            model_comparison.add_scatter(x=[r["month"] for r in bank_series], y=[r["sentiment"] for r in bank_series],
+                mode="lines+markers", name="Diccionario · conteos", line={"color": "#8996a3", "width": 1}, marker={"size": 4}, connectgaps=False)
+            model_comparison.add_scatter(x=contextual_series["month"], y=contextual_series["mean_probability_balance"],
+                mode="lines+markers", name="RoBERTuito · probabilidades", line={"color": "#1e465e", "width": 2}, marker={"size": 4}, connectgaps=False)
+            model_comparison.update_layout(template="plotly_white", height=410, xaxis_title="Mes de publicación", yaxis_title="Puntaje de tono textual",
+                legend={"orientation": "h", "y": -.25}, margin={"b": 90})
+            model_comparison.update_yaxes(range=[-1.05, 1.05], zeroline=False)
+            st.plotly_chart(model_comparison, width="stretch", key="contextual_comparison")
+            st.caption("No se interpolan meses. La opción de coincidencias restringe el nuevo modelo al subconjunto con palabras del diccionario; "
+                       "los artículos sin coincidencias no aportan al numerador ni al denominador de sentimiento del diccionario. "
+                       "El modelo usa promedios por artículo; el diccionario pondera implícitamente por ocurrencias de palabras.")
+            st.subheader("Inspeccionar un caso real: titular y cuerpo por separado")
+            options = sorted(score_lookup, key=lambda identity: (identity != "b30d353a15880d52e0b3", row_lookup[identity]["publication_date"], identity))
+            model_id = st.selectbox("Artículo para comparar", options, key="contextual_article",
+                format_func=lambda identity: row_lookup[identity].get("publisher_title") or row_lookup[identity]["title"])
+            selected_row, selected_score = row_lookup[model_id], score_lookup[model_id]
+            st.write(selected_row.get("publisher_title") or selected_row["title"])
+            st.caption(f"{selected_row['publisher']} · {selected_row['publication_date']}")
+            st.link_button("Leer noticia original", selected_row["article_url"], key="contextual_source")
+            labels_es = {"POS": "Positivo", "NEU": "Neutro", "NEG": "Negativo"}
+            detail = []
+            for unit, label in [("headline", "Titular"), ("body", "Cuerpo completo, fragmentado")]:
+                prediction = selected_score[unit]
+                detail.append({"Texto": label, "Clase del modelo": labels_es[prediction["label"]], "Puntaje": prediction["score"],
+                    "P(negativo)": prediction["probabilities"]["NEG"], "P(neutro)": prediction["probabilities"]["NEU"],
+                    "P(positivo)": prediction["probabilities"]["POS"], "Fragmentos": prediction["chunks"]})
+            st.dataframe(pd.DataFrame(detail), hide_index=True)
+            st.write(f"**Diccionario sobre el cuerpo:** {selected_row['positive_count']} ocurrencias positivas, "
+                     f"{selected_row['negative_count']} negativas; puntaje {selected_row['sentiment_score']}.")
+            st.caption("Una clase neutra puede tener un puntaje distinto de cero. La etiqueta se obtiene por la mayor probabilidad de las tres clases, "
+                       "no por el signo del puntaje. La probabilidad máxima no equivale a precisión comprobada.")
+            st.info("El modelo fue entrenado con mensajes de Twitter en español. Su desempeño en noticias económicas colombianas está pendiente "
+                    "de evaluación humana. Ninguno de estos resultados demuestra crecimiento de las exportaciones ni capacidad predictiva.")
+            with st.expander("Procedencia, versiones y manejo del texto"):
+                st.json({k: model_manifest.get(k) for k in ["model_id", "model_revision", "upstream_source_commit", "method", "text_handling", "aggregation", "runtime", "license"]})
+                st.json({"tokens_cuerpo_modelo": selected_score["body"]["tokens"], "hash_texto": selected_score["body_sha256"]})
+            with st.expander("Resultados mensuales guardados"):
+                st.dataframe(contextual_series, hide_index=True)
 
 with destinations_tab:
     st.subheader("Destinations by country")

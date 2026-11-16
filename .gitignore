@@ -1,4 +1,5 @@
 .venv/
+.venv-contextual/
 .env
 .env.*
 __pycache__/

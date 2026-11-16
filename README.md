@@ -4,11 +4,37 @@
 
 This independent research prototype implements the published dictionary measurement in [Mora-Quiñones, Orozco-Gallo & Mora-Pérez (2026), Banco de la República BE1340](https://doi.org/10.32468/be.1340), then examines corpus selection, document roles, source composition and sparse country coverage. Its current contribution is a reproducible measurement and audit pipeline. Incremental economic information and predictive performance remain hypotheses to test.
 
-Code, documentation and dashboard are in English. Original source articles remain in Spanish. Goods exports from Colombia to foreign markets are in scope; service exports, imports and incidental mentions require separate treatment.
+Code stays in English. Baseline materials are in English; the new model comparison, explanation and review notebook are supplied in Spanish first. Original source articles remain in Spanish. Goods exports from Colombia to foreign markets are in scope; service exports, imports and incidental mentions require separate treatment.
 
 ## Start here for academic review
 
 Read the [research brief and validation design](docs/RESEARCH_BRIEF.md), inspect `trade_news/bank_method.py` and `trade_news/classification.py`, run the tests, then open the dashboard's **Study overview**. The brief distinguishes implemented results from claims still requiring data and human judgments. The source study and third-party vocabulary remain credited.
+
+## Nueva comparación: primero en español
+
+Se adaptó el modelo público [PySentimiento / RoBERTuito](https://huggingface.co/pysentimiento/robertuito-sentiment-analysis) a los artículos del corpus. El repositorio conserva por separado el método léxico de BE1340. La [explicación metodológica en español](docs/CONTEXTUAL_REPLICATION_ES.md) identifica el código reutilizado, los créditos, las restricciones de uso científico/no comercial y las adaptaciones propias. `Comparacion_NLP_Exportaciones_ES.ipynb` reproduce las probabilidades y los agregados guardados; la pestaña **Comparación NLP** permite revisar titulares y cuerpos por separado.
+
+Se reutilizan los pesos publicados y el preprocesamiento original. La inferencia local emplea Transformers y PyTorch; los artículos largos se procesan completos mediante fragmentos sin superposición. El promedio ponderado de probabilidades de fragmentos y la media mensual por artículo son decisiones explícitas del proyecto. El modelo se entrenó con mensajes de Twitter en español: su utilidad para noticias de exportaciones colombianas requiere evaluación humana. No se presentan como propios los porcentajes de precisión publicados por otros autores.
+
+La ejecución completa procesó **410 artículos**, 3.883 fragmentos de cuerpos y 463.240 tokens de contenido; produce resultados en 78 meses con textos. El [informe de resultados en español](docs/CONTEXTUAL_RESULTS_ES.md) muestra los conteos reales y el caso de reactivación de exportaciones. No se generaron etiquetas humanas.
+
+Para reconstruir la nueva serie desde los resultados guardados, sin instalar el modelo:
+
+```bash
+python scripts/run_contextual.py --offline
+```
+
+Para repetir la inferencia, usa un entorno separado y conserva el archivo local de artículos:
+
+```bash
+python -m venv .venv-contextual
+# Activate this separate environment before the following commands.
+python -m pip install -r requirements-contextual.txt
+python scripts/download_contextual_model.py
+python scripts/run_contextual.py --model-dir data/raw/contextual_model
+```
+
+La descarga pública fijada por revisión y SHA-256 incluye unos 415 MiB de pesos. Los pesos y los cuerpos de las noticias no se distribuyen en este repositorio. Las probabilidades guardadas permiten revisar el trabajo sin efectuar esa descarga. El código de `trade_news/contextual.py` es el adaptador del proyecto; `trade_news/pysentimiento_preprocessing.py` conserva explícitamente la autoría del código original reutilizado.
 
 ## Executed sample and its limits
 

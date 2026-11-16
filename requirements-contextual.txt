@@ -1,0 +1,6 @@
+# Optional local inference; keep the baseline/dashboard environment independent.
+--extra-index-url https://download.pytorch.org/whl/cpu
+torch==2.6.0+cpu
+transformers==4.48.3
+safetensors==0.5.3
+emoji==2.14.1
