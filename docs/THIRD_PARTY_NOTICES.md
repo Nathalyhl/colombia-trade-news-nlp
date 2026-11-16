@@ -1,5 +1,13 @@
 # Third-party material and attribution
 
+## PySentimiento and RoBERTuito comparison
+
+The optional comparison uses `pysentimiento/robertuito-sentiment-analysis`, published by the PySentimiento authors. The model card identifies Spanish TASS tweet training data and requests citation of PySentimiento, RoBERTuito and TASS. It is not a model trained by this project on Colombian export news.
+
+`trade_news/pysentimiento_preprocessing.py` preserves upstream `pysentimiento/preprocessing.py` below an attribution header, from source commit `60822acfd805ad5d95437c695daa33c18dbda060`. Its source is https://github.com/pysentimiento/pysentimiento. The upstream scientific/non-commercial use notice is reproduced in `reference/PYSENTIMIENTO_LICENSE.txt`; model and dataset restrictions also apply. Model weights are downloaded from their public source when needed and are not redistributed in this repository. Their revision and SHA-256 hashes are in `reference/contextual_model.json`.
+
+`trade_news/contextual.py` is this project's local inference and aggregation adapter. It follows the published softmax/argmax model-output logic; nonoverlapping full-article chunking and token-weighted chunk pooling are explicit project choices. Dávila and Chasi's Ecuador economic-news study is credited as a related application, not represented as source code we obtained or results we replicated. No published benchmark accuracy is assigned to this corpus.
+
 ## Published dictionary and activities
 
 `reference/moreno_gonzalez_2020.csv` transcribes the complete word lists in Annex 3a and 3b of Mora-Quiñones, Orozco-Gallo & Mora-Pérez (2026), *Sentiment and Uncertainty Indices from economic news in Colombia*, Borradores de Economía 1340, Banco de la República, DOI https://doi.org/10.32468/be.1340. The paper credits the dictionary to **Moreno and González (2020)**; that credit is retained. `reference/activities.csv` transcribes Annex 2 labels.

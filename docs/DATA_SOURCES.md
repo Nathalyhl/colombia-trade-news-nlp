@@ -1,5 +1,11 @@
 # Data lineage and access
 
+## Optional contextual comparison
+
+`contextual_scores.jsonl` contains actual local pretrained-model predictions for eligible articles, with independent body/headline probabilities, argmax classes, probability balances, token/chunk counts and source hashes. It contains no publisher body text. `contextual_manifest.json` records completion, the corpus fingerprint, fixed model revision, upstream source commit, model/preprocessing file hashes and inference-library versions. `contextual_indices.json` stores monthly equal-article probability-balance means for all eligible articles and for the dictionary-matched subset. These are separate from the BE1340 word-count aggregates in indices.json.
+
+The checkpoint and tokenizer file fingerprints are frozen in `reference/contextual_model.json`; the upstream scientific/non-commercial-use notice is preserved separately. Weights stay outside the release and can be downloaded from the public fixed revision. Rebuilding saved monthly arithmetic does not require model weights; reproducing source-text inference requires the optional environment and the ignored publisher archive. See CONTEXTUAL_REPLICATION_ES.md and CONTEXTUAL_RESULTS_ES.md for the adaptation boundary and actual outputs.
+
 ## Committed records
 
 | File | Meaning |
