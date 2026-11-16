@@ -1,6 +1,6 @@
 # Colombian Goods Export News: Sentiment & Uncertainty
 
-An independent research project studying Spanish-language news about **exports of Colombian goods to the world in 2026**. Services and inbound exports to Colombia are outside scope. Source articles remain in Spanish; code, documentation and dashboard are in English.
+An independent research project studying Spanish-language news about **exports of Colombian goods to the world from March 2020 onward**. Services and inbound exports to Colombia are outside scope. Source articles remain in Spanish; code, documentation and dashboard are in English.
 
 The project implements the article-text measurement procedure described in [Mora-Quiñones, Orozco-Gallo & Mora-Pérez (2026), Borradores de Economía 1340](https://doi.org/10.32468/be.1340): the published positive/negative dictionary, sentiment and uncertainty formulas, text-length and sentence-length conditions, and economic-activity taxonomy. It is an **adaptation to an export-news corpus**, not the Bank’s official series or a reproduction of its forecasting results.
 
@@ -8,18 +8,22 @@ The main result is a **general monthly export-news index**. Destination countrie
 
 The **Destinations** tab contains countries only. Select a country to inspect linked articles, whole-article sentiment, uncertainty and the reason for each assignment. **Quality & review** shows actual review status, a corrected real-world error and forms for independent country, corpus and sentiment judgments. There is no economic-activity tab, regional/bloc selector or general geographic-mention mode. See the [country protocol](docs/DESTINATIONS.md).
 
-## Executed snapshot
+## Executed historical snapshot
+
+Publication window: **1 March 2020–31 October 2026**; 1 November is excluded. All **80 calendar months** are retained.
 
 | Stage | Records |
 | --- | ---: |
-| Real Google News candidate metadata | 247 |
-| Retrieved publisher article texts | 196 |
-| Eligible, deduplicated article texts, provisional scope | 172 |
+| Real discovery candidates | 1374 |
+| Retrieved publisher article texts | 840 |
+| Eligible, deduplicated texts, provisional scope | 696 |
 | Human corpus decisions | 0 |
 
-The frozen publication window is **1 January–31 October 2026**, with 1 November excluded. November is incomplete as of the project preparation date, 16 November 2026; December has not occurred. Neither month is filled with zeroes or fabricated news. Retrieval timestamps retain their original UTC values.
+Google News discovery supplied 730 candidates but encountered HTTP 429 limits. The public **Analdex WordPress archive** supplied 644 separately identified institutional publications. Its public API exposes original publication dates and article content; robots rules permit access. Historical Google links not yet resolved remain retrieval failures, with no headline fallback. These are real source records, not generated observations.
 
-The articles are real; corpus inclusion and country links are **automatic proposals pending human review**. Country assignments distinguish automatic proposals from human-confirmed decisions; rejection or uncertainty holds the assignment out. Country accuracy is **not measured** until human labels are supplied. Scores compare automatic predictions before corrections, so manual fixes cannot manufacture perfect accuracy. Access failures, missing publisher dates and exclusions remain visible in the audit.
+**Coverage is incomplete and the source mix changes over time.** The eligible texts for **2020–2025 currently come only from Analdex**; 2026 adds other publishers. This is not a representative sample of all Colombian press. The dashboard shows monthly source composition and a fixed-source sensitivity comparison using Analdex throughout. All 80 months have provisional estimates, but this does not establish adequate or uniform coverage. Source dates, hashes, retrieval status and monthly pooled counts are inspectable.
+
+Corpus inclusion and country links are automatic proposals pending independent human review. Country and sentiment accuracy remain **not measured**. No official export figures or human judgments were invented. Economic validation is deferred until the researcher supplies the numerical dataset.
 
 ## Measurement
 
@@ -61,7 +65,9 @@ python -m trade_news destinations
 python -m trade_news analyze --verify-local-text
 
 # Retrieve a NEW snapshot in a separate directory. Public access only.
-python -m trade_news collect --start 2026-01-01 --end 2026-11-01 --data-dir data_new
+python -m trade_news collect --start 2020-03-01 --end 2026-11-01 --data-dir data_new
+# Separately identified institutional archive supplement.
+python -m trade_news publisher-archive --start 2020-03-01 --end 2026-11-01 --data-dir data_new
 python -m trade_news fetch --data-dir data_new
 python -m trade_news analyze --data-dir data_new
 
@@ -80,4 +86,4 @@ For Colab, upload `Colombia_Trade_News.ipynb`, then upload a ZIP downloaded from
 
 The repository distributes article metadata, source links, hashes, matched dictionary forms and derived counts. Publisher bodies and HTML stay in the ignored local `data/raw/` archive. This makes the released feature calculations reproducible; repeating text extraction and NLP requires that archive or a new public retrieval, whose contents may change.
 
-The Annex 2 activity vocabulary remains in the reference files for source fidelity and historical compatibility, but its sparse dashboard view has been removed. The source study’s exact tokenizer, stopword file and original curated corpus were not supplied with the paper. We document those implementation choices rather than claiming identical source code. Its econometric validation is outside this ten-month implementation. Third-party dictionary and stopword attribution is in [THIRD_PARTY_NOTICES.md](docs/THIRD_PARTY_NOTICES.md).
+The Annex 2 activity vocabulary remains in the reference files for source fidelity and historical compatibility, but its sparse dashboard view has been removed. The source study’s exact tokenizer, stopword file and original curated corpus were not supplied with the paper. We document those implementation choices rather than claiming identical source code. The main chart displays monthly estimates and a trailing three-month mean without imputation; the exact alignment is a documented project choice. Its econometric validation has not been reproduced. See [construction protocol](docs/METHODOLOGY.md), [real diagnostic cases](docs/DIAGNOSTIC_CASES.md) and [related research](docs/RELATED_WORK.md). Third-party dictionary and stopword attribution is in [THIRD_PARTY_NOTICES.md](docs/THIRD_PARTY_NOTICES.md).

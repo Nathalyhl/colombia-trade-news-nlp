@@ -9,7 +9,7 @@ import streamlit as st
 
 from trade_news.articles import read_jsonl
 from trade_news.corpus import REVIEW_FIELDS, build, read_reviews
-from trade_news.bank_method import aggregate
+from trade_news.bank_method import aggregate, trailing_quarterly_mean
 from trade_news.destinations import COUNTRIES, RULE_LABELS
 from trade_news.country_review import (assignments, country_coverage, evaluate_countries,
     read_country_reviews, save_country_review, title_hash)
@@ -24,10 +24,19 @@ def load_json(name):
 
 
 def index_chart(frame, column, title, bounds=None):
-    fig = go.Figure(go.Scatter(x=frame["month"], y=frame[column], mode="lines+markers", connectgaps=False,
+    records = frame.to_dict("records")
+    fig = go.Figure(go.Scatter(x=frame["month"], y=frame[column], mode="lines", name="Monthly estimate",
+        line={"color": "#b2b9c1", "width": 1}, connectgaps=False,
         customdata=frame[["articles", "publishers"]],
         hovertemplate="%{x}<br>Value: %{y:.3f}<br>Articles: %{customdata[0]}<br>Publishers: %{customdata[1]}<extra></extra>"))
-    fig.update_layout(title=title, xaxis_title="Publication month", yaxis_title=column.replace("_", " "), height=340)
+    fig.add_trace(go.Scatter(x=frame["month"], y=trailing_quarterly_mean(records, column),
+        mode="lines", name="Trailing 3-month mean", line={"color": "#142330", "width": 2.5}, connectgaps=False))
+    fig.update_layout(title=title, xaxis_title="Publication month", yaxis_title=column.replace("_", " "), height=390,
+        template="plotly_white", font={"family": "Georgia, serif", "color": "#182631"},
+        paper_bgcolor="white", plot_bgcolor="white", legend={"orientation": "h", "y": -0.25},
+        margin={"l": 40, "r": 20, "t": 55, "b": 70})
+    fig.update_xaxes(type="date", dtick="M12", tickformat="%b %Y", showgrid=False)
+    fig.update_yaxes(zeroline=True, zerolinecolor="#657380")
     if bounds:
         fig.update_yaxes(range=bounds, zeroline=True)
     return fig
@@ -43,10 +52,10 @@ country_report = evaluate_countries(rows, features, country_reviews)
 country_rows = assignments(rows, features, country_reviews)
 eligible = [r for r in rows if r["eligible_for_index"]]
 months = [r["month"] for r in log["requests"]]
-st.caption("COLOMBIAN GOODS EXPORTS TO THE WORLD · 2026")
-st.title("Export News Observatory")
-st.write("Follow the tone of export news, explore destination countries and inspect the evidence behind each classification.")
-st.caption("January–October 2026 · Publication months · Independent adaptation of BE1340 · Automated labels pending human review")
+st.caption("COLOMBIAN GOODS EXPORTS TO THE WORLD · RESEARCH OBSERVATORY")
+st.title("Export News: Sentiment & Uncertainty")
+st.write("A dictionary-based study of Spanish-language news about exports of Colombian goods.")
+st.caption("March 2020–October 2026 · Publication months · Independent adaptation of BE1340 · Corpus review pending")
 c1, c2, c3, c4 = st.columns(4)
 c1.metric("Eligible news articles", len(eligible))
 c2.metric("News sources", len({r["publisher"] for r in eligible}))
@@ -74,29 +83,63 @@ def article_evidence(article, context):
         st.dataframe(pd.DataFrame(matches).rename(columns={"word": "Matched word", "polarity": "Dictionary class", "count": "Occurrences"}), hide_index=True, key=context+"_words")
     else:
         st.info("No dictionary polarity matches: the sentiment estimate is missing, not neutral.")
-    st.caption("Sentiment uses the retrieved article body. These words explain the lexical score; they do not prove that the overall interpretation is correct.")
+    polar = article.get("positive_count", 0)+article.get("negative_count", 0)
+    st.caption(f"Lexical support: {polar} polarity matches across {article.get('processed_tokens', 0)} retained words. "
+               "The score describes the article's dictionary balance, not whether its export event is beneficial.")
+    if polar == 1:
+        st.info("Only one polarity word matched. An article score of −1 or +1 here reflects that single word, not strong or validated sentiment.")
+    st.caption("Publication month determines index timing. A reference to 2025 inside a 2026 article may describe a previous-year comparison; "
+               "it does not change the publication month. The statistical reference period has not been independently annotated.")
     with st.expander("Source and processing trace"):
         st.json({k: article.get(k) for k in ["record_id", "article_url", "publication_date", "date_source", "text_sha256",
-            "processed_tokens", "processing_status", "scope_reason", "goods_evidence", "fetch_status", "fetch_error"]})
+            "text_characters", "candidate_sentences", "tokens_before_stopwords", "tokens_after_stopwords",
+            "retained_sentences", "discarded_short_sentences", "processed_tokens", "method",
+            "processing_status", "scope_reason", "goods_evidence", "fetch_status", "fetch_error"]})
 
 
 with general:
-    st.subheader("General export-news sentiment and uncertainty")
+    st.subheader("Export-news sentiment index")
+    st.caption("Coverage: 2020–2025 currently contains Analdex institutional publications only; 2026 adds other publishers. "
+               "Use the fixed-source comparison below before interpreting changes across this boundary.")
     series = pd.DataFrame([r for r in indices["provisional"] if r["activity"] == "All exports"])
-    left, right = st.columns(2)
-    left.plotly_chart(index_chart(series, "sentiment", "Monthly sentiment", [-1.05, 1.05]), width="stretch", key="general_sentiment")
-    right.plotly_chart(index_chart(series, "uncertainty_per_1000", "Monthly uncertainty"), width="stretch", key="general_uncertainty")
+    st.plotly_chart(index_chart(series, "sentiment", "Colombian goods export news · sentiment", [-1.05, 1.05]), width="stretch", key="general_sentiment")
+    st.caption("Thin gray: monthly estimate. Dark line: trailing mean of three consecutive available months, with no gap filling or future values. "
+               "The Bank's Figure 3 uses a quarterly moving average; trailing alignment is our documented convention.")
+    st.subheader("Export-news uncertainty index")
+    st.plotly_chart(index_chart(series, "uncertainty_per_1000", "Colombian goods export news · uncertainty"), width="stretch", key="general_uncertainty")
     st.caption("Sentiment balances positive and negative dictionary words from −1 to +1. Uncertainty counts the six reference forms per 1,000 processed words. "
                "These measures describe news language; they do not measure export growth. Missing estimates stay missing.")
     st.subheader("How much news supports each month?")
-    volume = go.Figure(go.Bar(x=series["month"], y=series["articles"], customdata=series[["publishers"]],
-        hovertemplate="%{x}<br>Articles: %{y}<br>Sources: %{customdata[0]}<extra></extra>"))
-    volume.update_layout(height=220, margin={"t": 15, "b": 20}, yaxis_title="Articles", xaxis_title="Publication month")
+    institutional = [sum(r["month"] == month and r["publisher"] == "Analdex" for r in eligible) for month in months]
+    volume = go.Figure()
+    volume.add_bar(x=months, y=institutional, name="Analdex · institutional source", marker_color="#8a9cae")
+    volume.add_bar(x=months, y=[int(n)-a for n, a in zip(series["articles"], institutional)], name="Other publishers", marker_color="#1e465e")
+    volume.update_layout(height=250, barmode="stack", template="plotly_white", margin={"t": 15, "b": 20},
+                         yaxis_title="Eligible articles", xaxis_title="Publication month", legend={"orientation": "h"})
     st.plotly_chart(volume, width="stretch", key="general_volume")
-    with st.expander("Monthly counts and estimates"):
+    with st.expander("Source sensitivity: keep Analdex fixed across the whole period"):
+        st.write("The same dictionary and equations are applied to eligible Analdex articles in every month. "
+                 "This removes the 2026 addition of other publishers from this comparison; it does not remove institutional selection bias.")
+        fixed_rows = [r for r in eligible if r["publisher"] == "Analdex"]
+        fixed_series = pd.DataFrame([r for r in aggregate(fixed_rows, months) if r["activity"] == "All exports"])
+        for column, label in [("sentiment", "Sentiment"), ("uncertainty_per_1000", "Uncertainty per 1,000 words")]:
+            comparison = go.Figure()
+            comparison.add_scatter(x=months, y=trailing_quarterly_mean(series.to_dict("records"), column),
+                mode="lines", name="All retrieved sources", line={"color": "#142330"}, connectgaps=False)
+            comparison.add_scatter(x=months, y=trailing_quarterly_mean(fixed_series.to_dict("records"), column),
+                mode="lines", name="Analdex only", line={"color": "#467b9b", "dash": "dash"}, connectgaps=False)
+            comparison.update_layout(title=label+" · trailing 3-month means", template="plotly_white", height=300,
+                legend={"orientation": "h"}, xaxis_title="Publication month")
+            st.plotly_chart(comparison, width="stretch", key="fixed_source_"+column)
+        st.dataframe(fixed_series[["month", "articles", "positive_count", "negative_count", "uncertainty_count",
+                                 "processed_tokens", "sentiment", "uncertainty_per_1000"]], hide_index=True)
+    st.info("Historical coverage is incomplete. Analdex's public archive supplements limited Google News discovery. "
+            "The source mix changes over time, so movements may reflect coverage as well as news language. Human corpus review is pending.")
+    with st.expander("Monthly construction table: P, N, U, W and estimates"):
         st.dataframe(series[["month", "articles", "publishers", "positive_count", "negative_count", "uncertainty_count",
                              "processed_tokens", "sentiment", "uncertainty_per_1000"]], hide_index=True)
-    st.caption("Quality checks and actual human-review status are available in Quality & review. November and December are not estimated in this snapshot.")
+    st.caption("Source: authors' calculations from retrieved publisher texts, using the BE1340 dictionary and formulas. "
+               "This is an independent export-news adaptation, not an official Bank series. The snapshot ends before 1 November 2026.")
 
 with destinations_tab:
     st.subheader("Destinations by country")
@@ -149,7 +192,8 @@ with evidence:
         st.info("No matching articles. Clear the search or include retrieval failures to inspect coverage.")
     else:
         st.dataframe(pd.DataFrame([{"Date": r.get("publication_date"), "Headline": r.get("publisher_title") or r["title"],
-            "Source": r["publisher"], "Sentiment": r.get("sentiment_label", "not estimated"), "Eligible": r["eligible_for_index"],
+            "Source": r["publisher"], "Dictionary balance": r.get("sentiment_score"), "P": r.get("positive_count"),
+            "N": r.get("negative_count"), "Eligible": r["eligible_for_index"],
             "Retrieval": r["fetch_status"]} for r in visible]), hide_index=True)
         chosen = st.selectbox("Inspect an article", [r["record_id"] for r in visible], key="inspect_article",
             format_func=lambda identity: next((r.get("publisher_title") or r["title"]) for r in visible if r["record_id"] == identity))
@@ -172,7 +216,7 @@ with quality:
     st.subheader("Classification check: competitor or destination?")
     comparison_cases = [(r, hit) for r in eligible for hit in feature_lookup[r["record_id"]].get("non_destination_evidence", [])]
     if comparison_cases:
-        example, hit = comparison_cases[0]
+        example, hit = next((pair for pair in comparison_cases if pair[0]["record_id"] == "a1348320f184c51f24f5"), comparison_cases[0])
         st.write(example.get("publisher_title") or example["title"])
         st.write(f"**{hit['market']} is not assigned as a destination.** {RULE_LABELS[hit['rule']]}")
         st.link_button("Check this source", example["article_url"])
@@ -257,11 +301,23 @@ with quality:
                "A small convenience review is not a held-out benchmark. Sentiment validation and economic validation are separate tasks.")
 
 with method:
-    st.subheader("Measurement and coverage")
+    st.subheader("Construction of the export-news indices")
     st.markdown("Reference: [Mora-Quiñones, Orozco-Gallo & Mora-Pérez (2026), BE1340](https://doi.org/10.32468/be.1340). "
                 "The published dictionary and formulas measure lexical news tone. Country extraction is a separate project extension.")
     st.latex(r"SENT_t = \frac{P_t-N_t}{P_t+N_t}")
     st.latex(r"UNCERT_t = 1000\,\frac{U_t}{W_t}")
+    st.markdown("**News → Cleaning → Preprocessing → Tokenization → Word counts → Monthly indices**")
+    construction = [
+        ("1 · Input", "Retrieved publisher article text; ID, publication date, source and URL; one subject: goods exports from Colombia."),
+        ("2 · Cleaning", "Remove HTML during extraction; discard cleaned texts with fewer than 50 characters. Keep raw archive hashes."),
+        ("3 · Preprocessing", "Segment punctuation, paragraphs, numbered lists and bullets; lowercase and remove frozen Spanish stopwords."),
+        ("4 · Tokenization", "Unicode alphabetic tokens; retain sentences with more than five words after stopword removal."),
+        ("5 · Word counts", "Count exact published forms: P (188 positive), N (376 negative), U (six uncertainty forms), W (retained words)."),
+        ("6 · Monthly output", "Pool counts by publisher publication month; apply the two equations. Missing denominators remain missing."),
+    ]
+    st.table(pd.DataFrame(construction, columns=["Stage", "Operational rule"]).set_index("Stage"))
+    st.caption("Diagram 1 and equations 1–2 provide the measurement rules. The export corpus, public API extraction, "
+               "exact tokenizer, NLTK stopword file and trailing moving-average alignment are this project's documented choices.")
     st.write("Article bodies shorter than 50 characters are discarded. After splitting, lowercasing and removing stopwords, "
              "only sentences with more than five remaining words are retained. Exact dictionary matching uses 188 positive and 376 negative forms. "
              "No growth words or inflections are added to force a score.")
@@ -275,3 +331,7 @@ with method:
     st.dataframe(pd.DataFrame(audit["fetch_status_counts"].items(), columns=["Outcome", "Records"]), hide_index=True)
     st.caption("Google News discovery is non-exhaustive. Only retrieved article text with an explicit publisher publication date can enter the index. "
                "Publisher access, extraction completeness, source mix and dictionary coverage affect the result. Raw publisher bodies remain in the local archive.")
+    with st.expander("Monthly discovery status and historical gaps"):
+        st.dataframe(pd.DataFrame([{**{k: r.get(k) for k in ["month", "accepted_items", "http_status", "reason"]}, "status": str(r["status"])}
+                                  for r in log["requests"]]), hide_index=True)
+        st.caption("Google request failures and unattempted months are not evidence of no export news. Analdex is separately logged in collection_log.json.")
