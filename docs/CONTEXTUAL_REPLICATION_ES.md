@@ -30,6 +30,8 @@ La etiqueta corresponde a la clase con mayor probabilidad. Una etiqueta neutra p
 
 La nueva serie mensual es el promedio de los puntajes de los artículos del mes. Se muestra también una comparación restringida a artículos con coincidencias en el diccionario, para examinar la influencia de su cobertura. Los meses sin artículos permanecen sin estimación. No se añaden noticias, no se interpolan meses y no se normaliza con información futura para obtener una curva visualmente deseada.
 
+Los promedios se calculan con suma compensada y se guardan con doce decimales para evitar diferencias irrelevantes entre versiones de Python al reproducir las tablas. Las probabilidades originales de cada artículo se conservan sin ese redondeo de presentación mensual.
+
 Este cálculo no equivale a la fórmula del Banco de la República, que agrupa ocurrencias de palabras positivas y negativas antes de dividir. Ambas series se identifican por su método. El índice de incertidumbre económica del Banco conserva su propia definición; no se sustituye por la entropía o la confianza del clasificador.
 
 ## Qué permite mostrar al profesor
