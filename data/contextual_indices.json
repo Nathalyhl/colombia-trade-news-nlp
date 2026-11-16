@@ -1,0 +1,1926 @@
+{
+  "all_eligible": [
+    {
+      "month": "2020-03",
+      "articles": 1,
+      "publishers": 1,
+      "mean_probability_balance": 0.16464626153568762,
+      "labels": {
+        "NEG": 0,
+        "NEU": 1,
+        "POS": 0
+      },
+      "status": "model_predictions_not_human_validated"
+    },
+    {
+      "month": "2020-04",
+      "articles": 0,
+      "publishers": 0,
+      "mean_probability_balance": null,
+      "labels": {
+        "NEG": 0,
+        "NEU": 0,
+        "POS": 0
+      },
+      "status": "no_scored_articles"
+    },
+    {
+      "month": "2020-05",
+      "articles": 0,
+      "publishers": 0,
+      "mean_probability_balance": null,
+      "labels": {
+        "NEG": 0,
+        "NEU": 0,
+        "POS": 0
+      },
+      "status": "no_scored_articles"
+    },
+    {
+      "month": "2020-06",
+      "articles": 4,
+      "publishers": 1,
+      "mean_probability_balance": 0.1614123472931447,
+      "labels": {
+        "NEG": 1,
+        "NEU": 1,
+        "POS": 2
+      },
+      "status": "model_predictions_not_human_validated"
+    },
+    {
+      "month": "2020-07",
+      "articles": 3,
+      "publishers": 1,
+      "mean_probability_balance": 0.1040749593612532,
+      "labels": {
+        "NEG": 1,
+        "NEU": 1,
+        "POS": 1
+      },
+      "status": "model_predictions_not_human_validated"
+    },
+    {
+      "month": "2020-08",
+      "articles": 2,
+      "publishers": 1,
+      "mean_probability_balance": 0.056554630989332604,
+      "labels": {
+        "NEG": 0,
+        "NEU": 2,
+        "POS": 0
+      },
+      "status": "model_predictions_not_human_validated"
+    },
+    {
+      "month": "2020-09",
+      "articles": 4,
+      "publishers": 1,
+      "mean_probability_balance": 0.03790743357375029,
+      "labels": {
+        "NEG": 1,
+        "NEU": 3,
+        "POS": 0
+      },
+      "status": "model_predictions_not_human_validated"
+    },
+    {
+      "month": "2020-10",
+      "articles": 2,
+      "publishers": 1,
+      "mean_probability_balance": 0.21412973021488357,
+      "labels": {
+        "NEG": 0,
+        "NEU": 1,
+        "POS": 1
+      },
+      "status": "model_predictions_not_human_validated"
+    },
+    {
+      "month": "2020-11",
+      "articles": 2,
+      "publishers": 1,
+      "mean_probability_balance": 0.5036041719612294,
+      "labels": {
+        "NEG": 0,
+        "NEU": 1,
+        "POS": 1
+      },
+      "status": "model_predictions_not_human_validated"
+    },
+    {
+      "month": "2020-12",
+      "articles": 2,
+      "publishers": 1,
+      "mean_probability_balance": -0.12408894138474194,
+      "labels": {
+        "NEG": 0,
+        "NEU": 2,
+        "POS": 0
+      },
+      "status": "model_predictions_not_human_validated"
+    },
+    {
+      "month": "2021-01",
+      "articles": 2,
+      "publishers": 1,
+      "mean_probability_balance": 0.4920470073485749,
+      "labels": {
+        "NEG": 0,
+        "NEU": 1,
+        "POS": 1
+      },
+      "status": "model_predictions_not_human_validated"
+    },
+    {
+      "month": "2021-02",
+      "articles": 2,
+      "publishers": 1,
+      "mean_probability_balance": 0.22706859775748414,
+      "labels": {
+        "NEG": 0,
+        "NEU": 2,
+        "POS": 0
+      },
+      "status": "model_predictions_not_human_validated"
+    },
+    {
+      "month": "2021-03",
+      "articles": 1,
+      "publishers": 1,
+      "mean_probability_balance": -0.4581472503822681,
+      "labels": {
+        "NEG": 1,
+        "NEU": 0,
+        "POS": 0
+      },
+      "status": "model_predictions_not_human_validated"
+    },
+    {
+      "month": "2021-04",
+      "articles": 2,
+      "publishers": 1,
+      "mean_probability_balance": 0.2550589082438206,
+      "labels": {
+        "NEG": 0,
+        "NEU": 2,
+        "POS": 0
+      },
+      "status": "model_predictions_not_human_validated"
+    },
+    {
+      "month": "2021-05",
+      "articles": 2,
+      "publishers": 1,
+      "mean_probability_balance": 0.21407283569276353,
+      "labels": {
+        "NEG": 0,
+        "NEU": 2,
+        "POS": 0
+      },
+      "status": "model_predictions_not_human_validated"
+    },
+    {
+      "month": "2021-06",
+      "articles": 1,
+      "publishers": 1,
+      "mean_probability_balance": 0.5509056959030681,
+      "labels": {
+        "NEG": 0,
+        "NEU": 0,
+        "POS": 1
+      },
+      "status": "model_predictions_not_human_validated"
+    },
+    {
+      "month": "2021-07",
+      "articles": 4,
+      "publishers": 1,
+      "mean_probability_balance": 0.1505765258130069,
+      "labels": {
+        "NEG": 0,
+        "NEU": 4,
+        "POS": 0
+      },
+      "status": "model_predictions_not_human_validated"
+    },
+    {
+      "month": "2021-08",
+      "articles": 7,
+      "publishers": 1,
+      "mean_probability_balance": 0.0016820668933327887,
+      "labels": {
+        "NEG": 1,
+        "NEU": 5,
+        "POS": 1
+      },
+      "status": "model_predictions_not_human_validated"
+    },
+    {
+      "month": "2021-09",
+      "articles": 2,
+      "publishers": 1,
+      "mean_probability_balance": -0.008955981037123584,
+      "labels": {
+        "NEG": 0,
+        "NEU": 2,
+        "POS": 0
+      },
+      "status": "model_predictions_not_human_validated"
+    },
+    {
+      "month": "2021-10",
+      "articles": 4,
+      "publishers": 1,
+      "mean_probability_balance": 0.20345812063908145,
+      "labels": {
+        "NEG": 0,
+        "NEU": 3,
+        "POS": 1
+      },
+      "status": "model_predictions_not_human_validated"
+    },
+    {
+      "month": "2021-11",
+      "articles": 3,
+      "publishers": 1,
+      "mean_probability_balance": 0.11793825310547518,
+      "labels": {
+        "NEG": 0,
+        "NEU": 3,
+        "POS": 0
+      },
+      "status": "model_predictions_not_human_validated"
+    },
+    {
+      "month": "2021-12",
+      "articles": 2,
+      "publishers": 1,
+      "mean_probability_balance": 0.4526670654160491,
+      "labels": {
+        "NEG": 0,
+        "NEU": 1,
+        "POS": 1
+      },
+      "status": "model_predictions_not_human_validated"
+    },
+    {
+      "month": "2022-01",
+      "articles": 3,
+      "publishers": 1,
+      "mean_probability_balance": 0.2604746609052657,
+      "labels": {
+        "NEG": 0,
+        "NEU": 2,
+        "POS": 1
+      },
+      "status": "model_predictions_not_human_validated"
+    },
+    {
+      "month": "2022-02",
+      "articles": 1,
+      "publishers": 1,
+      "mean_probability_balance": 0.2966644047759473,
+      "labels": {
+        "NEG": 0,
+        "NEU": 1,
+        "POS": 0
+      },
+      "status": "model_predictions_not_human_validated"
+    },
+    {
+      "month": "2022-03",
+      "articles": 3,
+      "publishers": 1,
+      "mean_probability_balance": 0.17110577056791562,
+      "labels": {
+        "NEG": 0,
+        "NEU": 3,
+        "POS": 0
+      },
+      "status": "model_predictions_not_human_validated"
+    },
+    {
+      "month": "2022-04",
+      "articles": 3,
+      "publishers": 1,
+      "mean_probability_balance": 0.2796708866378071,
+      "labels": {
+        "NEG": 0,
+        "NEU": 2,
+        "POS": 1
+      },
+      "status": "model_predictions_not_human_validated"
+    },
+    {
+      "month": "2022-05",
+      "articles": 5,
+      "publishers": 1,
+      "mean_probability_balance": 0.16282257822369456,
+      "labels": {
+        "NEG": 0,
+        "NEU": 4,
+        "POS": 1
+      },
+      "status": "model_predictions_not_human_validated"
+    },
+    {
+      "month": "2022-06",
+      "articles": 2,
+      "publishers": 1,
+      "mean_probability_balance": 0.030696194043443314,
+      "labels": {
+        "NEG": 0,
+        "NEU": 2,
+        "POS": 0
+      },
+      "status": "model_predictions_not_human_validated"
+    },
+    {
+      "month": "2022-07",
+      "articles": 2,
+      "publishers": 1,
+      "mean_probability_balance": 0.05566413952415685,
+      "labels": {
+        "NEG": 0,
+        "NEU": 2,
+        "POS": 0
+      },
+      "status": "model_predictions_not_human_validated"
+    },
+    {
+      "month": "2022-08",
+      "articles": 6,
+      "publishers": 1,
+      "mean_probability_balance": 0.1592642738111051,
+      "labels": {
+        "NEG": 0,
+        "NEU": 4,
+        "POS": 2
+      },
+      "status": "model_predictions_not_human_validated"
+    },
+    {
+      "month": "2022-09",
+      "articles": 6,
+      "publishers": 1,
+      "mean_probability_balance": 0.2528584269691539,
+      "labels": {
+        "NEG": 0,
+        "NEU": 4,
+        "POS": 2
+      },
+      "status": "model_predictions_not_human_validated"
+    },
+    {
+      "month": "2022-10",
+      "articles": 4,
+      "publishers": 1,
+      "mean_probability_balance": -0.05183048992185009,
+      "labels": {
+        "NEG": 1,
+        "NEU": 3,
+        "POS": 0
+      },
+      "status": "model_predictions_not_human_validated"
+    },
+    {
+      "month": "2022-11",
+      "articles": 5,
+      "publishers": 1,
+      "mean_probability_balance": 0.06929040597619582,
+      "labels": {
+        "NEG": 0,
+        "NEU": 4,
+        "POS": 1
+      },
+      "status": "model_predictions_not_human_validated"
+    },
+    {
+      "month": "2022-12",
+      "articles": 3,
+      "publishers": 1,
+      "mean_probability_balance": 0.11679558881042157,
+      "labels": {
+        "NEG": 0,
+        "NEU": 3,
+        "POS": 0
+      },
+      "status": "model_predictions_not_human_validated"
+    },
+    {
+      "month": "2023-01",
+      "articles": 5,
+      "publishers": 1,
+      "mean_probability_balance": 0.026199013633935543,
+      "labels": {
+        "NEG": 0,
+        "NEU": 5,
+        "POS": 0
+      },
+      "status": "model_predictions_not_human_validated"
+    },
+    {
+      "month": "2023-02",
+      "articles": 3,
+      "publishers": 1,
+      "mean_probability_balance": 0.22516122232218824,
+      "labels": {
+        "NEG": 0,
+        "NEU": 2,
+        "POS": 1
+      },
+      "status": "model_predictions_not_human_validated"
+    },
+    {
+      "month": "2023-03",
+      "articles": 3,
+      "publishers": 1,
+      "mean_probability_balance": 0.08456877033535015,
+      "labels": {
+        "NEG": 0,
+        "NEU": 3,
+        "POS": 0
+      },
+      "status": "model_predictions_not_human_validated"
+    },
+    {
+      "month": "2023-04",
+      "articles": 5,
+      "publishers": 1,
+      "mean_probability_balance": 0.2339713724337516,
+      "labels": {
+        "NEG": 0,
+        "NEU": 4,
+        "POS": 1
+      },
+      "status": "model_predictions_not_human_validated"
+    },
+    {
+      "month": "2023-05",
+      "articles": 4,
+      "publishers": 1,
+      "mean_probability_balance": 0.1011303306512727,
+      "labels": {
+        "NEG": 1,
+        "NEU": 2,
+        "POS": 1
+      },
+      "status": "model_predictions_not_human_validated"
+    },
+    {
+      "month": "2023-06",
+      "articles": 5,
+      "publishers": 1,
+      "mean_probability_balance": 0.21743912913524605,
+      "labels": {
+        "NEG": 0,
+        "NEU": 4,
+        "POS": 1
+      },
+      "status": "model_predictions_not_human_validated"
+    },
+    {
+      "month": "2023-07",
+      "articles": 2,
+      "publishers": 1,
+      "mean_probability_balance": 0.19001610392159718,
+      "labels": {
+        "NEG": 0,
+        "NEU": 2,
+        "POS": 0
+      },
+      "status": "model_predictions_not_human_validated"
+    },
+    {
+      "month": "2023-08",
+      "articles": 4,
+      "publishers": 1,
+      "mean_probability_balance": 0.14833270394022052,
+      "labels": {
+        "NEG": 0,
+        "NEU": 4,
+        "POS": 0
+      },
+      "status": "model_predictions_not_human_validated"
+    },
+    {
+      "month": "2023-09",
+      "articles": 3,
+      "publishers": 1,
+      "mean_probability_balance": -0.06349715134387586,
+      "labels": {
+        "NEG": 1,
+        "NEU": 2,
+        "POS": 0
+      },
+      "status": "model_predictions_not_human_validated"
+    },
+    {
+      "month": "2023-10",
+      "articles": 3,
+      "publishers": 1,
+      "mean_probability_balance": -0.014004944657393955,
+      "labels": {
+        "NEG": 0,
+        "NEU": 3,
+        "POS": 0
+      },
+      "status": "model_predictions_not_human_validated"
+    },
+    {
+      "month": "2023-11",
+      "articles": 5,
+      "publishers": 1,
+      "mean_probability_balance": 0.19477092683771102,
+      "labels": {
+        "NEG": 0,
+        "NEU": 4,
+        "POS": 1
+      },
+      "status": "model_predictions_not_human_validated"
+    },
+    {
+      "month": "2023-12",
+      "articles": 3,
+      "publishers": 1,
+      "mean_probability_balance": -0.08429385915888808,
+      "labels": {
+        "NEG": 1,
+        "NEU": 2,
+        "POS": 0
+      },
+      "status": "model_predictions_not_human_validated"
+    },
+    {
+      "month": "2024-01",
+      "articles": 3,
+      "publishers": 1,
+      "mean_probability_balance": 0.02131154579008736,
+      "labels": {
+        "NEG": 0,
+        "NEU": 3,
+        "POS": 0
+      },
+      "status": "model_predictions_not_human_validated"
+    },
+    {
+      "month": "2024-02",
+      "articles": 6,
+      "publishers": 1,
+      "mean_probability_balance": 0.07567341008024964,
+      "labels": {
+        "NEG": 0,
+        "NEU": 6,
+        "POS": 0
+      },
+      "status": "model_predictions_not_human_validated"
+    },
+    {
+      "month": "2024-03",
+      "articles": 4,
+      "publishers": 1,
+      "mean_probability_balance": 0.19602930403443966,
+      "labels": {
+        "NEG": 0,
+        "NEU": 3,
+        "POS": 1
+      },
+      "status": "model_predictions_not_human_validated"
+    },
+    {
+      "month": "2024-04",
+      "articles": 4,
+      "publishers": 1,
+      "mean_probability_balance": 0.23411791500805673,
+      "labels": {
+        "NEG": 0,
+        "NEU": 2,
+        "POS": 2
+      },
+      "status": "model_predictions_not_human_validated"
+    },
+    {
+      "month": "2024-05",
+      "articles": 3,
+      "publishers": 1,
+      "mean_probability_balance": -0.14013830377543138,
+      "labels": {
+        "NEG": 1,
+        "NEU": 2,
+        "POS": 0
+      },
+      "status": "model_predictions_not_human_validated"
+    },
+    {
+      "month": "2024-06",
+      "articles": 5,
+      "publishers": 1,
+      "mean_probability_balance": -0.026477028525762752,
+      "labels": {
+        "NEG": 2,
+        "NEU": 3,
+        "POS": 0
+      },
+      "status": "model_predictions_not_human_validated"
+    },
+    {
+      "month": "2024-07",
+      "articles": 3,
+      "publishers": 1,
+      "mean_probability_balance": 0.19103402187489812,
+      "labels": {
+        "NEG": 0,
+        "NEU": 3,
+        "POS": 0
+      },
+      "status": "model_predictions_not_human_validated"
+    },
+    {
+      "month": "2024-08",
+      "articles": 6,
+      "publishers": 1,
+      "mean_probability_balance": 0.15886414303360188,
+      "labels": {
+        "NEG": 0,
+        "NEU": 5,
+        "POS": 1
+      },
+      "status": "model_predictions_not_human_validated"
+    },
+    {
+      "month": "2024-09",
+      "articles": 4,
+      "publishers": 1,
+      "mean_probability_balance": 0.04818332213924402,
+      "labels": {
+        "NEG": 0,
+        "NEU": 3,
+        "POS": 1
+      },
+      "status": "model_predictions_not_human_validated"
+    },
+    {
+      "month": "2024-10",
+      "articles": 5,
+      "publishers": 1,
+      "mean_probability_balance": 0.1228837845601178,
+      "labels": {
+        "NEG": 0,
+        "NEU": 4,
+        "POS": 1
+      },
+      "status": "model_predictions_not_human_validated"
+    },
+    {
+      "month": "2024-11",
+      "articles": 3,
+      "publishers": 1,
+      "mean_probability_balance": -0.018568771987280158,
+      "labels": {
+        "NEG": 1,
+        "NEU": 1,
+        "POS": 1
+      },
+      "status": "model_predictions_not_human_validated"
+    },
+    {
+      "month": "2024-12",
+      "articles": 3,
+      "publishers": 1,
+      "mean_probability_balance": -0.08880403935472662,
+      "labels": {
+        "NEG": 0,
+        "NEU": 3,
+        "POS": 0
+      },
+      "status": "model_predictions_not_human_validated"
+    },
+    {
+      "month": "2025-01",
+      "articles": 5,
+      "publishers": 1,
+      "mean_probability_balance": -0.003127259942061045,
+      "labels": {
+        "NEG": 0,
+        "NEU": 5,
+        "POS": 0
+      },
+      "status": "model_predictions_not_human_validated"
+    },
+    {
+      "month": "2025-02",
+      "articles": 6,
+      "publishers": 1,
+      "mean_probability_balance": 0.12957395261928376,
+      "labels": {
+        "NEG": 0,
+        "NEU": 5,
+        "POS": 1
+      },
+      "status": "model_predictions_not_human_validated"
+    },
+    {
+      "month": "2025-03",
+      "articles": 4,
+      "publishers": 1,
+      "mean_probability_balance": 0.10439405965789669,
+      "labels": {
+        "NEG": 0,
+        "NEU": 3,
+        "POS": 1
+      },
+      "status": "model_predictions_not_human_validated"
+    },
+    {
+      "month": "2025-04",
+      "articles": 3,
+      "publishers": 1,
+      "mean_probability_balance": 0.058195650133833675,
+      "labels": {
+        "NEG": 0,
+        "NEU": 3,
+        "POS": 0
+      },
+      "status": "model_predictions_not_human_validated"
+    },
+    {
+      "month": "2025-05",
+      "articles": 3,
+      "publishers": 1,
+      "mean_probability_balance": 0.043789850094201076,
+      "labels": {
+        "NEG": 0,
+        "NEU": 3,
+        "POS": 0
+      },
+      "status": "model_predictions_not_human_validated"
+    },
+    {
+      "month": "2025-06",
+      "articles": 4,
+      "publishers": 1,
+      "mean_probability_balance": 0.19764247910106855,
+      "labels": {
+        "NEG": 0,
+        "NEU": 4,
+        "POS": 0
+      },
+      "status": "model_predictions_not_human_validated"
+    },
+    {
+      "month": "2025-07",
+      "articles": 5,
+      "publishers": 1,
+      "mean_probability_balance": 0.2435657730412358,
+      "labels": {
+        "NEG": 0,
+        "NEU": 4,
+        "POS": 1
+      },
+      "status": "model_predictions_not_human_validated"
+    },
+    {
+      "month": "2025-08",
+      "articles": 3,
+      "publishers": 1,
+      "mean_probability_balance": 0.20185940233228858,
+      "labels": {
+        "NEG": 0,
+        "NEU": 3,
+        "POS": 0
+      },
+      "status": "model_predictions_not_human_validated"
+    },
+    {
+      "month": "2025-09",
+      "articles": 5,
+      "publishers": 1,
+      "mean_probability_balance": 0.10220858058352837,
+      "labels": {
+        "NEG": 1,
+        "NEU": 4,
+        "POS": 0
+      },
+      "status": "model_predictions_not_human_validated"
+    },
+    {
+      "month": "2025-10",
+      "articles": 1,
+      "publishers": 1,
+      "mean_probability_balance": 0.03173902719768126,
+      "labels": {
+        "NEG": 0,
+        "NEU": 1,
+        "POS": 0
+      },
+      "status": "model_predictions_not_human_validated"
+    },
+    {
+      "month": "2025-11",
+      "articles": 2,
+      "publishers": 1,
+      "mean_probability_balance": 0.26630342305202304,
+      "labels": {
+        "NEG": 0,
+        "NEU": 1,
+        "POS": 1
+      },
+      "status": "model_predictions_not_human_validated"
+    },
+    {
+      "month": "2025-12",
+      "articles": 2,
+      "publishers": 1,
+      "mean_probability_balance": -0.12244078201164721,
+      "labels": {
+        "NEG": 0,
+        "NEU": 2,
+        "POS": 0
+      },
+      "status": "model_predictions_not_human_validated"
+    },
+    {
+      "month": "2026-01",
+      "articles": 14,
+      "publishers": 6,
+      "mean_probability_balance": 0.13302242701649167,
+      "labels": {
+        "NEG": 1,
+        "NEU": 9,
+        "POS": 4
+      },
+      "status": "model_predictions_not_human_validated"
+    },
+    {
+      "month": "2026-02",
+      "articles": 14,
+      "publishers": 10,
+      "mean_probability_balance": 0.058620312356347105,
+      "labels": {
+        "NEG": 3,
+        "NEU": 9,
+        "POS": 2
+      },
+      "status": "model_predictions_not_human_validated"
+    },
+    {
+      "month": "2026-03",
+      "articles": 12,
+      "publishers": 5,
+      "mean_probability_balance": 0.1261557181102411,
+      "labels": {
+        "NEG": 0,
+        "NEU": 12,
+        "POS": 0
+      },
+      "status": "model_predictions_not_human_validated"
+    },
+    {
+      "month": "2026-04",
+      "articles": 27,
+      "publishers": 9,
+      "mean_probability_balance": -0.0037595185376285392,
+      "labels": {
+        "NEG": 6,
+        "NEU": 17,
+        "POS": 4
+      },
+      "status": "model_predictions_not_human_validated"
+    },
+    {
+      "month": "2026-05",
+      "articles": 16,
+      "publishers": 8,
+      "mean_probability_balance": 0.037507355049104754,
+      "labels": {
+        "NEG": 4,
+        "NEU": 9,
+        "POS": 3
+      },
+      "status": "model_predictions_not_human_validated"
+    },
+    {
+      "month": "2026-06",
+      "articles": 7,
+      "publishers": 3,
+      "mean_probability_balance": 0.04977562906140998,
+      "labels": {
+        "NEG": 0,
+        "NEU": 7,
+        "POS": 0
+      },
+      "status": "model_predictions_not_human_validated"
+    },
+    {
+      "month": "2026-07",
+      "articles": 37,
+      "publishers": 11,
+      "mean_probability_balance": 0.054395823134221234,
+      "labels": {
+        "NEG": 4,
+        "NEU": 28,
+        "POS": 5
+      },
+      "status": "model_predictions_not_human_validated"
+    },
+    {
+      "month": "2026-08",
+      "articles": 14,
+      "publishers": 9,
+      "mean_probability_balance": -0.15434630078282077,
+      "labels": {
+        "NEG": 3,
+        "NEU": 11,
+        "POS": 0
+      },
+      "status": "model_predictions_not_human_validated"
+    },
+    {
+      "month": "2026-09",
+      "articles": 12,
+      "publishers": 6,
+      "mean_probability_balance": -0.08918379433100378,
+      "labels": {
+        "NEG": 4,
+        "NEU": 7,
+        "POS": 1
+      },
+      "status": "model_predictions_not_human_validated"
+    },
+    {
+      "month": "2026-10",
+      "articles": 25,
+      "publishers": 12,
+      "mean_probability_balance": 0.03498887197492719,
+      "labels": {
+        "NEG": 1,
+        "NEU": 24,
+        "POS": 0
+      },
+      "status": "model_predictions_not_human_validated"
+    }
+  ],
+  "dictionary_matched": [
+    {
+      "month": "2020-03",
+      "articles": 1,
+      "publishers": 1,
+      "mean_probability_balance": 0.16464626153568762,
+      "labels": {
+        "NEG": 0,
+        "NEU": 1,
+        "POS": 0
+      },
+      "status": "model_predictions_not_human_validated"
+    },
+    {
+      "month": "2020-04",
+      "articles": 0,
+      "publishers": 0,
+      "mean_probability_balance": null,
+      "labels": {
+        "NEG": 0,
+        "NEU": 0,
+        "POS": 0
+      },
+      "status": "no_scored_articles"
+    },
+    {
+      "month": "2020-05",
+      "articles": 0,
+      "publishers": 0,
+      "mean_probability_balance": null,
+      "labels": {
+        "NEG": 0,
+        "NEU": 0,
+        "POS": 0
+      },
+      "status": "no_scored_articles"
+    },
+    {
+      "month": "2020-06",
+      "articles": 4,
+      "publishers": 1,
+      "mean_probability_balance": 0.1614123472931447,
+      "labels": {
+        "NEG": 1,
+        "NEU": 1,
+        "POS": 2
+      },
+      "status": "model_predictions_not_human_validated"
+    },
+    {
+      "month": "2020-07",
+      "articles": 2,
+      "publishers": 1,
+      "mean_probability_balance": 0.14012683373153242,
+      "labels": {
+        "NEG": 1,
+        "NEU": 0,
+        "POS": 1
+      },
+      "status": "model_predictions_not_human_validated"
+    },
+    {
+      "month": "2020-08",
+      "articles": 2,
+      "publishers": 1,
+      "mean_probability_balance": 0.056554630989332604,
+      "labels": {
+        "NEG": 0,
+        "NEU": 2,
+        "POS": 0
+      },
+      "status": "model_predictions_not_human_validated"
+    },
+    {
+      "month": "2020-09",
+      "articles": 3,
+      "publishers": 1,
+      "mean_probability_balance": -0.029068818406789248,
+      "labels": {
+        "NEG": 1,
+        "NEU": 2,
+        "POS": 0
+      },
+      "status": "model_predictions_not_human_validated"
+    },
+    {
+      "month": "2020-10",
+      "articles": 2,
+      "publishers": 1,
+      "mean_probability_balance": 0.21412973021488357,
+      "labels": {
+        "NEG": 0,
+        "NEU": 1,
+        "POS": 1
+      },
+      "status": "model_predictions_not_human_validated"
+    },
+    {
+      "month": "2020-11",
+      "articles": 2,
+      "publishers": 1,
+      "mean_probability_balance": 0.5036041719612294,
+      "labels": {
+        "NEG": 0,
+        "NEU": 1,
+        "POS": 1
+      },
+      "status": "model_predictions_not_human_validated"
+    },
+    {
+      "month": "2020-12",
+      "articles": 2,
+      "publishers": 1,
+      "mean_probability_balance": -0.12408894138474194,
+      "labels": {
+        "NEG": 0,
+        "NEU": 2,
+        "POS": 0
+      },
+      "status": "model_predictions_not_human_validated"
+    },
+    {
+      "month": "2021-01",
+      "articles": 2,
+      "publishers": 1,
+      "mean_probability_balance": 0.4920470073485749,
+      "labels": {
+        "NEG": 0,
+        "NEU": 1,
+        "POS": 1
+      },
+      "status": "model_predictions_not_human_validated"
+    },
+    {
+      "month": "2021-02",
+      "articles": 2,
+      "publishers": 1,
+      "mean_probability_balance": 0.22706859775748414,
+      "labels": {
+        "NEG": 0,
+        "NEU": 2,
+        "POS": 0
+      },
+      "status": "model_predictions_not_human_validated"
+    },
+    {
+      "month": "2021-03",
+      "articles": 1,
+      "publishers": 1,
+      "mean_probability_balance": -0.4581472503822681,
+      "labels": {
+        "NEG": 1,
+        "NEU": 0,
+        "POS": 0
+      },
+      "status": "model_predictions_not_human_validated"
+    },
+    {
+      "month": "2021-04",
+      "articles": 2,
+      "publishers": 1,
+      "mean_probability_balance": 0.2550589082438206,
+      "labels": {
+        "NEG": 0,
+        "NEU": 2,
+        "POS": 0
+      },
+      "status": "model_predictions_not_human_validated"
+    },
+    {
+      "month": "2021-05",
+      "articles": 2,
+      "publishers": 1,
+      "mean_probability_balance": 0.21407283569276353,
+      "labels": {
+        "NEG": 0,
+        "NEU": 2,
+        "POS": 0
+      },
+      "status": "model_predictions_not_human_validated"
+    },
+    {
+      "month": "2021-06",
+      "articles": 1,
+      "publishers": 1,
+      "mean_probability_balance": 0.5509056959030681,
+      "labels": {
+        "NEG": 0,
+        "NEU": 0,
+        "POS": 1
+      },
+      "status": "model_predictions_not_human_validated"
+    },
+    {
+      "month": "2021-07",
+      "articles": 4,
+      "publishers": 1,
+      "mean_probability_balance": 0.1505765258130069,
+      "labels": {
+        "NEG": 0,
+        "NEU": 4,
+        "POS": 0
+      },
+      "status": "model_predictions_not_human_validated"
+    },
+    {
+      "month": "2021-08",
+      "articles": 6,
+      "publishers": 1,
+      "mean_probability_balance": 0.0001598533688190786,
+      "labels": {
+        "NEG": 1,
+        "NEU": 4,
+        "POS": 1
+      },
+      "status": "model_predictions_not_human_validated"
+    },
+    {
+      "month": "2021-09",
+      "articles": 1,
+      "publishers": 1,
+      "mean_probability_balance": -0.027115130997621084,
+      "labels": {
+        "NEG": 0,
+        "NEU": 1,
+        "POS": 0
+      },
+      "status": "model_predictions_not_human_validated"
+    },
+    {
+      "month": "2021-10",
+      "articles": 4,
+      "publishers": 1,
+      "mean_probability_balance": 0.20345812063908145,
+      "labels": {
+        "NEG": 0,
+        "NEU": 3,
+        "POS": 1
+      },
+      "status": "model_predictions_not_human_validated"
+    },
+    {
+      "month": "2021-11",
+      "articles": 2,
+      "publishers": 1,
+      "mean_probability_balance": 0.11793965894102106,
+      "labels": {
+        "NEG": 0,
+        "NEU": 2,
+        "POS": 0
+      },
+      "status": "model_predictions_not_human_validated"
+    },
+    {
+      "month": "2021-12",
+      "articles": 2,
+      "publishers": 1,
+      "mean_probability_balance": 0.4526670654160491,
+      "labels": {
+        "NEG": 0,
+        "NEU": 1,
+        "POS": 1
+      },
+      "status": "model_predictions_not_human_validated"
+    },
+    {
+      "month": "2022-01",
+      "articles": 1,
+      "publishers": 1,
+      "mean_probability_balance": 0.5261655204719112,
+      "labels": {
+        "NEG": 0,
+        "NEU": 0,
+        "POS": 1
+      },
+      "status": "model_predictions_not_human_validated"
+    },
+    {
+      "month": "2022-02",
+      "articles": 1,
+      "publishers": 1,
+      "mean_probability_balance": 0.2966644047759473,
+      "labels": {
+        "NEG": 0,
+        "NEU": 1,
+        "POS": 0
+      },
+      "status": "model_predictions_not_human_validated"
+    },
+    {
+      "month": "2022-03",
+      "articles": 2,
+      "publishers": 1,
+      "mean_probability_balance": 0.23563133744446013,
+      "labels": {
+        "NEG": 0,
+        "NEU": 2,
+        "POS": 0
+      },
+      "status": "model_predictions_not_human_validated"
+    },
+    {
+      "month": "2022-04",
+      "articles": 3,
+      "publishers": 1,
+      "mean_probability_balance": 0.2796708866378071,
+      "labels": {
+        "NEG": 0,
+        "NEU": 2,
+        "POS": 1
+      },
+      "status": "model_predictions_not_human_validated"
+    },
+    {
+      "month": "2022-05",
+      "articles": 4,
+      "publishers": 1,
+      "mean_probability_balance": 0.16788192649368283,
+      "labels": {
+        "NEG": 0,
+        "NEU": 3,
+        "POS": 1
+      },
+      "status": "model_predictions_not_human_validated"
+    },
+    {
+      "month": "2022-06",
+      "articles": 2,
+      "publishers": 1,
+      "mean_probability_balance": 0.030696194043443314,
+      "labels": {
+        "NEG": 0,
+        "NEU": 2,
+        "POS": 0
+      },
+      "status": "model_predictions_not_human_validated"
+    },
+    {
+      "month": "2022-07",
+      "articles": 2,
+      "publishers": 1,
+      "mean_probability_balance": 0.05566413952415685,
+      "labels": {
+        "NEG": 0,
+        "NEU": 2,
+        "POS": 0
+      },
+      "status": "model_predictions_not_human_validated"
+    },
+    {
+      "month": "2022-08",
+      "articles": 4,
+      "publishers": 1,
+      "mean_probability_balance": 0.1921128458756177,
+      "labels": {
+        "NEG": 0,
+        "NEU": 2,
+        "POS": 2
+      },
+      "status": "model_predictions_not_human_validated"
+    },
+    {
+      "month": "2022-09",
+      "articles": 5,
+      "publishers": 1,
+      "mean_probability_balance": 0.26221058866489316,
+      "labels": {
+        "NEG": 0,
+        "NEU": 3,
+        "POS": 2
+      },
+      "status": "model_predictions_not_human_validated"
+    },
+    {
+      "month": "2022-10",
+      "articles": 2,
+      "publishers": 1,
+      "mean_probability_balance": -0.22526394100702038,
+      "labels": {
+        "NEG": 1,
+        "NEU": 1,
+        "POS": 0
+      },
+      "status": "model_predictions_not_human_validated"
+    },
+    {
+      "month": "2022-11",
+      "articles": 3,
+      "publishers": 1,
+      "mean_probability_balance": 0.03124818828773294,
+      "labels": {
+        "NEG": 0,
+        "NEU": 2,
+        "POS": 1
+      },
+      "status": "model_predictions_not_human_validated"
+    },
+    {
+      "month": "2022-12",
+      "articles": 1,
+      "publishers": 1,
+      "mean_probability_balance": 0.14429233499592348,
+      "labels": {
+        "NEG": 0,
+        "NEU": 1,
+        "POS": 0
+      },
+      "status": "model_predictions_not_human_validated"
+    },
+    {
+      "month": "2023-01",
+      "articles": 4,
+      "publishers": 1,
+      "mean_probability_balance": 0.01854129652803678,
+      "labels": {
+        "NEG": 0,
+        "NEU": 4,
+        "POS": 0
+      },
+      "status": "model_predictions_not_human_validated"
+    },
+    {
+      "month": "2023-02",
+      "articles": 1,
+      "publishers": 1,
+      "mean_probability_balance": 0.5197506604127752,
+      "labels": {
+        "NEG": 0,
+        "NEU": 0,
+        "POS": 1
+      },
+      "status": "model_predictions_not_human_validated"
+    },
+    {
+      "month": "2023-03",
+      "articles": 2,
+      "publishers": 1,
+      "mean_probability_balance": 0.09990953934475649,
+      "labels": {
+        "NEG": 0,
+        "NEU": 2,
+        "POS": 0
+      },
+      "status": "model_predictions_not_human_validated"
+    },
+    {
+      "month": "2023-04",
+      "articles": 5,
+      "publishers": 1,
+      "mean_probability_balance": 0.2339713724337516,
+      "labels": {
+        "NEG": 0,
+        "NEU": 4,
+        "POS": 1
+      },
+      "status": "model_predictions_not_human_validated"
+    },
+    {
+      "month": "2023-05",
+      "articles": 3,
+      "publishers": 1,
+      "mean_probability_balance": 0.11912794887830701,
+      "labels": {
+        "NEG": 1,
+        "NEU": 1,
+        "POS": 1
+      },
+      "status": "model_predictions_not_human_validated"
+    },
+    {
+      "month": "2023-06",
+      "articles": 4,
+      "publishers": 1,
+      "mean_probability_balance": 0.2541885476004094,
+      "labels": {
+        "NEG": 0,
+        "NEU": 3,
+        "POS": 1
+      },
+      "status": "model_predictions_not_human_validated"
+    },
+    {
+      "month": "2023-07",
+      "articles": 1,
+      "publishers": 1,
+      "mean_probability_balance": 0.3660798946564848,
+      "labels": {
+        "NEG": 0,
+        "NEU": 1,
+        "POS": 0
+      },
+      "status": "model_predictions_not_human_validated"
+    },
+    {
+      "month": "2023-08",
+      "articles": 3,
+      "publishers": 1,
+      "mean_probability_balance": 0.19075461666088178,
+      "labels": {
+        "NEG": 0,
+        "NEU": 3,
+        "POS": 0
+      },
+      "status": "model_predictions_not_human_validated"
+    },
+    {
+      "month": "2023-09",
+      "articles": 2,
+      "publishers": 1,
+      "mean_probability_balance": -0.10038354671458045,
+      "labels": {
+        "NEG": 1,
+        "NEU": 1,
+        "POS": 0
+      },
+      "status": "model_predictions_not_human_validated"
+    },
+    {
+      "month": "2023-10",
+      "articles": 2,
+      "publishers": 1,
+      "mean_probability_balance": -0.03667868873379615,
+      "labels": {
+        "NEG": 0,
+        "NEU": 2,
+        "POS": 0
+      },
+      "status": "model_predictions_not_human_validated"
+    },
+    {
+      "month": "2023-11",
+      "articles": 3,
+      "publishers": 1,
+      "mean_probability_balance": 0.32928524992871305,
+      "labels": {
+        "NEG": 0,
+        "NEU": 2,
+        "POS": 1
+      },
+      "status": "model_predictions_not_human_validated"
+    },
+    {
+      "month": "2023-12",
+      "articles": 3,
+      "publishers": 1,
+      "mean_probability_balance": -0.08429385915888808,
+      "labels": {
+        "NEG": 1,
+        "NEU": 2,
+        "POS": 0
+      },
+      "status": "model_predictions_not_human_validated"
+    },
+    {
+      "month": "2024-01",
+      "articles": 3,
+      "publishers": 1,
+      "mean_probability_balance": 0.02131154579008736,
+      "labels": {
+        "NEG": 0,
+        "NEU": 3,
+        "POS": 0
+      },
+      "status": "model_predictions_not_human_validated"
+    },
+    {
+      "month": "2024-02",
+      "articles": 5,
+      "publishers": 1,
+      "mean_probability_balance": 0.023563133277475105,
+      "labels": {
+        "NEG": 0,
+        "NEU": 5,
+        "POS": 0
+      },
+      "status": "model_predictions_not_human_validated"
+    },
+    {
+      "month": "2024-03",
+      "articles": 2,
+      "publishers": 1,
+      "mean_probability_balance": 0.1386186009927048,
+      "labels": {
+        "NEG": 0,
+        "NEU": 2,
+        "POS": 0
+      },
+      "status": "model_predictions_not_human_validated"
+    },
+    {
+      "month": "2024-04",
+      "articles": 3,
+      "publishers": 1,
+      "mean_probability_balance": 0.31100408347754965,
+      "labels": {
+        "NEG": 0,
+        "NEU": 1,
+        "POS": 2
+      },
+      "status": "model_predictions_not_human_validated"
+    },
+    {
+      "month": "2024-05",
+      "articles": 1,
+      "publishers": 1,
+      "mean_probability_balance": -0.4421997653308754,
+      "labels": {
+        "NEG": 1,
+        "NEU": 0,
+        "POS": 0
+      },
+      "status": "model_predictions_not_human_validated"
+    },
+    {
+      "month": "2024-06",
+      "articles": 3,
+      "publishers": 1,
+      "mean_probability_balance": -0.10928334096559018,
+      "labels": {
+        "NEG": 2,
+        "NEU": 1,
+        "POS": 0
+      },
+      "status": "model_predictions_not_human_validated"
+    },
+    {
+      "month": "2024-07",
+      "articles": 2,
+      "publishers": 1,
+      "mean_probability_balance": 0.22859181346083424,
+      "labels": {
+        "NEG": 0,
+        "NEU": 2,
+        "POS": 0
+      },
+      "status": "model_predictions_not_human_validated"
+    },
+    {
+      "month": "2024-08",
+      "articles": 3,
+      "publishers": 1,
+      "mean_probability_balance": 0.23714084021510407,
+      "labels": {
+        "NEG": 0,
+        "NEU": 2,
+        "POS": 1
+      },
+      "status": "model_predictions_not_human_validated"
+    },
+    {
+      "month": "2024-09",
+      "articles": 2,
+      "publishers": 1,
+      "mean_probability_balance": 0.07249004658729802,
+      "labels": {
+        "NEG": 0,
+        "NEU": 1,
+        "POS": 1
+      },
+      "status": "model_predictions_not_human_validated"
+    },
+    {
+      "month": "2024-10",
+      "articles": 3,
+      "publishers": 1,
+      "mean_probability_balance": 0.22845281761908942,
+      "labels": {
+        "NEG": 0,
+        "NEU": 2,
+        "POS": 1
+      },
+      "status": "model_predictions_not_human_validated"
+    },
+    {
+      "month": "2024-11",
+      "articles": 2,
+      "publishers": 1,
+      "mean_probability_balance": -0.01678775881203562,
+      "labels": {
+        "NEG": 1,
+        "NEU": 0,
+        "POS": 1
+      },
+      "status": "model_predictions_not_human_validated"
+    },
+    {
+      "month": "2024-12",
+      "articles": 1,
+      "publishers": 1,
+      "mean_probability_balance": -0.21200905845093365,
+      "labels": {
+        "NEG": 0,
+        "NEU": 1,
+        "POS": 0
+      },
+      "status": "model_predictions_not_human_validated"
+    },
+    {
+      "month": "2025-01",
+      "articles": 3,
+      "publishers": 1,
+      "mean_probability_balance": 0.005110353740575789,
+      "labels": {
+        "NEG": 0,
+        "NEU": 3,
+        "POS": 0
+      },
+      "status": "model_predictions_not_human_validated"
+    },
+    {
+      "month": "2025-02",
+      "articles": 6,
+      "publishers": 1,
+      "mean_probability_balance": 0.12957395261928376,
+      "labels": {
+        "NEG": 0,
+        "NEU": 5,
+        "POS": 1
+      },
+      "status": "model_predictions_not_human_validated"
+    },
+    {
+      "month": "2025-03",
+      "articles": 2,
+      "publishers": 1,
+      "mean_probability_balance": 0.24067948912862389,
+      "labels": {
+        "NEG": 0,
+        "NEU": 1,
+        "POS": 1
+      },
+      "status": "model_predictions_not_human_validated"
+    },
+    {
+      "month": "2025-04",
+      "articles": 2,
+      "publishers": 1,
+      "mean_probability_balance": 0.10513245108104555,
+      "labels": {
+        "NEG": 0,
+        "NEU": 2,
+        "POS": 0
+      },
+      "status": "model_predictions_not_human_validated"
+    },
+    {
+      "month": "2025-05",
+      "articles": 1,
+      "publishers": 1,
+      "mean_probability_balance": 0.11863981134308171,
+      "labels": {
+        "NEG": 0,
+        "NEU": 1,
+        "POS": 0
+      },
+      "status": "model_predictions_not_human_validated"
+    },
+    {
+      "month": "2025-06",
+      "articles": 3,
+      "publishers": 1,
+      "mean_probability_balance": 0.25252922077643175,
+      "labels": {
+        "NEG": 0,
+        "NEU": 3,
+        "POS": 0
+      },
+      "status": "model_predictions_not_human_validated"
+    },
+    {
+      "month": "2025-07",
+      "articles": 4,
+      "publishers": 1,
+      "mean_probability_balance": 0.296610598902684,
+      "labels": {
+        "NEG": 0,
+        "NEU": 3,
+        "POS": 1
+      },
+      "status": "model_predictions_not_human_validated"
+    },
+    {
+      "month": "2025-08",
+      "articles": 2,
+      "publishers": 1,
+      "mean_probability_balance": 0.29191359485037527,
+      "labels": {
+        "NEG": 0,
+        "NEU": 2,
+        "POS": 0
+      },
+      "status": "model_predictions_not_human_validated"
+    },
+    {
+      "month": "2025-09",
+      "articles": 4,
+      "publishers": 1,
+      "mean_probability_balance": 0.1303352864794862,
+      "labels": {
+        "NEG": 1,
+        "NEU": 3,
+        "POS": 0
+      },
+      "status": "model_predictions_not_human_validated"
+    },
+    {
+      "month": "2025-10",
+      "articles": 0,
+      "publishers": 0,
+      "mean_probability_balance": null,
+      "labels": {
+        "NEG": 0,
+        "NEU": 0,
+        "POS": 0
+      },
+      "status": "no_scored_articles"
+    },
+    {
+      "month": "2025-11",
+      "articles": 1,
+      "publishers": 1,
+      "mean_probability_balance": 0.46953736082458297,
+      "labels": {
+        "NEG": 0,
+        "NEU": 0,
+        "POS": 1
+      },
+      "status": "model_predictions_not_human_validated"
+    },
+    {
+      "month": "2025-12",
+      "articles": 1,
+      "publishers": 1,
+      "mean_probability_balance": -0.3196042832444729,
+      "labels": {
+        "NEG": 0,
+        "NEU": 1,
+        "POS": 0
+      },
+      "status": "model_predictions_not_human_validated"
+    },
+    {
+      "month": "2026-01",
+      "articles": 13,
+      "publishers": 6,
+      "mean_probability_balance": 0.13558728649452823,
+      "labels": {
+        "NEG": 1,
+        "NEU": 8,
+        "POS": 4
+      },
+      "status": "model_predictions_not_human_validated"
+    },
+    {
+      "month": "2026-02",
+      "articles": 11,
+      "publishers": 9,
+      "mean_probability_balance": 0.08574855026769133,
+      "labels": {
+        "NEG": 2,
+        "NEU": 7,
+        "POS": 2
+      },
+      "status": "model_predictions_not_human_validated"
+    },
+    {
+      "month": "2026-03",
+      "articles": 8,
+      "publishers": 5,
+      "mean_probability_balance": 0.12866271060302029,
+      "labels": {
+        "NEG": 0,
+        "NEU": 8,
+        "POS": 0
+      },
+      "status": "model_predictions_not_human_validated"
+    },
+    {
+      "month": "2026-04",
+      "articles": 24,
+      "publishers": 9,
+      "mean_probability_balance": -0.01654726643874526,
+      "labels": {
+        "NEG": 6,
+        "NEU": 14,
+        "POS": 4
+      },
+      "status": "model_predictions_not_human_validated"
+    },
+    {
+      "month": "2026-05",
+      "articles": 13,
+      "publishers": 7,
+      "mean_probability_balance": 0.010279373872128312,
+      "labels": {
+        "NEG": 4,
+        "NEU": 6,
+        "POS": 3
+      },
+      "status": "model_predictions_not_human_validated"
+    },
+    {
+      "month": "2026-06",
+      "articles": 4,
+      "publishers": 2,
+      "mean_probability_balance": 0.024290118300224792,
+      "labels": {
+        "NEG": 0,
+        "NEU": 4,
+        "POS": 0
+      },
+      "status": "model_predictions_not_human_validated"
+    },
+    {
+      "month": "2026-07",
+      "articles": 35,
+      "publishers": 11,
+      "mean_probability_balance": 0.0569658745642019,
+      "labels": {
+        "NEG": 4,
+        "NEU": 26,
+        "POS": 5
+      },
+      "status": "model_predictions_not_human_validated"
+    },
+    {
+      "month": "2026-08",
+      "articles": 13,
+      "publishers": 8,
+      "mean_probability_balance": -0.17339226176036043,
+      "labels": {
+        "NEG": 3,
+        "NEU": 10,
+        "POS": 0
+      },
+      "status": "model_predictions_not_human_validated"
+    },
+    {
+      "month": "2026-09",
+      "articles": 11,
+      "publishers": 6,
+      "mean_probability_balance": -0.10028570227687568,
+      "labels": {
+        "NEG": 4,
+        "NEU": 6,
+        "POS": 1
+      },
+      "status": "model_predictions_not_human_validated"
+    },
+    {
+      "month": "2026-10",
+      "articles": 20,
+      "publishers": 12,
+      "mean_probability_balance": 0.01617525410376183,
+      "labels": {
+        "NEG": 1,
+        "NEU": 19,
+        "POS": 0
+      },
+      "status": "model_predictions_not_human_validated"
+    }
+  ]
+}
