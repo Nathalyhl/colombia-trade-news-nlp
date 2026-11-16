@@ -6,6 +6,8 @@ The project implements the article-text measurement procedure described in [Mora
 
 The main result is a **general monthly export-news index**. Economic activities are a secondary breakdown. There is one subject—exports—rather than a separate export-theme taxonomy.
 
+The **Destinations** tab adds a separate geographic view: select a country, region or bloc to inspect monthly article sentiment, uncertainty, coverage and linked source evidence. Its default mode uses explicit export/destination wording in headlines; an optional broader mode explores geographic mentions in article text. These are automatic proposals, not verified trade flows or destination-specific sentence sentiment. Counts measure news coverage, not export values. See the [destination protocol](docs/DESTINATIONS.md).
+
 ## Executed snapshot
 
 | Stage | Records |
@@ -51,6 +53,9 @@ The dashboard opens the committed snapshot without collecting news. The general 
 # Rebuild decisions and monthly counts from committed article features, offline.
 python -m trade_news analyze
 python -m trade_news validate
+
+# Prepare or refresh the separate geographic evidence (no fresh web collection).
+python -m trade_news destinations
 
 # If this machine has the ignored local article archive, also repeat text NLP.
 python -m trade_news analyze --verify-local-text

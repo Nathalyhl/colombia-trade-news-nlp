@@ -10,6 +10,7 @@ import streamlit as st
 from trade_news.articles import read_jsonl
 from trade_news.classification import ACTIVITIES
 from trade_news.corpus import REVIEW_FIELDS, build, read_reviews
+from trade_news.destinations import coverage, monthly_series, select_articles
 
 BASE = Path(__file__).resolve().parent
 DATA = BASE/"data"
@@ -46,8 +47,8 @@ c1.metric("Eligible article texts", audit["eligible_articles"])
 c2.metric("Retrieved article texts", audit["extracted_articles"])
 c3.metric("Candidate news records", audit["candidate_records"])
 c4.metric("Human decisions recorded", audit["human_reviewed_articles"])
-general, activities, evidence, method, review_tab = st.tabs(
-    ["General index", "Economic activities", "Articles & evidence", "Method & coverage", "Human review"])
+general, activities, destinations_tab, evidence, method, review_tab = st.tabs(
+    ["General index", "Economic activities", "Destinations", "Articles & evidence", "Method & coverage", "Human review"])
 
 with general:
     series = pd.DataFrame([r for r in indices["provisional"] if r["activity"] == "All exports"])
@@ -83,6 +84,75 @@ with activities:
         st.dataframe(activity_frame, hide_index=True)
     else:
         st.info("No eligible article is currently assigned to this activity. The general index above is unchanged.")
+
+with destinations_tab:
+    st.subheader("Explore export news by destination")
+    st.write("Compare news coverage, sentiment and uncertainty for a country, region or bloc. "
+             "Destination links are automatic proposals; broader geographic mentions are available separately.")
+    destination_path = DATA/"destinations.jsonl"
+    if not destination_path.exists():
+        st.info("Destination evidence is not available for this snapshot. Run python -m trade_news destinations to prepare it.")
+    else:
+        destination_features = read_jsonl(destination_path)
+        evidence_choice = st.radio("Destination evidence", ["Explicit export links in headlines", "All market mentions in article text"],
+                                   horizontal=True, key="destination_mode")
+        destination_mode = "destinations" if evidence_choice == "Explicit export links in headlines" else "market_mentions"
+        geography_kind = st.radio("Geography", ["Countries", "Regions and blocs", "All"], horizontal=True, key="destination_kind")
+        st.caption("Automatic geographic evidence. Counts describe news coverage, not export values. "
+                   "The broader mention mode can also identify suppliers, competitors or policy actors.")
+        overview = coverage(rows, destination_features, destination_mode, geography_kind)
+        destination_lookup = {r["record_id"]: r for r in destination_features}
+        linked_articles = sum(bool(destination_lookup.get(r["record_id"], {}).get(destination_mode))
+                              for r in rows if r["eligible_for_index"])
+        if not overview:
+            st.info("No markets match this evidence mode and geography group. Try Countries or the broader market-mention mode.")
+        else:
+            destination_market = st.selectbox("Destination or market", [r["market"] for r in overview], key="destination_market")
+            selected_articles = select_articles(rows, destination_features, destination_market, destination_mode)
+            overview_frame = pd.DataFrame(overview)
+            overview_chart = go.Figure(go.Bar(x=overview_frame.head(15)["articles"], y=overview_frame.head(15)["market"], orientation="h"))
+            overview_chart.update_layout(title="News coverage by market · top 15", xaxis_title="Eligible articles", yaxis_title="",
+                                         yaxis={"autorange": "reversed"}, height=430)
+            st.subheader(destination_market)
+            d1, d2, d3 = st.columns(3)
+            d1.metric("Articles in this market view", len(selected_articles))
+            d2.metric("Publishers in this market view", len({r["publisher"] for r in selected_articles}))
+            d3.metric("Articles with polarity matches", sum(r["positive_count"]+r["negative_count"] > 0 for r in selected_articles))
+            destination_frame = pd.DataFrame(monthly_series(rows, destination_features, destination_market, series["month"].tolist(), destination_mode))
+            dl, dr = st.columns(2)
+            dl.plotly_chart(index_chart(destination_frame, "sentiment", f"{destination_market}: article sentiment", [-1.05, 1.05]),
+                            width="stretch", key="destination_sentiment")
+            dr.plotly_chart(index_chart(destination_frame, "uncertainty_per_1000", f"{destination_market}: article uncertainty"),
+                            width="stretch", key="destination_uncertainty")
+            st.caption("These indices pool the entire eligible article texts in this subset using the same formulas as the general index. "
+                       "They do not isolate sentences about this destination. Gaps remain missing; the general index is unchanged.")
+            st.dataframe(destination_frame[["month", "articles", "publishers", "positive_count", "negative_count", "sentiment", "uncertainty_per_1000"]],
+                         hide_index=True)
+            destination_table = []
+            evidence_key = "destination_evidence" if destination_mode == "destinations" else "mention_evidence"
+            for article in selected_articles:
+                matches = [hit for hit in destination_lookup[article["record_id"]][evidence_key] if hit["market"] == destination_market]
+                destination_table.append({"title": article.get("publisher_title") or article["title"],
+                    "publication_date": article["publication_date"], "publisher": article["publisher"], "activity": article["activity"],
+                    "evidence_source": ", ".join(sorted({hit["field"] for hit in matches})),
+                    "matched_names": ", ".join(sorted({hit["alias"] for hit in matches})),
+                    "relation_rule": ", ".join(sorted({hit.get("rule", "geographic_mention_only") for hit in matches})),
+                    "article_url": article["article_url"]})
+            st.subheader("Source articles and geographic evidence")
+            st.dataframe(pd.DataFrame(destination_table), hide_index=True,
+                         column_config={"article_url": st.column_config.LinkColumn("Read publisher article")})
+            with st.expander("Compare news coverage across markets"):
+                st.plotly_chart(overview_chart, width="stretch", key="destination_coverage")
+                st.caption(f"Across the eligible corpus, {linked_articles} articles have evidence in this mode; "
+                           f"{audit['eligible_articles']-linked_articles} have no identified market in this mode. "
+                           "A missing tag is not evidence that a destination is absent from Colombian exports. "
+                           "Articles can appear under several markets, so market totals overlap. No bloc membership is inferred.")
+            with st.expander("Supported countries, regions and aliases"):
+                from trade_news.destinations import MARKETS, COUNTRIES
+                st.dataframe(pd.DataFrame([{"market": name, "kind": "country" if name in COUNTRIES else "region_or_bloc",
+                    "aliases": ", ".join(aliases)} for name, aliases in MARKETS.items()]), hide_index=True)
+                st.caption("This finite project vocabulary is not a complete geography recognizer. Unlisted names and ambiguous relations can be missed. "
+                           "No destination has been manually certified by these automatic rules.")
 
 with evidence:
     st.subheader("Trace each estimate to its articles and matched words")
