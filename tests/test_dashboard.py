@@ -5,13 +5,25 @@ from streamlit.testing.v1 import AppTest
 
 
 class DashboardTests(unittest.TestCase):
+    def test_model_comparison_does_not_relabel_human_data_or_change_general_counts(self):
+        base = Path(__file__).resolve().parents[1]
+        before = (base/"data/annotations.csv").read_bytes()
+        app = AppTest.from_file(str(base/"app.py"), default_timeout=45).run()
+        self.assertEqual(len(app.exception), 0)
+        baseline = [metric.value for metric in app.metric[:4]]
+        self.assertEqual(app.selectbox(key="contextual_article").value, "b30d353a15880d52e0b3")
+        app.radio(key="contextual_cohort").set_value("Todos los artículos elegibles").run()
+        self.assertEqual(len(app.exception), 0)
+        self.assertEqual([metric.value for metric in app.metric[:4]], baseline)
+        self.assertEqual((base/"data/annotations.csv").read_bytes(), before)
+
     def test_country_focused_layout_and_evidence_search(self):
         app = AppTest.from_file(str(Path(__file__).resolve().parents[1]/"app.py"), default_timeout=45).run()
         self.assertEqual(len(app.exception), 0)
         baseline = [metric.value for metric in app.metric[:4]]
         self.assertGreater(int(baseline[0]), 0)
         self.assertEqual(len(app.multiselect), 0)
-        self.assertEqual([tab.label for tab in app.tabs], ["Study overview", "General index", "Destinations", "Articles & evidence", "Quality & review", "Method"])
+        self.assertEqual([tab.label for tab in app.tabs], ["Study overview", "General index", "Comparación NLP", "Destinations", "Articles & evidence", "Quality & review", "Method"])
         self.assertNotIn("Economic activities", str(app))
         self.assertNotIn("Regions and blocs", str(app))
         app.text_input(key="article_search").set_value("no_such_headline_zzxy").run()
