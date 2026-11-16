@@ -11,7 +11,7 @@ class DashboardTests(unittest.TestCase):
         baseline = [metric.value for metric in app.metric[:4]]
         self.assertGreater(int(baseline[0]), 0)
         self.assertEqual(len(app.multiselect), 0)
-        self.assertEqual([tab.label for tab in app.tabs], ["General index", "Destinations", "Articles & evidence", "Quality & review", "Method"])
+        self.assertEqual([tab.label for tab in app.tabs], ["Study overview", "General index", "Destinations", "Articles & evidence", "Quality & review", "Method"])
         self.assertNotIn("Economic activities", str(app))
         self.assertNotIn("Regions and blocs", str(app))
         app.text_input(key="article_search").set_value("no_such_headline_zzxy").run()
