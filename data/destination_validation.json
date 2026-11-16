@@ -1,0 +1,15 @@
+{
+  "status": "human_labels_pending",
+  "reviewed_pairs": 0,
+  "evaluated_pairs": 0,
+  "counts": {
+    "true_positive": 0,
+    "false_positive": 0,
+    "false_negative": 0,
+    "true_negative": 0
+  },
+  "accuracy": null,
+  "precision": null,
+  "recall": null,
+  "note": "Evaluates automatic predictions BEFORE human overrides on supplied article-country pairs only. A convenience review is not an independent held-out benchmark or full-corpus recall estimate."
+}
