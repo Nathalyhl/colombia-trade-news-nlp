@@ -58,3 +58,7 @@ The index is timed by publication, not the period an article reports. A January 
 Report the provisional and human-reviewed subsets separately, with article/publisher volume, matched counts, retrieval outcomes and missingness. A series value measures lexical balance within the retrieved sample. It cannot establish export performance, causality, risk probabilities or forecasting ability.
 
 Independent human corpus review and domain labels are pending. Software tests establish implementation behavior only. No nowcasting, DFM/ARMAX comparison, economic-performance validation or Bank-equivalent benchmark result is claimed.
+
+## Fixed-source sensitivity comparison
+
+The current eligible 2020–2025 texts all come from Analdex. The General index tab additionally recomputes both measures using only eligible Analdex articles in every month, then compares their trailing three-month means with the all-source series. This keeps the named publisher fixed across the 2026 addition of other media. It is a source-composition sensitivity diagnostic, not a representativeness correction, accuracy metric or causal test. Its monthly P, N, U and W remain inspectable.
