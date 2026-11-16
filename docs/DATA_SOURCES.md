@@ -13,6 +13,7 @@
 | `indices.json` | Separate provisional and human-reviewed monthly aggregates |
 | `processing_audit.json` | Counts, failures, scope proposals, duplicates and snapshot hashes |
 | `validation_report.json` | Actual supplied human-reference evaluation, initially pending with null scores |
+| `destinations.jsonl` | Separate automatic headline destination proposals and article/title market mentions, with aliases, normalized offsets, source hashes and rule configuration hash |
 
 ## Local-only source archive
 
