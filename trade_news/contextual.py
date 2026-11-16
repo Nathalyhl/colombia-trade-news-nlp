@@ -98,6 +98,7 @@ class LocalModel:
 
 
 def aggregate_scores(scores, rows, months, dictionary_matched=False):
+    """Equal-article means: compensated summation and 12-decimal portable output."""
     lookup = {r["record_id"]: r for r in rows if r["eligible_for_index"] and
               (not dictionary_matched or r["positive_count"]+r["negative_count"] > 0)}
     result = []
@@ -106,7 +107,7 @@ def aggregate_scores(scores, rows, months, dictionary_matched=False):
         values = [s["body"]["score"] for s in subset]
         result.append({"month": month, "articles": len(subset),
             "publishers": len({lookup[s["record_id"]].get("publisher_group", lookup[s["record_id"]]["publisher"]) for s in subset}),
-            "mean_probability_balance": sum(values)/len(values) if values else None,
+            "mean_probability_balance": round(math.fsum(values)/len(values), 12) if values else None,
             "labels": {label: sum(s["body"]["label"] == label for s in subset) for label in LABELS},
             "status": "model_predictions_not_human_validated" if values else "no_scored_articles"})
     return result
