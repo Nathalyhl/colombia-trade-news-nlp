@@ -14,9 +14,9 @@ Page references below use the printed page numbers; PDF page numbers include thr
 | Polarity dictionary | Annex 3a/3b, pp. 37–38 (PDF 40–41), attributed to Moreno & González (2020) | All 188 positive and 376 negative forms, unchanged, with source page per entry |
 | Activities | Annex 2, p. 36 (PDF 39) | All 18 labels retained internally for reference fidelity; the sparse activity dashboard has been retired |
 | Tokenizer and stopword file | Exact files/code not supplied | Documented Unicode tokenizer and frozen NLTK Spanish stopwords; not claimed to be identical |
-| Corpus construction | Professional manual selection and classification | Google News discovery, public publisher extraction and an Analdex public API supplement; automatic proposals pending actual human review |
+| Corpus construction | Professional manual selection and classification | Primary publisher-sitemap frame (Valora/La República), public article extraction; Analdex/legacy discovery complementary; independent human review pending |
 | Time and geography | March 2020–September 2024; national and seven regional groupings | March 2020–October 2026; Colombian goods exports to the world; no regional series inferred |
-| Econometric evaluation | DFM/ARMAX and activity comparisons in the paper | Not reproduced; No independent human labels or numerical trade validation have yet been supplied |
+| Econometric evaluation | DFM/ARMAX and activity comparisons in the paper | Original DFM/ARMAX experiment not reproduced. A smaller retrospective export comparison is executed with assumed timing and adverse diagnostics; human labels remain pending |
 
 `reference/manifest.json` identifies the source PDF by SHA-256, table extraction, source license and frozen reference-file hashes. Source words and labels were extracted from the actual tables and visually checked. Formatting changes put the lists into CSV; words were not extended or assigned new polarity. The original paper is not represented as this project’s own research.
 

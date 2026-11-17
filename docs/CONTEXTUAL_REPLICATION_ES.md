@@ -40,10 +40,14 @@ La muestra permite inspeccionar una adaptación reproducible de un modelo public
 
 Los resultados de ambos métodos son predicciones o medidas automáticas. Un desacuerdo entre ellos no demuestra cuál es correcto. Para evaluar precisión se necesitan juicios independientes sobre nuestras noticias. Tampoco se presume que el nuevo modelo identifique la dirección de las exportaciones: fue entrenado con mensajes de Twitter en español, no específicamente con noticias de exportaciones colombianas.
 
-Los informes que repiten cifras oficiales, la dependencia histórica de Analdex y la escasa cobertura por destino siguen siendo asuntos de selección y validación de datos. Cambiar el clasificador no resuelve esos problemas por sí solo. El contraste con cifras numéricas se realizará cuando la investigadora suministre los datos, respetando períodos de referencia y fechas de disponibilidad.
+El marco principal reúne 1.011 artículos de Valora Analitik y La República en los 80 meses, con Analdex separado como complemento. Los informes que repiten cifras oficiales y la escasa cobertura de destinos siguen requiriendo revisión. Se ejecutó el contraste numérico sobre 309 meses aportados por la investigadora; sus supuestos de disponibilidad, resultados y diagnósticos adversos están en ECONOMIC_RESULTS_ES.md. Cambiar el clasificador no valida por sí solo el corpus ni el predictor.
 
 ## Reproducción y validación pendientes
 
 Las probabilidades guardadas, sus agregados mensuales y sus vínculos con el corpus pueden comprobarse sin instalar el modelo. Repetir la inferencia requiere el entorno opcional, los pesos públicos de la revisión fijada y el archivo local de artículos. Las versiones, hashes y fechas de la ejecución quedan registrados.
 
 El siguiente paso empírico es revisar la muestra de 60 artículos sin mirar previamente las predicciones, registrar discrepancias y establecer después un conjunto de evaluación independiente. Se deben comparar precisión por clase, abstenciones del diccionario y errores por tipo de documento. No se atribuirán al proyecto porcentajes de precisión publicados por otros autores ni se presentarán coincidencias entre modelos como validación humana.
+
+## Current execution
+
+The primary frame now has 1,011 direct-sitemap press articles in all 80 months, March 2020–October 2026; both domains appear in 78 months. Analdex is complementary. A separate 200-record independent evaluation packet is locked, with zero adjudicated labels. The researcher supplied 309 monthly export observations; retrospective economic comparisons are executed, with assumed timing and adverse diagnostics disclosed in [ECONOMIC_RESULTS_ES.md](ECONOMIC_RESULTS_ES.md). This supersedes earlier pending-data and Analdex-only current-state descriptions. It does not establish human classification accuracy or real-time predictive validity.

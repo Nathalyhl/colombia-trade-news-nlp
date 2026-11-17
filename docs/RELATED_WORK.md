@@ -23,7 +23,10 @@
 1. Review source extraction and goods-export inclusion independently of scores.
 2. Establish human reference labels with explicit instructions and reviewer provenance; report agreement and abstentions.
 3. Inspect source composition, lexical support, event duplication and sensitivity to institutional-source dominance.
-4. When numerical trade data are supplied, align publication timing and reported statistical periods, distinguish value from volume and year-on-year from cumulative changes, and avoid interpreting correlation as causation.
 5. Reserve predictive claims for properly separated time-based out-of-sample evaluation. A visually plausible curve is not validation.
 
 No exact prior replication for this Colombian goods-export corpus is asserted. These studies inform the design; their reported results are not attributed to this project.
+
+## Current execution
+
+The primary frame now has 1,011 direct-sitemap press articles in all 80 months, March 2020–October 2026; both domains appear in 78 months. Analdex is complementary. A separate 200-record independent evaluation packet is locked, with zero adjudicated labels. The researcher supplied 309 monthly export observations; retrospective economic comparisons are executed, with assumed timing and adverse diagnostics disclosed in [ECONOMIC_RESULTS_ES.md](ECONOMIC_RESULTS_ES.md). This supersedes earlier pending-data and Analdex-only current-state descriptions. It does not establish human classification accuracy or real-time predictive validity.

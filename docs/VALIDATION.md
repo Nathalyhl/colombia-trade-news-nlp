@@ -34,7 +34,7 @@ These convenience labels do not by themselves establish held-out performance or 
 
 ## Economic validation boundary
 
-The Bank also tests its indices against economic activity in forecasting models. This project has not reproduced that stage. A credible export comparison needs a longer historical news series, official DANE merchandise-export data aligned to publication timing, a dated out-of-sample design and predeclared baselines. Do not equate a positive news score with a rise in exports or claim improved forecasts from this implementation.
+The Bank tests incremental information in forecasting models. This project executes a smaller export comparison using the supplied workbook, lagged news, coverage controls and expanding temporal origins. It uses an explicitly assumed publication calendar and revised history. Residual autocorrelation and inconclusive stationarity diagnostics prevent a validated-predictor claim. The original dynamic-factor ARMAX exercise is not replicated; see ECONOMIC_RESULTS_ES.md for results and limits.
 
 ## Prepared diagnostic review sample
 
@@ -42,4 +42,14 @@ The Bank also tests its indices against economic activity in forecasting models.
 
 Read the original article before predictions. Complete include (yes/no/review), reviewer, annotation_origin=human and an evidence note. Optional sentiment_gold concerns the export-related interpretation, not the dictionary word count. For document_role_gold use statistical_reporting, event_or_expectation, mixed or unsure according to the actual article; reported_period and comparison_base remain blank unless verified. A source mentioning DANE can still contain other information. If the role or period is ambiguous, preserve uncertainty instead of inventing a value.
 
-This sheet is a separate review artifact. Filling it does not silently replace active annotations or create accuracy metrics. Record and adjudicate judgments before deliberate integration with the active corpus. Do not report the enriched sample's scores as representative accuracy; a separate locked evaluation design remains necessary. See RESEARCH_BRIEF.md for the release-aware economic validation plan.
+This sheet is a diagnostic artifact. Filling it does not silently replace active annotations or create accuracy metrics. The separate 200-record independent sample excludes diagnostic IDs and is locked before review. Its year/domain strata and inverse-stratum weights are retained; no population accuracy is implied by an unweighted or incompletely reviewed subset.
+
+## Independent evaluation procedure
+
+Give `evaluation_reviewer_a.csv` and `evaluation_reviewer_b.csv` to two independent human readers without model scores. Read the exact archived body when available; if only a changed live article is available, record the mismatch and do not silently label a different text. Judge inclusion, document role, overall tone, export-event direction, reference periods and comparison type separately. Use uncertain when evidence is insufficient. Record a reviewer name and annotation_origin=human; never copy model output into a reference field.
+
+Adjudicate disagreements into `evaluation_adjudicated.csv` after preserving the two original sheets. `python scripts/evaluate_news.py evaluate --data-dir data` checks IDs/body hashes and computes only metrics with actual references: inclusion confusion/precision/recall, tone confusion/class metrics/macro-F1, dictionary abstentions, Cohen kappa, multiclass Brier and ten-bin ECE with counts. Report class and stratum support, missing labels and selection limits. Do not modify the frozen sample after seeing mistakes. This validates the retrieved frame, not recall over the entire press universe.
+
+## Current execution
+
+The primary frame now has 1,011 direct-sitemap press articles in all 80 months, March 2020–October 2026; both domains appear in 78 months. Analdex is complementary. A separate 200-record independent evaluation packet is locked, with zero adjudicated labels. The researcher supplied 309 monthly export observations; retrospective economic comparisons are executed, with assumed timing and adverse diagnostics disclosed in [ECONOMIC_RESULTS_ES.md](ECONOMIC_RESULTS_ES.md). This supersedes earlier pending-data and Analdex-only current-state descriptions. It does not establish human classification accuracy or real-time predictive validity.

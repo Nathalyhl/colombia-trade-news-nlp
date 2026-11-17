@@ -10,7 +10,7 @@ The checkpoint and tokenizer file fingerprints are frozen in `reference/contextu
 
 | File | Meaning |
 | --- | --- |
-| `headlines_raw.jsonl` | Real Google News and Analdex public archive discovery records, provider timestamps, publishers and source links; not the NLP input |
+| `headlines_raw.jsonl` | Real publisher-declared sitemap, Google News and Analdex discovery records; date hints remain distinct from verified article publication dates; not the NLP input |
 | `collection_log.json` | Per-month query URLs, retrieval times, HTTP outcomes, item counts and raw RSS hashes |
 | `resolved_urls.jsonl` | Public RSS URL resolution outcomes and resolved publisher links |
 | `article_manifest.jsonl` | Every article retrieval outcome; extracted articles carry publisher dates, body hashes, reference fingerprint, counts, matched words and scope/activity proposals |
@@ -44,3 +44,11 @@ Candidate RSS dates and publisher publication dates are retained separately. Onl
 ## Additional review artifacts
 
 review_sample.csv contains 60 real retrieved-source metadata records with blank human judgments; review_sample_manifest.json records deterministic diagnostic selection and its feature hash. These are separate from active annotations.csv and do not change human-label metrics. Document-role and screening proposals are derived features, not source-supplied labels. Publisher domains are grouped without overwriting the original publisher label.
+
+## Primary historical press frame and numerical input
+
+The primary frame uses publisher-declared sitemaps from Valora Analitik and La República; El Colombiano adds complementary 2020 texts. Raw compressed XML responses and request hashes remain local. lastmod is never accepted as an article publication date. Source-specific article containers exclude linked recommendations and exact personalization blocks, with extracted-body hashes retained. Access refusals are recorded; no authentication, CAPTCHA or subscription restriction is bypassed. Discovery is vocabulary-limited and exact deduplication is not event-level deduplication.
+
+`source_coverage.json` fixes the coverage-based period, identifies single-source months and retains strict-window sensitivities. `study_manifest.json` records assembly and corpus hashes. `evaluation_sample_manifest.json` locks a 200-record independent sample; the three `evaluation_*.csv` files contain blank human fields. `independent_evaluation.json` cannot report accuracy without actual references.
+
+`exports_monthly_supplied.csv` contains 309 numeric observations extracted from the researcher-supplied workbook, with SHA-256 and cell references. `exports_source_audit.json` reconciles totals without redistributing the workbook. Original release/vintage dates remain blank. `economic_*.json` files distinguish assumed-timing scenarios, diagnostics, skipped folds and source/reporting sensitivities. See ECONOMIC_RESULTS_ES.md for partial source cross-checks and interpretation limits.

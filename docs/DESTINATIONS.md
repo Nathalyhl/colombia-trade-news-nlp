@@ -35,3 +35,7 @@ Country review does not validate corpus inclusion, extraction completeness, sent
 Country article counts describe news coverage, not export values or partner shares. Each article contributes once per country; an article can occur under several countries. Monthly indices pool whole-article word counts, not country-specific sentences. Empty months stay missing and country selection does not alter the general index.
 
 `destinations.jsonl` stores country aliases, normalized offsets, automatic and rejected relation evidence, source hashes and configuration hash. It contains no publisher body. Rebuilding broader body mentions requires the local archive or a compatible cache; stale body caches are rejected. `python -m trade_news destinations` refreshes the features and country-validation report without new web collection and preserves existing human reviews.
+
+## Current execution
+
+The primary frame now has 1,011 direct-sitemap press articles in all 80 months, March 2020–October 2026; both domains appear in 78 months. Analdex is complementary. A separate 200-record independent evaluation packet is locked, with zero adjudicated labels. The researcher supplied 309 monthly export observations; retrospective economic comparisons are executed, with assumed timing and adverse diagnostics disclosed in [ECONOMIC_RESULTS_ES.md](ECONOMIC_RESULTS_ES.md). This supersedes earlier pending-data and Analdex-only current-state descriptions. It does not establish human classification accuracy or real-time predictive validity.

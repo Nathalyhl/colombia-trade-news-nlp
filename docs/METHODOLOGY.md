@@ -51,17 +51,17 @@ Every processed article records cleaned characters, candidate sentences, alphabe
 
 ## Publication versus statistical reference periods
 
-The index is timed by publication, not the period an article reports. A January 2026 article can legitimately discuss December 2025, the 2025 annual total or a comparison with January 2025. Words such as `creció` do not identify the comparison base by themselves. Statistical reference and comparison periods have not been automatically asserted or aligned to numerical exports. Any later validation must extract and verify those periods and separately distinguish value, volume, year-on-year and cumulative changes. The researcher's numerical data will be supplied later.
+The index is timed by publication, not the period an article reports. A publication can discuss the preceding month, an annual total or a cumulative comparison. Words such as creció do not identify the base. Reference periods and comparison types are separate fields in the independent review packet and are not automatically asserted. The received 309-month numerical series uses explicit reference months; its unknown publication/vintage dates are retained as missing. Economic scenarios and their limitations are documented in ECONOMIC_RESULTS_ES.md.
 
 ## Interpretation and validation boundary
 
 Report the provisional and human-reviewed subsets separately, with article/publisher volume, matched counts, retrieval outcomes and missingness. A series value measures lexical balance within the retrieved sample. It cannot establish export performance, causality, risk probabilities or forecasting ability.
 
-Independent human corpus review and domain labels are pending. Software tests establish implementation behavior only. No nowcasting, DFM/ARMAX comparison, economic-performance validation or Bank-equivalent benchmark result is claimed.
+Independent human corpus review and domain labels remain pending. Software tests establish implementation behavior only. A small export forecasting comparison has been executed with assumed timing and current numerical history; adverse diagnostics prevent predictive-validity claims. The original Bank dynamic-factor ARMAX experiment is not reproduced.
 
 ## Fixed-source sensitivity comparison
 
-The current eligible 2020–2025 texts all come from Analdex. Resultados → Cobertura mensual y sensibilidad a las fuentes shows monthly article support by source and compares the contextual model's all-source monthly mean with its Analdex-only counterpart. This keeps the named publisher fixed across the 2026 addition of other media while holding the model constant. It is a source-composition sensitivity diagnostic, not a representativeness correction, accuracy metric or causal test. Bank lexical aggregates remain inspectable in Metodología y validación; the code can also recompute them on a fixed-source subset.
+The primary frame uses direct publisher-declared sitemaps from Valora Analitik and La República across 80 months. Both domains contribute in 78 months. The dashboard compares equal-article and equal-source weighting; the latter requires both domains within that month. Other publishers, including Analdex, remain complementary. This is a composition sensitivity, not a representativeness or accuracy correction.
 
 ## Conservative export focus and document-role proposals (version 0.7)
 
@@ -69,6 +69,10 @@ Automatic inclusion now additionally requires an export-related headline and hol
 
 Document roles are proposed by transparent title/body cues: report-title phrases or retrospective title verbs plus statistical-source mentions suggest statistical reporting; an enumerated title vocabulary identifies event/expectation cues. Overlap gives mixed cues, and absence gives unresolved. Each component is stored as evidence. These project rules are not supplied by the Bank, are not validated classifications and do not establish information novelty. The diagnostic holdout excludes statistical-reporting and mixed candidates without calling the remainder a verified forward-looking corpus.
 
-Source counts now group the saved publisher URL's hostname after removing www, while preserving the original publisher label. The fixed Analdex comparison uses analdex.org, avoiding alias labels being counted as other media. This is domain grouping, not media-ownership reconciliation.
+Source counts group saved publisher URL domains after removing www while preserving publisher labels. This does not reconcile corporate media ownership. The primary frame fixes Valora Analitik and La República; source-specific and equal-source sensitivities are explicit.
 
 Monthly chart values use visible markers, including isolated observations and valid zeroes. Missing months are not connected, the zero reference line is disabled, and a moving-average trace is created only when at least one three-month window exists. NaN is treated as missing. Country views expose the number of supported months, observed-span axes and the monthly construction table; sparse points do not justify a continuous country-trend claim.
+
+## Current execution
+
+The primary frame now has 1,011 direct-sitemap press articles in all 80 months, March 2020–October 2026; both domains appear in 78 months. Analdex is complementary. A separate 200-record independent evaluation packet is locked, with zero adjudicated labels. The researcher supplied 309 monthly export observations; retrospective economic comparisons are executed, with assumed timing and adverse diagnostics disclosed in [ECONOMIC_RESULTS_ES.md](ECONOMIC_RESULTS_ES.md). This supersedes earlier pending-data and Analdex-only current-state descriptions. It does not establish human classification accuracy or real-time predictive validity.
