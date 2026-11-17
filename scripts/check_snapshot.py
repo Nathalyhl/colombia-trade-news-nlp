@@ -14,6 +14,8 @@ from trade_news.corpus import apply_reviews, evaluate_sentiment, read_reviews
 from trade_news.destinations import configuration_hash, identify, MARKETS
 from trade_news.country_review import evaluate_countries, read_country_reviews
 from trade_news.contextual import verify_scores, aggregate_scores
+from trade_news.coverage import assess
+from trade_news.evaluation import evaluate
 
 base = Path(__file__).resolve().parents[1]
 data = base/"data"
@@ -29,7 +31,7 @@ assert log["start"] == "2020-03-01" and log["end_exclusive"] == "2026-11-01"
 assert months == [left[:7] for left, _ in month_windows(log["start"], log["end_exclusive"])]
 assert len(months) == 80
 assert len(raw) == sum(r.get("accepted_items", 0) for r in log["requests"])+sum(
-    r.get("accepted_items", 0) for r in log.get("publisher_archive", {}).get("requests", []))
+    r.get("accepted_items", 0) for r in log.get("publisher_archive", {}).get("requests", []))+log.get("publisher_sitemaps", {}).get("new_unique_records", 0)
 assert {r["record_id"] for r in raw} == {r["record_id"] for r in manifest}
 assert len({r["record_id"] for r in manifest}) == len(manifest)
 assert rows == read_jsonl(data/"headlines.jsonl"), "Stored decisions are stale"
@@ -41,9 +43,15 @@ assert audit["extracted_articles"] == sum(r["fetch_status"] == "article_extracte
 for name, key in [("headlines_raw.jsonl", "raw_metadata_sha256"), ("article_manifest.jsonl", "article_manifest_sha256")]:
     assert hashlib.sha256((data/name).read_bytes()).hexdigest() == audit[key]
 for row in raw:
-    assert urlparse(row["url"]).hostname in {"news.google.com", "analdex.org", "www.analdex.org"}
     assert row["record_id"] == hashlib.sha256(row["url"].encode()).hexdigest()[:20]
-    assert log["start"] <= row["published_at"][:10] < log["end_exclusive"]
+    if row.get("discovery_source") == "publisher_declared_sitemap":
+        assert urlparse(row["url"]).hostname in {"www.valoraanalitik.com", "www.larepublica.co", "www.elcolombiano.com"}
+        requests = [request for source in log["publisher_sitemaps"]["sources"] for request in source["requests"]]
+        assert any(request["url"] == row["feed_url"] and request.get("sha256") == row["source_response_sha256"] for request in requests)
+        assert row["date_origin"] == "Sitemap hint only; publisher article date still required"
+    else:
+        assert urlparse(row["url"]).hostname in {"news.google.com", "analdex.org", "www.analdex.org"}
+        assert log["start"] <= row["published_at"][:10] < log["end_exclusive"]
 for row in manifest:
     assert not any(key in row for key in ["body", "article_text", "html", "text"]), "Publisher bodies must remain in the local archive"
     if row["fetch_status"] != "article_extracted":
@@ -83,6 +91,27 @@ if (data/"contextual_manifest.json").exists():
     assert {"all_eligible": aggregate_scores(contextual_scores, rows, months),
             "dictionary_matched": aggregate_scores(contextual_scores, rows, months, True)} == read("contextual_indices.json")
     assert contextual_manifest["human_reference_labels"] == read("validation_report.json")["n_labeled"]
+if (data/"source_coverage.json").exists():
+    assert assess(rows, months) == read("source_coverage.json")
+    assert read("study_manifest.json")["source_features_sha256"] == hashlib.sha256((data/"headlines.jsonl").read_bytes()).hexdigest()
+if (data/"evaluation_sample_manifest.json").exists():
+    assert evaluate(data) == read("independent_evaluation.json")
+if (data/"economic_evaluation.json").exists():
+    from trade_news.economics import audit_trade, error_metrics, load_trade
+    economic = read("economic_evaluation.json")
+    assert hashlib.sha256((data/"exports_monthly_supplied.csv").read_bytes()).hexdigest() == economic["input_sha256"]
+    assert hashlib.sha256((data/"headlines.jsonl").read_bytes()).hexdigest() == economic["features_sha256"]
+    assert hashlib.sha256((data/"contextual_scores.jsonl").read_bytes()).hexdigest() == economic["contextual_scores_sha256"]
+    assert hashlib.sha256((base/"docs/STUDY_PROTOCOL_ES.md").read_bytes()).hexdigest() == economic["protocol_sha256"]
+    assert audit_trade(load_trade(data/"exports_monthly_supplied.csv")) == economic["trade_audit"]
+    for name, scenario in economic["scenarios"].items():
+        assert scenario == read("economic_"+name+".json")
+        for model, metrics in scenario["metrics"].items():
+            assert error_metrics([r["actual"] for r in scenario["forecasts"]], [r["models"][model]["prediction"] for r in scenario["forecasts"]]) == metrics
+        for row in scenario["forecasts"]:
+            assert row["origin"][:7] < row["target"]
+        assert scenario["assumed_release_lag_months"] in {1, 2, 3}
+        assert scenario["revised_history_allowed"] is True
 sample_manifest = read("review_sample_manifest.json")
 assert sample_manifest["source_features_sha256"] == hashlib.sha256((data/"headlines.jsonl").read_bytes()).hexdigest()
 with (data/"review_sample.csv").open(encoding="utf8", newline="") as stream:
