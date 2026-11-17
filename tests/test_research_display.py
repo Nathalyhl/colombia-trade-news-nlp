@@ -49,6 +49,16 @@ class ResearchDisplayTests(unittest.TestCase):
         self.assertEqual(len(fig.data), 0)
         self.assertIn("No monthly index", fig.layout.annotations[0].text)
 
+    def test_probability_plot_uses_article_support_without_dictionary_word_claims(self):
+        rows = [{"month": "2026-01", "articles": 2, "publishers": 1, "mean_probability_balance": .2},
+                {"month": "2026-02", "articles": 0, "publishers": 0, "mean_probability_balance": None}]
+        fig = index_chart(rows, "mean_probability_balance", "Modelo", language="es")
+        self.assertEqual(tuple(fig.data[0].y), (.2, None))
+        self.assertEqual(len(fig.data), 1)
+        self.assertEqual(fig.data[0].name, "Valor mensual")
+        self.assertNotIn("P:", fig.data[0].hovertemplate)
+        self.assertIn("Balance de probabilidades", fig.layout.yaxis.title.text)
+
     def test_incidental_export_mention_does_not_include_import_or_investment_story(self):
         body = "Colombia exporta café y bienes. El resto del artículo trata otro asunto."
         for title in ["Importaciones caen en Colombia", "Inversión extranjera directa creció"]:
