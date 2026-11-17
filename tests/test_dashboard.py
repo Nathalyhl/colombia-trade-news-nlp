@@ -2,6 +2,8 @@
 from pathlib import Path
 import unittest
 from streamlit.testing.v1 import AppTest
+from trade_news.articles import read_jsonl
+from trade_news.coverage import in_primary_press_frame
 
 
 class DashboardTests(unittest.TestCase):
@@ -11,7 +13,10 @@ class DashboardTests(unittest.TestCase):
         app = AppTest.from_file(str(base/"app.py"), default_timeout=45).run()
         self.assertEqual(len(app.exception), 0)
         baseline = [metric.value for metric in app.metric[:4]]
-        self.assertEqual(app.selectbox(key="inspect_article").value, "b30d353a15880d52e0b3")
+        selected = app.selectbox(key="inspect_article").value
+        source = next(r for r in read_jsonl(base/'data/headlines.jsonl') if r['record_id'] == selected)
+        self.assertTrue(in_primary_press_frame(source))
+        self.assertEqual(source['publication_date'][:4], '2020')
         app.radio(key="contextual_cohort").set_value("Todos los artículos elegibles").run()
         self.assertEqual(len(app.exception), 0)
         self.assertEqual([metric.value for metric in app.metric[:4]], baseline)
@@ -72,21 +77,21 @@ class DashboardTests(unittest.TestCase):
 
     def test_resumption_example_preserves_neutral_classes_and_explains_different_target(self):
         app = AppTest.from_file(str(Path(__file__).resolve().parents[1]/"app.py"), default_timeout=45).run()
-        detail = next(frame.value for frame in app.dataframe if "P(negativo)" in frame.value.columns)
+        detail = [frame.value for frame in app.dataframe if "P(negativo)" in frame.value.columns][-1]
         self.assertEqual(list(detail["Clase del modelo"]), ["Neutro", "Neutro"])
         self.assertGreater(detail.iloc[0]["Puntaje"], 0)
         self.assertLess(detail.iloc[1]["Puntaje"], 0)
         self.assertTrue(any("anuncia una reanudación" in item.value for item in app.info))
 
-    def test_united_states_filter_exposes_thirteen_articles_in_five_months(self):
+    def test_united_states_filter_exposes_observed_primary_press_support(self):
         app = AppTest.from_file(str(Path(__file__).resolve().parents[1]/"app.py"), default_timeout=45).run()
         app.selectbox(key="destination_country").set_value("United States").run()
         self.assertEqual(len(app.exception), 0)
         articles = next(frame.value for frame in app.dataframe if "Clase del cuerpo" in frame.value.columns)
-        self.assertEqual(len(articles), 13)
-        monthly = next(frame.value for frame in app.dataframe if "Mes" in frame.value.columns and "Incertidumbre por 1.000" in frame.value.columns)
-        self.assertEqual(len(monthly), 5)
-        self.assertEqual(int(monthly["Artículos"].sum()), 13)
+        self.assertEqual(len(articles), 22)
+        monthly = next(frame.value for frame in app.tabs[1].dataframe if "Mes" in frame.value.columns and "Incertidumbre por 1.000" in frame.value.columns)
+        self.assertEqual(len(monthly), articles['Fecha'].str[:7].nunique())
+        self.assertEqual(int(monthly["Artículos"].sum()), 22)
 
 
 if __name__ == "__main__":
