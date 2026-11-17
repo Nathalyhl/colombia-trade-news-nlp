@@ -70,8 +70,44 @@ def publication_metadata(html_bytes):
             "canonical_url": canonical[0] if canonical else None}
 
 
-def fetch_public_article(record, url, directory, robots_cache, start, end):
+def extract_body(payload, url):
+    """Use observed publisher body containers; remove linked promo paragraphs only.
+
+    Exact standalone newsletter/personalization lines are presentation material.
+    Economic sentences, negation and numerical comparisons are not rewritten.
+    """
     import trafilatura
+    from lxml import html as lhtml
+    tree = lhtml.fromstring(payload)
+    host = (urlparse(url).hostname or "").removeprefix("www.")
+    selectors = {
+        "larepublica.co": '//*[contains(concat(" ", normalize-space(@class), " "), " html-content ")]',
+        "valoraanalitik.com": '(//article)[1]//*[contains(concat(" ", normalize-space(@class), " "), " entry-content ")]',
+    }
+    nodes = tree.xpath(selectors[host]) if host in selectors else []
+    selected = nodes[0] if nodes else tree
+    removed_promos = 0
+    prefixes = ("recomendado ", "lea tambien ", "lea mas ", "vea tambien ", "puede leer ", "le puede interesar ")
+    if nodes:
+        for paragraph in list(selected.xpath('.//p')):
+            value = normalized(paragraph.text_content())+" "
+            if paragraph.xpath('.//a') and value.startswith(prefixes):
+                paragraph.getparent().remove(paragraph)
+                removed_promos += 1
+    markup = lhtml.tostring(selected, encoding="utf8") if nodes else payload
+    if nodes:
+        markup = b"<html><body><article>"+markup+b"</article></body></html>"
+    body = trafilatura.extract(markup, url=url, include_comments=False, include_tables=False, favor_precision=True, deduplicate=True)
+    if not body:
+        return None, {"body_container": "publisher_main_dom" if nodes else "generic_precision", "removed_promo_paragraphs": removed_promos}
+    excluded = {"mi seleccion de noticias", "noticias personalizadas de acuerdo a sus temas de interes", "recibe nuestro boletin en tu correo"}
+    lines = body.splitlines()
+    kept = [line for line in lines if normalized(line) not in excluded]
+    return clean_text("\n".join(kept)), {"body_container": "publisher_main_dom" if nodes else "generic_precision",
+        "removed_promo_paragraphs": removed_promos, "removed_standalone_chrome_lines": len(lines)-len(kept)}
+
+
+def fetch_public_article(record, url, directory, robots_cache, start, end):
     row = {**record, "resolved_url": url, "retrieved_article_at": datetime.now(timezone.utc).isoformat(),
            "reference_fingerprint": reference_fingerprint(), "fetch_status": "not_fetched", "text_source": None}
     try:
@@ -111,8 +147,9 @@ def fetch_public_article(record, url, directory, robots_cache, start, end):
         date = metadata["publication_date"]
         if not start <= date < end:
             return {**row, "fetch_status": "publisher_date_outside_period"}
-        body = trafilatura.extract(payload, url=final_url, include_comments=False, include_tables=False,
-                                    favor_precision=True, deduplicate=True)
+        if not ((urlparse(final_url).hostname or "").removeprefix("www.") == root):
+            return {**row, "fetch_status": "publisher_redirect_domain_mismatch"}
+        body, extraction_trace = extract_body(payload, final_url)
         if not body:
             return {**row, "fetch_status": "article_text_unavailable"}
         text = clean_text(body)
@@ -129,7 +166,7 @@ def fetch_public_article(record, url, directory, robots_cache, start, end):
         return {**row, "fetch_status": "article_extracted", "text_source": "publisher_article",
                 "article_url": metadata.get("canonical_url") or final_url, "publication_date": date, "month": date[:7],
                 "html_sha256": hashlib.sha256(payload).hexdigest(), "text_sha256": hashlib.sha256(text.encode()).hexdigest(),
-                "extraction_method": "trafilatura_2.3.1_precision_no_comments_no_tables",
+                "extraction_method": "publisher_main_dom_trafilatura_2.3.1_v2", "extraction_trace": extraction_trace,
                 **process_text(text), **propose(publisher_title, text)}
     except Exception as error:
         return {**row, "fetch_status": "fetch_failed", "fetch_error": f"{type(error).__name__}: {error}"}

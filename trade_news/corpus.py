@@ -66,6 +66,7 @@ def apply_reviews(records, reviews):
         output.append(row)
     # One canonical URL or exact article-text hash contributes once.
     output.sort(key=lambda r: (0 if r.get("review_decision") == "yes" else 1 if r["eligible_for_index"] else 2,
+                               0 if r.get("extraction_method") == "publisher_main_dom_trafilatura_2.3.1_v2" else 1,
                                r.get("publication_date") or "", r["record_id"]))
     seen_urls, seen_texts = {}, {}
     for row in output:

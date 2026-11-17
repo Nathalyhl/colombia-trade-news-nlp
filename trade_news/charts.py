@@ -44,7 +44,7 @@ def index_chart(frame, column, title, bounds=None, focus_observed=False, languag
         height=390, template="plotly_white", font={"family": "Georgia, serif", "color": "#182631"},
         paper_bgcolor="white", plot_bgcolor="white", legend={"orientation": "h", "y": -.30},
         margin={"l": 40, "r": 20, "t": 55, "b": 85})
-    fig.update_xaxes(type="date", dtick="M3" if focus_observed else "M12", tickformat="%b %Y", showgrid=False)
+    fig.update_xaxes(type="date", dtick="M3" if focus_observed else "M12", tickformat="%m/%Y" if spanish else "%b %Y", showgrid=False)
     fig.update_yaxes(zeroline=False)
     if bounds:
         fig.update_yaxes(range=bounds)
