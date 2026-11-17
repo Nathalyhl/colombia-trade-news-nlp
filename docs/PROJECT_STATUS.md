@@ -1,4 +1,4 @@
-# Research status · version 0.8
+# Research status · version 0.9
 
 The published measurement baseline, real-source lineage, conservative screening and sparse-safe dashboard are implemented. There are 1374 discovery records, 840 extracted texts and 410 eligible deduplicated articles. The 80-month window has 78 months with text and 77 sentiment values. Missing observations remain missing.
 
@@ -7,3 +7,5 @@ The previous 696-article sample is superseded by conservative headline-focus scr
 No human reference judgments, verified document-role accuracy, economic correlation or predictive improvement are claimed. Historical 2020–2025 eligible text remains Analdex-only. The next substantive steps are independent scope/role/sentiment review, source expansion and release-aware economic evaluation when numerical data are supplied. The code sample is suitable for inspecting research design and implementation; it is not a completed validated economic indicator.
 
 Version 0.8 adds an optional pinned PySentimiento/RoBERTuito comparison, Spanish explanation and Spanish notebook. The frozen pretrained model, upstream preprocessing and project-specific full-body chunking are separately identified. Body and headline predictions are distinct. Saved probabilities support offline reproduction; text inference requires the optional environment, public model weights and local publisher archive. This additional method does not replace the BE1340 sentiment or uncertainty definitions. Executed results and completion status are recorded in contextual_manifest.json and the Spanish execution report.
+
+Version 0.9 consolidates seven dashboard tabs into three Spanish views: results, news/countries, and methodology/validation. The main tone chart uses the existing contextual predictions; Bank uncertainty remains a separate lexical instrument and Bank sentiment remains an inspectable comparison. Article inspection is shared across general and country exploration. A small model-class margin proposes diagnostic review priorities without creating human labels or replacing the existing 60-record sample. Predictions, corpus inclusion, saved source data and human review files are unchanged. See DASHBOARD_ES.md for methodological choices and primary references.

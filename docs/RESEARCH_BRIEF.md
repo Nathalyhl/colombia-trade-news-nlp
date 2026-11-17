@@ -11,6 +11,7 @@ Test whether the language of Colombian goods-export news contributes information
 3. BE1340 published-dictionary baseline with explicit preprocessing choices, monthly pooled counts, missing denominators and three-month display.
 4. Document-role cue proposals distinguishing possible statistical reporting, event/expectation cues, mixed cues and unresolved roles, with inspectable evidence.
 5. Source-composition and reporting-holdout sensitivity views, sparse-safe country charts and a reproducible unlabeled diagnostic review sample.
+6. A pinned public Spanish contextual model with separately credited preprocessing, full-body chunking, stored probabilities and headline/body inspection. The consolidated dashboard shows its monthly probability balance alongside the separate Bank lexical uncertainty series; Bank sentiment remains an explicit comparison. Model-margin review priorities are diagnostic suggestions, not gold labels or an independent evaluation sample.
 
 The research contribution at this stage is an inspectable pipeline and an empirical measurement problem, not a demonstrated forecasting result. The original paper's manual curation, models and validated results are not this project's results.
 

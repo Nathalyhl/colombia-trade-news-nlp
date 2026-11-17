@@ -6,7 +6,7 @@ No human reference labels or corpus decisions have been invented. The initial re
 
 ## Corpus review
 
-Use Quality & review → Review corpus inclusion and sentiment, or edit `data/annotations.csv`:
+Use Metodología y validación → Registrar revisiones humanas → Revisar inclusión en el corpus y sentimiento, or edit `data/annotations.csv`:
 
 1. Open the publisher article and, when available locally, compare its text with the archived extraction. Check public access, reported date and extraction completeness.
 2. Decide whether the article substantially discusses Colombian **goods exports** to foreign markets. Exclude service exports, imports, other countries’ exports to Colombia, unrelated uses and unresolved or inaccessible material. Mixed articles require judgment; record the reason.
@@ -26,7 +26,7 @@ Before academic claims of quality: define a dated sampling plan across months, p
 
 ## Country validation
 
-Use the separate country-review form in Quality & review. Read the article, select the country, decide whether it is discussed as a destination, and explain the source evidence. Judge before opening the automatic explanation. Save a reviewer name and explicit personal-review declaration. Historical, potential and interrupted export links count as discussed destinations; competitors or suppliers alone do not.
+Use the separate country-review form in Metodología y validación → Registrar revisiones humanas. Read the article, select the country, decide whether it is discussed as a destination, and explain the source evidence. Judge before opening the automatic explanation. Save a reviewer name and explicit personal-review declaration. Historical, potential and interrupted export links count as discussed destinations; competitors or suppliers alone do not.
 
 `data/destination_reviews.csv` preserves actual human pair decisions. Country rejection or uncertainty removes the assignment from the country view. A human yes can confirm or add an assignment. `data/destination_validation.json` evaluates the uncorrected automatic predictions against those references, including false positives and missed positives. Unsure cases are not converted to negative labels. No real human reference labels exist in the initial release.
 

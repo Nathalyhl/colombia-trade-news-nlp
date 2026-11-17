@@ -4,6 +4,10 @@
 
 [Mora-Quiñones, Orozco-Gallo & Mora-Pérez (2026), BE1340](https://doi.org/10.32468/be.1340) is the chosen baseline. This project implements its published dictionary/counting equations on a different corpus. The original study's curated economic news and econometric results are not reproduced by changing a dashboard's appearance.
 
+## Spanish contextual measurement and independent review
+
+[Dávila and Chasi, “Índice de sentimiento económico”, Banco Central del Ecuador](https://doi.org/10.47550/RCE/35.2.1) compares lexical and transformer models on Spanish economic news, defines a probability balance and evaluates classifications against human judgments. Its classifier-margin review criterion informs the optional diagnostic-priority list. The exact author scripts and model revision were not obtained from the journal record consulted; using public PySentimiento components does not establish an exact replication of that study. This project's monthly aggregation and full-body chunk pooling are explicitly its own adaptations. Its current primary descriptive dashboard series uses these existing contextual predictions; Bank lexical sentiment remains a separate comparison and Bank uncertainty retains its equation. See [the Spanish design guide](DASHBOARD_ES.md).
+
 ## Sector and trade applications
 
 [Lee, Kim, Kwon & Yeo (2024), “Maritime supply chain risk sentiment and the Korea trade volume: A news big-data analysis perspective”](https://doi.org/10.1016/j.ajsl.2024.01.001) studies news-derived maritime supply-chain risk alongside trade measures. It supports examining a clearly defined trade-related corpus and an external numerical series. Its risk concept, Korean setting and vocabulary do not validate Colombian export sentiment or the present classifications.

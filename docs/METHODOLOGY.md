@@ -47,7 +47,7 @@ Monthly values are stored to six decimal places; article-level counts remain int
 
 The monthly equations remain the estimators. Following the quarterly-moving-average presentation in the reference Figure 3, the dark display line is the arithmetic mean of the current and previous two monthly estimates. All three must exist and be consecutive calendar months. March and April 2020 have raw estimates but no three-month mean. A gap interrupts the smoother; no zero, interpolation or future observation fills it. The paper does not specify centering or endpoint handling, so trailing alignment is an explicit project convention. This does not reproduce the Bank's original curve or event annotations.
 
-Every processed article records cleaned characters, candidate sentences, alphabetic tokens before and after stopword removal, retained/short sentences, retained tokens, P, N, U and matched polarity forms. The Method tab maps these stages to the published construction sequence. The monthly construction table exposes article/source support, pooled P, N, U, W and both resulting indices. A method-version change requires reprocessing from the hash-checked local archive, rather than mixing old and new preprocessing features.
+Every processed article records cleaned characters, candidate sentences, alphabetic tokens before and after stopword removal, retained/short sentences, retained tokens, P, N, U and matched polarity forms. Metodología y validación maps these stages to the published construction sequence. Its model/dictionary comparison expands to the monthly construction table with article/source support, pooled P, N, U, W and both lexical indices. A method-version change requires reprocessing from the hash-checked local archive, rather than mixing old and new preprocessing features.
 
 ## Publication versus statistical reference periods
 
@@ -61,7 +61,7 @@ Independent human corpus review and domain labels are pending. Software tests es
 
 ## Fixed-source sensitivity comparison
 
-The current eligible 2020–2025 texts all come from Analdex. The General index tab additionally recomputes both measures using only eligible Analdex articles in every month, then compares their trailing three-month means with the all-source series. This keeps the named publisher fixed across the 2026 addition of other media. It is a source-composition sensitivity diagnostic, not a representativeness correction, accuracy metric or causal test. Its monthly P, N, U and W remain inspectable.
+The current eligible 2020–2025 texts all come from Analdex. Resultados → Cobertura mensual y sensibilidad a las fuentes shows monthly article support by source and compares the contextual model's all-source monthly mean with its Analdex-only counterpart. This keeps the named publisher fixed across the 2026 addition of other media while holding the model constant. It is a source-composition sensitivity diagnostic, not a representativeness correction, accuracy metric or causal test. Bank lexical aggregates remain inspectable in Metodología y validación; the code can also recompute them on a fixed-source subset.
 
 ## Conservative export focus and document-role proposals (version 0.7)
 
