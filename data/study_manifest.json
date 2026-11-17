@@ -1,0 +1,30 @@
+{
+  "version": "1.0",
+  "assembled_at": "2026-11-17T11:27:03.487982+00:00",
+  "previous_release": "c7981becd6e29e19152ac5a8f82db383edcc5be6",
+  "primary_press_domains": [
+    "larepublica.co",
+    "valoraanalitik.com"
+  ],
+  "period_selection": {
+    "start": "2020-03",
+    "end_inclusive": "2026-10",
+    "months": 80,
+    "minimum_press_articles": 3,
+    "minimum_press_domains": 1,
+    "required_two_domain_month_share": 0.95,
+    "two_domain_months": 78,
+    "single_domain_months": [
+      "2020-11",
+      "2024-12"
+    ]
+  },
+  "numerical_export_data": "received_309_months_2001_01_through_2026_09",
+  "human_reference_status": "locked_sample_blank",
+  "locked_evaluation_records": 200,
+  "raw_html_archives": "Preserved in original active and historical acquisition archives; publisher bodies are not redistributed.",
+  "source_features_sha256": "bd7aef3a030f23c7c1744675c34069557a592905a0e084e2a7e813d2b8fc11c6",
+  "coverage_rule_amendment": "Continuous news support; >=95% two-source months; strict-window sensitivity retained. Before inspecting numerical workbook values or fitting empirical models.",
+  "economic_evaluation": "executed_retrospective_assumed_timing_scenarios_not_real_time",
+  "promoted_at": "2026-11-17T11:45:46.304203+00:00"
+}

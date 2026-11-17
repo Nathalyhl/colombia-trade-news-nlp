@@ -1,0 +1,39 @@
+{
+  "status": "human_reference_pending",
+  "locked_sample_records": 200,
+  "adjudicated_tone_labels": 0,
+  "reviewer_agreement": {
+    "n_common": 0,
+    "agreement": null,
+    "cohen_kappa": null
+  },
+  "models": {
+    "dictionary": {
+      "n_labeled": 0,
+      "accuracy": null,
+      "macro_f1": null,
+      "prediction_coverage": null,
+      "confusion": null
+    },
+    "contextual": {
+      "n_labeled": 0,
+      "accuracy": null,
+      "macro_f1": null,
+      "prediction_coverage": null,
+      "confusion": null
+    }
+  },
+  "contextual_calibration": {
+    "n": 0,
+    "multiclass_brier": null,
+    "ece_10_bins": null
+  },
+  "scope_screening": {
+    "n": 0,
+    "accuracy": null,
+    "precision": null,
+    "recall": null,
+    "note": "Automatic scope proposal before human overrides, within the collected discovery frame only."
+  },
+  "note": "No labels are generated. Partial annotation, source-frame omissions and changed domains limit inference; independent evaluation and economic value are separate questions."
+}

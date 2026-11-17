@@ -812,5 +812,4176 @@
       }
     ],
     "note": "Institutional source supplement; search is not exhaustive. Source/date composition differs from general press."
+  },
+  "publisher_sitemaps": {
+    "method": "publisher_declared_export_url_frame_v1",
+    "new_unique_records": 2143,
+    "sources": [
+      {
+        "source": "valora",
+        "started_at": "2026-11-17T10:42:35.698906+00:00",
+        "completed_at": "2026-11-17T10:47:04.004747+00:00",
+        "start": "2020-03-01",
+        "end_exclusive": "2026-11-01",
+        "status": "complete",
+        "candidates": 605,
+        "sitemaps": [
+          {
+            "url": "https://www.valoraanalitik.com/post-sitemap.xml",
+            "status": "parsed",
+            "article_urls": 1000,
+            "export_candidates": 5,
+            "publication_hint_first": null,
+            "publication_hint_last": null
+          },
+          {
+            "url": "https://www.valoraanalitik.com/post-sitemap2.xml",
+            "status": "parsed",
+            "article_urls": 1000,
+            "export_candidates": 4,
+            "publication_hint_first": null,
+            "publication_hint_last": null
+          },
+          {
+            "url": "https://www.valoraanalitik.com/post-sitemap3.xml",
+            "status": "parsed",
+            "article_urls": 1000,
+            "export_candidates": 7,
+            "publication_hint_first": null,
+            "publication_hint_last": null
+          },
+          {
+            "url": "https://www.valoraanalitik.com/post-sitemap4.xml",
+            "status": "parsed",
+            "article_urls": 1000,
+            "export_candidates": 8,
+            "publication_hint_first": null,
+            "publication_hint_last": null
+          },
+          {
+            "url": "https://www.valoraanalitik.com/post-sitemap5.xml",
+            "status": "parsed",
+            "article_urls": 1000,
+            "export_candidates": 11,
+            "publication_hint_first": null,
+            "publication_hint_last": null
+          },
+          {
+            "url": "https://www.valoraanalitik.com/post-sitemap6.xml",
+            "status": "parsed",
+            "article_urls": 1000,
+            "export_candidates": 9,
+            "publication_hint_first": null,
+            "publication_hint_last": null
+          },
+          {
+            "url": "https://www.valoraanalitik.com/post-sitemap7.xml",
+            "status": "parsed",
+            "article_urls": 1000,
+            "export_candidates": 12,
+            "publication_hint_first": null,
+            "publication_hint_last": null
+          },
+          {
+            "url": "https://www.valoraanalitik.com/post-sitemap8.xml",
+            "status": "parsed",
+            "article_urls": 1000,
+            "export_candidates": 8,
+            "publication_hint_first": null,
+            "publication_hint_last": null
+          },
+          {
+            "url": "https://www.valoraanalitik.com/post-sitemap9.xml",
+            "status": "parsed",
+            "article_urls": 1000,
+            "export_candidates": 8,
+            "publication_hint_first": null,
+            "publication_hint_last": null
+          },
+          {
+            "url": "https://www.valoraanalitik.com/post-sitemap10.xml",
+            "status": "parsed",
+            "article_urls": 1000,
+            "export_candidates": 10,
+            "publication_hint_first": null,
+            "publication_hint_last": null
+          },
+          {
+            "url": "https://www.valoraanalitik.com/post-sitemap11.xml",
+            "status": "parsed",
+            "article_urls": 1000,
+            "export_candidates": 8,
+            "publication_hint_first": null,
+            "publication_hint_last": null
+          },
+          {
+            "url": "https://www.valoraanalitik.com/post-sitemap12.xml",
+            "status": "parsed",
+            "article_urls": 1000,
+            "export_candidates": 9,
+            "publication_hint_first": null,
+            "publication_hint_last": null
+          },
+          {
+            "url": "https://www.valoraanalitik.com/post-sitemap13.xml",
+            "status": "parsed",
+            "article_urls": 1000,
+            "export_candidates": 12,
+            "publication_hint_first": null,
+            "publication_hint_last": null
+          },
+          {
+            "url": "https://www.valoraanalitik.com/post-sitemap14.xml",
+            "status": "parsed",
+            "article_urls": 1000,
+            "export_candidates": 3,
+            "publication_hint_first": null,
+            "publication_hint_last": null
+          },
+          {
+            "url": "https://www.valoraanalitik.com/post-sitemap15.xml",
+            "status": "parsed",
+            "article_urls": 1000,
+            "export_candidates": 4,
+            "publication_hint_first": null,
+            "publication_hint_last": null
+          },
+          {
+            "url": "https://www.valoraanalitik.com/post-sitemap16.xml",
+            "status": "parsed",
+            "article_urls": 1000,
+            "export_candidates": 6,
+            "publication_hint_first": null,
+            "publication_hint_last": null
+          },
+          {
+            "url": "https://www.valoraanalitik.com/post-sitemap17.xml",
+            "status": "parsed",
+            "article_urls": 1000,
+            "export_candidates": 7,
+            "publication_hint_first": null,
+            "publication_hint_last": null
+          },
+          {
+            "url": "https://www.valoraanalitik.com/post-sitemap18.xml",
+            "status": "parsed",
+            "article_urls": 1000,
+            "export_candidates": 3,
+            "publication_hint_first": null,
+            "publication_hint_last": null
+          },
+          {
+            "url": "https://www.valoraanalitik.com/post-sitemap19.xml",
+            "status": "parsed",
+            "article_urls": 1000,
+            "export_candidates": 5,
+            "publication_hint_first": null,
+            "publication_hint_last": null
+          },
+          {
+            "url": "https://www.valoraanalitik.com/post-sitemap20.xml",
+            "status": "parsed",
+            "article_urls": 1000,
+            "export_candidates": 2,
+            "publication_hint_first": null,
+            "publication_hint_last": null
+          },
+          {
+            "url": "https://www.valoraanalitik.com/post-sitemap21.xml",
+            "status": "parsed",
+            "article_urls": 1000,
+            "export_candidates": 7,
+            "publication_hint_first": null,
+            "publication_hint_last": null
+          },
+          {
+            "url": "https://www.valoraanalitik.com/post-sitemap22.xml",
+            "status": "parsed",
+            "article_urls": 1000,
+            "export_candidates": 6,
+            "publication_hint_first": null,
+            "publication_hint_last": null
+          },
+          {
+            "url": "https://www.valoraanalitik.com/post-sitemap23.xml",
+            "status": "parsed",
+            "article_urls": 1000,
+            "export_candidates": 6,
+            "publication_hint_first": null,
+            "publication_hint_last": null
+          },
+          {
+            "url": "https://www.valoraanalitik.com/post-sitemap24.xml",
+            "status": "parsed",
+            "article_urls": 1000,
+            "export_candidates": 8,
+            "publication_hint_first": null,
+            "publication_hint_last": null
+          },
+          {
+            "url": "https://www.valoraanalitik.com/post-sitemap25.xml",
+            "status": "parsed",
+            "article_urls": 1000,
+            "export_candidates": 4,
+            "publication_hint_first": null,
+            "publication_hint_last": null
+          },
+          {
+            "url": "https://www.valoraanalitik.com/post-sitemap26.xml",
+            "status": "parsed",
+            "article_urls": 1000,
+            "export_candidates": 4,
+            "publication_hint_first": null,
+            "publication_hint_last": null
+          },
+          {
+            "url": "https://www.valoraanalitik.com/post-sitemap27.xml",
+            "status": "parsed",
+            "article_urls": 1000,
+            "export_candidates": 4,
+            "publication_hint_first": null,
+            "publication_hint_last": null
+          },
+          {
+            "url": "https://www.valoraanalitik.com/post-sitemap28.xml",
+            "status": "parsed",
+            "article_urls": 1000,
+            "export_candidates": 5,
+            "publication_hint_first": null,
+            "publication_hint_last": null
+          },
+          {
+            "url": "https://www.valoraanalitik.com/post-sitemap29.xml",
+            "status": "parsed",
+            "article_urls": 1000,
+            "export_candidates": 4,
+            "publication_hint_first": null,
+            "publication_hint_last": null
+          },
+          {
+            "url": "https://www.valoraanalitik.com/post-sitemap30.xml",
+            "status": "parsed",
+            "article_urls": 1000,
+            "export_candidates": 4,
+            "publication_hint_first": null,
+            "publication_hint_last": null
+          },
+          {
+            "url": "https://www.valoraanalitik.com/post-sitemap31.xml",
+            "status": "parsed",
+            "article_urls": 1000,
+            "export_candidates": 3,
+            "publication_hint_first": null,
+            "publication_hint_last": null
+          },
+          {
+            "url": "https://www.valoraanalitik.com/post-sitemap32.xml",
+            "status": "parsed",
+            "article_urls": 1000,
+            "export_candidates": 4,
+            "publication_hint_first": null,
+            "publication_hint_last": null
+          },
+          {
+            "url": "https://www.valoraanalitik.com/post-sitemap33.xml",
+            "status": "parsed",
+            "article_urls": 1000,
+            "export_candidates": 8,
+            "publication_hint_first": null,
+            "publication_hint_last": null
+          },
+          {
+            "url": "https://www.valoraanalitik.com/post-sitemap34.xml",
+            "status": "parsed",
+            "article_urls": 1000,
+            "export_candidates": 5,
+            "publication_hint_first": null,
+            "publication_hint_last": null
+          },
+          {
+            "url": "https://www.valoraanalitik.com/post-sitemap35.xml",
+            "status": "parsed",
+            "article_urls": 1000,
+            "export_candidates": 3,
+            "publication_hint_first": null,
+            "publication_hint_last": null
+          },
+          {
+            "url": "https://www.valoraanalitik.com/post-sitemap36.xml",
+            "status": "parsed",
+            "article_urls": 1000,
+            "export_candidates": 4,
+            "publication_hint_first": null,
+            "publication_hint_last": null
+          },
+          {
+            "url": "https://www.valoraanalitik.com/post-sitemap37.xml",
+            "status": "parsed",
+            "article_urls": 1000,
+            "export_candidates": 11,
+            "publication_hint_first": null,
+            "publication_hint_last": null
+          },
+          {
+            "url": "https://www.valoraanalitik.com/post-sitemap38.xml",
+            "status": "parsed",
+            "article_urls": 1000,
+            "export_candidates": 5,
+            "publication_hint_first": null,
+            "publication_hint_last": null
+          },
+          {
+            "url": "https://www.valoraanalitik.com/post-sitemap39.xml",
+            "status": "parsed",
+            "article_urls": 1000,
+            "export_candidates": 4,
+            "publication_hint_first": null,
+            "publication_hint_last": null
+          },
+          {
+            "url": "https://www.valoraanalitik.com/post-sitemap40.xml",
+            "status": "parsed",
+            "article_urls": 1000,
+            "export_candidates": 5,
+            "publication_hint_first": null,
+            "publication_hint_last": null
+          },
+          {
+            "url": "https://www.valoraanalitik.com/post-sitemap41.xml",
+            "status": "parsed",
+            "article_urls": 1000,
+            "export_candidates": 6,
+            "publication_hint_first": null,
+            "publication_hint_last": null
+          },
+          {
+            "url": "https://www.valoraanalitik.com/post-sitemap42.xml",
+            "status": "parsed",
+            "article_urls": 1000,
+            "export_candidates": 8,
+            "publication_hint_first": null,
+            "publication_hint_last": null
+          },
+          {
+            "url": "https://www.valoraanalitik.com/post-sitemap43.xml",
+            "status": "parsed",
+            "article_urls": 1000,
+            "export_candidates": 1,
+            "publication_hint_first": null,
+            "publication_hint_last": null
+          },
+          {
+            "url": "https://www.valoraanalitik.com/post-sitemap44.xml",
+            "status": "parsed",
+            "article_urls": 1000,
+            "export_candidates": 4,
+            "publication_hint_first": null,
+            "publication_hint_last": null
+          },
+          {
+            "url": "https://www.valoraanalitik.com/post-sitemap45.xml",
+            "status": "parsed",
+            "article_urls": 1000,
+            "export_candidates": 15,
+            "publication_hint_first": null,
+            "publication_hint_last": null
+          },
+          {
+            "url": "https://www.valoraanalitik.com/post-sitemap46.xml",
+            "status": "parsed",
+            "article_urls": 1000,
+            "export_candidates": 4,
+            "publication_hint_first": null,
+            "publication_hint_last": null
+          },
+          {
+            "url": "https://www.valoraanalitik.com/post-sitemap47.xml",
+            "status": "parsed",
+            "article_urls": 1000,
+            "export_candidates": 2,
+            "publication_hint_first": null,
+            "publication_hint_last": null
+          },
+          {
+            "url": "https://www.valoraanalitik.com/post-sitemap48.xml",
+            "status": "parsed",
+            "article_urls": 1000,
+            "export_candidates": 2,
+            "publication_hint_first": null,
+            "publication_hint_last": null
+          },
+          {
+            "url": "https://www.valoraanalitik.com/post-sitemap49.xml",
+            "status": "parsed",
+            "article_urls": 1000,
+            "export_candidates": 3,
+            "publication_hint_first": null,
+            "publication_hint_last": null
+          },
+          {
+            "url": "https://www.valoraanalitik.com/post-sitemap50.xml",
+            "status": "parsed",
+            "article_urls": 1000,
+            "export_candidates": 6,
+            "publication_hint_first": null,
+            "publication_hint_last": null
+          },
+          {
+            "url": "https://www.valoraanalitik.com/post-sitemap51.xml",
+            "status": "parsed",
+            "article_urls": 1000,
+            "export_candidates": 4,
+            "publication_hint_first": null,
+            "publication_hint_last": null
+          },
+          {
+            "url": "https://www.valoraanalitik.com/post-sitemap52.xml",
+            "status": "parsed",
+            "article_urls": 1000,
+            "export_candidates": 6,
+            "publication_hint_first": null,
+            "publication_hint_last": null
+          },
+          {
+            "url": "https://www.valoraanalitik.com/post-sitemap53.xml",
+            "status": "parsed",
+            "article_urls": 1000,
+            "export_candidates": 6,
+            "publication_hint_first": null,
+            "publication_hint_last": null
+          },
+          {
+            "url": "https://www.valoraanalitik.com/post-sitemap54.xml",
+            "status": "parsed",
+            "article_urls": 1000,
+            "export_candidates": 8,
+            "publication_hint_first": null,
+            "publication_hint_last": null
+          },
+          {
+            "url": "https://www.valoraanalitik.com/post-sitemap55.xml",
+            "status": "parsed",
+            "article_urls": 1000,
+            "export_candidates": 5,
+            "publication_hint_first": null,
+            "publication_hint_last": null
+          },
+          {
+            "url": "https://www.valoraanalitik.com/post-sitemap56.xml",
+            "status": "parsed",
+            "article_urls": 1000,
+            "export_candidates": 8,
+            "publication_hint_first": null,
+            "publication_hint_last": null
+          },
+          {
+            "url": "https://www.valoraanalitik.com/post-sitemap57.xml",
+            "status": "parsed",
+            "article_urls": 1000,
+            "export_candidates": 8,
+            "publication_hint_first": null,
+            "publication_hint_last": null
+          },
+          {
+            "url": "https://www.valoraanalitik.com/post-sitemap58.xml",
+            "status": "parsed",
+            "article_urls": 1000,
+            "export_candidates": 2,
+            "publication_hint_first": null,
+            "publication_hint_last": null
+          },
+          {
+            "url": "https://www.valoraanalitik.com/post-sitemap59.xml",
+            "status": "parsed",
+            "article_urls": 1000,
+            "export_candidates": 5,
+            "publication_hint_first": null,
+            "publication_hint_last": null
+          },
+          {
+            "url": "https://www.valoraanalitik.com/post-sitemap60.xml",
+            "status": "parsed",
+            "article_urls": 1000,
+            "export_candidates": 3,
+            "publication_hint_first": null,
+            "publication_hint_last": null
+          },
+          {
+            "url": "https://www.valoraanalitik.com/post-sitemap61.xml",
+            "status": "parsed",
+            "article_urls": 1000,
+            "export_candidates": 3,
+            "publication_hint_first": null,
+            "publication_hint_last": null
+          },
+          {
+            "url": "https://www.valoraanalitik.com/post-sitemap62.xml",
+            "status": "parsed",
+            "article_urls": 1000,
+            "export_candidates": 6,
+            "publication_hint_first": null,
+            "publication_hint_last": null
+          },
+          {
+            "url": "https://www.valoraanalitik.com/post-sitemap63.xml",
+            "status": "parsed",
+            "article_urls": 1000,
+            "export_candidates": 6,
+            "publication_hint_first": null,
+            "publication_hint_last": null
+          },
+          {
+            "url": "https://www.valoraanalitik.com/post-sitemap64.xml",
+            "status": "parsed",
+            "article_urls": 1000,
+            "export_candidates": 4,
+            "publication_hint_first": null,
+            "publication_hint_last": null
+          },
+          {
+            "url": "https://www.valoraanalitik.com/post-sitemap65.xml",
+            "status": "parsed",
+            "article_urls": 1000,
+            "export_candidates": 4,
+            "publication_hint_first": null,
+            "publication_hint_last": null
+          },
+          {
+            "url": "https://www.valoraanalitik.com/post-sitemap66.xml",
+            "status": "parsed",
+            "article_urls": 1000,
+            "export_candidates": 9,
+            "publication_hint_first": null,
+            "publication_hint_last": null
+          },
+          {
+            "url": "https://www.valoraanalitik.com/post-sitemap67.xml",
+            "status": "parsed",
+            "article_urls": 1000,
+            "export_candidates": 8,
+            "publication_hint_first": null,
+            "publication_hint_last": null
+          },
+          {
+            "url": "https://www.valoraanalitik.com/post-sitemap68.xml",
+            "status": "parsed",
+            "article_urls": 1000,
+            "export_candidates": 13,
+            "publication_hint_first": null,
+            "publication_hint_last": null
+          },
+          {
+            "url": "https://www.valoraanalitik.com/post-sitemap69.xml",
+            "status": "parsed",
+            "article_urls": 1000,
+            "export_candidates": 5,
+            "publication_hint_first": null,
+            "publication_hint_last": null
+          },
+          {
+            "url": "https://www.valoraanalitik.com/post-sitemap70.xml",
+            "status": "parsed",
+            "article_urls": 1000,
+            "export_candidates": 8,
+            "publication_hint_first": null,
+            "publication_hint_last": null
+          },
+          {
+            "url": "https://www.valoraanalitik.com/post-sitemap71.xml",
+            "status": "parsed",
+            "article_urls": 1000,
+            "export_candidates": 7,
+            "publication_hint_first": null,
+            "publication_hint_last": null
+          },
+          {
+            "url": "https://www.valoraanalitik.com/post-sitemap72.xml",
+            "status": "parsed",
+            "article_urls": 1000,
+            "export_candidates": 6,
+            "publication_hint_first": null,
+            "publication_hint_last": null
+          },
+          {
+            "url": "https://www.valoraanalitik.com/post-sitemap73.xml",
+            "status": "parsed",
+            "article_urls": 1000,
+            "export_candidates": 8,
+            "publication_hint_first": null,
+            "publication_hint_last": null
+          },
+          {
+            "url": "https://www.valoraanalitik.com/post-sitemap74.xml",
+            "status": "parsed",
+            "article_urls": 1000,
+            "export_candidates": 6,
+            "publication_hint_first": null,
+            "publication_hint_last": null
+          },
+          {
+            "url": "https://www.valoraanalitik.com/post-sitemap75.xml",
+            "status": "parsed",
+            "article_urls": 1000,
+            "export_candidates": 5,
+            "publication_hint_first": null,
+            "publication_hint_last": null
+          },
+          {
+            "url": "https://www.valoraanalitik.com/post-sitemap76.xml",
+            "status": "parsed",
+            "article_urls": 1000,
+            "export_candidates": 8,
+            "publication_hint_first": null,
+            "publication_hint_last": null
+          },
+          {
+            "url": "https://www.valoraanalitik.com/post-sitemap77.xml",
+            "status": "parsed",
+            "article_urls": 1000,
+            "export_candidates": 7,
+            "publication_hint_first": null,
+            "publication_hint_last": null
+          },
+          {
+            "url": "https://www.valoraanalitik.com/post-sitemap78.xml",
+            "status": "parsed",
+            "article_urls": 1000,
+            "export_candidates": 6,
+            "publication_hint_first": null,
+            "publication_hint_last": null
+          },
+          {
+            "url": "https://www.valoraanalitik.com/post-sitemap79.xml",
+            "status": "parsed",
+            "article_urls": 1000,
+            "export_candidates": 4,
+            "publication_hint_first": null,
+            "publication_hint_last": null
+          },
+          {
+            "url": "https://www.valoraanalitik.com/post-sitemap80.xml",
+            "status": "parsed",
+            "article_urls": 1000,
+            "export_candidates": 8,
+            "publication_hint_first": null,
+            "publication_hint_last": null
+          },
+          {
+            "url": "https://www.valoraanalitik.com/post-sitemap81.xml",
+            "status": "parsed",
+            "article_urls": 1000,
+            "export_candidates": 9,
+            "publication_hint_first": null,
+            "publication_hint_last": null
+          },
+          {
+            "url": "https://www.valoraanalitik.com/post-sitemap82.xml",
+            "status": "parsed",
+            "article_urls": 1000,
+            "export_candidates": 2,
+            "publication_hint_first": null,
+            "publication_hint_last": null
+          },
+          {
+            "url": "https://www.valoraanalitik.com/post-sitemap83.xml",
+            "status": "parsed",
+            "article_urls": 1000,
+            "export_candidates": 8,
+            "publication_hint_first": null,
+            "publication_hint_last": null
+          },
+          {
+            "url": "https://www.valoraanalitik.com/post-sitemap84.xml",
+            "status": "parsed",
+            "article_urls": 1000,
+            "export_candidates": 6,
+            "publication_hint_first": null,
+            "publication_hint_last": null
+          },
+          {
+            "url": "https://www.valoraanalitik.com/post-sitemap85.xml",
+            "status": "parsed",
+            "article_urls": 1000,
+            "export_candidates": 8,
+            "publication_hint_first": null,
+            "publication_hint_last": null
+          },
+          {
+            "url": "https://www.valoraanalitik.com/post-sitemap86.xml",
+            "status": "parsed",
+            "article_urls": 1000,
+            "export_candidates": 6,
+            "publication_hint_first": null,
+            "publication_hint_last": null
+          },
+          {
+            "url": "https://www.valoraanalitik.com/post-sitemap87.xml",
+            "status": "parsed",
+            "article_urls": 1000,
+            "export_candidates": 6,
+            "publication_hint_first": null,
+            "publication_hint_last": null
+          },
+          {
+            "url": "https://www.valoraanalitik.com/post-sitemap88.xml",
+            "status": "parsed",
+            "article_urls": 1000,
+            "export_candidates": 6,
+            "publication_hint_first": null,
+            "publication_hint_last": null
+          },
+          {
+            "url": "https://www.valoraanalitik.com/post-sitemap89.xml",
+            "status": "parsed",
+            "article_urls": 1000,
+            "export_candidates": 9,
+            "publication_hint_first": null,
+            "publication_hint_last": null
+          },
+          {
+            "url": "https://www.valoraanalitik.com/post-sitemap90.xml",
+            "status": "parsed",
+            "article_urls": 1000,
+            "export_candidates": 3,
+            "publication_hint_first": null,
+            "publication_hint_last": null
+          },
+          {
+            "url": "https://www.valoraanalitik.com/post-sitemap91.xml",
+            "status": "parsed",
+            "article_urls": 1000,
+            "export_candidates": 9,
+            "publication_hint_first": null,
+            "publication_hint_last": null
+          },
+          {
+            "url": "https://www.valoraanalitik.com/post-sitemap92.xml",
+            "status": "parsed",
+            "article_urls": 1000,
+            "export_candidates": 7,
+            "publication_hint_first": null,
+            "publication_hint_last": null
+          },
+          {
+            "url": "https://www.valoraanalitik.com/post-sitemap93.xml",
+            "status": "parsed",
+            "article_urls": 1000,
+            "export_candidates": 8,
+            "publication_hint_first": null,
+            "publication_hint_last": null
+          },
+          {
+            "url": "https://www.valoraanalitik.com/post-sitemap94.xml",
+            "status": "parsed",
+            "article_urls": 1000,
+            "export_candidates": 8,
+            "publication_hint_first": null,
+            "publication_hint_last": null
+          },
+          {
+            "url": "https://www.valoraanalitik.com/post-sitemap95.xml",
+            "status": "parsed",
+            "article_urls": 1000,
+            "export_candidates": 6,
+            "publication_hint_first": null,
+            "publication_hint_last": null
+          },
+          {
+            "url": "https://www.valoraanalitik.com/post-sitemap96.xml",
+            "status": "parsed",
+            "article_urls": 1000,
+            "export_candidates": 13,
+            "publication_hint_first": null,
+            "publication_hint_last": null
+          },
+          {
+            "url": "https://www.valoraanalitik.com/post-sitemap97.xml",
+            "status": "parsed",
+            "article_urls": 1000,
+            "export_candidates": 5,
+            "publication_hint_first": null,
+            "publication_hint_last": null
+          },
+          {
+            "url": "https://www.valoraanalitik.com/post-sitemap98.xml",
+            "status": "parsed",
+            "article_urls": 1000,
+            "export_candidates": 4,
+            "publication_hint_first": null,
+            "publication_hint_last": null
+          },
+          {
+            "url": "https://www.valoraanalitik.com/post-sitemap99.xml",
+            "status": "parsed",
+            "article_urls": 103,
+            "export_candidates": 0,
+            "publication_hint_first": null,
+            "publication_hint_last": null
+          }
+        ],
+        "requests": [
+          {
+            "url": "https://www.valoraanalitik.com/robots.txt",
+            "retrieved_at": "2026-11-17T10:42:35.698906+00:00",
+            "source": "valora",
+            "http_status": 200,
+            "response_url": "https://www.valoraanalitik.com/robots.txt",
+            "status": "retrieved",
+            "sha256": "174a5cdb9a0a745e06d3dea11389bafbae194883648e1109d819e3c420789aee",
+            "bytes": 1789
+          },
+          {
+            "url": "https://www.valoraanalitik.com/sitemap.xml",
+            "retrieved_at": "2026-11-17T10:42:36.836151+00:00",
+            "source": "valora",
+            "http_status": 200,
+            "response_url": "https://www.valoraanalitik.com/sitemap.xml",
+            "status": "retrieved",
+            "sha256": "580b3e88495e9a9f2d9675b1da44f75f6955023d23ae165f9302613e795a45b3",
+            "bytes": 14277
+          },
+          {
+            "url": "https://www.valoraanalitik.com/post-sitemap.xml",
+            "retrieved_at": "2026-11-17T10:42:39.766746+00:00",
+            "source": "valora",
+            "http_status": 200,
+            "response_url": "https://www.valoraanalitik.com/post-sitemap.xml",
+            "status": "retrieved",
+            "sha256": "5ed21a6720207149e5a8e0b82e5b60d482a9dcc04d7454dcd6bda8a57651def0",
+            "bytes": 231595
+          },
+          {
+            "url": "https://www.valoraanalitik.com/post-sitemap2.xml",
+            "retrieved_at": "2026-11-17T10:42:42.294717+00:00",
+            "source": "valora",
+            "http_status": 200,
+            "response_url": "https://www.valoraanalitik.com/post-sitemap2.xml",
+            "status": "retrieved",
+            "sha256": "cf6a611f8b50e760a90b3c3b00ba15c1c7c387b14c981f34c19701a994fc283e",
+            "bytes": 233550
+          },
+          {
+            "url": "https://www.valoraanalitik.com/post-sitemap3.xml",
+            "retrieved_at": "2026-11-17T10:42:44.908425+00:00",
+            "source": "valora",
+            "http_status": 200,
+            "response_url": "https://www.valoraanalitik.com/post-sitemap3.xml",
+            "status": "retrieved",
+            "sha256": "f7ac72b9dd0df417924e1449ea16bd1060b2b0b5ef9df4d8530facc0840c1d09",
+            "bytes": 237379
+          },
+          {
+            "url": "https://www.valoraanalitik.com/post-sitemap4.xml",
+            "retrieved_at": "2026-11-17T10:42:47.692601+00:00",
+            "source": "valora",
+            "http_status": 200,
+            "response_url": "https://www.valoraanalitik.com/post-sitemap4.xml",
+            "status": "retrieved",
+            "sha256": "70f766de46a6b9bdb9c6f21f9ea65dd839a2089e2c1f47a9a58996c0209d02c4",
+            "bytes": 241218
+          },
+          {
+            "url": "https://www.valoraanalitik.com/post-sitemap5.xml",
+            "retrieved_at": "2026-11-17T10:42:50.177344+00:00",
+            "source": "valora",
+            "http_status": 200,
+            "response_url": "https://www.valoraanalitik.com/post-sitemap5.xml",
+            "status": "retrieved",
+            "sha256": "8ef83278b30df9db5a09cedffa2932295978bbe9fd7296017abb096c0c2306c6",
+            "bytes": 240703
+          },
+          {
+            "url": "https://www.valoraanalitik.com/post-sitemap6.xml",
+            "retrieved_at": "2026-11-17T10:42:52.933844+00:00",
+            "source": "valora",
+            "http_status": 200,
+            "response_url": "https://www.valoraanalitik.com/post-sitemap6.xml",
+            "status": "retrieved",
+            "sha256": "abe03434f339f51dfa1fe8f57c8c9e0b51110d08db4875d1a1c693c15828afdb",
+            "bytes": 239510
+          },
+          {
+            "url": "https://www.valoraanalitik.com/post-sitemap7.xml",
+            "retrieved_at": "2026-11-17T10:42:55.441078+00:00",
+            "source": "valora",
+            "http_status": 200,
+            "response_url": "https://www.valoraanalitik.com/post-sitemap7.xml",
+            "status": "retrieved",
+            "sha256": "3c3f2331643cffba74e8d7f97d53f4fc1dd02441b307af29c760da0e83d6079f",
+            "bytes": 241446
+          },
+          {
+            "url": "https://www.valoraanalitik.com/post-sitemap8.xml",
+            "retrieved_at": "2026-11-17T10:42:57.902494+00:00",
+            "source": "valora",
+            "http_status": 200,
+            "response_url": "https://www.valoraanalitik.com/post-sitemap8.xml",
+            "status": "retrieved",
+            "sha256": "d0a675b6922ebe647c4cd9f97e366bbe048395590b4af731b2cc066281b00079",
+            "bytes": 242366
+          },
+          {
+            "url": "https://www.valoraanalitik.com/post-sitemap9.xml",
+            "retrieved_at": "2026-11-17T10:43:00.385994+00:00",
+            "source": "valora",
+            "http_status": 200,
+            "response_url": "https://www.valoraanalitik.com/post-sitemap9.xml",
+            "status": "retrieved",
+            "sha256": "91c2f48f94375fef14baee68c31f56e9ccd63df21013db182bccad4d76c778c2",
+            "bytes": 242878
+          },
+          {
+            "url": "https://www.valoraanalitik.com/post-sitemap10.xml",
+            "retrieved_at": "2026-11-17T10:43:02.781851+00:00",
+            "source": "valora",
+            "http_status": 200,
+            "response_url": "https://www.valoraanalitik.com/post-sitemap10.xml",
+            "status": "retrieved",
+            "sha256": "9928646d70723963f00b5fb99e8530b8c7abcef30893334d8506e1e9fc3abd78",
+            "bytes": 246296
+          },
+          {
+            "url": "https://www.valoraanalitik.com/post-sitemap11.xml",
+            "retrieved_at": "2026-11-17T10:43:05.495976+00:00",
+            "source": "valora",
+            "http_status": 200,
+            "response_url": "https://www.valoraanalitik.com/post-sitemap11.xml",
+            "status": "retrieved",
+            "sha256": "da5ae3badd381bdf4b44e210a3fe7c7461112dca83da3e6e4e5764f131d8d799",
+            "bytes": 247541
+          },
+          {
+            "url": "https://www.valoraanalitik.com/post-sitemap12.xml",
+            "retrieved_at": "2026-11-17T10:43:08.510777+00:00",
+            "source": "valora",
+            "http_status": 200,
+            "response_url": "https://www.valoraanalitik.com/post-sitemap12.xml",
+            "status": "retrieved",
+            "sha256": "05c906010402c76d343d14b43a2e3e1920f75304ee9f94e62b451f7cd9786ecf",
+            "bytes": 247699
+          },
+          {
+            "url": "https://www.valoraanalitik.com/post-sitemap13.xml",
+            "retrieved_at": "2026-11-17T10:43:11.254332+00:00",
+            "source": "valora",
+            "http_status": 200,
+            "response_url": "https://www.valoraanalitik.com/post-sitemap13.xml",
+            "status": "retrieved",
+            "sha256": "fd09bb8b8954863af86a80a4613cdc615668af2a47a424fec5f2ae386a3e78f6",
+            "bytes": 244202
+          },
+          {
+            "url": "https://www.valoraanalitik.com/post-sitemap14.xml",
+            "retrieved_at": "2026-11-17T10:43:13.723152+00:00",
+            "source": "valora",
+            "http_status": 200,
+            "response_url": "https://www.valoraanalitik.com/post-sitemap14.xml",
+            "status": "retrieved",
+            "sha256": "d6e1efc20602f827b84ca11e3618fc48bd874381de435ad07f1061a58b881a5c",
+            "bytes": 245856
+          },
+          {
+            "url": "https://www.valoraanalitik.com/post-sitemap15.xml",
+            "retrieved_at": "2026-11-17T10:43:16.496355+00:00",
+            "source": "valora",
+            "http_status": 200,
+            "response_url": "https://www.valoraanalitik.com/post-sitemap15.xml",
+            "status": "retrieved",
+            "sha256": "42e15eb10f55feaa85b15f0a56c762ebf91a622df3eef31bfe73e4bb7c962775",
+            "bytes": 241565
+          },
+          {
+            "url": "https://www.valoraanalitik.com/post-sitemap16.xml",
+            "retrieved_at": "2026-11-17T10:43:19.639584+00:00",
+            "source": "valora",
+            "http_status": 200,
+            "response_url": "https://www.valoraanalitik.com/post-sitemap16.xml",
+            "status": "retrieved",
+            "sha256": "7faccbcec40f523f29c28deec6dc67a58dbd47ccac19a09c46ab8e88a8ffd572",
+            "bytes": 242722
+          },
+          {
+            "url": "https://www.valoraanalitik.com/post-sitemap17.xml",
+            "retrieved_at": "2026-11-17T10:43:22.366761+00:00",
+            "source": "valora",
+            "http_status": 200,
+            "response_url": "https://www.valoraanalitik.com/post-sitemap17.xml",
+            "status": "retrieved",
+            "sha256": "986a80062c51d3da9f023f8dcb8a48898d8f5b9bb8587592a872777482770a7d",
+            "bytes": 242713
+          },
+          {
+            "url": "https://www.valoraanalitik.com/post-sitemap18.xml",
+            "retrieved_at": "2026-11-17T10:43:25.793662+00:00",
+            "source": "valora",
+            "http_status": 200,
+            "response_url": "https://www.valoraanalitik.com/post-sitemap18.xml",
+            "status": "retrieved",
+            "sha256": "f3cb4142d46737770e2ec75a941b82a3879cb4ffcacdb6253bea606ef126568e",
+            "bytes": 244325
+          },
+          {
+            "url": "https://www.valoraanalitik.com/post-sitemap19.xml",
+            "retrieved_at": "2026-11-17T10:43:28.232499+00:00",
+            "source": "valora",
+            "http_status": 200,
+            "response_url": "https://www.valoraanalitik.com/post-sitemap19.xml",
+            "status": "retrieved",
+            "sha256": "601b8bba6d0aea334de87ab2626c0377fb3f57297283f60686bb1580b4cd0900",
+            "bytes": 247048
+          },
+          {
+            "url": "https://www.valoraanalitik.com/post-sitemap20.xml",
+            "retrieved_at": "2026-11-17T10:43:30.891231+00:00",
+            "source": "valora",
+            "http_status": 200,
+            "response_url": "https://www.valoraanalitik.com/post-sitemap20.xml",
+            "status": "retrieved",
+            "sha256": "4edef71bb9cd3a186c478e6baaaf6f845448a23f03e9b50ec8949a66f0690477",
+            "bytes": 246581
+          },
+          {
+            "url": "https://www.valoraanalitik.com/post-sitemap21.xml",
+            "retrieved_at": "2026-11-17T10:43:33.393274+00:00",
+            "source": "valora",
+            "http_status": 200,
+            "response_url": "https://www.valoraanalitik.com/post-sitemap21.xml",
+            "status": "retrieved",
+            "sha256": "d70332b17435ee25f2a0ebdefad5a65b31d57dabd560861312b6664af2cecf5c",
+            "bytes": 244205
+          },
+          {
+            "url": "https://www.valoraanalitik.com/post-sitemap22.xml",
+            "retrieved_at": "2026-11-17T10:43:36.250818+00:00",
+            "source": "valora",
+            "http_status": 200,
+            "response_url": "https://www.valoraanalitik.com/post-sitemap22.xml",
+            "status": "retrieved",
+            "sha256": "dc011e0df0be4e0f4e4f30440b6af7456c33f25edd2c992f3cad54844e2d82e5",
+            "bytes": 237168
+          },
+          {
+            "url": "https://www.valoraanalitik.com/post-sitemap23.xml",
+            "retrieved_at": "2026-11-17T10:43:38.728177+00:00",
+            "source": "valora",
+            "http_status": 200,
+            "response_url": "https://www.valoraanalitik.com/post-sitemap23.xml",
+            "status": "retrieved",
+            "sha256": "24eed4f2a2e9d6161d1b8e61dbffacd672ad7d251986fd003b0cdcecc001456a",
+            "bytes": 233265
+          },
+          {
+            "url": "https://www.valoraanalitik.com/post-sitemap24.xml",
+            "retrieved_at": "2026-11-17T10:43:41.193909+00:00",
+            "source": "valora",
+            "http_status": 200,
+            "response_url": "https://www.valoraanalitik.com/post-sitemap24.xml",
+            "status": "retrieved",
+            "sha256": "b46c77c9b43769351c58f833d28e66ce16915680093c0effa60e55a1c1eb1eaa",
+            "bytes": 228035
+          },
+          {
+            "url": "https://www.valoraanalitik.com/post-sitemap25.xml",
+            "retrieved_at": "2026-11-17T10:43:43.757685+00:00",
+            "source": "valora",
+            "http_status": 200,
+            "response_url": "https://www.valoraanalitik.com/post-sitemap25.xml",
+            "status": "retrieved",
+            "sha256": "608d63069576bd40f7ef6efe6f72a64ae46435a0e8a19956d2f42b3e9fdf0588",
+            "bytes": 227274
+          },
+          {
+            "url": "https://www.valoraanalitik.com/post-sitemap26.xml",
+            "retrieved_at": "2026-11-17T10:43:46.529373+00:00",
+            "source": "valora",
+            "http_status": 200,
+            "response_url": "https://www.valoraanalitik.com/post-sitemap26.xml",
+            "status": "retrieved",
+            "sha256": "bdc3b7a5805191df981ce37d9ee48a3443f0a555033f3c7ee2b6b47f779f11b7",
+            "bytes": 227198
+          },
+          {
+            "url": "https://www.valoraanalitik.com/post-sitemap27.xml",
+            "retrieved_at": "2026-11-17T10:43:48.976684+00:00",
+            "source": "valora",
+            "http_status": 200,
+            "response_url": "https://www.valoraanalitik.com/post-sitemap27.xml",
+            "status": "retrieved",
+            "sha256": "01d8ac93da30ad6456f7207f0f1ee6cd0462f4d46aab285cc5c324994716c856",
+            "bytes": 226909
+          },
+          {
+            "url": "https://www.valoraanalitik.com/post-sitemap28.xml",
+            "retrieved_at": "2026-11-17T10:43:51.592398+00:00",
+            "source": "valora",
+            "http_status": 200,
+            "response_url": "https://www.valoraanalitik.com/post-sitemap28.xml",
+            "status": "retrieved",
+            "sha256": "403c7c25045ebeed771cb59d108c3f10d1dedebf5849fc6153ecf007b719cab5",
+            "bytes": 226990
+          },
+          {
+            "url": "https://www.valoraanalitik.com/post-sitemap29.xml",
+            "retrieved_at": "2026-11-17T10:43:54.049059+00:00",
+            "source": "valora",
+            "http_status": 200,
+            "response_url": "https://www.valoraanalitik.com/post-sitemap29.xml",
+            "status": "retrieved",
+            "sha256": "3c4bd7b80fb744749fc00ea118d3bd2b1696bb4929a2d6f2e10f6f3386be964e",
+            "bytes": 229088
+          },
+          {
+            "url": "https://www.valoraanalitik.com/post-sitemap30.xml",
+            "retrieved_at": "2026-11-17T10:43:56.503177+00:00",
+            "source": "valora",
+            "http_status": 200,
+            "response_url": "https://www.valoraanalitik.com/post-sitemap30.xml",
+            "status": "retrieved",
+            "sha256": "f78cdaf27f96fe57deb93bb9d4f6451856ee897962c4e604555322dc0fd34927",
+            "bytes": 224199
+          },
+          {
+            "url": "https://www.valoraanalitik.com/post-sitemap31.xml",
+            "retrieved_at": "2026-11-17T10:43:59.327130+00:00",
+            "source": "valora",
+            "http_status": 200,
+            "response_url": "https://www.valoraanalitik.com/post-sitemap31.xml",
+            "status": "retrieved",
+            "sha256": "9db04c687ff6e79e6418a24ccf16c51c56a212e6bc1e135b7a0e73387e59688c",
+            "bytes": 223411
+          },
+          {
+            "url": "https://www.valoraanalitik.com/post-sitemap32.xml",
+            "retrieved_at": "2026-11-17T10:44:01.861883+00:00",
+            "source": "valora",
+            "http_status": 200,
+            "response_url": "https://www.valoraanalitik.com/post-sitemap32.xml",
+            "status": "retrieved",
+            "sha256": "2a9c789415ce3a0d954704dc26f76126ea16e4bafed3ce9cca95a35d45cdba42",
+            "bytes": 221362
+          },
+          {
+            "url": "https://www.valoraanalitik.com/post-sitemap33.xml",
+            "retrieved_at": "2026-11-17T10:44:04.231291+00:00",
+            "source": "valora",
+            "http_status": 200,
+            "response_url": "https://www.valoraanalitik.com/post-sitemap33.xml",
+            "status": "retrieved",
+            "sha256": "049f355810a043f9f019c270f9581b59135d8aff5689c8dc0ac8553f78039157",
+            "bytes": 220843
+          },
+          {
+            "url": "https://www.valoraanalitik.com/post-sitemap34.xml",
+            "retrieved_at": "2026-11-17T10:44:06.930142+00:00",
+            "source": "valora",
+            "http_status": 200,
+            "response_url": "https://www.valoraanalitik.com/post-sitemap34.xml",
+            "status": "retrieved",
+            "sha256": "c93dbed1454bc6a2c6df18eb27c8ab6039347192f9d547579a2417ede9be9952",
+            "bytes": 220090
+          },
+          {
+            "url": "https://www.valoraanalitik.com/post-sitemap35.xml",
+            "retrieved_at": "2026-11-17T10:44:09.548757+00:00",
+            "source": "valora",
+            "http_status": 200,
+            "response_url": "https://www.valoraanalitik.com/post-sitemap35.xml",
+            "status": "retrieved",
+            "sha256": "7590ff6e5a09743617d187bc80a93719ae7da166001164e5ccccceb4e8f0097a",
+            "bytes": 220724
+          },
+          {
+            "url": "https://www.valoraanalitik.com/post-sitemap36.xml",
+            "retrieved_at": "2026-11-17T10:44:12.060435+00:00",
+            "source": "valora",
+            "http_status": 200,
+            "response_url": "https://www.valoraanalitik.com/post-sitemap36.xml",
+            "status": "retrieved",
+            "sha256": "05a4c44a5f07af04de0eb6660257cbef6f10b9ceccc022c5a9e8aefc633efcdd",
+            "bytes": 220880
+          },
+          {
+            "url": "https://www.valoraanalitik.com/post-sitemap37.xml",
+            "retrieved_at": "2026-11-17T10:44:14.856076+00:00",
+            "source": "valora",
+            "http_status": 200,
+            "response_url": "https://www.valoraanalitik.com/post-sitemap37.xml",
+            "status": "retrieved",
+            "sha256": "ccc9928af6b4f919260ed211c3753bb5e8c64ef7454b0c01662c48f476003c0f",
+            "bytes": 220837
+          },
+          {
+            "url": "https://www.valoraanalitik.com/post-sitemap38.xml",
+            "retrieved_at": "2026-11-17T10:44:17.286977+00:00",
+            "source": "valora",
+            "http_status": 200,
+            "response_url": "https://www.valoraanalitik.com/post-sitemap38.xml",
+            "status": "retrieved",
+            "sha256": "7da36b67aad0aa9183620d21e3208e1281cfb37295aeb89ecc7f7d78d21f8eb9",
+            "bytes": 221042
+          },
+          {
+            "url": "https://www.valoraanalitik.com/post-sitemap39.xml",
+            "retrieved_at": "2026-11-17T10:44:19.930472+00:00",
+            "source": "valora",
+            "http_status": 200,
+            "response_url": "https://www.valoraanalitik.com/post-sitemap39.xml",
+            "status": "retrieved",
+            "sha256": "7a85a8ed1cf16a4b9da7a578e351e972a92a28c2c6914180ebabb5f8920a957f",
+            "bytes": 220797
+          },
+          {
+            "url": "https://www.valoraanalitik.com/post-sitemap40.xml",
+            "retrieved_at": "2026-11-17T10:44:22.487238+00:00",
+            "source": "valora",
+            "http_status": 200,
+            "response_url": "https://www.valoraanalitik.com/post-sitemap40.xml",
+            "status": "retrieved",
+            "sha256": "868b33f719c54f0e7f27f1c3c9f4dda88da8c4b349d2a5ed3b33161ccc6010dc",
+            "bytes": 221205
+          },
+          {
+            "url": "https://www.valoraanalitik.com/post-sitemap41.xml",
+            "retrieved_at": "2026-11-17T10:44:24.982112+00:00",
+            "source": "valora",
+            "http_status": 200,
+            "response_url": "https://www.valoraanalitik.com/post-sitemap41.xml",
+            "status": "retrieved",
+            "sha256": "93473fa5fcadd497ffae5d655ee260c1b2e8d7f867c5e11c4e4af0f4037bfe89",
+            "bytes": 221560
+          },
+          {
+            "url": "https://www.valoraanalitik.com/post-sitemap42.xml",
+            "retrieved_at": "2026-11-17T10:44:28.233455+00:00",
+            "source": "valora",
+            "http_status": 200,
+            "response_url": "https://www.valoraanalitik.com/post-sitemap42.xml",
+            "status": "retrieved",
+            "sha256": "df613da0a074c7d4563d7f489af7fdda97f776260994627606da6479462cc6cd",
+            "bytes": 221183
+          },
+          {
+            "url": "https://www.valoraanalitik.com/post-sitemap43.xml",
+            "retrieved_at": "2026-11-17T10:44:30.870695+00:00",
+            "source": "valora",
+            "http_status": 200,
+            "response_url": "https://www.valoraanalitik.com/post-sitemap43.xml",
+            "status": "retrieved",
+            "sha256": "14987a9a6a523bb609e8769baa992903272662f3162f8c6191fa319bdb74238e",
+            "bytes": 221010
+          },
+          {
+            "url": "https://www.valoraanalitik.com/post-sitemap44.xml",
+            "retrieved_at": "2026-11-17T10:44:32.119274+00:00",
+            "source": "valora",
+            "http_status": 200,
+            "response_url": "https://www.valoraanalitik.com/post-sitemap44.xml",
+            "status": "retrieved",
+            "sha256": "753b3d96a23c5f8f57da275316ddf97eb00a61e82326b4cd0e13762b719cc30c",
+            "bytes": 231833
+          },
+          {
+            "url": "https://www.valoraanalitik.com/post-sitemap45.xml",
+            "retrieved_at": "2026-11-17T10:44:34.891883+00:00",
+            "source": "valora",
+            "http_status": 200,
+            "response_url": "https://www.valoraanalitik.com/post-sitemap45.xml",
+            "status": "retrieved",
+            "sha256": "425efa4dcfbd1bd768814c08daccfa35037706ac80bb285ad20cf65a46f04988",
+            "bytes": 237531
+          },
+          {
+            "url": "https://www.valoraanalitik.com/post-sitemap46.xml",
+            "retrieved_at": "2026-11-17T10:44:37.506078+00:00",
+            "source": "valora",
+            "http_status": 200,
+            "response_url": "https://www.valoraanalitik.com/post-sitemap46.xml",
+            "status": "retrieved",
+            "sha256": "debb1872966bea972647b03961ed259b28943cd9e8eb374b36864050c8cf37c4",
+            "bytes": 237875
+          },
+          {
+            "url": "https://www.valoraanalitik.com/post-sitemap47.xml",
+            "retrieved_at": "2026-11-17T10:44:40.179798+00:00",
+            "source": "valora",
+            "http_status": 200,
+            "response_url": "https://www.valoraanalitik.com/post-sitemap47.xml",
+            "status": "retrieved",
+            "sha256": "f1e66144faeb1cbda95a841656af3518f830c481de05267c91837769decd6be9",
+            "bytes": 237206
+          },
+          {
+            "url": "https://www.valoraanalitik.com/post-sitemap48.xml",
+            "retrieved_at": "2026-11-17T10:44:42.854980+00:00",
+            "source": "valora",
+            "http_status": 200,
+            "response_url": "https://www.valoraanalitik.com/post-sitemap48.xml",
+            "status": "retrieved",
+            "sha256": "cd919f9296f77387540f5a650dfefe52518c23efd3e05db90954c6cec19ab308",
+            "bytes": 238533
+          },
+          {
+            "url": "https://www.valoraanalitik.com/post-sitemap49.xml",
+            "retrieved_at": "2026-11-17T10:44:45.614315+00:00",
+            "source": "valora",
+            "http_status": 200,
+            "response_url": "https://www.valoraanalitik.com/post-sitemap49.xml",
+            "status": "retrieved",
+            "sha256": "1863778c42775bd971d9d3d7a2f974543bcaa84d5d3e5ab52fc580be7a784a73",
+            "bytes": 236351
+          },
+          {
+            "url": "https://www.valoraanalitik.com/post-sitemap50.xml",
+            "retrieved_at": "2026-11-17T10:44:48.156004+00:00",
+            "source": "valora",
+            "http_status": 200,
+            "response_url": "https://www.valoraanalitik.com/post-sitemap50.xml",
+            "status": "retrieved",
+            "sha256": "85a211b9805cd66fa9f60e7e42809a9ec417cd98bea7bef8a4370bb517f9392f",
+            "bytes": 236569
+          },
+          {
+            "url": "https://www.valoraanalitik.com/post-sitemap51.xml",
+            "retrieved_at": "2026-11-17T10:44:50.671264+00:00",
+            "source": "valora",
+            "http_status": 200,
+            "response_url": "https://www.valoraanalitik.com/post-sitemap51.xml",
+            "status": "retrieved",
+            "sha256": "083ca12112a51a6b26df8417911891257a261df59ed9b105246a464e1600a93a",
+            "bytes": 235753
+          },
+          {
+            "url": "https://www.valoraanalitik.com/post-sitemap52.xml",
+            "retrieved_at": "2026-11-17T10:44:53.148519+00:00",
+            "source": "valora",
+            "http_status": 200,
+            "response_url": "https://www.valoraanalitik.com/post-sitemap52.xml",
+            "status": "retrieved",
+            "sha256": "43d5a51d1b48b35035eac6bb526f99496d36f40f9419c94e7b39f8b630fd9b8c",
+            "bytes": 235014
+          },
+          {
+            "url": "https://www.valoraanalitik.com/post-sitemap53.xml",
+            "retrieved_at": "2026-11-17T10:44:55.690479+00:00",
+            "source": "valora",
+            "http_status": 200,
+            "response_url": "https://www.valoraanalitik.com/post-sitemap53.xml",
+            "status": "retrieved",
+            "sha256": "10096acd23e459741f19df0c3fe15f3525c9e50f797e3b34c898dfe6ecc77961",
+            "bytes": 234058
+          },
+          {
+            "url": "https://www.valoraanalitik.com/post-sitemap54.xml",
+            "retrieved_at": "2026-11-17T10:44:58.542702+00:00",
+            "source": "valora",
+            "http_status": 200,
+            "response_url": "https://www.valoraanalitik.com/post-sitemap54.xml",
+            "status": "retrieved",
+            "sha256": "dac022ea05f0e773fdd43ae153532b6f7bbbe1188b88164a62dc7e277665589c",
+            "bytes": 234366
+          },
+          {
+            "url": "https://www.valoraanalitik.com/post-sitemap55.xml",
+            "retrieved_at": "2026-11-17T10:45:01.214614+00:00",
+            "source": "valora",
+            "http_status": 200,
+            "response_url": "https://www.valoraanalitik.com/post-sitemap55.xml",
+            "status": "retrieved",
+            "sha256": "d01f444139e72cd8a3f7591cda0147c5484105a2e6ba339be2c39682f5a693aa",
+            "bytes": 234351
+          },
+          {
+            "url": "https://www.valoraanalitik.com/post-sitemap56.xml",
+            "retrieved_at": "2026-11-17T10:45:03.745276+00:00",
+            "source": "valora",
+            "http_status": 200,
+            "response_url": "https://www.valoraanalitik.com/post-sitemap56.xml",
+            "status": "retrieved",
+            "sha256": "f0bcbb66d1cb49a398d558f5c9b2db251fbc095e6ab4dd852c4c157ae1181222",
+            "bytes": 233775
+          },
+          {
+            "url": "https://www.valoraanalitik.com/post-sitemap57.xml",
+            "retrieved_at": "2026-11-17T10:45:07.022196+00:00",
+            "source": "valora",
+            "http_status": 200,
+            "response_url": "https://www.valoraanalitik.com/post-sitemap57.xml",
+            "status": "retrieved",
+            "sha256": "8be8c45694e939bee22d22a9fd17122b67a02a195de73c27dae6273668b370a2",
+            "bytes": 232966
+          },
+          {
+            "url": "https://www.valoraanalitik.com/post-sitemap58.xml",
+            "retrieved_at": "2026-11-17T10:45:10.099007+00:00",
+            "source": "valora",
+            "http_status": 200,
+            "response_url": "https://www.valoraanalitik.com/post-sitemap58.xml",
+            "status": "retrieved",
+            "sha256": "e42615f320f6c8f6cbb5a1893601bf30df269f0464947507086e9d3a024a3801",
+            "bytes": 232850
+          },
+          {
+            "url": "https://www.valoraanalitik.com/post-sitemap59.xml",
+            "retrieved_at": "2026-11-17T10:45:12.907413+00:00",
+            "source": "valora",
+            "http_status": 200,
+            "response_url": "https://www.valoraanalitik.com/post-sitemap59.xml",
+            "status": "retrieved",
+            "sha256": "320da4c928c706374fca0102e522dab6fc01ae93d1793bbc5ef76c1093d7cc22",
+            "bytes": 233907
+          },
+          {
+            "url": "https://www.valoraanalitik.com/post-sitemap60.xml",
+            "retrieved_at": "2026-11-17T10:45:15.664831+00:00",
+            "source": "valora",
+            "http_status": 200,
+            "response_url": "https://www.valoraanalitik.com/post-sitemap60.xml",
+            "status": "retrieved",
+            "sha256": "b2f4b8ad307fa2550c0e6627b2f5da9035478ab9f20dd4fc701aeaa9ff21525c",
+            "bytes": 232351
+          },
+          {
+            "url": "https://www.valoraanalitik.com/post-sitemap61.xml",
+            "retrieved_at": "2026-11-17T10:45:18.212577+00:00",
+            "source": "valora",
+            "http_status": 200,
+            "response_url": "https://www.valoraanalitik.com/post-sitemap61.xml",
+            "status": "retrieved",
+            "sha256": "0460da4dae24eed4a01eb87f7d39524bfd9a747d03331a6327399c675393e73b",
+            "bytes": 233133
+          },
+          {
+            "url": "https://www.valoraanalitik.com/post-sitemap62.xml",
+            "retrieved_at": "2026-11-17T10:45:20.950158+00:00",
+            "source": "valora",
+            "http_status": 200,
+            "response_url": "https://www.valoraanalitik.com/post-sitemap62.xml",
+            "status": "retrieved",
+            "sha256": "51d00396abbb07620adf13d377f39b69a833d4be58ed3a10bccf4dde41fe729e",
+            "bytes": 232457
+          },
+          {
+            "url": "https://www.valoraanalitik.com/post-sitemap63.xml",
+            "retrieved_at": "2026-11-17T10:45:23.801329+00:00",
+            "source": "valora",
+            "http_status": 200,
+            "response_url": "https://www.valoraanalitik.com/post-sitemap63.xml",
+            "status": "retrieved",
+            "sha256": "1540979b3b554171328104d201920f3679c7a3ff561f2fc4fcc46ee92a9b172d",
+            "bytes": 234695
+          },
+          {
+            "url": "https://www.valoraanalitik.com/post-sitemap64.xml",
+            "retrieved_at": "2026-11-17T10:45:26.702750+00:00",
+            "source": "valora",
+            "http_status": 200,
+            "response_url": "https://www.valoraanalitik.com/post-sitemap64.xml",
+            "status": "retrieved",
+            "sha256": "6b4645aa29825941ce852466fdb33ddabfb6109e27f348e6a661d12c39e6295e",
+            "bytes": 235391
+          },
+          {
+            "url": "https://www.valoraanalitik.com/post-sitemap65.xml",
+            "retrieved_at": "2026-11-17T10:45:29.277887+00:00",
+            "source": "valora",
+            "http_status": 200,
+            "response_url": "https://www.valoraanalitik.com/post-sitemap65.xml",
+            "status": "retrieved",
+            "sha256": "b52cd0c114325bdcd1c99d28870e6c3022ce181f80868db38df3cfb8b6b5e5aa",
+            "bytes": 237074
+          },
+          {
+            "url": "https://www.valoraanalitik.com/post-sitemap66.xml",
+            "retrieved_at": "2026-11-17T10:45:31.912871+00:00",
+            "source": "valora",
+            "http_status": 200,
+            "response_url": "https://www.valoraanalitik.com/post-sitemap66.xml",
+            "status": "retrieved",
+            "sha256": "f89959359dfa50eb9ecccae02db3b095f06d164e40c674ad2624122fd3c06236",
+            "bytes": 234365
+          },
+          {
+            "url": "https://www.valoraanalitik.com/post-sitemap67.xml",
+            "retrieved_at": "2026-11-17T10:45:34.811227+00:00",
+            "source": "valora",
+            "http_status": 200,
+            "response_url": "https://www.valoraanalitik.com/post-sitemap67.xml",
+            "status": "retrieved",
+            "sha256": "6230df26c3d5a3988a91141d4c7eb422cf80e030e80f2058c974a482ab2e2811",
+            "bytes": 232968
+          },
+          {
+            "url": "https://www.valoraanalitik.com/post-sitemap68.xml",
+            "retrieved_at": "2026-11-17T10:45:37.804632+00:00",
+            "source": "valora",
+            "http_status": 200,
+            "response_url": "https://www.valoraanalitik.com/post-sitemap68.xml",
+            "status": "retrieved",
+            "sha256": "8b5a58c32091390d044bbc116bab1564a319f339a97a720edaa939f36e0976b7",
+            "bytes": 231745
+          },
+          {
+            "url": "https://www.valoraanalitik.com/post-sitemap69.xml",
+            "retrieved_at": "2026-11-17T10:45:40.398731+00:00",
+            "source": "valora",
+            "http_status": 200,
+            "response_url": "https://www.valoraanalitik.com/post-sitemap69.xml",
+            "status": "retrieved",
+            "sha256": "53bcc2aa7ba18bfaa3d210b7cd81aa72ac4a21f653d0f217b76127564d02322c",
+            "bytes": 231086
+          },
+          {
+            "url": "https://www.valoraanalitik.com/post-sitemap70.xml",
+            "retrieved_at": "2026-11-17T10:45:43.076113+00:00",
+            "source": "valora",
+            "http_status": 200,
+            "response_url": "https://www.valoraanalitik.com/post-sitemap70.xml",
+            "status": "retrieved",
+            "sha256": "b70385b82744379dd9f324340c81dfad47a7b0a048c1d5d093b2dc6b9b136dd2",
+            "bytes": 230086
+          },
+          {
+            "url": "https://www.valoraanalitik.com/post-sitemap71.xml",
+            "retrieved_at": "2026-11-17T10:45:45.852514+00:00",
+            "source": "valora",
+            "http_status": 200,
+            "response_url": "https://www.valoraanalitik.com/post-sitemap71.xml",
+            "status": "retrieved",
+            "sha256": "a1a20ecaf796c92f5134cfb16dddcf6913c4fee93f3cc8811fc5d5ceff3d8e0e",
+            "bytes": 232182
+          },
+          {
+            "url": "https://www.valoraanalitik.com/post-sitemap72.xml",
+            "retrieved_at": "2026-11-17T10:45:48.475277+00:00",
+            "source": "valora",
+            "http_status": 200,
+            "response_url": "https://www.valoraanalitik.com/post-sitemap72.xml",
+            "status": "retrieved",
+            "sha256": "98cb3532df6a22c482c2ab76398f4d201e0c2a6770a62c0f08e736ba7f0e9b5b",
+            "bytes": 231818
+          },
+          {
+            "url": "https://www.valoraanalitik.com/post-sitemap73.xml",
+            "retrieved_at": "2026-11-17T10:45:51.182354+00:00",
+            "source": "valora",
+            "http_status": 200,
+            "response_url": "https://www.valoraanalitik.com/post-sitemap73.xml",
+            "status": "retrieved",
+            "sha256": "238ebbfe23c20cdc673f5fe35b918828d26e3af5d0afb9a924bd5ec756e5c258",
+            "bytes": 228990
+          },
+          {
+            "url": "https://www.valoraanalitik.com/post-sitemap74.xml",
+            "retrieved_at": "2026-11-17T10:45:54.204243+00:00",
+            "source": "valora",
+            "http_status": 200,
+            "response_url": "https://www.valoraanalitik.com/post-sitemap74.xml",
+            "status": "retrieved",
+            "sha256": "6e1cc0819306d9f653e6c47d0439c7426ce6f9b9e9ae612daca2b830ad009d12",
+            "bytes": 232181
+          },
+          {
+            "url": "https://www.valoraanalitik.com/post-sitemap75.xml",
+            "retrieved_at": "2026-11-17T10:45:56.833448+00:00",
+            "source": "valora",
+            "http_status": 200,
+            "response_url": "https://www.valoraanalitik.com/post-sitemap75.xml",
+            "status": "retrieved",
+            "sha256": "2486154be271d98766be8c8cff3aedc50ee6d5b7485cdceff6aa2814738f1b81",
+            "bytes": 232728
+          },
+          {
+            "url": "https://www.valoraanalitik.com/post-sitemap76.xml",
+            "retrieved_at": "2026-11-17T10:45:59.646841+00:00",
+            "source": "valora",
+            "http_status": 200,
+            "response_url": "https://www.valoraanalitik.com/post-sitemap76.xml",
+            "status": "retrieved",
+            "sha256": "cdbc3b829904f8ac08e824d7d67fd273c35d63eb94099c5b6565d98b01ceca56",
+            "bytes": 237895
+          },
+          {
+            "url": "https://www.valoraanalitik.com/post-sitemap77.xml",
+            "retrieved_at": "2026-11-17T10:46:02.235565+00:00",
+            "source": "valora",
+            "http_status": 200,
+            "response_url": "https://www.valoraanalitik.com/post-sitemap77.xml",
+            "status": "retrieved",
+            "sha256": "13fad63daf662dcce455cad725481e3a8a7b541964a64678c925af7c8bfd7ca0",
+            "bytes": 239871
+          },
+          {
+            "url": "https://www.valoraanalitik.com/post-sitemap78.xml",
+            "retrieved_at": "2026-11-17T10:46:05.241146+00:00",
+            "source": "valora",
+            "http_status": 200,
+            "response_url": "https://www.valoraanalitik.com/post-sitemap78.xml",
+            "status": "retrieved",
+            "sha256": "3388c1dd6b996d8d0974387a4ae9d9625953d80ae335bbec80254e6f06d00b06",
+            "bytes": 235315
+          },
+          {
+            "url": "https://www.valoraanalitik.com/post-sitemap79.xml",
+            "retrieved_at": "2026-11-17T10:46:06.538763+00:00",
+            "source": "valora",
+            "http_status": 200,
+            "response_url": "https://www.valoraanalitik.com/post-sitemap79.xml",
+            "status": "retrieved",
+            "sha256": "4ad8980da34cad62315962d1cf36d10e4e448265c85d51fb51219c0bfb21264e",
+            "bytes": 237598
+          },
+          {
+            "url": "https://www.valoraanalitik.com/post-sitemap80.xml",
+            "retrieved_at": "2026-11-17T10:46:09.154572+00:00",
+            "source": "valora",
+            "http_status": 200,
+            "response_url": "https://www.valoraanalitik.com/post-sitemap80.xml",
+            "status": "retrieved",
+            "sha256": "a57d988a2878731a1f9666d2e0a12e86580b57399e811f1caf6d7adcc8bf4702",
+            "bytes": 236884
+          },
+          {
+            "url": "https://www.valoraanalitik.com/post-sitemap81.xml",
+            "retrieved_at": "2026-11-17T10:46:12.007407+00:00",
+            "source": "valora",
+            "http_status": 200,
+            "response_url": "https://www.valoraanalitik.com/post-sitemap81.xml",
+            "status": "retrieved",
+            "sha256": "17cc4e0722e8e40e95aa40ad32c58264adb0a62f1cae0be9651e1d65bfb744e0",
+            "bytes": 235644
+          },
+          {
+            "url": "https://www.valoraanalitik.com/post-sitemap82.xml",
+            "retrieved_at": "2026-11-17T10:46:14.587864+00:00",
+            "source": "valora",
+            "http_status": 200,
+            "response_url": "https://www.valoraanalitik.com/post-sitemap82.xml",
+            "status": "retrieved",
+            "sha256": "bdbc5d232f38b8e0e1cd06dd6bf1bc9f20fde9ea9f816cb9f92031cac810968f",
+            "bytes": 236601
+          },
+          {
+            "url": "https://www.valoraanalitik.com/post-sitemap83.xml",
+            "retrieved_at": "2026-11-17T10:46:17.227982+00:00",
+            "source": "valora",
+            "http_status": 200,
+            "response_url": "https://www.valoraanalitik.com/post-sitemap83.xml",
+            "status": "retrieved",
+            "sha256": "3660da0bda085f6bea8818c7c18de8752025a3acced47f099a599e976dd45bf1",
+            "bytes": 238093
+          },
+          {
+            "url": "https://www.valoraanalitik.com/post-sitemap84.xml",
+            "retrieved_at": "2026-11-17T10:46:19.799727+00:00",
+            "source": "valora",
+            "http_status": 200,
+            "response_url": "https://www.valoraanalitik.com/post-sitemap84.xml",
+            "status": "retrieved",
+            "sha256": "96cfe5bd536f7fb5016a5db6687965c57980c805cf4e64e04db6b86c9e93ca9d",
+            "bytes": 241490
+          },
+          {
+            "url": "https://www.valoraanalitik.com/post-sitemap85.xml",
+            "retrieved_at": "2026-11-17T10:46:22.369547+00:00",
+            "source": "valora",
+            "http_status": 200,
+            "response_url": "https://www.valoraanalitik.com/post-sitemap85.xml",
+            "status": "retrieved",
+            "sha256": "1270691432b2c0911b39cd5eeff478be3f14184c6e2b18cc875ff6582bd70ec5",
+            "bytes": 235832
+          },
+          {
+            "url": "https://www.valoraanalitik.com/post-sitemap86.xml",
+            "retrieved_at": "2026-11-17T10:46:25.050088+00:00",
+            "source": "valora",
+            "http_status": 200,
+            "response_url": "https://www.valoraanalitik.com/post-sitemap86.xml",
+            "status": "retrieved",
+            "sha256": "2bc8fe2c01b104236ef4d65a998084d506d1e2f56c9a906a22990886688a70ac",
+            "bytes": 234706
+          },
+          {
+            "url": "https://www.valoraanalitik.com/post-sitemap87.xml",
+            "retrieved_at": "2026-11-17T10:46:28.820016+00:00",
+            "source": "valora",
+            "http_status": 200,
+            "response_url": "https://www.valoraanalitik.com/post-sitemap87.xml",
+            "status": "retrieved",
+            "sha256": "e55e8160e4c2baf4a81e8d06b05debe6864018d5f1d97d6280f60bc6a417d6f9",
+            "bytes": 232935
+          },
+          {
+            "url": "https://www.valoraanalitik.com/post-sitemap88.xml",
+            "retrieved_at": "2026-11-17T10:46:31.532019+00:00",
+            "source": "valora",
+            "http_status": 200,
+            "response_url": "https://www.valoraanalitik.com/post-sitemap88.xml",
+            "status": "retrieved",
+            "sha256": "d06fea12a0808aedcf74ad0c082474e463e28009db43e1550c347fe475b0c4f3",
+            "bytes": 232348
+          },
+          {
+            "url": "https://www.valoraanalitik.com/post-sitemap89.xml",
+            "retrieved_at": "2026-11-17T10:46:34.653967+00:00",
+            "source": "valora",
+            "http_status": 200,
+            "response_url": "https://www.valoraanalitik.com/post-sitemap89.xml",
+            "status": "retrieved",
+            "sha256": "5b398d99881b846adb035c1be7b689cc54826bb0e86bfbf5722130470f003e67",
+            "bytes": 240960
+          },
+          {
+            "url": "https://www.valoraanalitik.com/post-sitemap90.xml",
+            "retrieved_at": "2026-11-17T10:46:37.590429+00:00",
+            "source": "valora",
+            "http_status": 200,
+            "response_url": "https://www.valoraanalitik.com/post-sitemap90.xml",
+            "status": "retrieved",
+            "sha256": "2a7665eb5eedce09e1d72cf11d396fd1d463f66766ce915a22fb33bf09c1a590",
+            "bytes": 242935
+          },
+          {
+            "url": "https://www.valoraanalitik.com/post-sitemap91.xml",
+            "retrieved_at": "2026-11-17T10:46:40.209958+00:00",
+            "source": "valora",
+            "http_status": 200,
+            "response_url": "https://www.valoraanalitik.com/post-sitemap91.xml",
+            "status": "retrieved",
+            "sha256": "29397319711d086d1df5c0d426e426b32b4dcc7fab7c10abc6cd8fe4e26211b1",
+            "bytes": 243319
+          },
+          {
+            "url": "https://www.valoraanalitik.com/post-sitemap92.xml",
+            "retrieved_at": "2026-11-17T10:46:42.925744+00:00",
+            "source": "valora",
+            "http_status": 200,
+            "response_url": "https://www.valoraanalitik.com/post-sitemap92.xml",
+            "status": "retrieved",
+            "sha256": "7fea4f03496c0933d5b2eb6e6a1e6e1d461cda473cbddf402386f83278be5045",
+            "bytes": 244243
+          },
+          {
+            "url": "https://www.valoraanalitik.com/post-sitemap93.xml",
+            "retrieved_at": "2026-11-17T10:46:45.471504+00:00",
+            "source": "valora",
+            "http_status": 200,
+            "response_url": "https://www.valoraanalitik.com/post-sitemap93.xml",
+            "status": "retrieved",
+            "sha256": "823f2c8f2125c1e5b880936c321b217c168368c248d5c3bf1a2b12d98d868d00",
+            "bytes": 250866
+          },
+          {
+            "url": "https://www.valoraanalitik.com/post-sitemap94.xml",
+            "retrieved_at": "2026-11-17T10:46:48.125457+00:00",
+            "source": "valora",
+            "http_status": 200,
+            "response_url": "https://www.valoraanalitik.com/post-sitemap94.xml",
+            "status": "retrieved",
+            "sha256": "957e6bb451bd070c51ecb966fec34cd9bc50423b1b3114525fee3f48b883487b",
+            "bytes": 252197
+          },
+          {
+            "url": "https://www.valoraanalitik.com/post-sitemap95.xml",
+            "retrieved_at": "2026-11-17T10:46:50.766947+00:00",
+            "source": "valora",
+            "http_status": 200,
+            "response_url": "https://www.valoraanalitik.com/post-sitemap95.xml",
+            "status": "retrieved",
+            "sha256": "9b21718632ee57facbc61f708237c647d277a37c25377b1290cd35dfdc20f584",
+            "bytes": 254344
+          },
+          {
+            "url": "https://www.valoraanalitik.com/post-sitemap96.xml",
+            "retrieved_at": "2026-11-17T10:46:53.880633+00:00",
+            "source": "valora",
+            "http_status": 200,
+            "response_url": "https://www.valoraanalitik.com/post-sitemap96.xml",
+            "status": "retrieved",
+            "sha256": "a8a8793703e9760799613012b39da8dc10b812ed93a92e2730e9ba29ff98a1e6",
+            "bytes": 258249
+          },
+          {
+            "url": "https://www.valoraanalitik.com/post-sitemap97.xml",
+            "retrieved_at": "2026-11-17T10:46:56.857754+00:00",
+            "source": "valora",
+            "http_status": 200,
+            "response_url": "https://www.valoraanalitik.com/post-sitemap97.xml",
+            "status": "retrieved",
+            "sha256": "90850b00898b936c9b533c7a9eecbab60c81d3c9674189aa48816454b260b169",
+            "bytes": 259079
+          },
+          {
+            "url": "https://www.valoraanalitik.com/post-sitemap98.xml",
+            "retrieved_at": "2026-11-17T10:46:59.651168+00:00",
+            "source": "valora",
+            "http_status": 200,
+            "response_url": "https://www.valoraanalitik.com/post-sitemap98.xml",
+            "status": "retrieved",
+            "sha256": "51cd75e7679070faf67ebc9c1c2c964d8ce20da4b7c6e21541ce2b8dd62f24a4",
+            "bytes": 259178
+          },
+          {
+            "url": "https://www.valoraanalitik.com/post-sitemap99.xml",
+            "retrieved_at": "2026-11-17T10:47:02.470611+00:00",
+            "source": "valora",
+            "http_status": 200,
+            "response_url": "https://www.valoraanalitik.com/post-sitemap99.xml",
+            "status": "retrieved",
+            "sha256": "0ce3c21db927de3e160e3835cd89d2dfd9ab93af32c91b462d511a24250d6ec7",
+            "bytes": 26685
+          }
+        ],
+        "selection": "Export-related URL terms; hints narrow discovery only; explicit article dates required; lastmod never used as publication."
+      },
+      {
+        "source": "larepublica",
+        "started_at": "2026-11-17T10:42:35.697704+00:00",
+        "completed_at": "2026-11-17T10:45:47.899935+00:00",
+        "start": "2020-03-01",
+        "end_exclusive": "2026-11-01",
+        "status": "complete",
+        "candidates": 1513,
+        "sitemaps": [
+          {
+            "url": "https://www.larepublica.co/sitemaps/articles_October_2026.xml.gz",
+            "status": "parsed",
+            "article_urls": 2535,
+            "export_candidates": 22,
+            "publication_hint_first": null,
+            "publication_hint_last": null
+          },
+          {
+            "url": "https://www.larepublica.co/sitemaps/articles_September_2026.xml.gz",
+            "status": "parsed",
+            "article_urls": 2503,
+            "export_candidates": 21,
+            "publication_hint_first": null,
+            "publication_hint_last": null
+          },
+          {
+            "url": "https://www.larepublica.co/sitemaps/articles_August_2026.xml.gz",
+            "status": "parsed",
+            "article_urls": 2607,
+            "export_candidates": 28,
+            "publication_hint_first": null,
+            "publication_hint_last": null
+          },
+          {
+            "url": "https://www.larepublica.co/sitemaps/articles_July_2026.xml.gz",
+            "status": "parsed",
+            "article_urls": 2740,
+            "export_candidates": 27,
+            "publication_hint_first": null,
+            "publication_hint_last": null
+          },
+          {
+            "url": "https://www.larepublica.co/sitemaps/articles_June_2026.xml.gz",
+            "status": "parsed",
+            "article_urls": 2690,
+            "export_candidates": 22,
+            "publication_hint_first": null,
+            "publication_hint_last": null
+          },
+          {
+            "url": "https://www.larepublica.co/sitemaps/articles_May_2026.xml.gz",
+            "status": "parsed",
+            "article_urls": 2689,
+            "export_candidates": 24,
+            "publication_hint_first": null,
+            "publication_hint_last": null
+          },
+          {
+            "url": "https://www.larepublica.co/sitemaps/articles_April_2026.xml.gz",
+            "status": "parsed",
+            "article_urls": 2565,
+            "export_candidates": 20,
+            "publication_hint_first": null,
+            "publication_hint_last": null
+          },
+          {
+            "url": "https://www.larepublica.co/sitemaps/articles_March_2026.xml.gz",
+            "status": "parsed",
+            "article_urls": 2841,
+            "export_candidates": 37,
+            "publication_hint_first": null,
+            "publication_hint_last": null
+          },
+          {
+            "url": "https://www.larepublica.co/sitemaps/articles_March_2020.xml.gz",
+            "status": "parsed",
+            "article_urls": 2304,
+            "export_candidates": 9,
+            "publication_hint_first": null,
+            "publication_hint_last": null
+          },
+          {
+            "url": "https://www.larepublica.co/sitemaps/articles_April_2020.xml.gz",
+            "status": "parsed",
+            "article_urls": 2147,
+            "export_candidates": 6,
+            "publication_hint_first": null,
+            "publication_hint_last": null
+          },
+          {
+            "url": "https://www.larepublica.co/sitemaps/articles_May_2020.xml.gz",
+            "status": "parsed",
+            "article_urls": 2019,
+            "export_candidates": 9,
+            "publication_hint_first": null,
+            "publication_hint_last": null
+          },
+          {
+            "url": "https://www.larepublica.co/sitemaps/articles_June_2020.xml.gz",
+            "status": "parsed",
+            "article_urls": 1926,
+            "export_candidates": 9,
+            "publication_hint_first": null,
+            "publication_hint_last": null
+          },
+          {
+            "url": "https://www.larepublica.co/sitemaps/articles_July_2020.xml.gz",
+            "status": "parsed",
+            "article_urls": 2114,
+            "export_candidates": 13,
+            "publication_hint_first": null,
+            "publication_hint_last": null
+          },
+          {
+            "url": "https://www.larepublica.co/sitemaps/articles_August_2020.xml.gz",
+            "status": "parsed",
+            "article_urls": 1966,
+            "export_candidates": 14,
+            "publication_hint_first": null,
+            "publication_hint_last": null
+          },
+          {
+            "url": "https://www.larepublica.co/sitemaps/articles_September_2020.xml.gz",
+            "status": "parsed",
+            "article_urls": 2007,
+            "export_candidates": 9,
+            "publication_hint_first": null,
+            "publication_hint_last": null
+          },
+          {
+            "url": "https://www.larepublica.co/sitemaps/articles_October_2020.xml.gz",
+            "status": "parsed",
+            "article_urls": 2187,
+            "export_candidates": 16,
+            "publication_hint_first": null,
+            "publication_hint_last": null
+          },
+          {
+            "url": "https://www.larepublica.co/sitemaps/articles_November_2020.xml.gz",
+            "status": "parsed",
+            "article_urls": 1928,
+            "export_candidates": 9,
+            "publication_hint_first": null,
+            "publication_hint_last": null
+          },
+          {
+            "url": "https://www.larepublica.co/sitemaps/articles_December_2020.xml.gz",
+            "status": "parsed",
+            "article_urls": 1665,
+            "export_candidates": 15,
+            "publication_hint_first": null,
+            "publication_hint_last": null
+          },
+          {
+            "url": "https://www.larepublica.co/sitemaps/articles_January_2021.xml.gz",
+            "status": "parsed",
+            "article_urls": 1751,
+            "export_candidates": 11,
+            "publication_hint_first": null,
+            "publication_hint_last": null
+          },
+          {
+            "url": "https://www.larepublica.co/sitemaps/articles_February_2021.xml.gz",
+            "status": "parsed",
+            "article_urls": 1957,
+            "export_candidates": 22,
+            "publication_hint_first": null,
+            "publication_hint_last": null
+          },
+          {
+            "url": "https://www.larepublica.co/sitemaps/articles_March_2021.xml.gz",
+            "status": "parsed",
+            "article_urls": 2348,
+            "export_candidates": 27,
+            "publication_hint_first": null,
+            "publication_hint_last": null
+          },
+          {
+            "url": "https://www.larepublica.co/sitemaps/articles_April_2021.xml.gz",
+            "status": "parsed",
+            "article_urls": 2441,
+            "export_candidates": 13,
+            "publication_hint_first": null,
+            "publication_hint_last": null
+          },
+          {
+            "url": "https://www.larepublica.co/sitemaps/articles_May_2021.xml.gz",
+            "status": "parsed",
+            "article_urls": 2560,
+            "export_candidates": 33,
+            "publication_hint_first": null,
+            "publication_hint_last": null
+          },
+          {
+            "url": "https://www.larepublica.co/sitemaps/articles_June_2021.xml.gz",
+            "status": "parsed",
+            "article_urls": 2390,
+            "export_candidates": 14,
+            "publication_hint_first": null,
+            "publication_hint_last": null
+          },
+          {
+            "url": "https://www.larepublica.co/sitemaps/articles_July_2021.xml.gz",
+            "status": "parsed",
+            "article_urls": 2300,
+            "export_candidates": 18,
+            "publication_hint_first": null,
+            "publication_hint_last": null
+          },
+          {
+            "url": "https://www.larepublica.co/sitemaps/articles_August_2021.xml.gz",
+            "status": "parsed",
+            "article_urls": 2212,
+            "export_candidates": 23,
+            "publication_hint_first": null,
+            "publication_hint_last": null
+          },
+          {
+            "url": "https://www.larepublica.co/sitemaps/articles_September_2021.xml.gz",
+            "status": "parsed",
+            "article_urls": 1921,
+            "export_candidates": 12,
+            "publication_hint_first": null,
+            "publication_hint_last": null
+          },
+          {
+            "url": "https://www.larepublica.co/sitemaps/articles_October_2021.xml.gz",
+            "status": "parsed",
+            "article_urls": 1748,
+            "export_candidates": 20,
+            "publication_hint_first": null,
+            "publication_hint_last": null
+          },
+          {
+            "url": "https://www.larepublica.co/sitemaps/articles_November_2021.xml.gz",
+            "status": "parsed",
+            "article_urls": 1814,
+            "export_candidates": 10,
+            "publication_hint_first": null,
+            "publication_hint_last": null
+          },
+          {
+            "url": "https://www.larepublica.co/sitemaps/articles_December_2021.xml.gz",
+            "status": "parsed",
+            "article_urls": 1514,
+            "export_candidates": 17,
+            "publication_hint_first": null,
+            "publication_hint_last": null
+          },
+          {
+            "url": "https://www.larepublica.co/sitemaps/articles_January_2022.xml.gz",
+            "status": "parsed",
+            "article_urls": 1520,
+            "export_candidates": 12,
+            "publication_hint_first": null,
+            "publication_hint_last": null
+          },
+          {
+            "url": "https://www.larepublica.co/sitemaps/articles_February_2022.xml.gz",
+            "status": "parsed",
+            "article_urls": 2138,
+            "export_candidates": 18,
+            "publication_hint_first": null,
+            "publication_hint_last": null
+          },
+          {
+            "url": "https://www.larepublica.co/sitemaps/articles_March_2022.xml.gz",
+            "status": "parsed",
+            "article_urls": 2540,
+            "export_candidates": 26,
+            "publication_hint_first": null,
+            "publication_hint_last": null
+          },
+          {
+            "url": "https://www.larepublica.co/sitemaps/articles_April_2022.xml.gz",
+            "status": "parsed",
+            "article_urls": 2246,
+            "export_candidates": 15,
+            "publication_hint_first": null,
+            "publication_hint_last": null
+          },
+          {
+            "url": "https://www.larepublica.co/sitemaps/articles_May_2022.xml.gz",
+            "status": "parsed",
+            "article_urls": 2357,
+            "export_candidates": 20,
+            "publication_hint_first": null,
+            "publication_hint_last": null
+          },
+          {
+            "url": "https://www.larepublica.co/sitemaps/articles_June_2022.xml.gz",
+            "status": "parsed",
+            "article_urls": 2221,
+            "export_candidates": 13,
+            "publication_hint_first": null,
+            "publication_hint_last": null
+          },
+          {
+            "url": "https://www.larepublica.co/sitemaps/articles_July_2022.xml.gz",
+            "status": "parsed",
+            "article_urls": 2196,
+            "export_candidates": 26,
+            "publication_hint_first": null,
+            "publication_hint_last": null
+          },
+          {
+            "url": "https://www.larepublica.co/sitemaps/articles_August_2022.xml.gz",
+            "status": "parsed",
+            "article_urls": 2607,
+            "export_candidates": 20,
+            "publication_hint_first": null,
+            "publication_hint_last": null
+          },
+          {
+            "url": "https://www.larepublica.co/sitemaps/articles_September_2022.xml.gz",
+            "status": "parsed",
+            "article_urls": 2494,
+            "export_candidates": 21,
+            "publication_hint_first": null,
+            "publication_hint_last": null
+          },
+          {
+            "url": "https://www.larepublica.co/sitemaps/articles_October_2022.xml.gz",
+            "status": "parsed",
+            "article_urls": 2384,
+            "export_candidates": 21,
+            "publication_hint_first": null,
+            "publication_hint_last": null
+          },
+          {
+            "url": "https://www.larepublica.co/sitemaps/articles_November_2022.xml.gz",
+            "status": "parsed",
+            "article_urls": 2268,
+            "export_candidates": 14,
+            "publication_hint_first": null,
+            "publication_hint_last": null
+          },
+          {
+            "url": "https://www.larepublica.co/sitemaps/articles_December_2022.xml.gz",
+            "status": "parsed",
+            "article_urls": 1967,
+            "export_candidates": 19,
+            "publication_hint_first": null,
+            "publication_hint_last": null
+          },
+          {
+            "url": "https://www.larepublica.co/sitemaps/articles_January_2023.xml.gz",
+            "status": "parsed",
+            "article_urls": 1923,
+            "export_candidates": 23,
+            "publication_hint_first": null,
+            "publication_hint_last": null
+          },
+          {
+            "url": "https://www.larepublica.co/sitemaps/articles_February_2023.xml.gz",
+            "status": "parsed",
+            "article_urls": 2288,
+            "export_candidates": 16,
+            "publication_hint_first": null,
+            "publication_hint_last": null
+          },
+          {
+            "url": "https://www.larepublica.co/sitemaps/articles_March_2023.xml.gz",
+            "status": "parsed",
+            "article_urls": 2605,
+            "export_candidates": 12,
+            "publication_hint_first": null,
+            "publication_hint_last": null
+          },
+          {
+            "url": "https://www.larepublica.co/sitemaps/articles_April_2023.xml.gz",
+            "status": "parsed",
+            "article_urls": 2238,
+            "export_candidates": 21,
+            "publication_hint_first": null,
+            "publication_hint_last": null
+          },
+          {
+            "url": "https://www.larepublica.co/sitemaps/articles_May_2023.xml.gz",
+            "status": "parsed",
+            "article_urls": 2270,
+            "export_candidates": 12,
+            "publication_hint_first": null,
+            "publication_hint_last": null
+          },
+          {
+            "url": "https://www.larepublica.co/sitemaps/articles_June_2023.xml.gz",
+            "status": "parsed",
+            "article_urls": 2195,
+            "export_candidates": 14,
+            "publication_hint_first": null,
+            "publication_hint_last": null
+          },
+          {
+            "url": "https://www.larepublica.co/sitemaps/articles_July_2023.xml.gz",
+            "status": "parsed",
+            "article_urls": 2005,
+            "export_candidates": 17,
+            "publication_hint_first": null,
+            "publication_hint_last": null
+          },
+          {
+            "url": "https://www.larepublica.co/sitemaps/articles_August_2023.xml.gz",
+            "status": "parsed",
+            "article_urls": 2318,
+            "export_candidates": 13,
+            "publication_hint_first": null,
+            "publication_hint_last": null
+          },
+          {
+            "url": "https://www.larepublica.co/sitemaps/articles_September_2023.xml.gz",
+            "status": "parsed",
+            "article_urls": 2327,
+            "export_candidates": 26,
+            "publication_hint_first": null,
+            "publication_hint_last": null
+          },
+          {
+            "url": "https://www.larepublica.co/sitemaps/articles_October_2023.xml.gz",
+            "status": "parsed",
+            "article_urls": 2453,
+            "export_candidates": 20,
+            "publication_hint_first": null,
+            "publication_hint_last": null
+          },
+          {
+            "url": "https://www.larepublica.co/sitemaps/articles_November_2023.xml.gz",
+            "status": "parsed",
+            "article_urls": 2247,
+            "export_candidates": 12,
+            "publication_hint_first": null,
+            "publication_hint_last": null
+          },
+          {
+            "url": "https://www.larepublica.co/sitemaps/articles_December_2023.xml.gz",
+            "status": "parsed",
+            "article_urls": 1914,
+            "export_candidates": 14,
+            "publication_hint_first": null,
+            "publication_hint_last": null
+          },
+          {
+            "url": "https://www.larepublica.co/sitemaps/articles_January_2024.xml.gz",
+            "status": "parsed",
+            "article_urls": 2028,
+            "export_candidates": 10,
+            "publication_hint_first": null,
+            "publication_hint_last": null
+          },
+          {
+            "url": "https://www.larepublica.co/sitemaps/articles_February_2024.xml.gz",
+            "status": "parsed",
+            "article_urls": 2061,
+            "export_candidates": 16,
+            "publication_hint_first": null,
+            "publication_hint_last": null
+          },
+          {
+            "url": "https://www.larepublica.co/sitemaps/articles_March_2024.xml.gz",
+            "status": "parsed",
+            "article_urls": 2027,
+            "export_candidates": 13,
+            "publication_hint_first": null,
+            "publication_hint_last": null
+          },
+          {
+            "url": "https://www.larepublica.co/sitemaps/articles_April_2024.xml.gz",
+            "status": "parsed",
+            "article_urls": 2299,
+            "export_candidates": 19,
+            "publication_hint_first": null,
+            "publication_hint_last": null
+          },
+          {
+            "url": "https://www.larepublica.co/sitemaps/articles_May_2024.xml.gz",
+            "status": "parsed",
+            "article_urls": 2307,
+            "export_candidates": 15,
+            "publication_hint_first": null,
+            "publication_hint_last": null
+          },
+          {
+            "url": "https://www.larepublica.co/sitemaps/articles_June_2024.xml.gz",
+            "status": "parsed",
+            "article_urls": 2149,
+            "export_candidates": 17,
+            "publication_hint_first": null,
+            "publication_hint_last": null
+          },
+          {
+            "url": "https://www.larepublica.co/sitemaps/articles_July_2024.xml.gz",
+            "status": "parsed",
+            "article_urls": 2448,
+            "export_candidates": 13,
+            "publication_hint_first": null,
+            "publication_hint_last": null
+          },
+          {
+            "url": "https://www.larepublica.co/sitemaps/articles_August_2024.xml.gz",
+            "status": "parsed",
+            "article_urls": 2608,
+            "export_candidates": 22,
+            "publication_hint_first": null,
+            "publication_hint_last": null
+          },
+          {
+            "url": "https://www.larepublica.co/sitemaps/articles_September_2024.xml.gz",
+            "status": "parsed",
+            "article_urls": 2813,
+            "export_candidates": 18,
+            "publication_hint_first": null,
+            "publication_hint_last": null
+          },
+          {
+            "url": "https://www.larepublica.co/sitemaps/articles_October_2024.xml.gz",
+            "status": "parsed",
+            "article_urls": 2809,
+            "export_candidates": 18,
+            "publication_hint_first": null,
+            "publication_hint_last": null
+          },
+          {
+            "url": "https://www.larepublica.co/sitemaps/articles_November_2024.xml.gz",
+            "status": "parsed",
+            "article_urls": 2554,
+            "export_candidates": 25,
+            "publication_hint_first": null,
+            "publication_hint_last": null
+          },
+          {
+            "url": "https://www.larepublica.co/sitemaps/articles_December_2024.xml.gz",
+            "status": "parsed",
+            "article_urls": 2311,
+            "export_candidates": 9,
+            "publication_hint_first": null,
+            "publication_hint_last": null
+          },
+          {
+            "url": "https://www.larepublica.co/sitemaps/articles_January_2025.xml.gz",
+            "status": "parsed",
+            "article_urls": 2249,
+            "export_candidates": 30,
+            "publication_hint_first": null,
+            "publication_hint_last": null
+          },
+          {
+            "url": "https://www.larepublica.co/sitemaps/articles_February_2025.xml.gz",
+            "status": "parsed",
+            "article_urls": 2259,
+            "export_candidates": 18,
+            "publication_hint_first": null,
+            "publication_hint_last": null
+          },
+          {
+            "url": "https://www.larepublica.co/sitemaps/articles_March_2025.xml.gz",
+            "status": "parsed",
+            "article_urls": 2235,
+            "export_candidates": 23,
+            "publication_hint_first": null,
+            "publication_hint_last": null
+          },
+          {
+            "url": "https://www.larepublica.co/sitemaps/articles_April_2025.xml.gz",
+            "status": "parsed",
+            "article_urls": 2227,
+            "export_candidates": 30,
+            "publication_hint_first": null,
+            "publication_hint_last": null
+          },
+          {
+            "url": "https://www.larepublica.co/sitemaps/articles_May_2025.xml.gz",
+            "status": "parsed",
+            "article_urls": 2360,
+            "export_candidates": 25,
+            "publication_hint_first": null,
+            "publication_hint_last": null
+          },
+          {
+            "url": "https://www.larepublica.co/sitemaps/articles_June_2025.xml.gz",
+            "status": "parsed",
+            "article_urls": 2140,
+            "export_candidates": 21,
+            "publication_hint_first": null,
+            "publication_hint_last": null
+          },
+          {
+            "url": "https://www.larepublica.co/sitemaps/articles_July_2025.xml.gz",
+            "status": "parsed",
+            "article_urls": 2568,
+            "export_candidates": 52,
+            "publication_hint_first": null,
+            "publication_hint_last": null
+          },
+          {
+            "url": "https://www.larepublica.co/sitemaps/articles_August_2025.xml.gz",
+            "status": "parsed",
+            "article_urls": 2229,
+            "export_candidates": 26,
+            "publication_hint_first": null,
+            "publication_hint_last": null
+          },
+          {
+            "url": "https://www.larepublica.co/sitemaps/articles_September_2025.xml.gz",
+            "status": "parsed",
+            "article_urls": 2389,
+            "export_candidates": 17,
+            "publication_hint_first": null,
+            "publication_hint_last": null
+          },
+          {
+            "url": "https://www.larepublica.co/sitemaps/articles_October_2025.xml.gz",
+            "status": "parsed",
+            "article_urls": 2434,
+            "export_candidates": 25,
+            "publication_hint_first": null,
+            "publication_hint_last": null
+          },
+          {
+            "url": "https://www.larepublica.co/sitemaps/articles_November_2025.xml.gz",
+            "status": "parsed",
+            "article_urls": 2217,
+            "export_candidates": 14,
+            "publication_hint_first": null,
+            "publication_hint_last": null
+          },
+          {
+            "url": "https://www.larepublica.co/sitemaps/articles_December_2025.xml.gz",
+            "status": "parsed",
+            "article_urls": 2010,
+            "export_candidates": 24,
+            "publication_hint_first": null,
+            "publication_hint_last": null
+          },
+          {
+            "url": "https://www.larepublica.co/sitemaps/articles_January_2026.xml.gz",
+            "status": "parsed",
+            "article_urls": 2129,
+            "export_candidates": 30,
+            "publication_hint_first": null,
+            "publication_hint_last": null
+          },
+          {
+            "url": "https://www.larepublica.co/sitemaps/articles_February_2026.xml.gz",
+            "status": "parsed",
+            "article_urls": 2576,
+            "export_candidates": 28,
+            "publication_hint_first": null,
+            "publication_hint_last": null
+          }
+        ],
+        "requests": [
+          {
+            "url": "https://www.larepublica.co/robots.txt",
+            "retrieved_at": "2026-11-17T10:42:35.697704+00:00",
+            "source": "larepublica",
+            "http_status": 200,
+            "response_url": "https://www.larepublica.co/robots.txt",
+            "status": "retrieved",
+            "sha256": "8d080625cb26a6109ed409920d3ab88c3edef83e7a8c72b975814fb527f67eea",
+            "bytes": 249
+          },
+          {
+            "url": "https://www.larepublica.co/sitemapindex",
+            "retrieved_at": "2026-11-17T10:42:36.989354+00:00",
+            "source": "larepublica",
+            "http_status": 200,
+            "response_url": "https://www.larepublica.co/sitemapindex",
+            "status": "retrieved",
+            "sha256": "b5f20d3f692c3fd224a9f6cf0867fdf77fa53327c12fba693e588aa243816381",
+            "bytes": 24226
+          },
+          {
+            "url": "https://www.larepublica.co/sitemaps/articles_October_2026.xml.gz",
+            "retrieved_at": "2026-11-17T10:42:38.569942+00:00",
+            "source": "larepublica",
+            "http_status": 200,
+            "response_url": "https://www.larepublica.co/sitemaps/articles_October_2026.xml.gz",
+            "status": "retrieved",
+            "sha256": "385e5c9dcca742522d28d5252675f206627892cc3eb913fc16ef27802291ab00",
+            "bytes": 169043
+          },
+          {
+            "url": "https://www.larepublica.co/sitemaps/articles_September_2026.xml.gz",
+            "retrieved_at": "2026-11-17T10:42:40.832156+00:00",
+            "source": "larepublica",
+            "http_status": 200,
+            "response_url": "https://www.larepublica.co/sitemaps/articles_September_2026.xml.gz",
+            "status": "retrieved",
+            "sha256": "d9ed0a2812c4f2adf74a966c040f7ec0e01109c938deb5046c5ae91324904111",
+            "bytes": 165893
+          },
+          {
+            "url": "https://www.larepublica.co/sitemaps/articles_August_2026.xml.gz",
+            "retrieved_at": "2026-11-17T10:42:42.912759+00:00",
+            "source": "larepublica",
+            "http_status": 200,
+            "response_url": "https://www.larepublica.co/sitemaps/articles_August_2026.xml.gz",
+            "status": "retrieved",
+            "sha256": "2fc26f902f333c4eee4aee38f5f9bfd70fdfd3470040161cdcc4dd02f25d97cb",
+            "bytes": 171233
+          },
+          {
+            "url": "https://www.larepublica.co/sitemaps/articles_July_2026.xml.gz",
+            "retrieved_at": "2026-11-17T10:42:45.321043+00:00",
+            "source": "larepublica",
+            "http_status": 200,
+            "response_url": "https://www.larepublica.co/sitemaps/articles_July_2026.xml.gz",
+            "status": "retrieved",
+            "sha256": "06ab468edc055b67946f1ab2077e63babde6836b410f665e6bab94f3f3647a54",
+            "bytes": 180967
+          },
+          {
+            "url": "https://www.larepublica.co/sitemaps/articles_June_2026.xml.gz",
+            "retrieved_at": "2026-11-17T10:42:48.017801+00:00",
+            "source": "larepublica",
+            "http_status": 200,
+            "response_url": "https://www.larepublica.co/sitemaps/articles_June_2026.xml.gz",
+            "status": "retrieved",
+            "sha256": "65559630e00e41a9a1291ace093b04650aee569da88163bda478e84f41a2d2ba",
+            "bytes": 177946
+          },
+          {
+            "url": "https://www.larepublica.co/sitemaps/articles_May_2026.xml.gz",
+            "retrieved_at": "2026-11-17T10:42:50.567013+00:00",
+            "source": "larepublica",
+            "http_status": 200,
+            "response_url": "https://www.larepublica.co/sitemaps/articles_May_2026.xml.gz",
+            "status": "retrieved",
+            "sha256": "b04b796efd855aae3f8283932061e0c348653f4daf0bf9d3979b8e563c1f8de2",
+            "bytes": 177529
+          },
+          {
+            "url": "https://www.larepublica.co/sitemaps/articles_April_2026.xml.gz",
+            "retrieved_at": "2026-11-17T10:42:52.752798+00:00",
+            "source": "larepublica",
+            "http_status": 200,
+            "response_url": "https://www.larepublica.co/sitemaps/articles_April_2026.xml.gz",
+            "status": "retrieved",
+            "sha256": "702923f7a7ebafcfa0722ddc575ac6e533e5896b1321138957d220718fc6e4db",
+            "bytes": 171389
+          },
+          {
+            "url": "https://www.larepublica.co/sitemaps/articles_March_2026.xml.gz",
+            "retrieved_at": "2026-11-17T10:42:55.395941+00:00",
+            "source": "larepublica",
+            "http_status": 200,
+            "response_url": "https://www.larepublica.co/sitemaps/articles_March_2026.xml.gz",
+            "status": "retrieved",
+            "sha256": "e573d42b7823d2ed5508cd0c84618eca91bb219d6e7c2af2eed2742bac113a25",
+            "bytes": 187541
+          },
+          {
+            "url": "https://www.larepublica.co/sitemaps/articles_March_2020.xml.gz",
+            "retrieved_at": "2026-11-17T10:42:57.738976+00:00",
+            "source": "larepublica",
+            "http_status": 200,
+            "response_url": "https://www.larepublica.co/sitemaps/articles_March_2020.xml.gz",
+            "status": "retrieved",
+            "sha256": "4fc891abdf4aca7e138c204a7342a211bbece558cee52b301178c35608bec117",
+            "bytes": 146929
+          },
+          {
+            "url": "https://www.larepublica.co/sitemaps/articles_April_2020.xml.gz",
+            "retrieved_at": "2026-11-17T10:43:00.085475+00:00",
+            "source": "larepublica",
+            "http_status": 200,
+            "response_url": "https://www.larepublica.co/sitemaps/articles_April_2020.xml.gz",
+            "status": "retrieved",
+            "sha256": "1cbe0aa68e2efe1216dc5ad480058ceeacab36850d06211cf02d7940c253d87b",
+            "bytes": 135657
+          },
+          {
+            "url": "https://www.larepublica.co/sitemaps/articles_May_2020.xml.gz",
+            "retrieved_at": "2026-11-17T10:43:02.071774+00:00",
+            "source": "larepublica",
+            "http_status": 200,
+            "response_url": "https://www.larepublica.co/sitemaps/articles_May_2020.xml.gz",
+            "status": "retrieved",
+            "sha256": "97617b3d3bd0ea74ed96a44b40061aaa321bdc4e00d97096d133adcce7778c5b",
+            "bytes": 124747
+          },
+          {
+            "url": "https://www.larepublica.co/sitemaps/articles_June_2020.xml.gz",
+            "retrieved_at": "2026-11-17T10:43:04.386044+00:00",
+            "source": "larepublica",
+            "http_status": 200,
+            "response_url": "https://www.larepublica.co/sitemaps/articles_June_2020.xml.gz",
+            "status": "retrieved",
+            "sha256": "1149d4ad8be486181c1482395abd7b948f9f50b7041e376029556e7e852318b0",
+            "bytes": 122602
+          },
+          {
+            "url": "https://www.larepublica.co/sitemaps/articles_July_2020.xml.gz",
+            "retrieved_at": "2026-11-17T10:43:07.009501+00:00",
+            "source": "larepublica",
+            "http_status": 200,
+            "response_url": "https://www.larepublica.co/sitemaps/articles_July_2020.xml.gz",
+            "status": "retrieved",
+            "sha256": "5f4213a69eadaff80663e51681ec53eb4d5b274f27b18f56f9dae62bfbd097b6",
+            "bytes": 133408
+          },
+          {
+            "url": "https://www.larepublica.co/sitemaps/articles_August_2020.xml.gz",
+            "retrieved_at": "2026-11-17T10:43:09.263726+00:00",
+            "source": "larepublica",
+            "http_status": 200,
+            "response_url": "https://www.larepublica.co/sitemaps/articles_August_2020.xml.gz",
+            "status": "retrieved",
+            "sha256": "75f9a2520323641900f8d2c40398bb8a781d242de41467a9538ec9d91aa75d2b",
+            "bytes": 128273
+          },
+          {
+            "url": "https://www.larepublica.co/sitemaps/articles_September_2020.xml.gz",
+            "retrieved_at": "2026-11-17T10:43:11.692413+00:00",
+            "source": "larepublica",
+            "http_status": 200,
+            "response_url": "https://www.larepublica.co/sitemaps/articles_September_2020.xml.gz",
+            "status": "retrieved",
+            "sha256": "34650d1be0e8a78b876af4776734bbbff1ff5ae6c27f3f1880d93d58c950b9d2",
+            "bytes": 130851
+          },
+          {
+            "url": "https://www.larepublica.co/sitemaps/articles_October_2020.xml.gz",
+            "retrieved_at": "2026-11-17T10:43:13.710334+00:00",
+            "source": "larepublica",
+            "http_status": 200,
+            "response_url": "https://www.larepublica.co/sitemaps/articles_October_2020.xml.gz",
+            "status": "retrieved",
+            "sha256": "364a71dacf571e8b99bd28d72a9fb2f32c461c5ade23c92b0ee29977d3af4368",
+            "bytes": 141670
+          },
+          {
+            "url": "https://www.larepublica.co/sitemaps/articles_November_2020.xml.gz",
+            "retrieved_at": "2026-11-17T10:43:16.275900+00:00",
+            "source": "larepublica",
+            "http_status": 200,
+            "response_url": "https://www.larepublica.co/sitemaps/articles_November_2020.xml.gz",
+            "status": "retrieved",
+            "sha256": "a9c0e7af4023a7bf78caf184eaf743a1008dc0de34e1ef1a4e96f4f75541b049",
+            "bytes": 124014
+          },
+          {
+            "url": "https://www.larepublica.co/sitemaps/articles_December_2020.xml.gz",
+            "retrieved_at": "2026-11-17T10:43:18.946295+00:00",
+            "source": "larepublica",
+            "http_status": 200,
+            "response_url": "https://www.larepublica.co/sitemaps/articles_December_2020.xml.gz",
+            "status": "retrieved",
+            "sha256": "59e107cee3b91db7c0fe81fc85c84635e315720d82faf60eb75dd7da3b2adfd5",
+            "bytes": 107485
+          },
+          {
+            "url": "https://www.larepublica.co/sitemaps/articles_January_2021.xml.gz",
+            "retrieved_at": "2026-11-17T10:43:21.163500+00:00",
+            "source": "larepublica",
+            "http_status": 200,
+            "response_url": "https://www.larepublica.co/sitemaps/articles_January_2021.xml.gz",
+            "status": "retrieved",
+            "sha256": "79a7604d31fd0361be89d0eefbd7e6bfffea5271946cda0d04c573a37b1e7870",
+            "bytes": 113505
+          },
+          {
+            "url": "https://www.larepublica.co/sitemaps/articles_February_2021.xml.gz",
+            "retrieved_at": "2026-11-17T10:43:23.433268+00:00",
+            "source": "larepublica",
+            "http_status": 200,
+            "response_url": "https://www.larepublica.co/sitemaps/articles_February_2021.xml.gz",
+            "status": "retrieved",
+            "sha256": "15d0cf3f35dc1b7c210178cd42ec5ea7ea9d4b9c9206be19edad9b8c5ba88058",
+            "bytes": 125551
+          },
+          {
+            "url": "https://www.larepublica.co/sitemaps/articles_March_2021.xml.gz",
+            "retrieved_at": "2026-11-17T10:43:25.717510+00:00",
+            "source": "larepublica",
+            "http_status": 200,
+            "response_url": "https://www.larepublica.co/sitemaps/articles_March_2021.xml.gz",
+            "status": "retrieved",
+            "sha256": "00f27ce2684f290ff6935012646063021337e538659bb05154e5d697cb9d6470",
+            "bytes": 145672
+          },
+          {
+            "url": "https://www.larepublica.co/sitemaps/articles_April_2021.xml.gz",
+            "retrieved_at": "2026-11-17T10:43:27.964062+00:00",
+            "source": "larepublica",
+            "http_status": 200,
+            "response_url": "https://www.larepublica.co/sitemaps/articles_April_2021.xml.gz",
+            "status": "retrieved",
+            "sha256": "e7f807af85dfd7f387ae9dd078531efc03c761432c3d9773a8f77c2ca48e889c",
+            "bytes": 150288
+          },
+          {
+            "url": "https://www.larepublica.co/sitemaps/articles_May_2021.xml.gz",
+            "retrieved_at": "2026-11-17T10:43:30.307838+00:00",
+            "source": "larepublica",
+            "http_status": 200,
+            "response_url": "https://www.larepublica.co/sitemaps/articles_May_2021.xml.gz",
+            "status": "retrieved",
+            "sha256": "119f441f706d8060113be3bdd81829af44c42e3802fd6f4a3dba28c26ea14dc1",
+            "bytes": 158196
+          },
+          {
+            "url": "https://www.larepublica.co/sitemaps/articles_June_2021.xml.gz",
+            "retrieved_at": "2026-11-17T10:43:32.618716+00:00",
+            "source": "larepublica",
+            "http_status": 200,
+            "response_url": "https://www.larepublica.co/sitemaps/articles_June_2021.xml.gz",
+            "status": "retrieved",
+            "sha256": "cd503ea9c81dd783cc4b626fa760c9a81cbbaa3445f8e530d9557fa3e407d494",
+            "bytes": 148516
+          },
+          {
+            "url": "https://www.larepublica.co/sitemaps/articles_July_2021.xml.gz",
+            "retrieved_at": "2026-11-17T10:43:34.884124+00:00",
+            "source": "larepublica",
+            "http_status": 200,
+            "response_url": "https://www.larepublica.co/sitemaps/articles_July_2021.xml.gz",
+            "status": "retrieved",
+            "sha256": "6965ea8bd7bac94d77bbcd748b9a8b6c3f87902f4ed74549b3fb1d8f109fa557",
+            "bytes": 144246
+          },
+          {
+            "url": "https://www.larepublica.co/sitemaps/articles_August_2021.xml.gz",
+            "retrieved_at": "2026-11-17T10:43:37.102995+00:00",
+            "source": "larepublica",
+            "http_status": 200,
+            "response_url": "https://www.larepublica.co/sitemaps/articles_August_2021.xml.gz",
+            "status": "retrieved",
+            "sha256": "c15046b86223d4ce56205a39da4f2ade795dcdbc96bb88558c2977102c21bcb8",
+            "bytes": 137288
+          },
+          {
+            "url": "https://www.larepublica.co/sitemaps/articles_September_2021.xml.gz",
+            "retrieved_at": "2026-11-17T10:43:39.562904+00:00",
+            "source": "larepublica",
+            "http_status": 200,
+            "response_url": "https://www.larepublica.co/sitemaps/articles_September_2021.xml.gz",
+            "status": "retrieved",
+            "sha256": "f81c8773f62636747baa9d6dbc3b06b740bf1cd33bb385b418b9308b2953e79c",
+            "bytes": 119960
+          },
+          {
+            "url": "https://www.larepublica.co/sitemaps/articles_October_2021.xml.gz",
+            "retrieved_at": "2026-11-17T10:43:41.968318+00:00",
+            "source": "larepublica",
+            "http_status": 200,
+            "response_url": "https://www.larepublica.co/sitemaps/articles_October_2021.xml.gz",
+            "status": "retrieved",
+            "sha256": "ebd5e19091be5f152dbd779ab06dcd3c980c67a479109dba8df4ba89e703959e",
+            "bytes": 106863
+          },
+          {
+            "url": "https://www.larepublica.co/sitemaps/articles_November_2021.xml.gz",
+            "retrieved_at": "2026-11-17T10:43:44.200056+00:00",
+            "source": "larepublica",
+            "http_status": 200,
+            "response_url": "https://www.larepublica.co/sitemaps/articles_November_2021.xml.gz",
+            "status": "retrieved",
+            "sha256": "54d1e7e69bb36cee1b566f859bfbb4c67ebcecd84b14d8b29c0df76e4dce93dc",
+            "bytes": 112254
+          },
+          {
+            "url": "https://www.larepublica.co/sitemaps/articles_December_2021.xml.gz",
+            "retrieved_at": "2026-11-17T10:43:46.037151+00:00",
+            "source": "larepublica",
+            "http_status": 200,
+            "response_url": "https://www.larepublica.co/sitemaps/articles_December_2021.xml.gz",
+            "status": "retrieved",
+            "sha256": "a536656eed8bb9b41cd7f28a55304822b391b3d8c0c3b64023af9b67477b5557",
+            "bytes": 91978
+          },
+          {
+            "url": "https://www.larepublica.co/sitemaps/articles_January_2022.xml.gz",
+            "retrieved_at": "2026-11-17T10:43:48.379297+00:00",
+            "source": "larepublica",
+            "http_status": 200,
+            "response_url": "https://www.larepublica.co/sitemaps/articles_January_2022.xml.gz",
+            "status": "retrieved",
+            "sha256": "f184900a0f6d32a8966ded993039b6a7b190c72e64a24ec825e19f00dc0aebc3",
+            "bytes": 92501
+          },
+          {
+            "url": "https://www.larepublica.co/sitemaps/articles_February_2022.xml.gz",
+            "retrieved_at": "2026-11-17T10:43:50.407627+00:00",
+            "source": "larepublica",
+            "http_status": 200,
+            "response_url": "https://www.larepublica.co/sitemaps/articles_February_2022.xml.gz",
+            "status": "retrieved",
+            "sha256": "7e4922d08ad7cb96ae7f50ee4fa02b1a07808e74969a074fd45223996a6e3f83",
+            "bytes": 133896
+          },
+          {
+            "url": "https://www.larepublica.co/sitemaps/articles_March_2022.xml.gz",
+            "retrieved_at": "2026-11-17T10:43:52.608444+00:00",
+            "source": "larepublica",
+            "http_status": 200,
+            "response_url": "https://www.larepublica.co/sitemaps/articles_March_2022.xml.gz",
+            "status": "retrieved",
+            "sha256": "6ffbbbaf8e0588893bb2b1dbd7e47054235c23d061a971c401897fbe3820e129",
+            "bytes": 159744
+          },
+          {
+            "url": "https://www.larepublica.co/sitemaps/articles_April_2022.xml.gz",
+            "retrieved_at": "2026-11-17T10:43:54.926942+00:00",
+            "source": "larepublica",
+            "http_status": 200,
+            "response_url": "https://www.larepublica.co/sitemaps/articles_April_2022.xml.gz",
+            "status": "retrieved",
+            "sha256": "e5fc5e626283591126c9ae91cfa2cf9cdfa75ac8b9b0747c3d283d707f8bdcc8",
+            "bytes": 140550
+          },
+          {
+            "url": "https://www.larepublica.co/sitemaps/articles_May_2022.xml.gz",
+            "retrieved_at": "2026-11-17T10:43:57.332271+00:00",
+            "source": "larepublica",
+            "http_status": 200,
+            "response_url": "https://www.larepublica.co/sitemaps/articles_May_2022.xml.gz",
+            "status": "retrieved",
+            "sha256": "6c275b32833acb8221cd98d866d6331abebc177495fe61a53d49f05bb5308ba9",
+            "bytes": 150081
+          },
+          {
+            "url": "https://www.larepublica.co/sitemaps/articles_June_2022.xml.gz",
+            "retrieved_at": "2026-11-17T10:43:59.677116+00:00",
+            "source": "larepublica",
+            "http_status": 200,
+            "response_url": "https://www.larepublica.co/sitemaps/articles_June_2022.xml.gz",
+            "status": "retrieved",
+            "sha256": "0c513af600f181e1f2579bf386b1e2a83a3ecbd8208cd8ec397ff343d1a8e3d2",
+            "bytes": 141511
+          },
+          {
+            "url": "https://www.larepublica.co/sitemaps/articles_July_2022.xml.gz",
+            "retrieved_at": "2026-11-17T10:44:01.965887+00:00",
+            "source": "larepublica",
+            "http_status": 200,
+            "response_url": "https://www.larepublica.co/sitemaps/articles_July_2022.xml.gz",
+            "status": "retrieved",
+            "sha256": "c3a99eb13de45709b41fbaffc0ef2b1799d55554b0619d35b99babf4a028ea88",
+            "bytes": 141484
+          },
+          {
+            "url": "https://www.larepublica.co/sitemaps/articles_August_2022.xml.gz",
+            "retrieved_at": "2026-11-17T10:44:04.223986+00:00",
+            "source": "larepublica",
+            "http_status": 200,
+            "response_url": "https://www.larepublica.co/sitemaps/articles_August_2022.xml.gz",
+            "status": "retrieved",
+            "sha256": "e4eeedb1a30a21310bd72da51c4a72c68ddcfd9d1c5dfc4b19542e78a25b6f1b",
+            "bytes": 166869
+          },
+          {
+            "url": "https://www.larepublica.co/sitemaps/articles_September_2022.xml.gz",
+            "retrieved_at": "2026-11-17T10:44:06.560420+00:00",
+            "source": "larepublica",
+            "http_status": 200,
+            "response_url": "https://www.larepublica.co/sitemaps/articles_September_2022.xml.gz",
+            "status": "retrieved",
+            "sha256": "2c142739b7b99fafdf8e00dd4599f80c10c1858f9228dbab19be1498f43a761a",
+            "bytes": 162954
+          },
+          {
+            "url": "https://www.larepublica.co/sitemaps/articles_October_2022.xml.gz",
+            "retrieved_at": "2026-11-17T10:44:09.055529+00:00",
+            "source": "larepublica",
+            "http_status": 200,
+            "response_url": "https://www.larepublica.co/sitemaps/articles_October_2022.xml.gz",
+            "status": "retrieved",
+            "sha256": "b666272fec822a09725c7daa1f9f2d8f36f15a780d1773b9e1f29a9b53f6a640",
+            "bytes": 152504
+          },
+          {
+            "url": "https://www.larepublica.co/sitemaps/articles_November_2022.xml.gz",
+            "retrieved_at": "2026-11-17T10:44:11.295526+00:00",
+            "source": "larepublica",
+            "http_status": 200,
+            "response_url": "https://www.larepublica.co/sitemaps/articles_November_2022.xml.gz",
+            "status": "retrieved",
+            "sha256": "4f938691287c8940d9bfc0111f40d15a3336cb98d934ed8fbd2db822ed882da6",
+            "bytes": 147732
+          },
+          {
+            "url": "https://www.larepublica.co/sitemaps/articles_December_2022.xml.gz",
+            "retrieved_at": "2026-11-17T10:44:13.746886+00:00",
+            "source": "larepublica",
+            "http_status": 200,
+            "response_url": "https://www.larepublica.co/sitemaps/articles_December_2022.xml.gz",
+            "status": "retrieved",
+            "sha256": "89b253485342e67aced6bd51ef92871780cf8b2bd0492d5f0a3cee47c53dd5e0",
+            "bytes": 128684
+          },
+          {
+            "url": "https://www.larepublica.co/sitemaps/articles_January_2023.xml.gz",
+            "retrieved_at": "2026-11-17T10:44:16.081126+00:00",
+            "source": "larepublica",
+            "http_status": 200,
+            "response_url": "https://www.larepublica.co/sitemaps/articles_January_2023.xml.gz",
+            "status": "retrieved",
+            "sha256": "82ec8ca1bc385a62a4f9ac86aeee0f1c11a063ba080f93c26bd31c2b571e581d",
+            "bytes": 124716
+          },
+          {
+            "url": "https://www.larepublica.co/sitemaps/articles_February_2023.xml.gz",
+            "retrieved_at": "2026-11-17T10:44:18.379609+00:00",
+            "source": "larepublica",
+            "http_status": 200,
+            "response_url": "https://www.larepublica.co/sitemaps/articles_February_2023.xml.gz",
+            "status": "retrieved",
+            "sha256": "5bf13c98d77bb61f9d09ed98b38240935513da0884c44bd262dbe0c973dcf8fe",
+            "bytes": 145574
+          },
+          {
+            "url": "https://www.larepublica.co/sitemaps/articles_March_2023.xml.gz",
+            "retrieved_at": "2026-11-17T10:44:20.845504+00:00",
+            "source": "larepublica",
+            "http_status": 200,
+            "response_url": "https://www.larepublica.co/sitemaps/articles_March_2023.xml.gz",
+            "status": "retrieved",
+            "sha256": "3cc9b6545bfd7941010a0e1728c3f1fd5a7d62aa729ae75a1df3b7d0ea3feda8",
+            "bytes": 166938
+          },
+          {
+            "url": "https://www.larepublica.co/sitemaps/articles_April_2023.xml.gz",
+            "retrieved_at": "2026-11-17T10:44:23.115309+00:00",
+            "source": "larepublica",
+            "http_status": 200,
+            "response_url": "https://www.larepublica.co/sitemaps/articles_April_2023.xml.gz",
+            "status": "retrieved",
+            "sha256": "820ed8d40008de8e7869b2e9c1c49fa8f1243deb7f3a8f2a93aebad8112e0009",
+            "bytes": 143094
+          },
+          {
+            "url": "https://www.larepublica.co/sitemaps/articles_May_2023.xml.gz",
+            "retrieved_at": "2026-11-17T10:44:25.414690+00:00",
+            "source": "larepublica",
+            "http_status": 200,
+            "response_url": "https://www.larepublica.co/sitemaps/articles_May_2023.xml.gz",
+            "status": "retrieved",
+            "sha256": "6fb1128a47100d9e28b7a87f34447b77527a9b97921ebda26a9f2b05024e1b4c",
+            "bytes": 144054
+          },
+          {
+            "url": "https://www.larepublica.co/sitemaps/articles_June_2023.xml.gz",
+            "retrieved_at": "2026-11-17T10:44:27.987398+00:00",
+            "source": "larepublica",
+            "http_status": 200,
+            "response_url": "https://www.larepublica.co/sitemaps/articles_June_2023.xml.gz",
+            "status": "retrieved",
+            "sha256": "6e3adead44f691543339cb4a79d8a3f404f522b5ea7df22c66714e2a77db5e6e",
+            "bytes": 140748
+          },
+          {
+            "url": "https://www.larepublica.co/sitemaps/articles_July_2023.xml.gz",
+            "retrieved_at": "2026-11-17T10:44:30.263150+00:00",
+            "source": "larepublica",
+            "http_status": 200,
+            "response_url": "https://www.larepublica.co/sitemaps/articles_July_2023.xml.gz",
+            "status": "retrieved",
+            "sha256": "8cf6605b20786cf940c4141c8e8c8c268a1f2b64ef5155f1ad0fdd1f5ee7dde2",
+            "bytes": 128793
+          },
+          {
+            "url": "https://www.larepublica.co/sitemaps/articles_August_2023.xml.gz",
+            "retrieved_at": "2026-11-17T10:44:32.584898+00:00",
+            "source": "larepublica",
+            "http_status": 200,
+            "response_url": "https://www.larepublica.co/sitemaps/articles_August_2023.xml.gz",
+            "status": "retrieved",
+            "sha256": "c13e7dfc5ed720cd5f297a4728fa6e6fb79da8260920d65d19e2126bd7d698e3",
+            "bytes": 147621
+          },
+          {
+            "url": "https://www.larepublica.co/sitemaps/articles_September_2023.xml.gz",
+            "retrieved_at": "2026-11-17T10:44:34.789715+00:00",
+            "source": "larepublica",
+            "http_status": 200,
+            "response_url": "https://www.larepublica.co/sitemaps/articles_September_2023.xml.gz",
+            "status": "retrieved",
+            "sha256": "397199afed141010754b17018f88adcc5aa52565327636bbdf0db8e0b809b0e1",
+            "bytes": 146598
+          },
+          {
+            "url": "https://www.larepublica.co/sitemaps/articles_October_2023.xml.gz",
+            "retrieved_at": "2026-11-17T10:44:37.104086+00:00",
+            "source": "larepublica",
+            "http_status": 200,
+            "response_url": "https://www.larepublica.co/sitemaps/articles_October_2023.xml.gz",
+            "status": "retrieved",
+            "sha256": "5375ecd261f67694174001d0d4de3604d8940fa47f56732dcae526ce109d0ace",
+            "bytes": 155230
+          },
+          {
+            "url": "https://www.larepublica.co/sitemaps/articles_November_2023.xml.gz",
+            "retrieved_at": "2026-11-17T10:44:39.872543+00:00",
+            "source": "larepublica",
+            "http_status": 200,
+            "response_url": "https://www.larepublica.co/sitemaps/articles_November_2023.xml.gz",
+            "status": "retrieved",
+            "sha256": "34a537569bb11d447d4d0ec0062433def22d9bec6af96607a6dc2415265bb961",
+            "bytes": 139216
+          },
+          {
+            "url": "https://www.larepublica.co/sitemaps/articles_December_2023.xml.gz",
+            "retrieved_at": "2026-11-17T10:44:42.272169+00:00",
+            "source": "larepublica",
+            "http_status": 200,
+            "response_url": "https://www.larepublica.co/sitemaps/articles_December_2023.xml.gz",
+            "status": "retrieved",
+            "sha256": "9ca80d8721c6485b8404f265ba807309a213d95b5f7b5a4d4c3b3e55d06acaa3",
+            "bytes": 120899
+          },
+          {
+            "url": "https://www.larepublica.co/sitemaps/articles_January_2024.xml.gz",
+            "retrieved_at": "2026-11-17T10:44:44.727244+00:00",
+            "source": "larepublica",
+            "http_status": 200,
+            "response_url": "https://www.larepublica.co/sitemaps/articles_January_2024.xml.gz",
+            "status": "retrieved",
+            "sha256": "64a90bb03dc789c517f34cac75ed0158807091031d4ac12ed964e3a0eccf41b8",
+            "bytes": 125795
+          },
+          {
+            "url": "https://www.larepublica.co/sitemaps/articles_February_2024.xml.gz",
+            "retrieved_at": "2026-11-17T10:44:47.244784+00:00",
+            "source": "larepublica",
+            "http_status": 200,
+            "response_url": "https://www.larepublica.co/sitemaps/articles_February_2024.xml.gz",
+            "status": "retrieved",
+            "sha256": "9b7946a1ca51af9b38829a6c9d2c6b4a10a55fc310773b6584f6d7fa7f8db818",
+            "bytes": 128514
+          },
+          {
+            "url": "https://www.larepublica.co/sitemaps/articles_March_2024.xml.gz",
+            "retrieved_at": "2026-11-17T10:44:49.655511+00:00",
+            "source": "larepublica",
+            "http_status": 200,
+            "response_url": "https://www.larepublica.co/sitemaps/articles_March_2024.xml.gz",
+            "status": "retrieved",
+            "sha256": "dd8fdc29f037a97ab5d0e173af4e10f4465b97b72de7380a99acd873a0085607",
+            "bytes": 127229
+          },
+          {
+            "url": "https://www.larepublica.co/sitemaps/articles_April_2024.xml.gz",
+            "retrieved_at": "2026-11-17T10:44:52.125452+00:00",
+            "source": "larepublica",
+            "http_status": 200,
+            "response_url": "https://www.larepublica.co/sitemaps/articles_April_2024.xml.gz",
+            "status": "retrieved",
+            "sha256": "e9b392c34172e90f442ddc1278d5705685f1130399abc2de532a65742343d9fb",
+            "bytes": 143839
+          },
+          {
+            "url": "https://www.larepublica.co/sitemaps/articles_May_2024.xml.gz",
+            "retrieved_at": "2026-11-17T10:44:54.648242+00:00",
+            "source": "larepublica",
+            "http_status": 200,
+            "response_url": "https://www.larepublica.co/sitemaps/articles_May_2024.xml.gz",
+            "status": "retrieved",
+            "sha256": "dc21d13b01e23ce26a3eaa8737074998c414e21fd032723cb8281b29e698dcf5",
+            "bytes": 146188
+          },
+          {
+            "url": "https://www.larepublica.co/sitemaps/articles_June_2024.xml.gz",
+            "retrieved_at": "2026-11-17T10:44:56.917098+00:00",
+            "source": "larepublica",
+            "http_status": 200,
+            "response_url": "https://www.larepublica.co/sitemaps/articles_June_2024.xml.gz",
+            "status": "retrieved",
+            "sha256": "8544d2054092cf75d61056c0cbe463e8b261acb72e0934362fc9ffe22b88113b",
+            "bytes": 138408
+          },
+          {
+            "url": "https://www.larepublica.co/sitemaps/articles_July_2024.xml.gz",
+            "retrieved_at": "2026-11-17T10:44:59.620069+00:00",
+            "source": "larepublica",
+            "http_status": 200,
+            "response_url": "https://www.larepublica.co/sitemaps/articles_July_2024.xml.gz",
+            "status": "retrieved",
+            "sha256": "d43c894f070bcf5890f1aba1194d7750592acf6f373244554a0923e933bc817d",
+            "bytes": 156536
+          },
+          {
+            "url": "https://www.larepublica.co/sitemaps/articles_August_2024.xml.gz",
+            "retrieved_at": "2026-11-17T10:45:02.028604+00:00",
+            "source": "larepublica",
+            "http_status": 200,
+            "response_url": "https://www.larepublica.co/sitemaps/articles_August_2024.xml.gz",
+            "status": "retrieved",
+            "sha256": "0cb06a8d6e5d446a2fbed9b3657ce1469ebf20ea8ccd15e3ae39a95f56d7cf52",
+            "bytes": 169331
+          },
+          {
+            "url": "https://www.larepublica.co/sitemaps/articles_September_2024.xml.gz",
+            "retrieved_at": "2026-11-17T10:45:04.316270+00:00",
+            "source": "larepublica",
+            "http_status": 200,
+            "response_url": "https://www.larepublica.co/sitemaps/articles_September_2024.xml.gz",
+            "status": "retrieved",
+            "sha256": "303fefb7b701f2838afb67fe968b6bda6948c0faf9494889ad5dfc8cb80e4bc1",
+            "bytes": 180884
+          },
+          {
+            "url": "https://www.larepublica.co/sitemaps/articles_October_2024.xml.gz",
+            "retrieved_at": "2026-11-17T10:45:07.015356+00:00",
+            "source": "larepublica",
+            "http_status": 200,
+            "response_url": "https://www.larepublica.co/sitemaps/articles_October_2024.xml.gz",
+            "status": "retrieved",
+            "sha256": "b5f3b0b88824339c316ad983f6c1af194a8ae76df15388128316ddab65cbe02d",
+            "bytes": 182098
+          },
+          {
+            "url": "https://www.larepublica.co/sitemaps/articles_November_2024.xml.gz",
+            "retrieved_at": "2026-11-17T10:45:09.542258+00:00",
+            "source": "larepublica",
+            "http_status": 200,
+            "response_url": "https://www.larepublica.co/sitemaps/articles_November_2024.xml.gz",
+            "status": "retrieved",
+            "sha256": "3c36ad4556ed6949ae53dc76874acbf0c933714096cc2a068a1338f1ba57cf07",
+            "bytes": 163352
+          },
+          {
+            "url": "https://www.larepublica.co/sitemaps/articles_December_2024.xml.gz",
+            "retrieved_at": "2026-11-17T10:45:12.009989+00:00",
+            "source": "larepublica",
+            "http_status": 200,
+            "response_url": "https://www.larepublica.co/sitemaps/articles_December_2024.xml.gz",
+            "status": "retrieved",
+            "sha256": "25cd690e93fc2ef1abff7585ce748b5135c2c66a896a9761d4c42f7d93769646",
+            "bytes": 148509
+          },
+          {
+            "url": "https://www.larepublica.co/sitemaps/articles_January_2025.xml.gz",
+            "retrieved_at": "2026-11-17T10:45:14.629045+00:00",
+            "source": "larepublica",
+            "http_status": 200,
+            "response_url": "https://www.larepublica.co/sitemaps/articles_January_2025.xml.gz",
+            "status": "retrieved",
+            "sha256": "5271574da8d3fd094651311c7313ae92deec36d971c832bf755aafc5a8f9ca0f",
+            "bytes": 145575
+          },
+          {
+            "url": "https://www.larepublica.co/sitemaps/articles_February_2025.xml.gz",
+            "retrieved_at": "2026-11-17T10:45:17.089832+00:00",
+            "source": "larepublica",
+            "http_status": 200,
+            "response_url": "https://www.larepublica.co/sitemaps/articles_February_2025.xml.gz",
+            "status": "retrieved",
+            "sha256": "c6470d622021ea947b923ff674bfda9440fa94713ed8515ff2e3d2d247b4f602",
+            "bytes": 145905
+          },
+          {
+            "url": "https://www.larepublica.co/sitemaps/articles_March_2025.xml.gz",
+            "retrieved_at": "2026-11-17T10:45:19.362041+00:00",
+            "source": "larepublica",
+            "http_status": 200,
+            "response_url": "https://www.larepublica.co/sitemaps/articles_March_2025.xml.gz",
+            "status": "retrieved",
+            "sha256": "30536914cdac5eed0dc6618368628ab1c4309b17f13bf15690c3da89b23eba00",
+            "bytes": 144657
+          },
+          {
+            "url": "https://www.larepublica.co/sitemaps/articles_April_2025.xml.gz",
+            "retrieved_at": "2026-11-17T10:45:21.635930+00:00",
+            "source": "larepublica",
+            "http_status": 200,
+            "response_url": "https://www.larepublica.co/sitemaps/articles_April_2025.xml.gz",
+            "status": "retrieved",
+            "sha256": "6c06277686201bebcea23ba063c914eb2b4d70e5660920f3488aec7d3f39e486",
+            "bytes": 145977
+          },
+          {
+            "url": "https://www.larepublica.co/sitemaps/articles_May_2025.xml.gz",
+            "retrieved_at": "2026-11-17T10:45:23.945545+00:00",
+            "source": "larepublica",
+            "http_status": 200,
+            "response_url": "https://www.larepublica.co/sitemaps/articles_May_2025.xml.gz",
+            "status": "retrieved",
+            "sha256": "6014e5f873646e23812109c81662b0cec5820f9aea8b5ecfeb4d676f9f776b46",
+            "bytes": 154940
+          },
+          {
+            "url": "https://www.larepublica.co/sitemaps/articles_June_2025.xml.gz",
+            "retrieved_at": "2026-11-17T10:45:26.365829+00:00",
+            "source": "larepublica",
+            "http_status": 200,
+            "response_url": "https://www.larepublica.co/sitemaps/articles_June_2025.xml.gz",
+            "status": "retrieved",
+            "sha256": "bda1da977754d74b52751126c9aad72374047e5ba724f855b70b356483b818fb",
+            "bytes": 142409
+          },
+          {
+            "url": "https://www.larepublica.co/sitemaps/articles_July_2025.xml.gz",
+            "retrieved_at": "2026-11-17T10:45:28.995645+00:00",
+            "source": "larepublica",
+            "http_status": 200,
+            "response_url": "https://www.larepublica.co/sitemaps/articles_July_2025.xml.gz",
+            "status": "retrieved",
+            "sha256": "a4a1b2ce038cda4369373bfae663f328412dd6e6cefe71a48c32fbde52a8309f",
+            "bytes": 170624
+          },
+          {
+            "url": "https://www.larepublica.co/sitemaps/articles_August_2025.xml.gz",
+            "retrieved_at": "2026-11-17T10:45:31.515666+00:00",
+            "source": "larepublica",
+            "http_status": 200,
+            "response_url": "https://www.larepublica.co/sitemaps/articles_August_2025.xml.gz",
+            "status": "retrieved",
+            "sha256": "b91fa0c4d7f7d8a956c34050379bba3bf7805d6cf3fef0560c6c83c764352ead",
+            "bytes": 147557
+          },
+          {
+            "url": "https://www.larepublica.co/sitemaps/articles_September_2025.xml.gz",
+            "retrieved_at": "2026-11-17T10:45:33.822376+00:00",
+            "source": "larepublica",
+            "http_status": 200,
+            "response_url": "https://www.larepublica.co/sitemaps/articles_September_2025.xml.gz",
+            "status": "retrieved",
+            "sha256": "0e15bcdc370f23fddb77cf4fc7a2ee93097cf2c87059b8d62e6ac288b63cb5f8",
+            "bytes": 157530
+          },
+          {
+            "url": "https://www.larepublica.co/sitemaps/articles_October_2025.xml.gz",
+            "retrieved_at": "2026-11-17T10:45:36.155830+00:00",
+            "source": "larepublica",
+            "http_status": 200,
+            "response_url": "https://www.larepublica.co/sitemaps/articles_October_2025.xml.gz",
+            "status": "retrieved",
+            "sha256": "793bb5380a5f9680273ab600cfc4290edae9761e9a71566e8e2879b74986f663",
+            "bytes": 162124
+          },
+          {
+            "url": "https://www.larepublica.co/sitemaps/articles_November_2025.xml.gz",
+            "retrieved_at": "2026-11-17T10:45:38.840642+00:00",
+            "source": "larepublica",
+            "http_status": 200,
+            "response_url": "https://www.larepublica.co/sitemaps/articles_November_2025.xml.gz",
+            "status": "retrieved",
+            "sha256": "36f470aa4304ae919f7ff04657a00a56a3c50b7866dfdfd39dd07a92ea820639",
+            "bytes": 146687
+          },
+          {
+            "url": "https://www.larepublica.co/sitemaps/articles_December_2025.xml.gz",
+            "retrieved_at": "2026-11-17T10:45:41.138570+00:00",
+            "source": "larepublica",
+            "http_status": 200,
+            "response_url": "https://www.larepublica.co/sitemaps/articles_December_2025.xml.gz",
+            "status": "retrieved",
+            "sha256": "9802a36331678894d97ad9fd2739bef931278674a08ef7b372876037cc0f3e94",
+            "bytes": 133113
+          },
+          {
+            "url": "https://www.larepublica.co/sitemaps/articles_January_2026.xml.gz",
+            "retrieved_at": "2026-11-17T10:45:43.640026+00:00",
+            "source": "larepublica",
+            "http_status": 200,
+            "response_url": "https://www.larepublica.co/sitemaps/articles_January_2026.xml.gz",
+            "status": "retrieved",
+            "sha256": "cff40b992d6f068df6c76dfcde59a51e73e4ef427c595a84ee6690c1daaf656a",
+            "bytes": 139384
+          },
+          {
+            "url": "https://www.larepublica.co/sitemaps/articles_February_2026.xml.gz",
+            "retrieved_at": "2026-11-17T10:45:46.321360+00:00",
+            "source": "larepublica",
+            "http_status": 200,
+            "response_url": "https://www.larepublica.co/sitemaps/articles_February_2026.xml.gz",
+            "status": "retrieved",
+            "sha256": "7926b8085a4472b3a3d718d36540f0d17fbe0f137b75987b0458b52989ff914c",
+            "bytes": 166941
+          }
+        ],
+        "selection": "Export-related URL terms; hints narrow discovery only; explicit article dates required; lastmod never used as publication."
+      },
+      {
+        "source": "elcolombiano",
+        "started_at": "2026-11-17T10:42:35.698906+00:00",
+        "completed_at": "2026-11-17T10:45:56.045443+00:00",
+        "start": "2020-03-01",
+        "end_exclusive": "2026-11-01",
+        "status": "complete",
+        "candidates": 25,
+        "sitemaps": [
+          {
+            "url": "https://www.elcolombiano.com/megasitemap/0.xml",
+            "status": "parsed",
+            "article_urls": 9229,
+            "export_candidates": 0,
+            "publication_hint_first": "2011-04-08",
+            "publication_hint_last": "2014-10-03"
+          },
+          {
+            "url": "https://www.elcolombiano.com/megasitemap/1.xml",
+            "status": "parsed",
+            "article_urls": 10254,
+            "export_candidates": 0,
+            "publication_hint_first": "2013-06-11",
+            "publication_hint_last": "2014-01-01"
+          },
+          {
+            "url": "https://www.elcolombiano.com/megasitemap/2.xml",
+            "status": "parsed",
+            "article_urls": 10285,
+            "export_candidates": 0,
+            "publication_hint_first": "2013-01-02",
+            "publication_hint_last": "2014-01-01"
+          },
+          {
+            "url": "https://www.elcolombiano.com/megasitemap/3.xml",
+            "status": "parsed",
+            "article_urls": 10144,
+            "export_candidates": 0,
+            "publication_hint_first": "2013-01-01",
+            "publication_hint_last": "2013-12-18"
+          },
+          {
+            "url": "https://www.elcolombiano.com/megasitemap/4.xml",
+            "status": "parsed",
+            "article_urls": 10094,
+            "export_candidates": 0,
+            "publication_hint_first": "2012-05-21",
+            "publication_hint_last": "2013-12-19"
+          },
+          {
+            "url": "https://www.elcolombiano.com/megasitemap/5.xml",
+            "status": "parsed",
+            "article_urls": 8777,
+            "export_candidates": 0,
+            "publication_hint_first": "2012-05-19",
+            "publication_hint_last": "2012-12-31"
+          },
+          {
+            "url": "https://www.elcolombiano.com/megasitemap/6.xml",
+            "status": "parsed",
+            "article_urls": 9611,
+            "export_candidates": 0,
+            "publication_hint_first": "2012-05-19",
+            "publication_hint_last": "2012-12-31"
+          },
+          {
+            "url": "https://www.elcolombiano.com/megasitemap/7.xml",
+            "status": "parsed",
+            "article_urls": 9067,
+            "export_candidates": 0,
+            "publication_hint_first": "2012-01-01",
+            "publication_hint_last": "2012-12-31"
+          },
+          {
+            "url": "https://www.elcolombiano.com/megasitemap/8.xml",
+            "status": "parsed",
+            "article_urls": 9624,
+            "export_candidates": 0,
+            "publication_hint_first": "2011-05-01",
+            "publication_hint_last": "2014-04-19"
+          },
+          {
+            "url": "https://www.elcolombiano.com/megasitemap/9.xml",
+            "status": "parsed",
+            "article_urls": 9318,
+            "export_candidates": 0,
+            "publication_hint_first": "2011-04-26",
+            "publication_hint_last": "2014-03-18"
+          },
+          {
+            "url": "https://www.elcolombiano.com/megasitemap/10.xml",
+            "status": "parsed",
+            "article_urls": 9293,
+            "export_candidates": 0,
+            "publication_hint_first": "2011-04-25",
+            "publication_hint_last": "2012-10-01"
+          },
+          {
+            "url": "https://www.elcolombiano.com/megasitemap/11.xml",
+            "status": "parsed",
+            "article_urls": 9419,
+            "export_candidates": 0,
+            "publication_hint_first": "2011-01-01",
+            "publication_hint_last": "2013-09-04"
+          },
+          {
+            "url": "https://www.elcolombiano.com/megasitemap/12.xml",
+            "status": "parsed",
+            "article_urls": 9838,
+            "export_candidates": 0,
+            "publication_hint_first": "2011-01-01",
+            "publication_hint_last": "2014-07-22"
+          },
+          {
+            "url": "https://www.elcolombiano.com/megasitemap/13.xml",
+            "status": "parsed",
+            "article_urls": 10317,
+            "export_candidates": 0,
+            "publication_hint_first": "2014-01-01",
+            "publication_hint_last": "2014-07-22"
+          },
+          {
+            "url": "https://www.elcolombiano.com/megasitemap/14.xml",
+            "status": "parsed",
+            "article_urls": 10116,
+            "export_candidates": 0,
+            "publication_hint_first": "2010-04-09",
+            "publication_hint_last": "2014-07-21"
+          },
+          {
+            "url": "https://www.elcolombiano.com/megasitemap/15.xml",
+            "status": "parsed",
+            "article_urls": 9705,
+            "export_candidates": 0,
+            "publication_hint_first": "2010-04-08",
+            "publication_hint_last": "2013-09-04"
+          },
+          {
+            "url": "https://www.elcolombiano.com/megasitemap/16.xml",
+            "status": "parsed",
+            "article_urls": 9555,
+            "export_candidates": 0,
+            "publication_hint_first": "2010-04-12",
+            "publication_hint_last": "2013-09-04"
+          },
+          {
+            "url": "https://www.elcolombiano.com/megasitemap/17.xml",
+            "status": "parsed",
+            "article_urls": 10704,
+            "export_candidates": 0,
+            "publication_hint_first": "2010-01-01",
+            "publication_hint_last": "2012-07-06"
+          },
+          {
+            "url": "https://www.elcolombiano.com/megasitemap/18.xml",
+            "status": "parsed",
+            "article_urls": 13501,
+            "export_candidates": 0,
+            "publication_hint_first": "2009-05-03",
+            "publication_hint_last": "2013-09-05"
+          },
+          {
+            "url": "https://www.elcolombiano.com/megasitemap/19.xml",
+            "status": "parsed",
+            "article_urls": 14139,
+            "export_candidates": 0,
+            "publication_hint_first": "2009-05-02",
+            "publication_hint_last": "2013-09-04"
+          },
+          {
+            "url": "https://www.elcolombiano.com/megasitemap/20.xml",
+            "status": "parsed",
+            "article_urls": 14315,
+            "export_candidates": 0,
+            "publication_hint_first": "2008-06-10",
+            "publication_hint_last": "2013-09-03"
+          },
+          {
+            "url": "https://www.elcolombiano.com/megasitemap/21.xml",
+            "status": "parsed",
+            "article_urls": 14379,
+            "export_candidates": 0,
+            "publication_hint_first": "2008-05-22",
+            "publication_hint_last": "2013-09-04"
+          },
+          {
+            "url": "https://www.elcolombiano.com/megasitemap/22.xml",
+            "status": "parsed",
+            "article_urls": 11972,
+            "export_candidates": 0,
+            "publication_hint_first": "2008-05-28",
+            "publication_hint_last": "2015-10-25"
+          },
+          {
+            "url": "https://www.elcolombiano.com/megasitemap/23.xml",
+            "status": "parsed",
+            "article_urls": 10736,
+            "export_candidates": 0,
+            "publication_hint_first": "2004-01-20",
+            "publication_hint_last": "2014-11-27"
+          },
+          {
+            "url": "https://www.elcolombiano.com/megasitemap/24.xml",
+            "status": "parsed",
+            "article_urls": 10656,
+            "export_candidates": 0,
+            "publication_hint_first": "2008-01-02",
+            "publication_hint_last": "2016-01-24"
+          },
+          {
+            "url": "https://www.elcolombiano.com/megasitemap/25.xml",
+            "status": "parsed",
+            "article_urls": 9661,
+            "export_candidates": 0,
+            "publication_hint_first": "2015-01-18",
+            "publication_hint_last": "2015-04-16"
+          },
+          {
+            "url": "https://www.elcolombiano.com/megasitemap/26.xml",
+            "status": "parsed",
+            "article_urls": 9632,
+            "export_candidates": 0,
+            "publication_hint_first": "2014-12-28",
+            "publication_hint_last": "2017-09-25"
+          },
+          {
+            "url": "https://www.elcolombiano.com/megasitemap/27.xml",
+            "status": "parsed",
+            "article_urls": 9717,
+            "export_candidates": 0,
+            "publication_hint_first": "2015-01-20",
+            "publication_hint_last": "2017-08-25"
+          },
+          {
+            "url": "https://www.elcolombiano.com/megasitemap/28.xml",
+            "status": "parsed",
+            "article_urls": 9793,
+            "export_candidates": 0,
+            "publication_hint_first": "2014-11-21",
+            "publication_hint_last": "2016-01-07"
+          },
+          {
+            "url": "https://www.elcolombiano.com/megasitemap/29.xml",
+            "status": "parsed",
+            "article_urls": 9585,
+            "export_candidates": 0,
+            "publication_hint_first": "2014-11-11",
+            "publication_hint_last": "2016-12-04"
+          },
+          {
+            "url": "https://www.elcolombiano.com/megasitemap/30.xml",
+            "status": "parsed",
+            "article_urls": 9622,
+            "export_candidates": 0,
+            "publication_hint_first": "2014-11-18",
+            "publication_hint_last": "2017-05-03"
+          },
+          {
+            "url": "https://www.elcolombiano.com/megasitemap/31.xml",
+            "status": "parsed",
+            "article_urls": 9626,
+            "export_candidates": 0,
+            "publication_hint_first": "2015-05-06",
+            "publication_hint_last": "2016-09-26"
+          },
+          {
+            "url": "https://www.elcolombiano.com/megasitemap/32.xml",
+            "status": "parsed",
+            "article_urls": 9527,
+            "export_candidates": 0,
+            "publication_hint_first": "2016-08-26",
+            "publication_hint_last": "2016-12-20"
+          },
+          {
+            "url": "https://www.elcolombiano.com/megasitemap/33.xml",
+            "status": "parsed",
+            "article_urls": 9717,
+            "export_candidates": 0,
+            "publication_hint_first": "2016-08-09",
+            "publication_hint_last": "2018-02-17"
+          },
+          {
+            "url": "https://www.elcolombiano.com/megasitemap/34.xml",
+            "status": "parsed",
+            "article_urls": 9726,
+            "export_candidates": 0,
+            "publication_hint_first": "2017-02-24",
+            "publication_hint_last": "2017-07-22"
+          },
+          {
+            "url": "https://www.elcolombiano.com/megasitemap/35.xml",
+            "status": "parsed",
+            "article_urls": 9760,
+            "export_candidates": 0,
+            "publication_hint_first": "2017-03-18",
+            "publication_hint_last": "2018-11-06"
+          },
+          {
+            "url": "https://www.elcolombiano.com/megasitemap/36.xml",
+            "status": "parsed",
+            "article_urls": 9696,
+            "export_candidates": 0,
+            "publication_hint_first": "2017-07-07",
+            "publication_hint_last": "2018-03-03"
+          },
+          {
+            "url": "https://www.elcolombiano.com/megasitemap/37.xml",
+            "status": "parsed",
+            "article_urls": 9630,
+            "export_candidates": 0,
+            "publication_hint_first": "2016-05-24",
+            "publication_hint_last": "2019-05-02"
+          },
+          {
+            "url": "https://www.elcolombiano.com/megasitemap/38.xml",
+            "status": "parsed",
+            "article_urls": 9409,
+            "export_candidates": 0,
+            "publication_hint_first": "2015-02-19",
+            "publication_hint_last": "2019-01-05"
+          },
+          {
+            "url": "https://www.elcolombiano.com/megasitemap/39.xml",
+            "status": "parsed",
+            "article_urls": 9468,
+            "export_candidates": 0,
+            "publication_hint_first": "2016-07-05",
+            "publication_hint_last": "2019-05-17"
+          },
+          {
+            "url": "https://www.elcolombiano.com/megasitemap/40.xml",
+            "status": "parsed",
+            "article_urls": 9511,
+            "export_candidates": 0,
+            "publication_hint_first": "2016-02-23",
+            "publication_hint_last": "2020-01-29"
+          },
+          {
+            "url": "https://www.elcolombiano.com/megasitemap/41.xml",
+            "status": "parsed",
+            "article_urls": 9262,
+            "export_candidates": 0,
+            "publication_hint_first": "2017-09-08",
+            "publication_hint_last": "2019-12-17"
+          },
+          {
+            "url": "https://www.elcolombiano.com/megasitemap/42.xml",
+            "status": "parsed",
+            "article_urls": 9342,
+            "export_candidates": 0,
+            "publication_hint_first": "2015-04-27",
+            "publication_hint_last": "2020-05-22"
+          },
+          {
+            "url": "https://www.elcolombiano.com/megasitemap/43.xml",
+            "status": "parsed",
+            "article_urls": 9486,
+            "export_candidates": 0,
+            "publication_hint_first": "2017-04-20",
+            "publication_hint_last": "2020-06-13"
+          },
+          {
+            "url": "https://www.elcolombiano.com/megasitemap/44.xml",
+            "status": "parsed",
+            "article_urls": 9275,
+            "export_candidates": 19,
+            "publication_hint_first": "2015-09-07",
+            "publication_hint_last": "2020-06-14"
+          },
+          {
+            "url": "https://www.elcolombiano.com/megasitemap/45.xml",
+            "status": "parsed",
+            "article_urls": 2303,
+            "export_candidates": 6,
+            "publication_hint_first": "2020-02-05",
+            "publication_hint_last": "2020-06-15"
+          }
+        ],
+        "requests": [
+          {
+            "url": "https://www.elcolombiano.com/robots.txt",
+            "retrieved_at": "2026-11-17T10:42:35.698906+00:00",
+            "source": "elcolombiano",
+            "http_status": 200,
+            "response_url": "https://www.elcolombiano.com/robots.txt",
+            "status": "retrieved",
+            "sha256": "6322b1bfb2a39cbdbb86e6a1d03334cbb7839b6fe69b7790e2d94ce23e75fe8e",
+            "bytes": 153097
+          },
+          {
+            "url": "https://www.elcolombiano.com/megasitemap.xml",
+            "retrieved_at": "2026-11-17T10:42:37.878142+00:00",
+            "source": "elcolombiano",
+            "http_status": 200,
+            "response_url": "https://www.elcolombiano.com/megasitemap.xml",
+            "status": "retrieved",
+            "sha256": "9e01aefb82e5ff9d688b9f2a33ae5d9a57dcbdf6abe29417858a92fda6c3a9d1",
+            "bytes": 4986
+          },
+          {
+            "url": "https://www.elcolombiano.com/megasitemap/0.xml",
+            "retrieved_at": "2026-11-17T10:42:39.490272+00:00",
+            "source": "elcolombiano",
+            "http_status": 200,
+            "response_url": "https://www.elcolombiano.com/megasitemap/0.xml",
+            "status": "retrieved",
+            "sha256": "5d54495a19bba2f2d800294b333de7d452df3e3a954c2534345b91d245721c7f",
+            "bytes": 10485194
+          },
+          {
+            "url": "https://www.elcolombiano.com/megasitemap/1.xml",
+            "retrieved_at": "2026-11-17T10:42:43.226042+00:00",
+            "source": "elcolombiano",
+            "http_status": 200,
+            "response_url": "https://www.elcolombiano.com/megasitemap/1.xml",
+            "status": "retrieved",
+            "sha256": "21e575be9db238fb0b096664a66bda9df4c212181076091a0f718ac2f4705b3c",
+            "bytes": 10485679
+          },
+          {
+            "url": "https://www.elcolombiano.com/megasitemap/2.xml",
+            "retrieved_at": "2026-11-17T10:42:47.199298+00:00",
+            "source": "elcolombiano",
+            "http_status": 200,
+            "response_url": "https://www.elcolombiano.com/megasitemap/2.xml",
+            "status": "retrieved",
+            "sha256": "a20ef92eea5d3c0f1c92bb78f854be4e574e4e17f2c18b62784547575282df56",
+            "bytes": 10485661
+          },
+          {
+            "url": "https://www.elcolombiano.com/megasitemap/3.xml",
+            "retrieved_at": "2026-11-17T10:42:51.010104+00:00",
+            "source": "elcolombiano",
+            "http_status": 200,
+            "response_url": "https://www.elcolombiano.com/megasitemap/3.xml",
+            "status": "retrieved",
+            "sha256": "3334310462587a1e8b2f3dfd99c8d2bb294101ff8ac2964d03a533449fa6a906",
+            "bytes": 10485096
+          },
+          {
+            "url": "https://www.elcolombiano.com/megasitemap/4.xml",
+            "retrieved_at": "2026-11-17T10:42:54.919223+00:00",
+            "source": "elcolombiano",
+            "http_status": 200,
+            "response_url": "https://www.elcolombiano.com/megasitemap/4.xml",
+            "status": "retrieved",
+            "sha256": "7e124c2a4ce194746f1a63ebe10efb34c94b641b11d6f08f6f8f7da166e0d30d",
+            "bytes": 10485426
+          },
+          {
+            "url": "https://www.elcolombiano.com/megasitemap/5.xml",
+            "retrieved_at": "2026-11-17T10:42:58.682163+00:00",
+            "source": "elcolombiano",
+            "http_status": 200,
+            "response_url": "https://www.elcolombiano.com/megasitemap/5.xml",
+            "status": "retrieved",
+            "sha256": "39162b682c4cd5de5fbc884faf19a221840fc6ca61ac3a9d738ac363349e70e8",
+            "bytes": 10485304
+          },
+          {
+            "url": "https://www.elcolombiano.com/megasitemap/6.xml",
+            "retrieved_at": "2026-11-17T10:43:02.563667+00:00",
+            "source": "elcolombiano",
+            "http_status": 200,
+            "response_url": "https://www.elcolombiano.com/megasitemap/6.xml",
+            "status": "retrieved",
+            "sha256": "af2a635ca4838f2da945ecdf7a5ff8ee5874fc1906c4c1a160b83ef6e9c6dc6d",
+            "bytes": 10485761
+          },
+          {
+            "url": "https://www.elcolombiano.com/megasitemap/7.xml",
+            "retrieved_at": "2026-11-17T10:43:06.523448+00:00",
+            "source": "elcolombiano",
+            "http_status": 200,
+            "response_url": "https://www.elcolombiano.com/megasitemap/7.xml",
+            "status": "retrieved",
+            "sha256": "5bfd1bf3d327b634e58260fcd8002fda56535adc8c54748851beac392d9fd7af",
+            "bytes": 10484696
+          },
+          {
+            "url": "https://www.elcolombiano.com/megasitemap/8.xml",
+            "retrieved_at": "2026-11-17T10:43:10.354186+00:00",
+            "source": "elcolombiano",
+            "http_status": 200,
+            "response_url": "https://www.elcolombiano.com/megasitemap/8.xml",
+            "status": "retrieved",
+            "sha256": "891657b3a3802f10cf2937ee8044708f10799e400484612b19a4e93ef9bef86e",
+            "bytes": 10485089
+          },
+          {
+            "url": "https://www.elcolombiano.com/megasitemap/9.xml",
+            "retrieved_at": "2026-11-17T10:43:14.173878+00:00",
+            "source": "elcolombiano",
+            "http_status": 200,
+            "response_url": "https://www.elcolombiano.com/megasitemap/9.xml",
+            "status": "retrieved",
+            "sha256": "e09fa754dff5c31d52b4b4fcd0210a8c327dc89af555432d037c44e4d8ab7ef3",
+            "bytes": 10485189
+          },
+          {
+            "url": "https://www.elcolombiano.com/megasitemap/10.xml",
+            "retrieved_at": "2026-11-17T10:43:17.915298+00:00",
+            "source": "elcolombiano",
+            "http_status": 200,
+            "response_url": "https://www.elcolombiano.com/megasitemap/10.xml",
+            "status": "retrieved",
+            "sha256": "4f8feb96d38ec96769dbfabb1db9197e2d6421be17b6dae50435e581cd130955",
+            "bytes": 10480166
+          },
+          {
+            "url": "https://www.elcolombiano.com/megasitemap/11.xml",
+            "retrieved_at": "2026-11-17T10:43:21.868586+00:00",
+            "source": "elcolombiano",
+            "http_status": 200,
+            "response_url": "https://www.elcolombiano.com/megasitemap/11.xml",
+            "status": "retrieved",
+            "sha256": "2b4e362c653a11a371f810ccddd1ac279a4a3d53b5b1f71a3b73b2d860608e9f",
+            "bytes": 10485573
+          },
+          {
+            "url": "https://www.elcolombiano.com/megasitemap/12.xml",
+            "retrieved_at": "2026-11-17T10:43:25.685377+00:00",
+            "source": "elcolombiano",
+            "http_status": 200,
+            "response_url": "https://www.elcolombiano.com/megasitemap/12.xml",
+            "status": "retrieved",
+            "sha256": "ff7eafb5178f18908a4be6f7cb7d0adfdf471a4b0deeb9d1e5de6fb252800de3",
+            "bytes": 10484622
+          },
+          {
+            "url": "https://www.elcolombiano.com/megasitemap/13.xml",
+            "retrieved_at": "2026-11-17T10:43:29.636508+00:00",
+            "source": "elcolombiano",
+            "http_status": 200,
+            "response_url": "https://www.elcolombiano.com/megasitemap/13.xml",
+            "status": "retrieved",
+            "sha256": "21f99f8215996c25a0ebc8b9a4ca790deaf0e70887fb71aafdf145d6455ff92c",
+            "bytes": 10485340
+          },
+          {
+            "url": "https://www.elcolombiano.com/megasitemap/14.xml",
+            "retrieved_at": "2026-11-17T10:43:33.419802+00:00",
+            "source": "elcolombiano",
+            "http_status": 200,
+            "response_url": "https://www.elcolombiano.com/megasitemap/14.xml",
+            "status": "retrieved",
+            "sha256": "e1ac4111f05603d76f082d124539193b00dc9a73ced6136c583befbce98e6cb7",
+            "bytes": 10485435
+          },
+          {
+            "url": "https://www.elcolombiano.com/megasitemap/15.xml",
+            "retrieved_at": "2026-11-17T10:43:37.284708+00:00",
+            "source": "elcolombiano",
+            "http_status": 200,
+            "response_url": "https://www.elcolombiano.com/megasitemap/15.xml",
+            "status": "retrieved",
+            "sha256": "619f76c9e8ad3efd99c077cefc51a80afef0033b8a7f9aa435d97cd5339c84e1",
+            "bytes": 10485394
+          },
+          {
+            "url": "https://www.elcolombiano.com/megasitemap/16.xml",
+            "retrieved_at": "2026-11-17T10:43:41.011663+00:00",
+            "source": "elcolombiano",
+            "http_status": 200,
+            "response_url": "https://www.elcolombiano.com/megasitemap/16.xml",
+            "status": "retrieved",
+            "sha256": "3486d3c39e841130ecc51e9af782eb5108f3d0d2950a24859681d7d775dd9dff",
+            "bytes": 10484596
+          },
+          {
+            "url": "https://www.elcolombiano.com/megasitemap/17.xml",
+            "retrieved_at": "2026-11-17T10:43:44.963715+00:00",
+            "source": "elcolombiano",
+            "http_status": 200,
+            "response_url": "https://www.elcolombiano.com/megasitemap/17.xml",
+            "status": "retrieved",
+            "sha256": "d4472ef4a1ec5b225b79ff336e7e74d81a8daac22f357da36d9537e06c31cc8b",
+            "bytes": 10485682
+          },
+          {
+            "url": "https://www.elcolombiano.com/megasitemap/18.xml",
+            "retrieved_at": "2026-11-17T10:43:48.839155+00:00",
+            "source": "elcolombiano",
+            "http_status": 200,
+            "response_url": "https://www.elcolombiano.com/megasitemap/18.xml",
+            "status": "retrieved",
+            "sha256": "d1dc90582fb2667414576def750774d5a44aba7ae49bb967bf2026dc58146371",
+            "bytes": 10485569
+          },
+          {
+            "url": "https://www.elcolombiano.com/megasitemap/19.xml",
+            "retrieved_at": "2026-11-17T10:43:52.724830+00:00",
+            "source": "elcolombiano",
+            "http_status": 200,
+            "response_url": "https://www.elcolombiano.com/megasitemap/19.xml",
+            "status": "retrieved",
+            "sha256": "58b20b19a65d7b03afbb23788ae8d59846d316b41ffd30b9a8dd1048cd27e73e",
+            "bytes": 10484931
+          },
+          {
+            "url": "https://www.elcolombiano.com/megasitemap/20.xml",
+            "retrieved_at": "2026-11-17T10:43:56.692873+00:00",
+            "source": "elcolombiano",
+            "http_status": 200,
+            "response_url": "https://www.elcolombiano.com/megasitemap/20.xml",
+            "status": "retrieved",
+            "sha256": "347d9356c9acbe664b59c60184594019d5638e6e2d81af375be5551ec6214e1d",
+            "bytes": 10485032
+          },
+          {
+            "url": "https://www.elcolombiano.com/megasitemap/21.xml",
+            "retrieved_at": "2026-11-17T10:44:00.570183+00:00",
+            "source": "elcolombiano",
+            "http_status": 200,
+            "response_url": "https://www.elcolombiano.com/megasitemap/21.xml",
+            "status": "retrieved",
+            "sha256": "6d56fb874e4907683b548eaee485337f574033abdb45c67f8a23547bf5533f8d",
+            "bytes": 10485684
+          },
+          {
+            "url": "https://www.elcolombiano.com/megasitemap/22.xml",
+            "retrieved_at": "2026-11-17T10:44:04.476899+00:00",
+            "source": "elcolombiano",
+            "http_status": 200,
+            "response_url": "https://www.elcolombiano.com/megasitemap/22.xml",
+            "status": "retrieved",
+            "sha256": "ffb9d53e2f22e1bedfa8ceeb97dd1480b6336b08878f80035400bbadbfd9fdca",
+            "bytes": 10485724
+          },
+          {
+            "url": "https://www.elcolombiano.com/megasitemap/23.xml",
+            "retrieved_at": "2026-11-17T10:44:08.275141+00:00",
+            "source": "elcolombiano",
+            "http_status": 200,
+            "response_url": "https://www.elcolombiano.com/megasitemap/23.xml",
+            "status": "retrieved",
+            "sha256": "9c681efcfca51c08482537491cc461a8ac542fa41394d2e5c9f72b1d9f5ce4a2",
+            "bytes": 10485060
+          },
+          {
+            "url": "https://www.elcolombiano.com/megasitemap/24.xml",
+            "retrieved_at": "2026-11-17T10:44:12.020916+00:00",
+            "source": "elcolombiano",
+            "http_status": 200,
+            "response_url": "https://www.elcolombiano.com/megasitemap/24.xml",
+            "status": "retrieved",
+            "sha256": "9e27ec6e94754423e5f6f42ec8aac3a58682f78b0940658f40b202ae7512e118",
+            "bytes": 10484765
+          },
+          {
+            "url": "https://www.elcolombiano.com/megasitemap/25.xml",
+            "retrieved_at": "2026-11-17T10:44:15.902863+00:00",
+            "source": "elcolombiano",
+            "http_status": 200,
+            "response_url": "https://www.elcolombiano.com/megasitemap/25.xml",
+            "status": "retrieved",
+            "sha256": "bc9639c71592cafa406f8c8b10bf63d9a98bfb6651dbadc41cd9521a3c8b4a2d",
+            "bytes": 10485657
+          },
+          {
+            "url": "https://www.elcolombiano.com/megasitemap/26.xml",
+            "retrieved_at": "2026-11-17T10:44:19.852285+00:00",
+            "source": "elcolombiano",
+            "http_status": 200,
+            "response_url": "https://www.elcolombiano.com/megasitemap/26.xml",
+            "status": "retrieved",
+            "sha256": "2860b7344d8e438aa7a17786e7bb3e2d3b892c478e3083b029efc4e375e70f67",
+            "bytes": 10485403
+          },
+          {
+            "url": "https://www.elcolombiano.com/megasitemap/27.xml",
+            "retrieved_at": "2026-11-17T10:44:23.669871+00:00",
+            "source": "elcolombiano",
+            "http_status": 200,
+            "response_url": "https://www.elcolombiano.com/megasitemap/27.xml",
+            "status": "retrieved",
+            "sha256": "7f3d609167331ad07db4c0b2140be2fa2e1f50093175bc95c5d9194b2ab2dc4d",
+            "bytes": 10484826
+          },
+          {
+            "url": "https://www.elcolombiano.com/megasitemap/28.xml",
+            "retrieved_at": "2026-11-17T10:44:27.519126+00:00",
+            "source": "elcolombiano",
+            "http_status": 200,
+            "response_url": "https://www.elcolombiano.com/megasitemap/28.xml",
+            "status": "retrieved",
+            "sha256": "46863946c91a10dedb29a3707a46a075307543fd9a4582be439166d26ad394c2",
+            "bytes": 10485353
+          },
+          {
+            "url": "https://www.elcolombiano.com/megasitemap/29.xml",
+            "retrieved_at": "2026-11-17T10:44:31.345814+00:00",
+            "source": "elcolombiano",
+            "http_status": 200,
+            "response_url": "https://www.elcolombiano.com/megasitemap/29.xml",
+            "status": "retrieved",
+            "sha256": "4a4ce76ddc76237fec553edbc9c49efdaac3ab2c38722cf74aad009b9689fa14",
+            "bytes": 10485650
+          },
+          {
+            "url": "https://www.elcolombiano.com/megasitemap/30.xml",
+            "retrieved_at": "2026-11-17T10:44:35.135149+00:00",
+            "source": "elcolombiano",
+            "http_status": 200,
+            "response_url": "https://www.elcolombiano.com/megasitemap/30.xml",
+            "status": "retrieved",
+            "sha256": "4a5c6f7fc01678b9418c5592bb964a441b4512e027cb49c8f80a6b8afa4fe9b7",
+            "bytes": 10484657
+          },
+          {
+            "url": "https://www.elcolombiano.com/megasitemap/31.xml",
+            "retrieved_at": "2026-11-17T10:44:38.962742+00:00",
+            "source": "elcolombiano",
+            "http_status": 200,
+            "response_url": "https://www.elcolombiano.com/megasitemap/31.xml",
+            "status": "retrieved",
+            "sha256": "97905ee33aa7836e851efab7407ed742b2ae9a29a9e1d65f4eedddcc10fb896c",
+            "bytes": 10485085
+          },
+          {
+            "url": "https://www.elcolombiano.com/megasitemap/32.xml",
+            "retrieved_at": "2026-11-17T10:44:42.713459+00:00",
+            "source": "elcolombiano",
+            "http_status": 200,
+            "response_url": "https://www.elcolombiano.com/megasitemap/32.xml",
+            "status": "retrieved",
+            "sha256": "47ee04822d784b0abdf00ea8bf6c70bb36fa7476d63359127b11c5f2599e4959",
+            "bytes": 10485407
+          },
+          {
+            "url": "https://www.elcolombiano.com/megasitemap/33.xml",
+            "retrieved_at": "2026-11-17T10:44:46.405774+00:00",
+            "source": "elcolombiano",
+            "http_status": 200,
+            "response_url": "https://www.elcolombiano.com/megasitemap/33.xml",
+            "status": "retrieved",
+            "sha256": "cdd4229a344a854ae22b54b1a871a95d741c25b2df4c29572d3bc308c43c887e",
+            "bytes": 10484799
+          },
+          {
+            "url": "https://www.elcolombiano.com/megasitemap/34.xml",
+            "retrieved_at": "2026-11-17T10:44:50.173068+00:00",
+            "source": "elcolombiano",
+            "http_status": 200,
+            "response_url": "https://www.elcolombiano.com/megasitemap/34.xml",
+            "status": "retrieved",
+            "sha256": "4c66f726803aec0257cb14b8c16013a190b1285c0832986391730405ef1421f1",
+            "bytes": 10484839
+          },
+          {
+            "url": "https://www.elcolombiano.com/megasitemap/35.xml",
+            "retrieved_at": "2026-11-17T10:44:53.931596+00:00",
+            "source": "elcolombiano",
+            "http_status": 200,
+            "response_url": "https://www.elcolombiano.com/megasitemap/35.xml",
+            "status": "retrieved",
+            "sha256": "70876f99df68656ea63ce0ace5961e773929a138fdb271546e77eaad6147c347",
+            "bytes": 10484815
+          },
+          {
+            "url": "https://www.elcolombiano.com/megasitemap/36.xml",
+            "retrieved_at": "2026-11-17T10:44:58.039866+00:00",
+            "source": "elcolombiano",
+            "http_status": 200,
+            "response_url": "https://www.elcolombiano.com/megasitemap/36.xml",
+            "status": "retrieved",
+            "sha256": "7a2251780806dfdfc14fe3e25ef8fedd7c9e67b97bd99aeb56df582b58ec14c0",
+            "bytes": 10485752
+          },
+          {
+            "url": "https://www.elcolombiano.com/megasitemap/37.xml",
+            "retrieved_at": "2026-11-17T10:45:23.137100+00:00",
+            "source": "elcolombiano",
+            "http_status": 200,
+            "response_url": "https://www.elcolombiano.com/megasitemap/37.xml",
+            "status": "retrieved",
+            "sha256": "1eb95084658ff5fba9f87e26c4c5028b1f67a970495eac41c153497b77e1bfcf",
+            "bytes": 10484611
+          },
+          {
+            "url": "https://www.elcolombiano.com/megasitemap/38.xml",
+            "retrieved_at": "2026-11-17T10:45:27.014208+00:00",
+            "source": "elcolombiano",
+            "http_status": 200,
+            "response_url": "https://www.elcolombiano.com/megasitemap/38.xml",
+            "status": "retrieved",
+            "sha256": "f0e5a611e484bc3333c01eb1f48bf3da24ab318f5a2860f366ee2f7645663e76",
+            "bytes": 10485181
+          },
+          {
+            "url": "https://www.elcolombiano.com/megasitemap/39.xml",
+            "retrieved_at": "2026-11-17T10:45:30.896907+00:00",
+            "source": "elcolombiano",
+            "http_status": 200,
+            "response_url": "https://www.elcolombiano.com/megasitemap/39.xml",
+            "status": "retrieved",
+            "sha256": "642ba3f50bfe13f93707bda1547885085f7f01f35c0fc101650b753cbb4147a3",
+            "bytes": 10484885
+          },
+          {
+            "url": "https://www.elcolombiano.com/megasitemap/40.xml",
+            "retrieved_at": "2026-11-17T10:45:34.779857+00:00",
+            "source": "elcolombiano",
+            "http_status": 200,
+            "response_url": "https://www.elcolombiano.com/megasitemap/40.xml",
+            "status": "retrieved",
+            "sha256": "8c91b8eca9872831b8281992adaa783d892e9c7d68265118280cbc954f6695ac",
+            "bytes": 10484171
+          },
+          {
+            "url": "https://www.elcolombiano.com/megasitemap/41.xml",
+            "retrieved_at": "2026-11-17T10:45:38.733092+00:00",
+            "source": "elcolombiano",
+            "http_status": 200,
+            "response_url": "https://www.elcolombiano.com/megasitemap/41.xml",
+            "status": "retrieved",
+            "sha256": "c1023b89525e1142072fc761f58957a529cf7c71bcf112ce575fb8fff88522d6",
+            "bytes": 10481827
+          },
+          {
+            "url": "https://www.elcolombiano.com/megasitemap/42.xml",
+            "retrieved_at": "2026-11-17T10:45:42.607317+00:00",
+            "source": "elcolombiano",
+            "http_status": 200,
+            "response_url": "https://www.elcolombiano.com/megasitemap/42.xml",
+            "status": "retrieved",
+            "sha256": "cae32a8f072a68e3f1fc9f3d4e2f90c6f8c74b4c480c6dd20e038ee77c6dc3ba",
+            "bytes": 10481617
+          },
+          {
+            "url": "https://www.elcolombiano.com/megasitemap/43.xml",
+            "retrieved_at": "2026-11-17T10:45:46.565644+00:00",
+            "source": "elcolombiano",
+            "http_status": 200,
+            "response_url": "https://www.elcolombiano.com/megasitemap/43.xml",
+            "status": "retrieved",
+            "sha256": "38acbbce7f392bf2848f5e9d48643148fecec1c97e96aeb8be06888bab6416c8",
+            "bytes": 10481543
+          },
+          {
+            "url": "https://www.elcolombiano.com/megasitemap/44.xml",
+            "retrieved_at": "2026-11-17T10:45:50.427018+00:00",
+            "source": "elcolombiano",
+            "http_status": 200,
+            "response_url": "https://www.elcolombiano.com/megasitemap/44.xml",
+            "status": "retrieved",
+            "sha256": "388614deb0b90040366925da67b3bc8775767ad03ab91aa965336c1cddb25c7d",
+            "bytes": 10460980
+          },
+          {
+            "url": "https://www.elcolombiano.com/megasitemap/45.xml",
+            "retrieved_at": "2026-11-17T10:45:54.261376+00:00",
+            "source": "elcolombiano",
+            "http_status": 200,
+            "response_url": "https://www.elcolombiano.com/megasitemap/45.xml",
+            "status": "retrieved",
+            "sha256": "1962ad2922af6b418da39411ea0f7a64fce9ebbd3ee47ff1f7ef80322349b011",
+            "bytes": 2654848
+          }
+        ],
+        "selection": "Export-related URL terms; hints narrow discovery only; explicit article dates required; lastmod never used as publication."
+      }
+    ],
+    "retrieval": {
+      "completed_at": "2026-11-17T11:24:33.064911+00:00",
+      "sources": [
+        "valora",
+        "larepublica",
+        "elcolombiano"
+      ],
+      "recorded_outcomes": 2143,
+      "start": "2020-03-01",
+      "end_exclusive": "2026-11-01",
+      "note": "Completion of the scheduled acquisition; inspect individual failures and unattempted records before claiming source coverage."
+    },
+    "date_rule": "Sitemap hints only narrow discovery; explicit article dates determine inclusion. lastmod is never a publication date."
   }
 }

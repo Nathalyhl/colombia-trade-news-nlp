@@ -1,0 +1,1061 @@
+{
+  "status": "retrospective_comparison",
+  "measure": "100 * annual log change in nominal national FOB USD; errors in log percentage points",
+  "design": "Fixed ARMA(1,1); coverage-controlled ARMAX (log article count and source share); plus lagged tone; plus lagged tone and uncertainty. All news lagged one calendar month; expanding windows; training-only scaling; common successful origins.",
+  "assumed_release_lag_months": 2,
+  "availability_status": "Assumed end-of-month release timing; current revised history; NOT verified real-time availability",
+  "revised_history_allowed": true,
+  "trade_audit": {
+    "observed_months": 309,
+    "first_month": "2001-01",
+    "last_month": "2026-09",
+    "missing_calendar_months": [],
+    "release_dates_missing": 309,
+    "vintage_dates_missing": 309,
+    "measure": "Nominal national goods exports, FOB USD; not real export volume",
+    "note": "No missing values are filled; statistical reference months and release dates remain separate."
+  },
+  "forecasts": [
+    {
+      "target": "2025-10",
+      "origin": "2025-09-30",
+      "training_observations": 64,
+      "first_training_month": "2020-04",
+      "training_means": {
+        "log_articles": 2.3054284060324677,
+        "source_share": 0.3611740226889397,
+        "tone": 0.1564927025081667,
+        "uncertainty": 0.24296540909090905
+      },
+      "training_scales": {
+        "log_articles": 0.44990346053449837,
+        "source_share": 0.20546643058639902,
+        "tone": 0.15559246824122064,
+        "uncertainty": 0.43187461290504
+      },
+      "actual": -0.2320153249581125,
+      "models": {
+        "baseline_arma": {
+          "prediction": -3.9758276238963246,
+          "interval_95": [
+            -41.45187401451348,
+            33.500218766720835
+          ],
+          "aic": 525.3227496505594,
+          "bic": 534.0813686186651,
+          "ljung_box_lag": 12,
+          "ljung_box_pvalue": 0.004255654472012002,
+          "warnings": []
+        },
+        "baseline_coverage": {
+          "prediction": -3.30640823722024,
+          "interval_95": [
+            -40.652017691607455,
+            34.039201217166976
+          ],
+          "aic": 528.558689747824,
+          "bic": 541.6966181999826,
+          "ljung_box_lag": 12,
+          "ljung_box_pvalue": 0.004241011035004929,
+          "warnings": []
+        },
+        "plus_tone": {
+          "prediction": -3.4709563918895974,
+          "interval_95": [
+            -40.895707166190874,
+            33.95379438241169
+          ],
+          "aic": 530.5200699823499,
+          "bic": 545.8476531765349,
+          "ljung_box_lag": 12,
+          "ljung_box_pvalue": 0.003640059828366202,
+          "warnings": []
+        },
+        "plus_tone_uncertainty": {
+          "prediction": -3.856528674869449,
+          "interval_95": [
+            -41.46446002057163,
+            33.751402670832725
+          ],
+          "aic": 531.9657365845692,
+          "bic": 549.4829745207805,
+          "ljung_box_lag": 12,
+          "ljung_box_pvalue": 0.005034748404347735,
+          "warnings": []
+        },
+        "growth_persistence": {
+          "prediction": -4.219179758050373,
+          "definition": "Latest annual log-growth observation available at this origin; diagnostic comparator, no fit"
+        },
+        "seasonal_naive_fob": {
+          "prediction": 0.0,
+          "definition": "Same nominal FOB as twelve months earlier implies zero annual log growth; diagnostic comparator, no fit"
+        }
+      },
+      "training_adf_pvalue": 0.31629999091176564
+    },
+    {
+      "target": "2025-11",
+      "origin": "2025-10-31",
+      "training_observations": 65,
+      "first_training_month": "2020-04",
+      "training_means": {
+        "log_articles": 2.305385968524431,
+        "source_share": 0.3657336143900998,
+        "tone": 0.15833043755931345,
+        "uncertainty": 0.23933905970149252
+      },
+      "training_scales": {
+        "log_articles": 0.4465334828017728,
+        "source_share": 0.20726429894186046,
+        "tone": 0.15514698644058292,
+        "uncertainty": 0.42965077933887647
+      },
+      "actual": -2.642570164256952,
+      "models": {
+        "baseline_arma": {
+          "prediction": -1.5507592081437596,
+          "interval_95": [
+            -38.73722402970307,
+            35.63570561341555
+          ],
+          "aic": 532.4589346968917,
+          "bic": 541.2777051744555,
+          "ljung_box_lag": 12,
+          "ljung_box_pvalue": 0.003524267396023414,
+          "warnings": []
+        },
+        "baseline_coverage": {
+          "prediction": -2.187900941947027,
+          "interval_95": [
+            -39.2546310602366,
+            34.87882917634254
+          ],
+          "aic": 535.5940422143766,
+          "bic": 548.8221979307224,
+          "ljung_box_lag": 12,
+          "ljung_box_pvalue": 0.004026289084726355,
+          "warnings": []
+        },
+        "plus_tone": {
+          "prediction": -2.695247570911918,
+          "interval_95": [
+            -39.83954907551847,
+            34.449053933694636
+          ],
+          "aic": 537.5549734342543,
+          "bic": 552.987821769991,
+          "ljung_box_lag": 12,
+          "ljung_box_pvalue": 0.0034914032633017156,
+          "warnings": []
+        },
+        "plus_tone_uncertainty": {
+          "prediction": -3.7452692233927105,
+          "interval_95": [
+            -41.068351712638936,
+            33.577813265853514
+          ],
+          "aic": 538.9916035699634,
+          "bic": 556.6291445250912,
+          "ljung_box_lag": 12,
+          "ljung_box_pvalue": 0.004717687248892399,
+          "warnings": []
+        },
+        "growth_persistence": {
+          "prediction": 0.669507200126418,
+          "definition": "Latest annual log-growth observation available at this origin; diagnostic comparator, no fit"
+        },
+        "seasonal_naive_fob": {
+          "prediction": 0.0,
+          "definition": "Same nominal FOB as twelve months earlier implies zero annual log growth; diagnostic comparator, no fit"
+        }
+      },
+      "training_adf_pvalue": 0.3064793228494436
+    },
+    {
+      "target": "2025-12",
+      "origin": "2025-11-30",
+      "training_observations": 66,
+      "first_training_month": "2020-04",
+      "training_means": {
+        "log_articles": 2.313988700721074,
+        "source_share": 0.3664105422061623,
+        "tone": 0.15924231372617648,
+        "uncertainty": 0.2430228382352941
+      },
+      "training_scales": {
+        "log_articles": 0.44879659404686456,
+        "source_share": 0.2058092529904248,
+        "tone": 0.15418274835638326,
+        "uncertainty": 0.42754449404407063
+      },
+      "actual": 1.433146641691252,
+      "models": {
+        "baseline_arma": {
+          "prediction": 6.034826442304199,
+          "interval_95": [
+            -31.14461963861998,
+            43.21427252322838
+          ],
+          "aic": 540.2706189007686,
+          "bic": 549.148649721473,
+          "ljung_box_lag": 12,
+          "ljung_box_pvalue": 0.0034635875756184433,
+          "warnings": []
+        },
+        "baseline_coverage": {
+          "prediction": 5.604391127072434,
+          "interval_95": [
+            -31.53719328596012,
+            42.745975540104986
+          ],
+          "aic": 543.8263625433108,
+          "bic": 557.1434087743675,
+          "ljung_box_lag": 12,
+          "ljung_box_pvalue": 0.003372546251313947,
+          "warnings": []
+        },
+        "plus_tone": {
+          "prediction": 5.597523602383199,
+          "interval_95": [
+            -31.55932056298324,
+            42.754367767749635
+          ],
+          "aic": 545.8247955620676,
+          "bic": 561.3613494983003,
+          "ljung_box_lag": 12,
+          "ljung_box_pvalue": 0.0032775168848202417,
+          "warnings": []
+        },
+        "plus_tone_uncertainty": {
+          "prediction": 5.746733034387393,
+          "interval_95": [
+            -31.5976084697347,
+            43.09107453850949
+          ],
+          "aic": 547.1569999544107,
+          "bic": 564.9130615958196,
+          "ljung_box_lag": 12,
+          "ljung_box_pvalue": 0.004768008882889085,
+          "warnings": []
+        },
+        "growth_persistence": {
+          "prediction": 11.173844130227195,
+          "definition": "Latest annual log-growth observation available at this origin; diagnostic comparator, no fit"
+        },
+        "seasonal_naive_fob": {
+          "prediction": 0.0,
+          "definition": "Same nominal FOB as twelve months earlier implies zero annual log growth; diagnostic comparator, no fit"
+        }
+      },
+      "training_adf_pvalue": 0.28850276127806573
+    },
+    {
+      "target": "2026-01",
+      "origin": "2025-12-31",
+      "training_observations": 67,
+      "first_training_month": "2020-04",
+      "training_means": {
+        "log_articles": 2.310589466532071,
+        "source_share": 0.36731142461725313,
+        "tone": 0.1599080077824348,
+        "uncertainty": 0.239500768115942
+      },
+      "training_scales": {
+        "log_articles": 0.4464134874300203,
+        "source_share": 0.20444745195193043,
+        "tone": 0.15315981071646836,
+        "uncertainty": 0.42542759691169796
+      },
+      "actual": 12.431960379061735,
+      "models": {
+        "baseline_arma": {
+          "prediction": 0.16344084724689445,
+          "interval_95": [
+            -36.66813819380478,
+            36.99501988829857
+          ],
+          "aic": 547.6331108942157,
+          "bic": 556.5695369126048,
+          "ljung_box_lag": 12,
+          "ljung_box_pvalue": 0.0029665888382042513,
+          "warnings": []
+        },
+        "baseline_coverage": {
+          "prediction": 0.09455222420200277,
+          "interval_95": [
+            -36.70763564188323,
+            36.89674009028724
+          ],
+          "aic": 551.1678033938807,
+          "bic": 564.5724424214643,
+          "ljung_box_lag": 12,
+          "ljung_box_pvalue": 0.0024303752083194565,
+          "warnings": []
+        },
+        "plus_tone": {
+          "prediction": 0.15504153168609772,
+          "interval_95": [
+            -36.6727472186429,
+            36.98283028201509
+          ],
+          "aic": 553.1636953294969,
+          "bic": 568.8024408616777,
+          "ljung_box_lag": 12,
+          "ljung_box_pvalue": 0.002306379942442896,
+          "warnings": []
+        },
+        "plus_tone_uncertainty": {
+          "prediction": -4.65244190255453,
+          "interval_95": [
+            -41.667721957005945,
+            32.36283815189689
+          ],
+          "aic": 554.4726885377098,
+          "bic": 572.3455405744879,
+          "ljung_box_lag": 12,
+          "ljung_box_pvalue": 0.0035265317920393094,
+          "warnings": []
+        },
+        "growth_persistence": {
+          "prediction": -0.2320153249581125,
+          "definition": "Latest annual log-growth observation available at this origin; diagnostic comparator, no fit"
+        },
+        "seasonal_naive_fob": {
+          "prediction": 0.0,
+          "definition": "Same nominal FOB as twelve months earlier implies zero annual log growth; diagnostic comparator, no fit"
+        }
+      },
+      "training_adf_pvalue": 0.2855651801039386
+    },
+    {
+      "target": "2026-02",
+      "origin": "2026-01-31",
+      "training_observations": 68,
+      "first_training_month": "2020-04",
+      "training_means": {
+        "log_articles": 2.3118366923358753,
+        "source_share": 0.3734926899798638,
+        "tone": 0.16036047150324287,
+        "uncertainty": 0.2620439142857143
+      },
+      "training_scales": {
+        "log_articles": 0.4433344196484874,
+        "source_share": 0.2093752380784279,
+        "tone": 0.1521083175993191,
+        "uncertainty": 0.462026444608956
+      },
+      "actual": 10.93073751986644,
+      "models": {
+        "baseline_arma": {
+          "prediction": -2.766989588523021,
+          "interval_95": [
+            -39.387891521279286,
+            33.85391234423324
+          ],
+          "aic": 554.7316859077436,
+          "bic": 563.725666875941,
+          "ljung_box_lag": 12,
+          "ljung_box_pvalue": 0.003187777883365353,
+          "warnings": []
+        },
+        "baseline_coverage": {
+          "prediction": -2.0079571315197646,
+          "interval_95": [
+            -38.61382250180747,
+            34.597908238767936
+          ],
+          "aic": 558.3132049202413,
+          "bic": 571.8041763725375,
+          "ljung_box_lag": 12,
+          "ljung_box_pvalue": 0.0027466932312294355,
+          "warnings": []
+        },
+        "plus_tone": {
+          "prediction": -1.7573154763587877,
+          "interval_95": [
+            -38.392989228473475,
+            34.87835827575589
+          ],
+          "aic": 560.306415747972,
+          "bic": 576.0458824423175,
+          "ljung_box_lag": 12,
+          "ljung_box_pvalue": 0.002565166627253613,
+          "warnings": []
+        },
+        "plus_tone_uncertainty": {
+          "prediction": -3.691471551266794,
+          "interval_95": [
+            -40.502183228202895,
+            33.11924012566931
+          ],
+          "aic": 561.5402832910639,
+          "bic": 579.5282452274588,
+          "ljung_box_lag": 12,
+          "ljung_box_pvalue": 0.003824273123004211,
+          "warnings": []
+        },
+        "growth_persistence": {
+          "prediction": -2.642570164256952,
+          "definition": "Latest annual log-growth observation available at this origin; diagnostic comparator, no fit"
+        },
+        "seasonal_naive_fob": {
+          "prediction": 0.0,
+          "definition": "Same nominal FOB as twelve months earlier implies zero annual log growth; diagnostic comparator, no fit"
+        }
+      },
+      "training_adf_pvalue": 0.28593835645946386
+    },
+    {
+      "target": "2026-03",
+      "origin": "2026-02-28",
+      "training_observations": 69,
+      "first_training_month": "2020-04",
+      "training_means": {
+        "log_articles": 2.322156209876545,
+        "source_share": 0.3710491309660629,
+        "tone": 0.15624658861339435,
+        "uncertainty": 0.2782827183098591
+      },
+      "training_scales": {
+        "log_articles": 0.44858849007304563,
+        "source_share": 0.20889835442814625,
+        "tone": 0.15490561692444163,
+        "uncertainty": 0.4784566341520008
+      },
+      "actual": 19.249059421779435,
+      "models": {
+        "baseline_arma": {
+          "prediction": -0.7248629010788015,
+          "interval_95": [
+            -37.068304302503165,
+            35.61857850034556
+          ],
+          "aic": 561.8089172279741,
+          "bic": 570.8596367361394,
+          "ljung_box_lag": 12,
+          "ljung_box_pvalue": 0.0029934410037271617,
+          "warnings": []
+        },
+        "baseline_coverage": {
+          "prediction": 0.27953912238624123,
+          "interval_95": [
+            -36.05023332090984,
+            36.60931156568232
+          ],
+          "aic": 565.4351973738723,
+          "bic": 579.0112766361201,
+          "ljung_box_lag": 12,
+          "ljung_box_pvalue": 0.0025714484843350413,
+          "warnings": []
+        },
+        "plus_tone": {
+          "prediction": 0.661752157794346,
+          "interval_95": [
+            -35.703632066318825,
+            37.02713638190752
+          ],
+          "aic": 567.4259647451399,
+          "bic": 583.2647238844291,
+          "ljung_box_lag": 12,
+          "ljung_box_pvalue": 0.0023727656124392614,
+          "warnings": []
+        },
+        "plus_tone_uncertainty": {
+          "prediction": 2.08321185740931,
+          "interval_95": [
+            -34.467840200451484,
+            38.634263915270104
+          ],
+          "aic": 568.5952674448972,
+          "bic": 586.6967064612278,
+          "ljung_box_lag": 12,
+          "ljung_box_pvalue": 0.0034773027849550647,
+          "warnings": []
+        },
+        "growth_persistence": {
+          "prediction": 1.433146641691252,
+          "definition": "Latest annual log-growth observation available at this origin; diagnostic comparator, no fit"
+        },
+        "seasonal_naive_fob": {
+          "prediction": 0.0,
+          "definition": "Same nominal FOB as twelve months earlier implies zero annual log growth; diagnostic comparator, no fit"
+        }
+      },
+      "training_adf_pvalue": 0.27943268711280167
+    },
+    {
+      "target": "2026-04",
+      "origin": "2026-03-31",
+      "training_observations": 70,
+      "first_training_month": "2020-04",
+      "training_means": {
+        "log_articles": 2.330048092487928,
+        "source_share": 0.37243161852617473,
+        "tone": 0.15170120520166666,
+        "uncertainty": 0.2744176805555555
+      },
+      "training_scales": {
+        "log_articles": 0.45039844384745975,
+        "source_share": 0.20776942073936924,
+        "tone": 0.15852246554532695,
+        "uncertainty": 0.47623726291433144
+      },
+      "actual": 10.885315019407926,
+      "models": {
+        "baseline_arma": {
+          "prediction": 7.0593199501902735,
+          "interval_95": [
+            -29.28970679500653,
+            43.408346695387074
+          ],
+          "aic": 569.6683166020898,
+          "bic": 578.774981078154,
+          "ljung_box_lag": 12,
+          "ljung_box_pvalue": 0.004024072335625617,
+          "warnings": []
+        },
+        "baseline_coverage": {
+          "prediction": 6.119235699067899,
+          "interval_95": [
+            -30.182321964709097,
+            42.4207933628449
+          ],
+          "aic": 573.2642311094403,
+          "bic": 586.9242278235366,
+          "ljung_box_lag": 12,
+          "ljung_box_pvalue": 0.004421735848601287,
+          "warnings": []
+        },
+        "plus_tone": {
+          "prediction": 5.999076603468564,
+          "interval_95": [
+            -30.356246274243748,
+            42.35439948118088
+          ],
+          "aic": 575.2373742567819,
+          "bic": 591.1740370898942,
+          "ljung_box_lag": 12,
+          "ljung_box_pvalue": 0.0038622632286786605,
+          "warnings": []
+        },
+        "plus_tone_uncertainty": {
+          "prediction": 6.981559995556512,
+          "interval_95": [
+            -29.54411718194444,
+            43.50723717305746
+          ],
+          "aic": 576.9850568631955,
+          "bic": 595.198385815324,
+          "ljung_box_lag": 12,
+          "ljung_box_pvalue": 0.0056845907090219295,
+          "warnings": []
+        },
+        "growth_persistence": {
+          "prediction": 12.431960379061735,
+          "definition": "Latest annual log-growth observation available at this origin; diagnostic comparator, no fit"
+        },
+        "seasonal_naive_fob": {
+          "prediction": 0.0,
+          "definition": "Same nominal FOB as twelve months earlier implies zero annual log growth; diagnostic comparator, no fit"
+        }
+      },
+      "training_adf_pvalue": 0.26423264411531355
+    },
+    {
+      "target": "2026-05",
+      "origin": "2026-04-30",
+      "training_observations": 71,
+      "first_training_month": "2020-04",
+      "training_means": {
+        "log_articles": 2.3247859288792623,
+        "source_share": 0.3673298155326655,
+        "tone": 0.15161853081373972,
+        "uncertainty": 0.279742506849315
+      },
+      "training_scales": {
+        "log_articles": 0.449525947484793,
+        "source_share": 0.21083366019264466,
+        "tone": 0.15743451410905335,
+        "uncertainty": 0.4751173819498505
+      },
+      "actual": 16.573631173582015,
+      "models": {
+        "baseline_arma": {
+          "prediction": 7.867945776179607,
+          "interval_95": [
+            -28.284739604484326,
+            44.02063115684354
+          ],
+          "aic": 576.6891637560298,
+          "bic": 585.8510015206233,
+          "ljung_box_lag": 12,
+          "ljung_box_pvalue": 0.0034131848078109996,
+          "warnings": []
+        },
+        "baseline_coverage": {
+          "prediction": 7.738580164837656,
+          "interval_95": [
+            -28.34339661871637,
+            43.82055694839168
+          ],
+          "aic": 580.257493212714,
+          "bic": 594.0002498596044,
+          "ljung_box_lag": 12,
+          "ljung_box_pvalue": 0.003937124574203489,
+          "warnings": []
+        },
+        "plus_tone": {
+          "prediction": 7.981164193746141,
+          "interval_95": [
+            -28.144068514682196,
+            44.106396902174474
+          ],
+          "aic": 582.2257863121938,
+          "bic": 598.2590024002326,
+          "ljung_box_lag": 12,
+          "ljung_box_pvalue": 0.003492262531866377,
+          "warnings": []
+        },
+        "plus_tone_uncertainty": {
+          "prediction": 10.031092771219672,
+          "interval_95": [
+            -26.25010252293762,
+            46.31228806537696
+          ],
+          "aic": 583.9661984012387,
+          "bic": 602.2898739304258,
+          "ljung_box_lag": 12,
+          "ljung_box_pvalue": 0.00534776055533467,
+          "warnings": []
+        },
+        "growth_persistence": {
+          "prediction": 10.93073751986644,
+          "definition": "Latest annual log-growth observation available at this origin; diagnostic comparator, no fit"
+        },
+        "seasonal_naive_fob": {
+          "prediction": 0.0,
+          "definition": "Same nominal FOB as twelve months earlier implies zero annual log growth; diagnostic comparator, no fit"
+        }
+      },
+      "training_adf_pvalue": 0.25714839154913
+    },
+    {
+      "target": "2026-06",
+      "origin": "2026-05-31",
+      "training_observations": 72,
+      "first_training_month": "2020-04",
+      "training_means": {
+        "log_articles": 2.3299651758011937,
+        "source_share": 0.36912265586330517,
+        "tone": 0.1482152370959054,
+        "uncertainty": 0.2759622027027026
+      },
+      "training_scales": {
+        "log_articles": 0.44866585466899694,
+        "source_share": 0.20996377670586938,
+        "tone": 0.15904779511579403,
+        "uncertainty": 0.4730002685907751
+      },
+      "actual": 6.891653496461103,
+      "models": {
+        "baseline_arma": {
+          "prediction": 13.658898063747118,
+          "interval_95": [
+            -22.462245739405923,
+            49.780041866900156
+          ],
+          "aic": 584.2181927764587,
+          "bic": 593.4344531492754,
+          "ljung_box_lag": 12,
+          "ljung_box_pvalue": 0.004746970711488968,
+          "warnings": []
+        },
+        "baseline_coverage": {
+          "prediction": 12.90702536139025,
+          "interval_95": [
+            -23.110487440188454,
+            48.92453816296896
+          ],
+          "aic": 587.7693408475329,
+          "bic": 601.5937314067579,
+          "ljung_box_lag": 12,
+          "ljung_box_pvalue": 0.0054081419188645825,
+          "warnings": []
+        },
+        "plus_tone": {
+          "prediction": 12.727302498260299,
+          "interval_95": [
+            -23.340916697280512,
+            48.79552169380111
+          ],
+          "aic": 589.6915872443205,
+          "bic": 605.8200428967498,
+          "ljung_box_lag": 12,
+          "ljung_box_pvalue": 0.004377052689109762,
+          "warnings": []
+        },
+        "plus_tone_uncertainty": {
+          "prediction": 11.727673338175041,
+          "interval_95": [
+            -24.467955043602597,
+            47.923301719952676
+          ],
+          "aic": 591.1871988692232,
+          "bic": 609.6197196148565,
+          "ljung_box_lag": 12,
+          "ljung_box_pvalue": 0.006635736748853961,
+          "warnings": []
+        },
+        "growth_persistence": {
+          "prediction": 19.249059421779435,
+          "definition": "Latest annual log-growth observation available at this origin; diagnostic comparator, no fit"
+        },
+        "seasonal_naive_fob": {
+          "prediction": 0.0,
+          "definition": "Same nominal FOB as twelve months earlier implies zero annual log growth; diagnostic comparator, no fit"
+        }
+      },
+      "training_adf_pvalue": 0.25587562356311094
+    },
+    {
+      "target": "2026-07",
+      "origin": "2026-06-30",
+      "training_observations": 73,
+      "first_training_month": "2020-04",
+      "training_means": {
+        "log_articles": 2.332031062121018,
+        "source_share": 0.36662526287603686,
+        "tone": 0.14529475532953331,
+        "uncertainty": 0.2830876799999999
+      },
+      "training_scales": {
+        "log_articles": 0.446018899535038,
+        "source_share": 0.20966288720175466,
+        "tone": 0.15996899783013266,
+        "uncertainty": 0.4738178520725493
+      },
+      "actual": 4.331462492150351,
+      "models": {
+        "baseline_arma": {
+          "prediction": 9.376676300316307,
+          "interval_95": [
+            -26.446972199584273,
+            45.20032480021688
+          ],
+          "aic": 591.3303280625452,
+          "bic": 600.6002805166904,
+          "ljung_box_lag": 12,
+          "ljung_box_pvalue": 0.006355383749921272,
+          "warnings": []
+        },
+        "baseline_coverage": {
+          "prediction": 10.097704196652032,
+          "interval_95": [
+            -25.624487010909547,
+            45.81989540421361
+          ],
+          "aic": 594.781569266757,
+          "bic": 608.6864979479748,
+          "ljung_box_lag": 12,
+          "ljung_box_pvalue": 0.006144308005733768,
+          "warnings": []
+        },
+        "plus_tone": {
+          "prediction": 9.872572847073883,
+          "interval_95": [
+            -25.928171445138325,
+            45.67331713928609
+          ],
+          "aic": 596.675273582787,
+          "bic": 612.8976903775412,
+          "ljung_box_lag": 12,
+          "ljung_box_pvalue": 0.0045149679009977624,
+          "warnings": []
+        },
+        "plus_tone_uncertainty": {
+          "prediction": 10.747099799788254,
+          "interval_95": [
+            -25.198709047875226,
+            46.69290864745173
+          ],
+          "aic": 598.1467173181921,
+          "bic": 616.6866222264827,
+          "ljung_box_lag": 12,
+          "ljung_box_pvalue": 0.006561792943165332,
+          "warnings": []
+        },
+        "growth_persistence": {
+          "prediction": 10.885315019407926,
+          "definition": "Latest annual log-growth observation available at this origin; diagnostic comparator, no fit"
+        },
+        "seasonal_naive_fob": {
+          "prediction": 0.0,
+          "definition": "Same nominal FOB as twelve months earlier implies zero annual log growth; diagnostic comparator, no fit"
+        }
+      },
+      "training_adf_pvalue": 0.24021677861829144
+    },
+    {
+      "target": "2026-08",
+      "origin": "2026-07-31",
+      "training_observations": 74,
+      "first_training_month": "2020-04",
+      "training_means": {
+        "log_articles": 2.334042583011373,
+        "source_share": 0.3653897630056584,
+        "tone": 0.14551105935544736,
+        "uncertainty": 0.2793628421052631
+      },
+      "training_scales": {
+        "log_articles": 0.4434171707876672,
+        "source_share": 0.20855361205948741,
+        "tone": 0.15892412573832645,
+        "uncertainty": 0.4717943902851965
+      },
+      "actual": 14.29694933981196,
+      "models": {
+        "baseline_arma": {
+          "prediction": 12.261385641668655,
+          "interval_95": [
+            -23.3441808057352,
+            47.866952089072505
+          ],
+          "aic": 598.4664226899637,
+          "bic": 607.789356051109,
+          "ljung_box_lag": 12,
+          "ljung_box_pvalue": 0.005874806896355975,
+          "warnings": []
+        },
+        "baseline_coverage": {
+          "prediction": 13.066436460170074,
+          "interval_95": [
+            -22.427682397009953,
+            48.5605553173501
+          ],
+          "aic": 601.8258273445713,
+          "bic": 615.8102273862893,
+          "ljung_box_lag": 12,
+          "ljung_box_pvalue": 0.005569500369132252,
+          "warnings": []
+        },
+        "plus_tone": {
+          "prediction": 12.76048257933516,
+          "interval_95": [
+            -22.823933546005982,
+            48.344898704676304
+          ],
+          "aic": 603.6834589782211,
+          "bic": 619.9985923602254,
+          "ljung_box_lag": 12,
+          "ljung_box_pvalue": 0.003908009207333949,
+          "warnings": []
+        },
+        "plus_tone_uncertainty": {
+          "prediction": 12.910991627155589,
+          "interval_95": [
+            -22.810833334555454,
+            48.63281658886663
+          ],
+          "aic": 605.1083007581825,
+          "bic": 623.7541674804731,
+          "ljung_box_lag": 12,
+          "ljung_box_pvalue": 0.005949403447719222,
+          "warnings": []
+        },
+        "growth_persistence": {
+          "prediction": 16.573631173582015,
+          "definition": "Latest annual log-growth observation available at this origin; diagnostic comparator, no fit"
+        },
+        "seasonal_naive_fob": {
+          "prediction": 0.0,
+          "definition": "Same nominal FOB as twelve months earlier implies zero annual log growth; diagnostic comparator, no fit"
+        }
+      },
+      "training_adf_pvalue": 0.23880465866664508
+    },
+    {
+      "target": "2026-09",
+      "origin": "2026-08-31",
+      "training_observations": 75,
+      "first_training_month": "2020-04",
+      "training_means": {
+        "log_articles": 2.341969808935465,
+        "source_share": 0.3656949464586874,
+        "tone": 0.14385625626140258,
+        "uncertainty": 0.2757347532467532
+      },
+      "training_scales": {
+        "log_articles": 0.44591614214924274,
+        "source_share": 0.20721202295526409,
+        "tone": 0.15854646861956032,
+        "uncertainty": 0.46978671582124154
+      },
+      "actual": 15.144400382711254,
+      "models": {
+        "baseline_arma": {
+          "prediction": 6.475990776312844,
+          "interval_95": [
+            -28.91283892099211,
+            41.8648204736178
+          ],
+          "aic": 605.7353565816944,
+          "bic": 615.1105782691092,
+          "ljung_box_lag": 12,
+          "ljung_box_pvalue": 0.0047739973820233395,
+          "warnings": []
+        },
+        "baseline_coverage": {
+          "prediction": 6.52121300805582,
+          "interval_95": [
+            -28.7557389756219,
+            41.79816499173354
+          ],
+          "aic": 609.0459169418643,
+          "bic": 623.1087494729865,
+          "ljung_box_lag": 12,
+          "ljung_box_pvalue": 0.004632913696475682,
+          "warnings": []
+        },
+        "plus_tone": {
+          "prediction": 7.003225462047801,
+          "interval_95": [
+            -28.371013694630356,
+            42.37746461872596
+          ],
+          "aic": 610.901224427819,
+          "bic": 627.3078623807947,
+          "ljung_box_lag": 12,
+          "ljung_box_pvalue": 0.0032471016214651108,
+          "warnings": []
+        },
+        "plus_tone_uncertainty": {
+          "prediction": 8.360328720023631,
+          "interval_95": [
+            -27.16452360262101,
+            43.88518104266827
+          ],
+          "aic": 612.224158164239,
+          "bic": 630.9746015390685,
+          "ljung_box_lag": 12,
+          "ljung_box_pvalue": 0.005241563402985767,
+          "warnings": []
+        },
+        "growth_persistence": {
+          "prediction": 6.891653496461103,
+          "definition": "Latest annual log-growth observation available at this origin; diagnostic comparator, no fit"
+        },
+        "seasonal_naive_fob": {
+          "prediction": 0.0,
+          "definition": "Same nominal FOB as twelve months earlier implies zero annual log growth; diagnostic comparator, no fit"
+        }
+      },
+      "training_adf_pvalue": 0.22191237501829764
+    }
+  ],
+  "skipped": [],
+  "metrics": {
+    "baseline_arma": {
+      "n": 12,
+      "mae": 7.53546534711172,
+      "rmse": 9.194415577150785,
+      "mean_error": -4.617807158415368
+    },
+    "baseline_coverage": {
+      "n": 12,
+      "mae": 7.265197823200409,
+      "rmse": 8.909748682465699,
+      "mean_error": -4.530609943680086
+    },
+    "plus_tone": {
+      "n": 12,
+      "mae": 7.128448414625214,
+      "rmse": 8.737548012506764,
+      "mean_error": -4.538259028389435
+    },
+    "plus_tone_uncertainty": {
+      "n": 12,
+      "mae": 7.315103139147705,
+      "rmse": 9.146257435695423,
+      "mean_error": -4.720895882139707
+    },
+    "growth_persistence": {
+      "n": 12,
+      "mae": 8.143613470017375,
+      "rmse": 9.517309540619003,
+      "mean_error": -2.1790533868641937
+    },
+    "seasonal_naive_fob": {
+      "n": 12,
+      "mae": 9.586908446311545,
+      "rmse": 11.353557737780852,
+      "mean_error": -9.1078108647757
+    }
+  },
+  "diagnostic_assessment": {
+    "by_model": {
+      "baseline_arma": {
+        "residual_autocorrelation_rejections_at_005": 12,
+        "evaluated_fits": 12
+      },
+      "baseline_coverage": {
+        "residual_autocorrelation_rejections_at_005": 12,
+        "evaluated_fits": 12
+      },
+      "plus_tone": {
+        "residual_autocorrelation_rejections_at_005": 12,
+        "evaluated_fits": 12
+      },
+      "plus_tone_uncertainty": {
+        "residual_autocorrelation_rejections_at_005": 12,
+        "evaluated_fits": 12
+      }
+    },
+    "training_adf_nonrejections_at_005": 12,
+    "interpretation": "Forecasting validity is not established; retain diagnostics and do not treat a small error reduction as validation."
+  },
+  "note": "No exact BE1340 dynamic-factor replication, no guaranteed improvement, no causal or real-time claim. Inspect failed folds, stationarity, residuals, sample size and source/reporting sensitivity before interpreting errors.",
+  "reporting_candidates_excluded": true,
+  "fixed_press_domains": null,
+  "lead_lag": {
+    "measure": "corr(tone at t, annual nominal FOB log growth at t+h)",
+    "pairs": [
+      {
+        "export_month_minus_news_month": -3,
+        "n": 80,
+        "pearson_correlation": 0.1739150995814579
+      },
+      {
+        "export_month_minus_news_month": -2,
+        "n": 80,
+        "pearson_correlation": 0.2066427241997485
+      },
+      {
+        "export_month_minus_news_month": -1,
+        "n": 80,
+        "pearson_correlation": 0.2716423946221396
+      },
+      {
+        "export_month_minus_news_month": 0,
+        "n": 79,
+        "pearson_correlation": 0.3825346455468177
+      },
+      {
+        "export_month_minus_news_month": 1,
+        "n": 78,
+        "pearson_correlation": 0.3301390830429909
+      },
+      {
+        "export_month_minus_news_month": 2,
+        "n": 77,
+        "pearson_correlation": 0.32802988892889723
+      },
+      {
+        "export_month_minus_news_month": 3,
+        "n": 76,
+        "pearson_correlation": 0.3672904738860612
+      }
+    ],
+    "note": "Negative h refers to earlier export reference periods, positive h to later periods. Descriptive, dependent monthly observations; no causal evidence or selected best lag."
+  }
+}

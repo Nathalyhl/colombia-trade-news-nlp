@@ -1,0 +1,1255 @@
+{
+  "selection_uses_export_outcomes": false,
+  "selection_uses_sentiment_scores": false,
+  "primary_press_domains": [
+    "larepublica.co",
+    "valoraanalitik.com"
+  ],
+  "primary_frame": "Direct publisher-declared sitemap acquisition from two economic-news domains; institutional and legacy Google routes remain complementary.",
+  "status": "coverage_assessment_not_human_or_economic_validation",
+  "rule": "Longest complete calendar run with >=3 eligible press articles per month, >=1 domain every month and >=2 domains in >=95% of months; earliest tie.",
+  "main_window": {
+    "start": "2020-03",
+    "end_inclusive": "2026-10",
+    "months": 80,
+    "minimum_press_articles": 3,
+    "minimum_press_domains": 1,
+    "required_two_domain_month_share": 0.95,
+    "two_domain_months": 78,
+    "single_domain_months": [
+      "2020-11",
+      "2024-12"
+    ]
+  },
+  "strict_two_domain_window": {
+    "start": "2020-12",
+    "end_inclusive": "2024-11",
+    "months": 48,
+    "minimum_press_articles": 3,
+    "minimum_press_domains": 2
+  },
+  "threshold_sensitivity": [
+    {
+      "start": "2020-12",
+      "end_inclusive": "2024-11",
+      "months": 48,
+      "minimum_press_articles": 1,
+      "minimum_press_domains": 2
+    },
+    {
+      "start": "2020-12",
+      "end_inclusive": "2024-11",
+      "months": 48,
+      "minimum_press_articles": 3,
+      "minimum_press_domains": 2
+    },
+    {
+      "start": "2020-12",
+      "end_inclusive": "2024-11",
+      "months": 48,
+      "minimum_press_articles": 5,
+      "minimum_press_domains": 2
+    }
+  ],
+  "monthly": [
+    {
+      "month": "2020-03",
+      "press_articles": 8,
+      "press_domains": 2,
+      "institutional_articles": 1,
+      "complementary_press_articles": 5,
+      "press_source_counts": {
+        "larepublica.co": 4,
+        "valoraanalitik.com": 4
+      },
+      "largest_press_source_share": 0.5,
+      "statistical_reporting_candidates": 1,
+      "unresolved_document_roles": 7,
+      "human_reviewed_articles": 0
+    },
+    {
+      "month": "2020-04",
+      "press_articles": 6,
+      "press_domains": 2,
+      "institutional_articles": 0,
+      "complementary_press_articles": 1,
+      "press_source_counts": {
+        "larepublica.co": 4,
+        "valoraanalitik.com": 2
+      },
+      "largest_press_source_share": 0.6666666666666666,
+      "statistical_reporting_candidates": 4,
+      "unresolved_document_roles": 2,
+      "human_reviewed_articles": 0
+    },
+    {
+      "month": "2020-05",
+      "press_articles": 8,
+      "press_domains": 2,
+      "institutional_articles": 0,
+      "complementary_press_articles": 5,
+      "press_source_counts": {
+        "larepublica.co": 5,
+        "valoraanalitik.com": 3
+      },
+      "largest_press_source_share": 0.625,
+      "statistical_reporting_candidates": 0,
+      "unresolved_document_roles": 8,
+      "human_reviewed_articles": 0
+    },
+    {
+      "month": "2020-06",
+      "press_articles": 7,
+      "press_domains": 2,
+      "institutional_articles": 4,
+      "complementary_press_articles": 3,
+      "press_source_counts": {
+        "larepublica.co": 5,
+        "valoraanalitik.com": 2
+      },
+      "largest_press_source_share": 0.7142857142857143,
+      "statistical_reporting_candidates": 1,
+      "unresolved_document_roles": 5,
+      "human_reviewed_articles": 0
+    },
+    {
+      "month": "2020-07",
+      "press_articles": 12,
+      "press_domains": 2,
+      "institutional_articles": 3,
+      "complementary_press_articles": 0,
+      "press_source_counts": {
+        "larepublica.co": 8,
+        "valoraanalitik.com": 4
+      },
+      "largest_press_source_share": 0.6666666666666666,
+      "statistical_reporting_candidates": 4,
+      "unresolved_document_roles": 8,
+      "human_reviewed_articles": 0
+    },
+    {
+      "month": "2020-08",
+      "press_articles": 9,
+      "press_domains": 2,
+      "institutional_articles": 2,
+      "complementary_press_articles": 0,
+      "press_source_counts": {
+        "larepublica.co": 6,
+        "valoraanalitik.com": 3
+      },
+      "largest_press_source_share": 0.6666666666666666,
+      "statistical_reporting_candidates": 1,
+      "unresolved_document_roles": 7,
+      "human_reviewed_articles": 0
+    },
+    {
+      "month": "2020-09",
+      "press_articles": 6,
+      "press_domains": 2,
+      "institutional_articles": 4,
+      "complementary_press_articles": 0,
+      "press_source_counts": {
+        "larepublica.co": 4,
+        "valoraanalitik.com": 2
+      },
+      "largest_press_source_share": 0.6666666666666666,
+      "statistical_reporting_candidates": 0,
+      "unresolved_document_roles": 6,
+      "human_reviewed_articles": 0
+    },
+    {
+      "month": "2020-10",
+      "press_articles": 11,
+      "press_domains": 2,
+      "institutional_articles": 2,
+      "complementary_press_articles": 0,
+      "press_source_counts": {
+        "larepublica.co": 8,
+        "valoraanalitik.com": 3
+      },
+      "largest_press_source_share": 0.7272727272727273,
+      "statistical_reporting_candidates": 4,
+      "unresolved_document_roles": 7,
+      "human_reviewed_articles": 0
+    },
+    {
+      "month": "2020-11",
+      "press_articles": 5,
+      "press_domains": 1,
+      "institutional_articles": 2,
+      "complementary_press_articles": 0,
+      "press_source_counts": {
+        "larepublica.co": 5
+      },
+      "largest_press_source_share": 1.0,
+      "statistical_reporting_candidates": 0,
+      "unresolved_document_roles": 5,
+      "human_reviewed_articles": 0
+    },
+    {
+      "month": "2020-12",
+      "press_articles": 15,
+      "press_domains": 2,
+      "institutional_articles": 2,
+      "complementary_press_articles": 0,
+      "press_source_counts": {
+        "larepublica.co": 10,
+        "valoraanalitik.com": 5
+      },
+      "largest_press_source_share": 0.6666666666666666,
+      "statistical_reporting_candidates": 3,
+      "unresolved_document_roles": 11,
+      "human_reviewed_articles": 0
+    },
+    {
+      "month": "2021-01",
+      "press_articles": 8,
+      "press_domains": 2,
+      "institutional_articles": 2,
+      "complementary_press_articles": 0,
+      "press_source_counts": {
+        "larepublica.co": 4,
+        "valoraanalitik.com": 4
+      },
+      "largest_press_source_share": 0.5,
+      "statistical_reporting_candidates": 0,
+      "unresolved_document_roles": 8,
+      "human_reviewed_articles": 0
+    },
+    {
+      "month": "2021-02",
+      "press_articles": 14,
+      "press_domains": 2,
+      "institutional_articles": 2,
+      "complementary_press_articles": 0,
+      "press_source_counts": {
+        "larepublica.co": 9,
+        "valoraanalitik.com": 5
+      },
+      "largest_press_source_share": 0.6428571428571429,
+      "statistical_reporting_candidates": 2,
+      "unresolved_document_roles": 12,
+      "human_reviewed_articles": 0
+    },
+    {
+      "month": "2021-03",
+      "press_articles": 12,
+      "press_domains": 2,
+      "institutional_articles": 1,
+      "complementary_press_articles": 0,
+      "press_source_counts": {
+        "larepublica.co": 9,
+        "valoraanalitik.com": 3
+      },
+      "largest_press_source_share": 0.75,
+      "statistical_reporting_candidates": 3,
+      "unresolved_document_roles": 9,
+      "human_reviewed_articles": 0
+    },
+    {
+      "month": "2021-04",
+      "press_articles": 6,
+      "press_domains": 2,
+      "institutional_articles": 2,
+      "complementary_press_articles": 0,
+      "press_source_counts": {
+        "larepublica.co": 3,
+        "valoraanalitik.com": 3
+      },
+      "largest_press_source_share": 0.5,
+      "statistical_reporting_candidates": 5,
+      "unresolved_document_roles": 1,
+      "human_reviewed_articles": 0
+    },
+    {
+      "month": "2021-05",
+      "press_articles": 16,
+      "press_domains": 2,
+      "institutional_articles": 2,
+      "complementary_press_articles": 0,
+      "press_source_counts": {
+        "larepublica.co": 14,
+        "valoraanalitik.com": 2
+      },
+      "largest_press_source_share": 0.875,
+      "statistical_reporting_candidates": 3,
+      "unresolved_document_roles": 13,
+      "human_reviewed_articles": 0
+    },
+    {
+      "month": "2021-06",
+      "press_articles": 7,
+      "press_domains": 2,
+      "institutional_articles": 1,
+      "complementary_press_articles": 0,
+      "press_source_counts": {
+        "larepublica.co": 5,
+        "valoraanalitik.com": 2
+      },
+      "largest_press_source_share": 0.7142857142857143,
+      "statistical_reporting_candidates": 0,
+      "unresolved_document_roles": 7,
+      "human_reviewed_articles": 0
+    },
+    {
+      "month": "2021-07",
+      "press_articles": 8,
+      "press_domains": 2,
+      "institutional_articles": 4,
+      "complementary_press_articles": 0,
+      "press_source_counts": {
+        "larepublica.co": 5,
+        "valoraanalitik.com": 3
+      },
+      "largest_press_source_share": 0.625,
+      "statistical_reporting_candidates": 0,
+      "unresolved_document_roles": 8,
+      "human_reviewed_articles": 0
+    },
+    {
+      "month": "2021-08",
+      "press_articles": 25,
+      "press_domains": 2,
+      "institutional_articles": 7,
+      "complementary_press_articles": 0,
+      "press_source_counts": {
+        "larepublica.co": 21,
+        "valoraanalitik.com": 4
+      },
+      "largest_press_source_share": 0.84,
+      "statistical_reporting_candidates": 6,
+      "unresolved_document_roles": 17,
+      "human_reviewed_articles": 0
+    },
+    {
+      "month": "2021-09",
+      "press_articles": 9,
+      "press_domains": 2,
+      "institutional_articles": 2,
+      "complementary_press_articles": 0,
+      "press_source_counts": {
+        "larepublica.co": 6,
+        "valoraanalitik.com": 3
+      },
+      "largest_press_source_share": 0.6666666666666666,
+      "statistical_reporting_candidates": 0,
+      "unresolved_document_roles": 7,
+      "human_reviewed_articles": 0
+    },
+    {
+      "month": "2021-10",
+      "press_articles": 15,
+      "press_domains": 2,
+      "institutional_articles": 4,
+      "complementary_press_articles": 0,
+      "press_source_counts": {
+        "larepublica.co": 12,
+        "valoraanalitik.com": 3
+      },
+      "largest_press_source_share": 0.8,
+      "statistical_reporting_candidates": 5,
+      "unresolved_document_roles": 10,
+      "human_reviewed_articles": 0
+    },
+    {
+      "month": "2021-11",
+      "press_articles": 12,
+      "press_domains": 2,
+      "institutional_articles": 3,
+      "complementary_press_articles": 0,
+      "press_source_counts": {
+        "larepublica.co": 8,
+        "valoraanalitik.com": 4
+      },
+      "largest_press_source_share": 0.6666666666666666,
+      "statistical_reporting_candidates": 5,
+      "unresolved_document_roles": 6,
+      "human_reviewed_articles": 0
+    },
+    {
+      "month": "2021-12",
+      "press_articles": 6,
+      "press_domains": 2,
+      "institutional_articles": 2,
+      "complementary_press_articles": 0,
+      "press_source_counts": {
+        "larepublica.co": 4,
+        "valoraanalitik.com": 2
+      },
+      "largest_press_source_share": 0.6666666666666666,
+      "statistical_reporting_candidates": 1,
+      "unresolved_document_roles": 5,
+      "human_reviewed_articles": 0
+    },
+    {
+      "month": "2022-01",
+      "press_articles": 11,
+      "press_domains": 2,
+      "institutional_articles": 3,
+      "complementary_press_articles": 0,
+      "press_source_counts": {
+        "larepublica.co": 6,
+        "valoraanalitik.com": 5
+      },
+      "largest_press_source_share": 0.5454545454545454,
+      "statistical_reporting_candidates": 2,
+      "unresolved_document_roles": 9,
+      "human_reviewed_articles": 0
+    },
+    {
+      "month": "2022-02",
+      "press_articles": 11,
+      "press_domains": 2,
+      "institutional_articles": 1,
+      "complementary_press_articles": 0,
+      "press_source_counts": {
+        "larepublica.co": 7,
+        "valoraanalitik.com": 4
+      },
+      "largest_press_source_share": 0.6363636363636364,
+      "statistical_reporting_candidates": 0,
+      "unresolved_document_roles": 11,
+      "human_reviewed_articles": 0
+    },
+    {
+      "month": "2022-03",
+      "press_articles": 14,
+      "press_domains": 2,
+      "institutional_articles": 3,
+      "complementary_press_articles": 0,
+      "press_source_counts": {
+        "larepublica.co": 12,
+        "valoraanalitik.com": 2
+      },
+      "largest_press_source_share": 0.8571428571428571,
+      "statistical_reporting_candidates": 3,
+      "unresolved_document_roles": 10,
+      "human_reviewed_articles": 0
+    },
+    {
+      "month": "2022-04",
+      "press_articles": 13,
+      "press_domains": 2,
+      "institutional_articles": 3,
+      "complementary_press_articles": 0,
+      "press_source_counts": {
+        "larepublica.co": 9,
+        "valoraanalitik.com": 4
+      },
+      "largest_press_source_share": 0.6923076923076923,
+      "statistical_reporting_candidates": 7,
+      "unresolved_document_roles": 6,
+      "human_reviewed_articles": 0
+    },
+    {
+      "month": "2022-05",
+      "press_articles": 17,
+      "press_domains": 2,
+      "institutional_articles": 5,
+      "complementary_press_articles": 0,
+      "press_source_counts": {
+        "larepublica.co": 10,
+        "valoraanalitik.com": 7
+      },
+      "largest_press_source_share": 0.5882352941176471,
+      "statistical_reporting_candidates": 6,
+      "unresolved_document_roles": 11,
+      "human_reviewed_articles": 0
+    },
+    {
+      "month": "2022-06",
+      "press_articles": 7,
+      "press_domains": 2,
+      "institutional_articles": 2,
+      "complementary_press_articles": 0,
+      "press_source_counts": {
+        "larepublica.co": 3,
+        "valoraanalitik.com": 4
+      },
+      "largest_press_source_share": 0.5714285714285714,
+      "statistical_reporting_candidates": 1,
+      "unresolved_document_roles": 6,
+      "human_reviewed_articles": 0
+    },
+    {
+      "month": "2022-07",
+      "press_articles": 15,
+      "press_domains": 2,
+      "institutional_articles": 2,
+      "complementary_press_articles": 0,
+      "press_source_counts": {
+        "larepublica.co": 11,
+        "valoraanalitik.com": 4
+      },
+      "largest_press_source_share": 0.7333333333333333,
+      "statistical_reporting_candidates": 5,
+      "unresolved_document_roles": 10,
+      "human_reviewed_articles": 0
+    },
+    {
+      "month": "2022-08",
+      "press_articles": 14,
+      "press_domains": 2,
+      "institutional_articles": 6,
+      "complementary_press_articles": 0,
+      "press_source_counts": {
+        "larepublica.co": 10,
+        "valoraanalitik.com": 4
+      },
+      "largest_press_source_share": 0.7142857142857143,
+      "statistical_reporting_candidates": 3,
+      "unresolved_document_roles": 11,
+      "human_reviewed_articles": 0
+    },
+    {
+      "month": "2022-09",
+      "press_articles": 19,
+      "press_domains": 2,
+      "institutional_articles": 6,
+      "complementary_press_articles": 0,
+      "press_source_counts": {
+        "larepublica.co": 9,
+        "valoraanalitik.com": 10
+      },
+      "largest_press_source_share": 0.5263157894736842,
+      "statistical_reporting_candidates": 1,
+      "unresolved_document_roles": 17,
+      "human_reviewed_articles": 0
+    },
+    {
+      "month": "2022-10",
+      "press_articles": 11,
+      "press_domains": 2,
+      "institutional_articles": 4,
+      "complementary_press_articles": 0,
+      "press_source_counts": {
+        "larepublica.co": 9,
+        "valoraanalitik.com": 2
+      },
+      "largest_press_source_share": 0.8181818181818182,
+      "statistical_reporting_candidates": 2,
+      "unresolved_document_roles": 9,
+      "human_reviewed_articles": 0
+    },
+    {
+      "month": "2022-11",
+      "press_articles": 6,
+      "press_domains": 2,
+      "institutional_articles": 5,
+      "complementary_press_articles": 0,
+      "press_source_counts": {
+        "larepublica.co": 4,
+        "valoraanalitik.com": 2
+      },
+      "largest_press_source_share": 0.6666666666666666,
+      "statistical_reporting_candidates": 2,
+      "unresolved_document_roles": 4,
+      "human_reviewed_articles": 0
+    },
+    {
+      "month": "2022-12",
+      "press_articles": 24,
+      "press_domains": 2,
+      "institutional_articles": 3,
+      "complementary_press_articles": 0,
+      "press_source_counts": {
+        "larepublica.co": 12,
+        "valoraanalitik.com": 12
+      },
+      "largest_press_source_share": 0.5,
+      "statistical_reporting_candidates": 6,
+      "unresolved_document_roles": 17,
+      "human_reviewed_articles": 0
+    },
+    {
+      "month": "2023-01",
+      "press_articles": 13,
+      "press_domains": 2,
+      "institutional_articles": 5,
+      "complementary_press_articles": 0,
+      "press_source_counts": {
+        "larepublica.co": 9,
+        "valoraanalitik.com": 4
+      },
+      "largest_press_source_share": 0.6923076923076923,
+      "statistical_reporting_candidates": 1,
+      "unresolved_document_roles": 12,
+      "human_reviewed_articles": 0
+    },
+    {
+      "month": "2023-02",
+      "press_articles": 11,
+      "press_domains": 2,
+      "institutional_articles": 3,
+      "complementary_press_articles": 0,
+      "press_source_counts": {
+        "larepublica.co": 10,
+        "valoraanalitik.com": 1
+      },
+      "largest_press_source_share": 0.9090909090909091,
+      "statistical_reporting_candidates": 2,
+      "unresolved_document_roles": 9,
+      "human_reviewed_articles": 0
+    },
+    {
+      "month": "2023-03",
+      "press_articles": 7,
+      "press_domains": 2,
+      "institutional_articles": 3,
+      "complementary_press_articles": 0,
+      "press_source_counts": {
+        "larepublica.co": 6,
+        "valoraanalitik.com": 1
+      },
+      "largest_press_source_share": 0.8571428571428571,
+      "statistical_reporting_candidates": 0,
+      "unresolved_document_roles": 7,
+      "human_reviewed_articles": 0
+    },
+    {
+      "month": "2023-04",
+      "press_articles": 15,
+      "press_domains": 2,
+      "institutional_articles": 5,
+      "complementary_press_articles": 0,
+      "press_source_counts": {
+        "larepublica.co": 9,
+        "valoraanalitik.com": 6
+      },
+      "largest_press_source_share": 0.6,
+      "statistical_reporting_candidates": 1,
+      "unresolved_document_roles": 14,
+      "human_reviewed_articles": 0
+    },
+    {
+      "month": "2023-05",
+      "press_articles": 13,
+      "press_domains": 2,
+      "institutional_articles": 4,
+      "complementary_press_articles": 0,
+      "press_source_counts": {
+        "larepublica.co": 6,
+        "valoraanalitik.com": 7
+      },
+      "largest_press_source_share": 0.5384615384615384,
+      "statistical_reporting_candidates": 1,
+      "unresolved_document_roles": 11,
+      "human_reviewed_articles": 0
+    },
+    {
+      "month": "2023-06",
+      "press_articles": 7,
+      "press_domains": 2,
+      "institutional_articles": 5,
+      "complementary_press_articles": 0,
+      "press_source_counts": {
+        "larepublica.co": 2,
+        "valoraanalitik.com": 5
+      },
+      "largest_press_source_share": 0.7142857142857143,
+      "statistical_reporting_candidates": 0,
+      "unresolved_document_roles": 7,
+      "human_reviewed_articles": 0
+    },
+    {
+      "month": "2023-07",
+      "press_articles": 11,
+      "press_domains": 2,
+      "institutional_articles": 2,
+      "complementary_press_articles": 0,
+      "press_source_counts": {
+        "larepublica.co": 5,
+        "valoraanalitik.com": 6
+      },
+      "largest_press_source_share": 0.5454545454545454,
+      "statistical_reporting_candidates": 3,
+      "unresolved_document_roles": 8,
+      "human_reviewed_articles": 0
+    },
+    {
+      "month": "2023-08",
+      "press_articles": 7,
+      "press_domains": 2,
+      "institutional_articles": 4,
+      "complementary_press_articles": 0,
+      "press_source_counts": {
+        "larepublica.co": 2,
+        "valoraanalitik.com": 5
+      },
+      "largest_press_source_share": 0.7142857142857143,
+      "statistical_reporting_candidates": 1,
+      "unresolved_document_roles": 6,
+      "human_reviewed_articles": 0
+    },
+    {
+      "month": "2023-09",
+      "press_articles": 17,
+      "press_domains": 2,
+      "institutional_articles": 3,
+      "complementary_press_articles": 0,
+      "press_source_counts": {
+        "larepublica.co": 7,
+        "valoraanalitik.com": 10
+      },
+      "largest_press_source_share": 0.5882352941176471,
+      "statistical_reporting_candidates": 2,
+      "unresolved_document_roles": 14,
+      "human_reviewed_articles": 0
+    },
+    {
+      "month": "2023-10",
+      "press_articles": 15,
+      "press_domains": 2,
+      "institutional_articles": 3,
+      "complementary_press_articles": 0,
+      "press_source_counts": {
+        "larepublica.co": 10,
+        "valoraanalitik.com": 5
+      },
+      "largest_press_source_share": 0.6666666666666666,
+      "statistical_reporting_candidates": 1,
+      "unresolved_document_roles": 11,
+      "human_reviewed_articles": 0
+    },
+    {
+      "month": "2023-11",
+      "press_articles": 7,
+      "press_domains": 2,
+      "institutional_articles": 5,
+      "complementary_press_articles": 0,
+      "press_source_counts": {
+        "larepublica.co": 6,
+        "valoraanalitik.com": 1
+      },
+      "largest_press_source_share": 0.8571428571428571,
+      "statistical_reporting_candidates": 1,
+      "unresolved_document_roles": 6,
+      "human_reviewed_articles": 0
+    },
+    {
+      "month": "2023-12",
+      "press_articles": 8,
+      "press_domains": 2,
+      "institutional_articles": 3,
+      "complementary_press_articles": 0,
+      "press_source_counts": {
+        "larepublica.co": 4,
+        "valoraanalitik.com": 4
+      },
+      "largest_press_source_share": 0.5,
+      "statistical_reporting_candidates": 2,
+      "unresolved_document_roles": 5,
+      "human_reviewed_articles": 0
+    },
+    {
+      "month": "2024-01",
+      "press_articles": 8,
+      "press_domains": 2,
+      "institutional_articles": 3,
+      "complementary_press_articles": 0,
+      "press_source_counts": {
+        "larepublica.co": 5,
+        "valoraanalitik.com": 3
+      },
+      "largest_press_source_share": 0.625,
+      "statistical_reporting_candidates": 1,
+      "unresolved_document_roles": 7,
+      "human_reviewed_articles": 0
+    },
+    {
+      "month": "2024-02",
+      "press_articles": 14,
+      "press_domains": 2,
+      "institutional_articles": 6,
+      "complementary_press_articles": 0,
+      "press_source_counts": {
+        "larepublica.co": 10,
+        "valoraanalitik.com": 4
+      },
+      "largest_press_source_share": 0.7142857142857143,
+      "statistical_reporting_candidates": 3,
+      "unresolved_document_roles": 11,
+      "human_reviewed_articles": 0
+    },
+    {
+      "month": "2024-03",
+      "press_articles": 13,
+      "press_domains": 2,
+      "institutional_articles": 4,
+      "complementary_press_articles": 0,
+      "press_source_counts": {
+        "larepublica.co": 7,
+        "valoraanalitik.com": 6
+      },
+      "largest_press_source_share": 0.5384615384615384,
+      "statistical_reporting_candidates": 4,
+      "unresolved_document_roles": 9,
+      "human_reviewed_articles": 0
+    },
+    {
+      "month": "2024-04",
+      "press_articles": 18,
+      "press_domains": 2,
+      "institutional_articles": 4,
+      "complementary_press_articles": 0,
+      "press_source_counts": {
+        "larepublica.co": 12,
+        "valoraanalitik.com": 6
+      },
+      "largest_press_source_share": 0.6666666666666666,
+      "statistical_reporting_candidates": 3,
+      "unresolved_document_roles": 14,
+      "human_reviewed_articles": 0
+    },
+    {
+      "month": "2024-05",
+      "press_articles": 12,
+      "press_domains": 2,
+      "institutional_articles": 3,
+      "complementary_press_articles": 0,
+      "press_source_counts": {
+        "larepublica.co": 9,
+        "valoraanalitik.com": 3
+      },
+      "largest_press_source_share": 0.75,
+      "statistical_reporting_candidates": 4,
+      "unresolved_document_roles": 8,
+      "human_reviewed_articles": 0
+    },
+    {
+      "month": "2024-06",
+      "press_articles": 18,
+      "press_domains": 2,
+      "institutional_articles": 5,
+      "complementary_press_articles": 0,
+      "press_source_counts": {
+        "larepublica.co": 11,
+        "valoraanalitik.com": 7
+      },
+      "largest_press_source_share": 0.6111111111111112,
+      "statistical_reporting_candidates": 3,
+      "unresolved_document_roles": 10,
+      "human_reviewed_articles": 0
+    },
+    {
+      "month": "2024-07",
+      "press_articles": 12,
+      "press_domains": 2,
+      "institutional_articles": 3,
+      "complementary_press_articles": 0,
+      "press_source_counts": {
+        "larepublica.co": 5,
+        "valoraanalitik.com": 7
+      },
+      "largest_press_source_share": 0.5833333333333334,
+      "statistical_reporting_candidates": 4,
+      "unresolved_document_roles": 8,
+      "human_reviewed_articles": 0
+    },
+    {
+      "month": "2024-08",
+      "press_articles": 19,
+      "press_domains": 2,
+      "institutional_articles": 6,
+      "complementary_press_articles": 0,
+      "press_source_counts": {
+        "larepublica.co": 7,
+        "valoraanalitik.com": 12
+      },
+      "largest_press_source_share": 0.631578947368421,
+      "statistical_reporting_candidates": 4,
+      "unresolved_document_roles": 12,
+      "human_reviewed_articles": 0
+    },
+    {
+      "month": "2024-09",
+      "press_articles": 12,
+      "press_domains": 2,
+      "institutional_articles": 4,
+      "complementary_press_articles": 0,
+      "press_source_counts": {
+        "larepublica.co": 5,
+        "valoraanalitik.com": 7
+      },
+      "largest_press_source_share": 0.5833333333333334,
+      "statistical_reporting_candidates": 2,
+      "unresolved_document_roles": 10,
+      "human_reviewed_articles": 0
+    },
+    {
+      "month": "2024-10",
+      "press_articles": 11,
+      "press_domains": 2,
+      "institutional_articles": 5,
+      "complementary_press_articles": 0,
+      "press_source_counts": {
+        "larepublica.co": 5,
+        "valoraanalitik.com": 6
+      },
+      "largest_press_source_share": 0.5454545454545454,
+      "statistical_reporting_candidates": 1,
+      "unresolved_document_roles": 9,
+      "human_reviewed_articles": 0
+    },
+    {
+      "month": "2024-11",
+      "press_articles": 16,
+      "press_domains": 2,
+      "institutional_articles": 3,
+      "complementary_press_articles": 0,
+      "press_source_counts": {
+        "larepublica.co": 9,
+        "valoraanalitik.com": 7
+      },
+      "largest_press_source_share": 0.5625,
+      "statistical_reporting_candidates": 1,
+      "unresolved_document_roles": 14,
+      "human_reviewed_articles": 0
+    },
+    {
+      "month": "2024-12",
+      "press_articles": 4,
+      "press_domains": 1,
+      "institutional_articles": 3,
+      "complementary_press_articles": 0,
+      "press_source_counts": {
+        "valoraanalitik.com": 4
+      },
+      "largest_press_source_share": 1.0,
+      "statistical_reporting_candidates": 1,
+      "unresolved_document_roles": 3,
+      "human_reviewed_articles": 0
+    },
+    {
+      "month": "2025-01",
+      "press_articles": 23,
+      "press_domains": 2,
+      "institutional_articles": 5,
+      "complementary_press_articles": 0,
+      "press_source_counts": {
+        "larepublica.co": 16,
+        "valoraanalitik.com": 7
+      },
+      "largest_press_source_share": 0.6956521739130435,
+      "statistical_reporting_candidates": 6,
+      "unresolved_document_roles": 14,
+      "human_reviewed_articles": 0
+    },
+    {
+      "month": "2025-02",
+      "press_articles": 13,
+      "press_domains": 2,
+      "institutional_articles": 6,
+      "complementary_press_articles": 0,
+      "press_source_counts": {
+        "larepublica.co": 7,
+        "valoraanalitik.com": 6
+      },
+      "largest_press_source_share": 0.5384615384615384,
+      "statistical_reporting_candidates": 1,
+      "unresolved_document_roles": 12,
+      "human_reviewed_articles": 0
+    },
+    {
+      "month": "2025-03",
+      "press_articles": 12,
+      "press_domains": 2,
+      "institutional_articles": 4,
+      "complementary_press_articles": 0,
+      "press_source_counts": {
+        "larepublica.co": 6,
+        "valoraanalitik.com": 6
+      },
+      "largest_press_source_share": 0.5,
+      "statistical_reporting_candidates": 3,
+      "unresolved_document_roles": 9,
+      "human_reviewed_articles": 0
+    },
+    {
+      "month": "2025-04",
+      "press_articles": 22,
+      "press_domains": 2,
+      "institutional_articles": 3,
+      "complementary_press_articles": 0,
+      "press_source_counts": {
+        "larepublica.co": 15,
+        "valoraanalitik.com": 7
+      },
+      "largest_press_source_share": 0.6818181818181818,
+      "statistical_reporting_candidates": 4,
+      "unresolved_document_roles": 14,
+      "human_reviewed_articles": 0
+    },
+    {
+      "month": "2025-05",
+      "press_articles": 13,
+      "press_domains": 2,
+      "institutional_articles": 3,
+      "complementary_press_articles": 0,
+      "press_source_counts": {
+        "larepublica.co": 5,
+        "valoraanalitik.com": 8
+      },
+      "largest_press_source_share": 0.6153846153846154,
+      "statistical_reporting_candidates": 0,
+      "unresolved_document_roles": 13,
+      "human_reviewed_articles": 0
+    },
+    {
+      "month": "2025-06",
+      "press_articles": 9,
+      "press_domains": 2,
+      "institutional_articles": 4,
+      "complementary_press_articles": 0,
+      "press_source_counts": {
+        "larepublica.co": 6,
+        "valoraanalitik.com": 3
+      },
+      "largest_press_source_share": 0.6666666666666666,
+      "statistical_reporting_candidates": 2,
+      "unresolved_document_roles": 7,
+      "human_reviewed_articles": 0
+    },
+    {
+      "month": "2025-07",
+      "press_articles": 41,
+      "press_domains": 2,
+      "institutional_articles": 5,
+      "complementary_press_articles": 0,
+      "press_source_counts": {
+        "larepublica.co": 29,
+        "valoraanalitik.com": 12
+      },
+      "largest_press_source_share": 0.7073170731707317,
+      "statistical_reporting_candidates": 4,
+      "unresolved_document_roles": 33,
+      "human_reviewed_articles": 0
+    },
+    {
+      "month": "2025-08",
+      "press_articles": 10,
+      "press_domains": 2,
+      "institutional_articles": 3,
+      "complementary_press_articles": 0,
+      "press_source_counts": {
+        "larepublica.co": 8,
+        "valoraanalitik.com": 2
+      },
+      "largest_press_source_share": 0.8,
+      "statistical_reporting_candidates": 3,
+      "unresolved_document_roles": 7,
+      "human_reviewed_articles": 0
+    },
+    {
+      "month": "2025-09",
+      "press_articles": 11,
+      "press_domains": 2,
+      "institutional_articles": 5,
+      "complementary_press_articles": 0,
+      "press_source_counts": {
+        "larepublica.co": 3,
+        "valoraanalitik.com": 8
+      },
+      "largest_press_source_share": 0.7272727272727273,
+      "statistical_reporting_candidates": 2,
+      "unresolved_document_roles": 9,
+      "human_reviewed_articles": 0
+    },
+    {
+      "month": "2025-10",
+      "press_articles": 18,
+      "press_domains": 2,
+      "institutional_articles": 1,
+      "complementary_press_articles": 0,
+      "press_source_counts": {
+        "larepublica.co": 11,
+        "valoraanalitik.com": 7
+      },
+      "largest_press_source_share": 0.6111111111111112,
+      "statistical_reporting_candidates": 1,
+      "unresolved_document_roles": 17,
+      "human_reviewed_articles": 0
+    },
+    {
+      "month": "2025-11",
+      "press_articles": 8,
+      "press_domains": 2,
+      "institutional_articles": 2,
+      "complementary_press_articles": 0,
+      "press_source_counts": {
+        "larepublica.co": 4,
+        "valoraanalitik.com": 4
+      },
+      "largest_press_source_share": 0.5,
+      "statistical_reporting_candidates": 1,
+      "unresolved_document_roles": 5,
+      "human_reviewed_articles": 0
+    },
+    {
+      "month": "2025-12",
+      "press_articles": 13,
+      "press_domains": 2,
+      "institutional_articles": 2,
+      "complementary_press_articles": 0,
+      "press_source_counts": {
+        "larepublica.co": 5,
+        "valoraanalitik.com": 8
+      },
+      "largest_press_source_share": 0.6153846153846154,
+      "statistical_reporting_candidates": 3,
+      "unresolved_document_roles": 10,
+      "human_reviewed_articles": 0
+    },
+    {
+      "month": "2026-01",
+      "press_articles": 21,
+      "press_domains": 2,
+      "institutional_articles": 2,
+      "complementary_press_articles": 10,
+      "press_source_counts": {
+        "larepublica.co": 17,
+        "valoraanalitik.com": 4
+      },
+      "largest_press_source_share": 0.8095238095238095,
+      "statistical_reporting_candidates": 1,
+      "unresolved_document_roles": 16,
+      "human_reviewed_articles": 0
+    },
+    {
+      "month": "2026-02",
+      "press_articles": 20,
+      "press_domains": 2,
+      "institutional_articles": 4,
+      "complementary_press_articles": 10,
+      "press_source_counts": {
+        "larepublica.co": 10,
+        "valoraanalitik.com": 10
+      },
+      "largest_press_source_share": 0.5,
+      "statistical_reporting_candidates": 3,
+      "unresolved_document_roles": 11,
+      "human_reviewed_articles": 0
+    },
+    {
+      "month": "2026-03",
+      "press_articles": 9,
+      "press_domains": 2,
+      "institutional_articles": 4,
+      "complementary_press_articles": 7,
+      "press_source_counts": {
+        "larepublica.co": 7,
+        "valoraanalitik.com": 2
+      },
+      "largest_press_source_share": 0.7777777777777778,
+      "statistical_reporting_candidates": 3,
+      "unresolved_document_roles": 4,
+      "human_reviewed_articles": 0
+    },
+    {
+      "month": "2026-04",
+      "press_articles": 16,
+      "press_domains": 2,
+      "institutional_articles": 8,
+      "complementary_press_articles": 16,
+      "press_source_counts": {
+        "larepublica.co": 8,
+        "valoraanalitik.com": 8
+      },
+      "largest_press_source_share": 0.5,
+      "statistical_reporting_candidates": 2,
+      "unresolved_document_roles": 13,
+      "human_reviewed_articles": 0
+    },
+    {
+      "month": "2026-05",
+      "press_articles": 12,
+      "press_domains": 2,
+      "institutional_articles": 5,
+      "complementary_press_articles": 11,
+      "press_source_counts": {
+        "larepublica.co": 9,
+        "valoraanalitik.com": 3
+      },
+      "largest_press_source_share": 0.75,
+      "statistical_reporting_candidates": 1,
+      "unresolved_document_roles": 9,
+      "human_reviewed_articles": 0
+    },
+    {
+      "month": "2026-06",
+      "press_articles": 12,
+      "press_domains": 2,
+      "institutional_articles": 5,
+      "complementary_press_articles": 2,
+      "press_source_counts": {
+        "larepublica.co": 8,
+        "valoraanalitik.com": 4
+      },
+      "largest_press_source_share": 0.6666666666666666,
+      "statistical_reporting_candidates": 1,
+      "unresolved_document_roles": 9,
+      "human_reviewed_articles": 0
+    },
+    {
+      "month": "2026-07",
+      "press_articles": 20,
+      "press_domains": 2,
+      "institutional_articles": 11,
+      "complementary_press_articles": 23,
+      "press_source_counts": {
+        "larepublica.co": 12,
+        "valoraanalitik.com": 8
+      },
+      "largest_press_source_share": 0.6,
+      "statistical_reporting_candidates": 2,
+      "unresolved_document_roles": 14,
+      "human_reviewed_articles": 0
+    },
+    {
+      "month": "2026-08",
+      "press_articles": 12,
+      "press_domains": 2,
+      "institutional_articles": 1,
+      "complementary_press_articles": 13,
+      "press_source_counts": {
+        "larepublica.co": 7,
+        "valoraanalitik.com": 5
+      },
+      "largest_press_source_share": 0.5833333333333334,
+      "statistical_reporting_candidates": 2,
+      "unresolved_document_roles": 9,
+      "human_reviewed_articles": 0
+    },
+    {
+      "month": "2026-09",
+      "press_articles": 11,
+      "press_domains": 2,
+      "institutional_articles": 3,
+      "complementary_press_articles": 8,
+      "press_source_counts": {
+        "larepublica.co": 4,
+        "valoraanalitik.com": 7
+      },
+      "largest_press_source_share": 0.6363636363636364,
+      "statistical_reporting_candidates": 2,
+      "unresolved_document_roles": 9,
+      "human_reviewed_articles": 0
+    },
+    {
+      "month": "2026-10",
+      "press_articles": 10,
+      "press_domains": 2,
+      "institutional_articles": 4,
+      "complementary_press_articles": 19,
+      "press_source_counts": {
+        "larepublica.co": 4,
+        "valoraanalitik.com": 6
+      },
+      "largest_press_source_share": 0.6,
+      "statistical_reporting_candidates": 1,
+      "unresolved_document_roles": 8,
+      "human_reviewed_articles": 0
+    }
+  ],
+  "interpretation": "Thresholds describe observed sampling support only. Publisher domains do not identify independent ownership; institutional reports stay separate. A long supported window does not prove predictive power."
+}

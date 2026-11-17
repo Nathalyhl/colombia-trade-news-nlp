@@ -1,0 +1,175 @@
+{
+  "status": "insufficient_common_successful_origins",
+  "measure": "100 * annual log change in nominal national FOB USD; errors in log percentage points",
+  "design": "Fixed ARMA(1,1); coverage-controlled ARMAX (log article count and source share); plus lagged tone; plus lagged tone and uncertainty. All news lagged one calendar month; expanding windows; training-only scaling; common successful origins.",
+  "assumed_release_lag_months": 2,
+  "availability_status": "Assumed end-of-month release timing; current revised history; NOT verified real-time availability",
+  "revised_history_allowed": true,
+  "trade_audit": {
+    "observed_months": 309,
+    "first_month": "2001-01",
+    "last_month": "2026-09",
+    "missing_calendar_months": [],
+    "release_dates_missing": 309,
+    "vintage_dates_missing": 309,
+    "measure": "Nominal national goods exports, FOB USD; not real export volume",
+    "note": "No missing values are filled; statistical reference months and release dates remain separate."
+  },
+  "forecasts": [],
+  "skipped": [
+    {
+      "target": "2025-10",
+      "reason": "Insufficient released annual-growth observations in a complete news window"
+    },
+    {
+      "target": "2025-11",
+      "reason": "Insufficient released annual-growth observations in a complete news window"
+    },
+    {
+      "target": "2025-12",
+      "reason": "Insufficient released annual-growth observations in a complete news window"
+    },
+    {
+      "target": "2026-01",
+      "reason": "Insufficient released annual-growth observations in a complete news window"
+    },
+    {
+      "target": "2026-02",
+      "reason": "Insufficient released annual-growth observations in a complete news window"
+    },
+    {
+      "target": "2026-03",
+      "reason": "Insufficient released annual-growth observations in a complete news window"
+    },
+    {
+      "target": "2026-04",
+      "reason": "Insufficient released annual-growth observations in a complete news window"
+    },
+    {
+      "target": "2026-05",
+      "reason": "Insufficient released annual-growth observations in a complete news window"
+    },
+    {
+      "target": "2026-06",
+      "reason": "Insufficient released annual-growth observations in a complete news window"
+    },
+    {
+      "target": "2026-07",
+      "reason": "Insufficient released annual-growth observations in a complete news window"
+    },
+    {
+      "target": "2026-08",
+      "reason": "Insufficient released annual-growth observations in a complete news window"
+    },
+    {
+      "target": "2026-09",
+      "reason": "Insufficient released annual-growth observations in a complete news window"
+    }
+  ],
+  "metrics": {
+    "baseline_arma": {
+      "n": 0,
+      "mae": null,
+      "rmse": null,
+      "mean_error": null
+    },
+    "baseline_coverage": {
+      "n": 0,
+      "mae": null,
+      "rmse": null,
+      "mean_error": null
+    },
+    "plus_tone": {
+      "n": 0,
+      "mae": null,
+      "rmse": null,
+      "mean_error": null
+    },
+    "plus_tone_uncertainty": {
+      "n": 0,
+      "mae": null,
+      "rmse": null,
+      "mean_error": null
+    },
+    "growth_persistence": {
+      "n": 0,
+      "mae": null,
+      "rmse": null,
+      "mean_error": null
+    },
+    "seasonal_naive_fob": {
+      "n": 0,
+      "mae": null,
+      "rmse": null,
+      "mean_error": null
+    }
+  },
+  "diagnostic_assessment": {
+    "by_model": {
+      "baseline_arma": {
+        "residual_autocorrelation_rejections_at_005": 0,
+        "evaluated_fits": 0
+      },
+      "baseline_coverage": {
+        "residual_autocorrelation_rejections_at_005": 0,
+        "evaluated_fits": 0
+      },
+      "plus_tone": {
+        "residual_autocorrelation_rejections_at_005": 0,
+        "evaluated_fits": 0
+      },
+      "plus_tone_uncertainty": {
+        "residual_autocorrelation_rejections_at_005": 0,
+        "evaluated_fits": 0
+      }
+    },
+    "training_adf_nonrejections_at_005": 0,
+    "interpretation": "Forecasting validity is not established; retain diagnostics and do not treat a small error reduction as validation."
+  },
+  "note": "No exact BE1340 dynamic-factor replication, no guaranteed improvement, no causal or real-time claim. Inspect failed folds, stationarity, residuals, sample size and source/reporting sensitivity before interpreting errors.",
+  "reporting_candidates_excluded": false,
+  "fixed_press_domains": [
+    "larepublica.co"
+  ],
+  "lead_lag": {
+    "measure": "corr(tone at t, annual nominal FOB log growth at t+h)",
+    "pairs": [
+      {
+        "export_month_minus_news_month": -3,
+        "n": 79,
+        "pearson_correlation": 0.1921967794471705
+      },
+      {
+        "export_month_minus_news_month": -2,
+        "n": 79,
+        "pearson_correlation": 0.18016950318332706
+      },
+      {
+        "export_month_minus_news_month": -1,
+        "n": 79,
+        "pearson_correlation": 0.21177066371741535
+      },
+      {
+        "export_month_minus_news_month": 0,
+        "n": 78,
+        "pearson_correlation": 0.25318820588886154
+      },
+      {
+        "export_month_minus_news_month": 1,
+        "n": 77,
+        "pearson_correlation": 0.28144705703361217
+      },
+      {
+        "export_month_minus_news_month": 2,
+        "n": 76,
+        "pearson_correlation": 0.31938467367287793
+      },
+      {
+        "export_month_minus_news_month": 3,
+        "n": 75,
+        "pearson_correlation": 0.3510423795574528
+      }
+    ],
+    "note": "Negative h refers to earlier export reference periods, positive h to later periods. Descriptive, dependent monthly observations; no causal evidence or selected best lag."
+  }
+}

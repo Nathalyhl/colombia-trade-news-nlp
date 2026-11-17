@@ -1,0 +1,1112 @@
+{
+  "source_filename": "Totales de control Exportaciones.xlsx",
+  "workbook_sha256": "6250e74cd5d8467b77453282651904823eb10346a50bd3b98c62694b1f37bc4f",
+  "source_status": "Researcher-supplied workbook; publisher and historical vintages not independently authenticated",
+  "observed_months": 309,
+  "first_month": "2001-01",
+  "last_month": "2026-09",
+  "missing_calendar_months": [],
+  "destination_breakdown": false,
+  "release_dates_provided": false,
+  "historical_vintages_provided": false,
+  "measures": {
+    "fob_usd": "FOB US$ (nominal)",
+    "net_weight_kg": "PESO NETO KGM",
+    "records": "REGISTROS"
+  },
+  "sheets": [
+    {
+      "sheet": "TOTAL EXPO MENSUAL 2026",
+      "observations": 9,
+      "headers": {
+        "A4": "FECHA",
+        "B4": "FOB US$",
+        "C4": "PESO NETO KGM",
+        "D4": "REGISTROS"
+      },
+      "totals": [
+        {
+          "label_cell": "A19",
+          "label": "TOTAL AÑO",
+          "columns": {
+            "fob_usd": {
+              "cell": "B19",
+              "cached_value": "42301754795.939995",
+              "formula": "+SUM(B6:B17)",
+              "monthly_sum": "42301754795.9400001",
+              "cached_minus_monthly_sum": "-0.0000051",
+              "agrees_within_001": true
+            },
+            "net_weight_kg": {
+              "cell": "C19",
+              "cached_value": "69553454387.059998",
+              "formula": "+SUM(C6:C17)",
+              "monthly_sum": "69553454387.0600004",
+              "cached_minus_monthly_sum": "-0.0000024",
+              "agrees_within_001": true
+            },
+            "records": {
+              "cell": "D19",
+              "cached_value": "951000",
+              "formula": "+SUM(D6:D17)",
+              "monthly_sum": "951000",
+              "cached_minus_monthly_sum": "0",
+              "agrees_within_001": true
+            }
+          }
+        }
+      ]
+    },
+    {
+      "sheet": "TOTAL EXPO MENSUAL 2025",
+      "observations": 12,
+      "headers": {
+        "A4": "FECHA",
+        "B4": "FOB US$",
+        "C4": "PESO NETO KGM",
+        "D4": "REGISTROS"
+      },
+      "totals": [
+        {
+          "label_cell": "A19",
+          "label": "TOTAL AÑO",
+          "columns": {
+            "fob_usd": {
+              "cell": "B19",
+              "cached_value": "50201498523.410004",
+              "formula": "+SUM(B6:B17)",
+              "monthly_sum": "50201498523.4099997",
+              "cached_minus_monthly_sum": "0.0000043",
+              "agrees_within_001": true
+            },
+            "net_weight_kg": {
+              "cell": "C19",
+              "cached_value": "92706516257.569992",
+              "formula": "+SUM(C6:C17)",
+              "monthly_sum": "92706516257.5700016",
+              "cached_minus_monthly_sum": "-0.0000096",
+              "agrees_within_001": true
+            },
+            "records": {
+              "cell": "D19",
+              "cached_value": "1359564",
+              "formula": "+SUM(D6:D17)",
+              "monthly_sum": "1359564",
+              "cached_minus_monthly_sum": "0",
+              "agrees_within_001": true
+            }
+          }
+        }
+      ]
+    },
+    {
+      "sheet": "TOTAL EXPO MENSUAL 2024",
+      "observations": 12,
+      "headers": {
+        "A4": "FECHA",
+        "B4": "FOB US$",
+        "C4": "PESO NETO KGM",
+        "D4": "REGISTROS"
+      },
+      "totals": [
+        {
+          "label_cell": "A19",
+          "label": "TOTAL AÑO",
+          "columns": {
+            "fob_usd": {
+              "cell": "B19",
+              "cached_value": "49556521184.229996",
+              "formula": "+SUM(B6:B17)",
+              "monthly_sum": "49556521184.2299996",
+              "cached_minus_monthly_sum": "-0.0000036",
+              "agrees_within_001": true
+            },
+            "net_weight_kg": {
+              "cell": "C19",
+              "cached_value": "106818434921.87001",
+              "formula": "+SUM(C6:C17)",
+              "monthly_sum": "106818434921.8700006",
+              "cached_minus_monthly_sum": "0.0000094",
+              "agrees_within_001": true
+            },
+            "records": {
+              "cell": "D19",
+              "cached_value": "1302673",
+              "formula": "+SUM(D6:D17)",
+              "monthly_sum": "1302673",
+              "cached_minus_monthly_sum": "0",
+              "agrees_within_001": true
+            }
+          }
+        }
+      ]
+    },
+    {
+      "sheet": "TOTAL EXPO MENSUAL 2023",
+      "observations": 12,
+      "headers": {
+        "A4": "FECHA",
+        "B4": "FOB US$",
+        "C4": "PESO NETO KGM",
+        "D4": "REGISTROS"
+      },
+      "totals": [
+        {
+          "label_cell": "A19",
+          "label": "TOTAL AÑO",
+          "columns": {
+            "fob_usd": {
+              "cell": "B19",
+              "cached_value": "49769126317.57",
+              "formula": "SUM(B6:B17)",
+              "monthly_sum": "49769126317.5699997",
+              "cached_minus_monthly_sum": "3E-7",
+              "agrees_within_001": true
+            },
+            "net_weight_kg": {
+              "cell": "C19",
+              "cached_value": "103191548966.65999",
+              "formula": "SUM(C6:C17)",
+              "monthly_sum": "103191548966.6600015",
+              "cached_minus_monthly_sum": "-0.0000115",
+              "agrees_within_001": true
+            },
+            "records": {
+              "cell": "D19",
+              "cached_value": "1229094",
+              "formula": "SUM(D6:D17)",
+              "monthly_sum": "1229094",
+              "cached_minus_monthly_sum": "0",
+              "agrees_within_001": true
+            }
+          }
+        }
+      ]
+    },
+    {
+      "sheet": "TOTAL EXPO MENSUAL 2022",
+      "observations": 12,
+      "headers": {
+        "A4": "FECHA",
+        "B4": "FOB US$",
+        "C4": "PESO NETO KGM",
+        "D4": "REGISTROS"
+      },
+      "totals": [
+        {
+          "label_cell": "A19",
+          "label": "TOTAL AÑO",
+          "columns": {
+            "fob_usd": {
+              "cell": "B19",
+              "cached_value": "56910136647.720001",
+              "formula": "SUM(B6:B17)",
+              "monthly_sum": "56910136647.7200006",
+              "cached_minus_monthly_sum": "4E-7",
+              "agrees_within_001": true
+            },
+            "net_weight_kg": {
+              "cell": "C19",
+              "cached_value": "102131628695.81",
+              "formula": "SUM(C6:C17)",
+              "monthly_sum": "102131628695.8100013",
+              "cached_minus_monthly_sum": "-0.0000013",
+              "agrees_within_001": true
+            },
+            "records": {
+              "cell": "D19",
+              "cached_value": "1166783",
+              "formula": "SUM(D6:D17)",
+              "monthly_sum": "1166783",
+              "cached_minus_monthly_sum": "0",
+              "agrees_within_001": true
+            }
+          }
+        }
+      ]
+    },
+    {
+      "sheet": "TOTAL EXPO MENSUAL 2021",
+      "observations": 12,
+      "headers": {
+        "A4": "FECHA",
+        "B4": "FOB US$",
+        "C4": "PESO NETO KGM",
+        "D4": "REGISTROS"
+      },
+      "totals": [
+        {
+          "label_cell": "A19",
+          "label": "TOTAL AÑO",
+          "columns": {
+            "fob_usd": {
+              "cell": "B19",
+              "cached_value": "41389989070.75",
+              "formula": "SUM(B6:B18)",
+              "monthly_sum": "41389989070.7499989",
+              "cached_minus_monthly_sum": "0.0000011",
+              "agrees_within_001": true
+            },
+            "net_weight_kg": {
+              "cell": "C19",
+              "cached_value": "99834808109.849991",
+              "formula": "SUM(C6:C18)",
+              "monthly_sum": "99834808109.8499994",
+              "cached_minus_monthly_sum": "-0.0000084",
+              "agrees_within_001": true
+            },
+            "records": {
+              "cell": "D19",
+              "cached_value": "1116565",
+              "formula": "SUM(D6:D18)",
+              "monthly_sum": "1116565",
+              "cached_minus_monthly_sum": "0",
+              "agrees_within_001": true
+            }
+          }
+        }
+      ]
+    },
+    {
+      "sheet": "TOTAL EXPO MENSUAL 2020",
+      "observations": 12,
+      "headers": {
+        "A4": "FECHA",
+        "B4": "FOB US$",
+        "C4": "PESO NETO KGM",
+        "D4": "REGISTROS"
+      },
+      "totals": [
+        {
+          "label_cell": "A19",
+          "label": "TOTAL AÑO",
+          "columns": {
+            "fob_usd": {
+              "cell": "B19",
+              "cached_value": "31055810659.689995",
+              "formula": "SUM(B6:B18)",
+              "monthly_sum": "31055810659.6900000",
+              "cached_minus_monthly_sum": "-0.0000050",
+              "agrees_within_001": true
+            },
+            "net_weight_kg": {
+              "cell": "C19",
+              "cached_value": "115313710841.2",
+              "formula": "SUM(C6:C18)",
+              "monthly_sum": "115313710841.2000018",
+              "cached_minus_monthly_sum": "-0.0000018",
+              "agrees_within_001": true
+            },
+            "records": {
+              "cell": "D19",
+              "cached_value": "930278",
+              "formula": "SUM(D6:D18)",
+              "monthly_sum": "930278",
+              "cached_minus_monthly_sum": "0",
+              "agrees_within_001": true
+            }
+          }
+        }
+      ]
+    },
+    {
+      "sheet": "TOTAL EXPO MENSUAL 2019",
+      "observations": 12,
+      "headers": {
+        "A4": "FECHA",
+        "B4": "FOB US$",
+        "C4": "PESO NETO KGM",
+        "D4": "REGISTROS"
+      },
+      "totals": [
+        {
+          "label_cell": "A19",
+          "label": "TOTAL AÑO",
+          "columns": {
+            "fob_usd": {
+              "cell": "B19",
+              "cached_value": "39489167863.759995",
+              "formula": "SUM(B6:B18)",
+              "monthly_sum": "39489167863.7600003",
+              "cached_minus_monthly_sum": "-0.0000053",
+              "agrees_within_001": true
+            },
+            "net_weight_kg": {
+              "cell": "C19",
+              "cached_value": "123352750397.44002",
+              "formula": "SUM(C6:C18)",
+              "monthly_sum": "123352750397.4399968",
+              "cached_minus_monthly_sum": "0.0000232",
+              "agrees_within_001": true
+            },
+            "records": {
+              "cell": "D19",
+              "cached_value": "1030033",
+              "formula": "SUM(D6:D18)",
+              "monthly_sum": "1030033",
+              "cached_minus_monthly_sum": "0",
+              "agrees_within_001": true
+            }
+          }
+        }
+      ]
+    },
+    {
+      "sheet": "TOTAL EXPO MENSUAL 2018",
+      "observations": 12,
+      "headers": {
+        "A4": "FECHA",
+        "B4": "FOB US$",
+        "C4": "PESO NETO KGM",
+        "D4": "REGISTROS"
+      },
+      "totals": [
+        {
+          "label_cell": "A19",
+          "label": "TOTAL AÑO",
+          "columns": {
+            "fob_usd": {
+              "cell": "B19",
+              "cached_value": "41904777398.159996",
+              "formula": "SUM(B6:B18)",
+              "monthly_sum": "41904777398.1600004",
+              "cached_minus_monthly_sum": "-0.0000044",
+              "agrees_within_001": true
+            },
+            "net_weight_kg": {
+              "cell": "C19",
+              "cached_value": "134901249142.12",
+              "formula": "SUM(C6:C18)",
+              "monthly_sum": "134901249142.1199996",
+              "cached_minus_monthly_sum": "4E-7",
+              "agrees_within_001": true
+            },
+            "records": {
+              "cell": "D19",
+              "cached_value": "990250",
+              "formula": "SUM(D6:D18)",
+              "monthly_sum": "990250",
+              "cached_minus_monthly_sum": "0",
+              "agrees_within_001": true
+            }
+          }
+        }
+      ]
+    },
+    {
+      "sheet": "TOTAL EXPO MENSUAL 2017",
+      "observations": 12,
+      "headers": {
+        "A4": "FECHA",
+        "B4": "FOB US$",
+        "C4": "PESO NETO KGM",
+        "D4": "REGISTROS"
+      },
+      "totals": [
+        {
+          "label_cell": "A19",
+          "label": "TOTAL AÑO",
+          "columns": {
+            "fob_usd": {
+              "cell": "B19",
+              "cached_value": "38021860310.390007",
+              "formula": "SUM(B6:B18)",
+              "monthly_sum": "38021860310.3900089",
+              "cached_minus_monthly_sum": "-0.0000019",
+              "agrees_within_001": true
+            },
+            "net_weight_kg": {
+              "cell": "C19",
+              "cached_value": "154319935684.21982",
+              "formula": "SUM(C6:C18)",
+              "monthly_sum": "154319935684.2198257",
+              "cached_minus_monthly_sum": "-0.0000057",
+              "agrees_within_001": true
+            },
+            "records": {
+              "cell": "D19",
+              "cached_value": "960747",
+              "formula": "SUM(D6:D18)",
+              "monthly_sum": "960747",
+              "cached_minus_monthly_sum": "0",
+              "agrees_within_001": true
+            }
+          }
+        }
+      ]
+    },
+    {
+      "sheet": "TOTAL EXPO MENSUAL 2016",
+      "observations": 12,
+      "headers": {
+        "A4": "FECHA",
+        "B4": "FOB US$",
+        "C4": "PESO NETO KGM",
+        "D4": "REGISTROS"
+      },
+      "totals": [
+        {
+          "label_cell": "A19",
+          "label": "TOTAL AÑO",
+          "columns": {
+            "fob_usd": {
+              "cell": "B19",
+              "cached_value": "31768340981.279968",
+              "formula": "SUM(B6:B18)",
+              "monthly_sum": "31768340981.2799714",
+              "cached_minus_monthly_sum": "-0.0000034",
+              "agrees_within_001": true
+            },
+            "net_weight_kg": {
+              "cell": "C19",
+              "cached_value": "136989642289.34979",
+              "formula": "SUM(C6:C18)",
+              "monthly_sum": "136989642289.3498089",
+              "cached_minus_monthly_sum": "-0.0000189",
+              "agrees_within_001": true
+            },
+            "records": {
+              "cell": "D19",
+              "cached_value": "895109",
+              "formula": "SUM(D6:D18)",
+              "monthly_sum": "895109",
+              "cached_minus_monthly_sum": "0",
+              "agrees_within_001": true
+            }
+          }
+        }
+      ]
+    },
+    {
+      "sheet": "TOTAL EXPO MENSUAL 2015",
+      "observations": 12,
+      "headers": {
+        "A4": "FECHA",
+        "B4": "FOB US$",
+        "C4": "PESO NETO KGM",
+        "D4": "REGISTROS"
+      },
+      "totals": [
+        {
+          "label_cell": "A19",
+          "label": "TOTAL AÑO",
+          "columns": {
+            "fob_usd": {
+              "cell": "B19",
+              "cached_value": "36017521665.43",
+              "formula": "SUM(B6:B18)",
+              "monthly_sum": "36017521665.4299998",
+              "cached_minus_monthly_sum": "2E-7",
+              "agrees_within_001": true
+            },
+            "net_weight_kg": {
+              "cell": "C19",
+              "cached_value": "131147578184.26999",
+              "formula": "SUM(C6:C18)",
+              "monthly_sum": "131147578184.2699972",
+              "cached_minus_monthly_sum": "-0.0000072",
+              "agrees_within_001": true
+            },
+            "records": {
+              "cell": "D19",
+              "cached_value": "886245",
+              "formula": "SUM(D6:D18)",
+              "monthly_sum": "886245",
+              "cached_minus_monthly_sum": "0",
+              "agrees_within_001": true
+            }
+          }
+        }
+      ]
+    },
+    {
+      "sheet": "TOTAL EXPO MENSUAL 2014",
+      "observations": 12,
+      "headers": {
+        "A4": "FECHA",
+        "B4": "FOB US$",
+        "C4": "PESO NETO KGM",
+        "D4": "REGISTROS"
+      },
+      "totals": [
+        {
+          "label_cell": "A19",
+          "label": "TOTAL AÑO",
+          "columns": {
+            "fob_usd": {
+              "cell": "B19",
+              "cached_value": "54856754566.610008",
+              "formula": "SUM(B6:B18)",
+              "monthly_sum": "54856754566.6099997",
+              "cached_minus_monthly_sum": "0.0000083",
+              "agrees_within_001": true
+            },
+            "net_weight_kg": {
+              "cell": "C19",
+              "cached_value": "146381050656.92001",
+              "formula": "SUM(C6:C18)",
+              "monthly_sum": "146381050656.9200002",
+              "cached_minus_monthly_sum": "0.0000098",
+              "agrees_within_001": true
+            },
+            "records": {
+              "cell": "D19",
+              "cached_value": "902525",
+              "formula": "SUM(D6:D18)",
+              "monthly_sum": "902525",
+              "cached_minus_monthly_sum": "0",
+              "agrees_within_001": true
+            }
+          }
+        }
+      ]
+    },
+    {
+      "sheet": "TOTAL EXPO MENSUAL 2013",
+      "observations": 12,
+      "headers": {
+        "A4": "FECHA",
+        "B4": "FOB US$",
+        "C4": "PESO NETO KGM",
+        "D4": "REGISTROS"
+      },
+      "totals": [
+        {
+          "label_cell": "A19",
+          "label": "TOTAL AÑO",
+          "columns": {
+            "fob_usd": {
+              "cell": "B19",
+              "cached_value": "58826371008.579994",
+              "formula": "SUM(B6:B18)",
+              "monthly_sum": "58826371008.5799999",
+              "cached_minus_monthly_sum": "-0.0000059",
+              "agrees_within_001": true
+            },
+            "net_weight_kg": {
+              "cell": "C19",
+              "cached_value": "131971557974.50999",
+              "formula": "SUM(C6:C18)",
+              "monthly_sum": "131971557974.5100075",
+              "cached_minus_monthly_sum": "-0.0000175",
+              "agrees_within_001": true
+            },
+            "records": {
+              "cell": "D19",
+              "cached_value": "931673",
+              "formula": "SUM(D6:D18)",
+              "monthly_sum": "931673",
+              "cached_minus_monthly_sum": "0",
+              "agrees_within_001": true
+            }
+          }
+        }
+      ]
+    },
+    {
+      "sheet": "TOTAL EXPO MENSUAL 2012",
+      "observations": 12,
+      "headers": {
+        "A4": "FECHA",
+        "B4": "FOB US$",
+        "C4": "PESO NETO KGM",
+        "D4": "REGISTROS"
+      },
+      "totals": [
+        {
+          "label_cell": "A19",
+          "label": "TOTAL AÑO",
+          "columns": {
+            "fob_usd": {
+              "cell": "B19",
+              "cached_value": "60125165917.930008",
+              "formula": "SUM(B6:B18)",
+              "monthly_sum": "60125165917.9300003",
+              "cached_minus_monthly_sum": "0.0000077",
+              "agrees_within_001": true
+            },
+            "net_weight_kg": {
+              "cell": "C19",
+              "cached_value": "129396042392.64",
+              "formula": "SUM(C6:C18)",
+              "monthly_sum": "129396042392.6399992",
+              "cached_minus_monthly_sum": "8E-7",
+              "agrees_within_001": true
+            },
+            "records": {
+              "cell": "D19",
+              "cached_value": "935993",
+              "formula": "SUM(D6:D18)",
+              "monthly_sum": "935993",
+              "cached_minus_monthly_sum": "0",
+              "agrees_within_001": true
+            }
+          }
+        }
+      ]
+    },
+    {
+      "sheet": "TOTAL EXPO MENSUAL 2011",
+      "observations": 12,
+      "headers": {
+        "A4": "FECHA",
+        "B4": "FOB US$",
+        "C4": "PESO NETO KGM",
+        "D4": "REGISTROS"
+      },
+      "totals": [
+        {
+          "label_cell": "A19",
+          "label": "TOTAL AÑO",
+          "columns": {
+            "fob_usd": {
+              "cell": "B19",
+              "cached_value": "56914939110.339958",
+              "formula": "SUM(B6:B18)",
+              "monthly_sum": "56914939110.3399544",
+              "cached_minus_monthly_sum": "0.0000036",
+              "agrees_within_001": true
+            },
+            "net_weight_kg": {
+              "cell": "C19",
+              "cached_value": "130319499021.37001",
+              "formula": "SUM(C6:C18)",
+              "monthly_sum": "130319499021.3700130",
+              "cached_minus_monthly_sum": "-0.0000030",
+              "agrees_within_001": true
+            },
+            "records": {
+              "cell": "D19",
+              "cached_value": "905705",
+              "formula": "SUM(D6:D18)",
+              "monthly_sum": "905705",
+              "cached_minus_monthly_sum": "0",
+              "agrees_within_001": true
+            }
+          }
+        }
+      ]
+    },
+    {
+      "sheet": "TOTAL EXPO MENSUAL 2010",
+      "observations": 12,
+      "headers": {
+        "A4": "FECHA",
+        "B4": "FOB US$",
+        "C4": "PESO NETO KGM",
+        "D4": "REGISTROS"
+      },
+      "totals": [
+        {
+          "label_cell": "A19",
+          "label": "TOTAL AÑO",
+          "columns": {
+            "fob_usd": {
+              "cell": "B19",
+              "cached_value": "39713336400.44001",
+              "formula": "SUM(B6:B18)",
+              "monthly_sum": "39713336400.4400004",
+              "cached_minus_monthly_sum": "0.0000096",
+              "agrees_within_001": true
+            },
+            "net_weight_kg": {
+              "cell": "C19",
+              "cached_value": "112520865522.09",
+              "formula": "SUM(C6:C18)",
+              "monthly_sum": "112520865522.0899979",
+              "cached_minus_monthly_sum": "0.0000021",
+              "agrees_within_001": true
+            },
+            "records": {
+              "cell": "D19",
+              "cached_value": "857803",
+              "formula": "SUM(D6:D18)",
+              "monthly_sum": "857803",
+              "cached_minus_monthly_sum": "0",
+              "agrees_within_001": true
+            }
+          }
+        }
+      ]
+    },
+    {
+      "sheet": "TOTAL EXPO MENSUAL 2009",
+      "observations": 12,
+      "headers": {
+        "A4": "FECHA",
+        "B4": "FOB US$",
+        "C4": "PESO NETO KGM",
+        "D4": "REGISTROS"
+      },
+      "totals": [
+        {
+          "label_cell": "A19",
+          "label": "TOTAL AÑO",
+          "columns": {
+            "fob_usd": {
+              "cell": "B19",
+              "cached_value": "32846326710.190056",
+              "formula": "SUM(B6:B18)",
+              "monthly_sum": "32846326710.1900601",
+              "cached_minus_monthly_sum": "-0.0000041",
+              "agrees_within_001": true
+            },
+            "net_weight_kg": {
+              "cell": "C19",
+              "cached_value": "103446891728.24004",
+              "formula": "SUM(C6:C18)",
+              "monthly_sum": "103446891728.2400289",
+              "cached_minus_monthly_sum": "0.0000111",
+              "agrees_within_001": true
+            },
+            "records": {
+              "cell": "D19",
+              "cached_value": "828606",
+              "formula": "SUM(D6:D18)",
+              "monthly_sum": "828606",
+              "cached_minus_monthly_sum": "0",
+              "agrees_within_001": true
+            }
+          }
+        }
+      ]
+    },
+    {
+      "sheet": "TOTAL EXPO MENSUAL 2008",
+      "observations": 12,
+      "headers": {
+        "A4": "FECHA",
+        "B4": "FOB US$",
+        "C4": "PESO NETO KGM",
+        "D4": "REGISTROS"
+      },
+      "totals": [
+        {
+          "label_cell": "A19",
+          "label": "TOTAL AÑO",
+          "columns": {
+            "fob_usd": {
+              "cell": "B19",
+              "cached_value": "36786375287.39003",
+              "formula": "SUM(B6:B18)",
+              "monthly_sum": "36786375287.3900256",
+              "cached_minus_monthly_sum": "0.0000044",
+              "agrees_within_001": true
+            },
+            "net_weight_kg": {
+              "cell": "C19",
+              "cached_value": "90503379666.820114",
+              "formula": "SUM(C6:C18)",
+              "monthly_sum": "90503379666.8201171",
+              "cached_minus_monthly_sum": "-0.0000031",
+              "agrees_within_001": true
+            },
+            "records": {
+              "cell": "D19",
+              "cached_value": "950473",
+              "formula": "SUM(D6:D18)",
+              "monthly_sum": "950473",
+              "cached_minus_monthly_sum": "0",
+              "agrees_within_001": true
+            }
+          }
+        }
+      ]
+    },
+    {
+      "sheet": "TOTAL EXPO MENSUAL 2007",
+      "observations": 12,
+      "headers": {
+        "A4": "FECHA",
+        "B4": "FOB US$",
+        "C4": "PESO NETO KGM",
+        "D4": "REGISTROS"
+      },
+      "totals": [
+        {
+          "label_cell": "A19",
+          "label": "TOTAL AÑO",
+          "columns": {
+            "fob_usd": {
+              "cell": "B19",
+              "cached_value": "30279238917.5401",
+              "formula": "SUM(B6:B18)",
+              "monthly_sum": "30279238917.5400995",
+              "cached_minus_monthly_sum": "5E-7",
+              "agrees_within_001": true
+            },
+            "net_weight_kg": {
+              "cell": "C19",
+              "cached_value": "97699645796.839905",
+              "formula": "SUM(C6:C18)",
+              "monthly_sum": "97699645796.8398994",
+              "cached_minus_monthly_sum": "0.0000056",
+              "agrees_within_001": true
+            },
+            "records": {
+              "cell": "D19",
+              "cached_value": "1068406",
+              "formula": "SUM(D6:D18)",
+              "monthly_sum": "1068406",
+              "cached_minus_monthly_sum": "0",
+              "agrees_within_001": true
+            }
+          }
+        }
+      ]
+    },
+    {
+      "sheet": "TOTAL EXPO MENSUAL 2006",
+      "observations": 12,
+      "headers": {
+        "A4": "FECHA",
+        "B4": "FOB US$",
+        "C4": "PESO NETO KGM",
+        "D4": "REGISTROS"
+      },
+      "totals": [
+        {
+          "label_cell": "A19",
+          "label": "TOTAL AÑO",
+          "columns": {
+            "fob_usd": {
+              "cell": "B19",
+              "cached_value": "24511970117.770145",
+              "formula": "SUM(B6:B18)",
+              "monthly_sum": "24511970117.7701463",
+              "cached_minus_monthly_sum": "-0.0000013",
+              "agrees_within_001": true
+            },
+            "net_weight_kg": {
+              "cell": "C19",
+              "cached_value": "88429342946.679855",
+              "formula": "SUM(C6:C18)",
+              "monthly_sum": "88429342946.6798697",
+              "cached_minus_monthly_sum": "-0.0000147",
+              "agrees_within_001": true
+            },
+            "records": {
+              "cell": "D19",
+              "cached_value": "986546",
+              "formula": "",
+              "monthly_sum": "986546",
+              "cached_minus_monthly_sum": "0",
+              "agrees_within_001": true
+            }
+          }
+        }
+      ]
+    },
+    {
+      "sheet": "TOTAL EXPO MENSUAL 2005",
+      "observations": 12,
+      "headers": {
+        "A4": "FECHA",
+        "B4": "FOB US$",
+        "C4": "PESO NETO KGM",
+        "D4": "REGISTROS"
+      },
+      "totals": [
+        {
+          "label_cell": "A19",
+          "label": "TOTAL AÑO",
+          "columns": {
+            "fob_usd": {
+              "cell": "B19",
+              "cached_value": "21146086625.600018",
+              "formula": "SUM(B6:B18)",
+              "monthly_sum": "21146086625.6000178",
+              "cached_minus_monthly_sum": "2E-7",
+              "agrees_within_001": true
+            },
+            "net_weight_kg": {
+              "cell": "C19",
+              "cached_value": "82026327893.299973",
+              "formula": "SUM(C6:C18)",
+              "monthly_sum": "82026327893.2999677",
+              "cached_minus_monthly_sum": "0.0000053",
+              "agrees_within_001": true
+            },
+            "records": {
+              "cell": "D19",
+              "cached_value": "886980",
+              "formula": "SUM(D6:D18)",
+              "monthly_sum": "886980",
+              "cached_minus_monthly_sum": "0",
+              "agrees_within_001": true
+            }
+          }
+        }
+      ]
+    },
+    {
+      "sheet": "TOTAL EXPO MENSUAL 2004",
+      "observations": 12,
+      "headers": {
+        "A4": "FECHA",
+        "B4": "FOB US$",
+        "C4": "PESO NETO KGM",
+        "D4": "REGISTROS"
+      },
+      "totals": [
+        {
+          "label_cell": "A19",
+          "label": "TOTAL AÑO",
+          "columns": {
+            "fob_usd": {
+              "cell": "B19",
+              "cached_value": "16788327839.540001",
+              "formula": "SUM(B6:B18)",
+              "monthly_sum": "16788327839.5400001",
+              "cached_minus_monthly_sum": "9E-7",
+              "agrees_within_001": true
+            },
+            "net_weight_kg": {
+              "cell": "C19",
+              "cached_value": "79465666680.220001",
+              "formula": "SUM(C6:C18)",
+              "monthly_sum": "79465666680.2200007",
+              "cached_minus_monthly_sum": "3E-7",
+              "agrees_within_001": true
+            },
+            "records": {
+              "cell": "D19",
+              "cached_value": "631471",
+              "formula": "SUM(D6:D18)",
+              "monthly_sum": "631471",
+              "cached_minus_monthly_sum": "0",
+              "agrees_within_001": true
+            }
+          }
+        }
+      ]
+    },
+    {
+      "sheet": "TOTAL EXPO MENSUAL 2003",
+      "observations": 12,
+      "headers": {
+        "A4": "FECHA",
+        "B4": "FOB US$",
+        "C4": "PESO NETO KGM",
+        "D4": "REGISTROS"
+      },
+      "totals": [
+        {
+          "label_cell": "A19",
+          "label": "TOTAL AÑO",
+          "columns": {
+            "fob_usd": {
+              "cell": "B19",
+              "cached_value": "13128524194",
+              "formula": "SUM(B6:B18)",
+              "monthly_sum": "13128524194",
+              "cached_minus_monthly_sum": "0",
+              "agrees_within_001": true
+            },
+            "net_weight_kg": {
+              "cell": "C19",
+              "cached_value": "78424179673",
+              "formula": "SUM(C6:C18)",
+              "monthly_sum": "78424179673",
+              "cached_minus_monthly_sum": "0",
+              "agrees_within_001": true
+            },
+            "records": {
+              "cell": "D19",
+              "cached_value": "574395",
+              "formula": "SUM(D6:D18)",
+              "monthly_sum": "574395",
+              "cached_minus_monthly_sum": "0",
+              "agrees_within_001": true
+            }
+          }
+        }
+      ]
+    },
+    {
+      "sheet": "TOTAL EXPO MENSUAL 2002",
+      "observations": 12,
+      "headers": {
+        "A4": "FECHA",
+        "B4": "FOB US$",
+        "C4": "PESO NETO KGM",
+        "D4": "REGISTROS"
+      },
+      "totals": [
+        {
+          "label_cell": "A19",
+          "label": "TOTAL AÑO",
+          "columns": {
+            "fob_usd": {
+              "cell": "B19",
+              "cached_value": "11975423892",
+              "formula": "SUM(B6:B18)",
+              "monthly_sum": "11975423892",
+              "cached_minus_monthly_sum": "0",
+              "agrees_within_001": true
+            },
+            "net_weight_kg": {
+              "cell": "C19",
+              "cached_value": "61714816229",
+              "formula": "SUM(C6:C18)",
+              "monthly_sum": "61714816229",
+              "cached_minus_monthly_sum": "0",
+              "agrees_within_001": true
+            },
+            "records": {
+              "cell": "D19",
+              "cached_value": "450074",
+              "formula": "SUM(D6:D17)",
+              "monthly_sum": "450074",
+              "cached_minus_monthly_sum": "0",
+              "agrees_within_001": true
+            }
+          }
+        }
+      ]
+    },
+    {
+      "sheet": "TOTAL EXPO MENSUAL 2001",
+      "observations": 12,
+      "headers": {
+        "A4": "FECHA",
+        "B4": "FOB US$",
+        "C4": "PESO NETO KGM",
+        "D4": "REGISTROS"
+      },
+      "totals": [
+        {
+          "label_cell": "A19",
+          "label": "TOTAL AÑO",
+          "columns": {
+            "fob_usd": {
+              "cell": "B19",
+              "cached_value": "12329896346",
+              "formula": "SUM(B6:B18)",
+              "monthly_sum": "12329896346",
+              "cached_minus_monthly_sum": "0",
+              "agrees_within_001": true
+            },
+            "net_weight_kg": {
+              "cell": "C19",
+              "cached_value": "67856985326",
+              "formula": "SUM(C6:C18)",
+              "monthly_sum": "67856985326",
+              "cached_minus_monthly_sum": "0",
+              "agrees_within_001": true
+            },
+            "records": {
+              "cell": "D19",
+              "cached_value": "460852",
+              "formula": "SUM(D6:D18)",
+              "monthly_sum": "460852",
+              "cached_minus_monthly_sum": "0",
+              "agrees_within_001": true
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "note": "Workbook title ENERO DICIEMBRE does not establish twelve observed months; only populated YYYYMM rows are extracted. No raw workbook or personal document metadata is published."
+}
