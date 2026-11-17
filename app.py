@@ -12,6 +12,7 @@ from trade_news.bank_method import aggregate
 from trade_news.charts import index_chart
 from trade_news.contextual import aggregate_scores, verify_scores
 from trade_news.corpus import REVIEW_FIELDS, build, read_reviews
+from trade_news.coverage import in_primary_press_frame
 from trade_news.destinations import COUNTRIES
 from trade_news.country_review import (assignments, country_coverage, evaluate_countries,
     read_country_reviews, save_country_review, title_hash)
@@ -59,6 +60,65 @@ def monthly_table(records):
     return frame[[key for key in columns if key in frame]].rename(columns=columns)
 
 
+ECONOMIC_NAMES = {"baseline_arma": "Historia de exportaciones · ARMA(1,1)",
+    "baseline_coverage": "Historia + controles de cobertura", "plus_tone": "Historia + cobertura + tono",
+    "plus_tone_uncertainty": "Historia + cobertura + tono + incertidumbre",
+    "growth_persistence": "Persistencia del último crecimiento disponible", "seasonal_naive_fob": "Mismo FOB que un año antes"}
+
+
+def render_economic_results():
+    if not (DATA/"economic_evaluation.json").exists():
+        return
+    report = load_json("economic_evaluation.json")
+    scenario = report["scenarios"][report["primary_scenario"]]
+    st.subheader("¿El tono aporta información sobre las exportaciones?")
+    st.write("El archivo aportado contiene 309 meses de FOB nominal, peso neto y registros: enero de 2001–septiembre de 2026. "
+             "La comparación reserva octubre de 2025–septiembre de 2026 y predice cada mes al cierre del anterior.")
+    st.caption("Escenario retrospectivo: se supone que cada cifra se conoce al cierre del segundo mes posterior a su período. "
+               "Se utilizan valores actuales del libro. Ese calendario es un supuesto explícito; no son fechas históricas comprobadas.")
+    metrics = [{"Modelo": ECONOMIC_NAMES[key], "Meses evaluados": value["n"], "MAE": value["mae"], "RMSE": value["rmse"]}
+               for key, value in scenario["metrics"].items()]
+    st.dataframe(pd.DataFrame(metrics).round(3), hide_index=True, width="stretch")
+    st.caption("Objetivo: 100 × diferencia interanual del logaritmo del FOB. Errores en puntos logarítmicos; menor es mejor. "
+               "Tono e incertidumbre se rezagan un mes. Cobertura controla el número de artículos y la composición de medios. "
+               "Los dos comparadores sin ajuste se añadieron después de observar los diagnósticos; no son confirmación independiente.")
+    forecasts = scenario["forecasts"]
+    figure = go.Figure()
+    for key, label, color in [(None, "Crecimiento observado", "#142330"),
+        ("baseline_coverage", "Base con cobertura", "#9aa7ae"), ("plus_tone", "Base con cobertura y tono", "#16877c")]:
+        figure.add_scatter(x=[f["target"] for f in forecasts],
+            y=[f["actual"] if key is None else f["models"][key]["prediction"] for f in forecasts],
+            mode="lines+markers", name=label, line={"color": color}, connectgaps=False)
+    figure.update_layout(template="plotly_white", height=360, xaxis_title="Mes de referencia de las exportaciones",
+        yaxis_title="Variación interanual logarítmica × 100", legend={"orientation": "h", "y": -.3},
+        margin={"b": 95}, title="Observaciones y predicciones retrospectivas · 12 meses")
+    figure.update_xaxes(type="date", tickformat="%m/%Y", dtick="M2")
+    st.plotly_chart(figure, width="stretch", key="economic_forecasts")
+    st.warning("Resultado preliminar: el tono reduce ligeramente el error de la base con cobertura, pero los residuos de las cuatro "
+               "especificaciones tienen autocorrelación en los 12 ajustes y el ADF no rechaza raíz unitaria. "
+               "No hay evidencia suficiente para presentar un indicador predictivo validado. Añadir incertidumbre no mejora el RMSE principal.")
+    with st.expander("Sensibilidades, datos y diagnósticos económicos"):
+        labels = {"main_assumed_lag_2": "Disponibilidad supuesta: 2 meses", "assumed_lag_1": "Supuesto: 1 mes", "assumed_lag_3": "Supuesto: 3 meses",
+            "exclude_reporting": "Excluir indicios de informe/mixto", "valora_only": "Solo Valora", "larepublica_only": "Solo La República"}
+        sensitivity = []
+        for name, item in report["scenarios"].items():
+            base, tone = item["metrics"]["baseline_coverage"], item["metrics"]["plus_tone"]
+            sensitivity.append({"Escenario": labels[name], "Meses": tone["n"], "RMSE base con cobertura": base["rmse"], "RMSE con tono": tone["rmse"]})
+        st.dataframe(pd.DataFrame(sensitivity).round(3), hide_index=True)
+        st.caption("La República sola no ofrece un tramo continuo con 36 crecimientos disponibles después del vacío de diciembre de 2024; "
+                   "su resultado queda sin estimar. Los marcos por fuente pueden cambiar el entrenamiento: no se comparan sus errores como si fueran idénticos experimentos. "
+                   "Excluir informes usa propuestas automáticas y conserva roles sin resolver.")
+        st.dataframe(pd.DataFrame(scenario["lead_lag"]["pairs"]).rename(columns={"export_month_minus_news_month": "Desfase h", "n": "Pares", "pearson_correlation": "Correlación descriptiva"}), hide_index=True)
+        st.caption("Correlación entre tono de t y crecimiento de t+h: h negativo = períodos exportadores anteriores; h positivo = posteriores. "
+                   "No se selecciona el mejor desfase ni se interpreta como causalidad. Mes de noticia y mes estadístico son distintos.")
+        diagnostics = [{"Origen": f["origin"], "Mes objetivo": f["target"], "Observaciones de entrenamiento": f["training_observations"],
+            "ADF p": f["training_adf_pvalue"], "Ljung–Box p · con tono": f["models"]["plus_tone"]["ljung_box_pvalue"]} for f in forecasts]
+        st.dataframe(pd.DataFrame(diagnostics), hide_index=True)
+        st.caption("El libro no contiene destinos, fechas históricas de difusión ni versiones anteriores. La serie es de la investigadora; "
+                   "las coincidencias puntuales con boletines del DANE no autentican todos los meses. FOB nominal no equivale a volumen real. "
+                   "El protocolo y el informe económico documentan la auditoría, el código y las limitaciones.")
+
+
 st.set_page_config(page_title="Noticias de exportaciones colombianas", page_icon="🇨🇴", layout="wide")
 rows = read_jsonl(DATA/"headlines.jsonl")
 indices, audit, log, validation = [load_json(name) for name in
@@ -67,12 +127,21 @@ features = read_jsonl(DATA/"destinations.jsonl")
 feature_lookup = {r["record_id"]: r for r in features}
 country_reviews = read_country_reviews(DATA, rows)
 country_report = evaluate_countries(rows, features, country_reviews)
-country_rows = assignments(rows, features, country_reviews)
-eligible = [r for r in rows if r["eligible_for_index"]]
-row_lookup = {r["record_id"]: r for r in eligible}
+all_eligible = [r for r in rows if r["eligible_for_index"]]
+row_lookup = {r["record_id"]: r for r in all_eligible}
 months = [r["month"] for r in log["requests"]]
-bank_series = [r for r in indices["provisional"] if r["activity"] == "All exports"]
-score_lookup, model_manifest, model_indices = {}, {}, {}
+archive_months = list(months)
+coverage_report = load_json("source_coverage.json") if (DATA/"source_coverage.json").exists() else None
+eligible = [r for r in all_eligible if in_primary_press_frame(r)] if coverage_report else all_eligible
+archive_eligible = list(eligible)
+if coverage_report and coverage_report["main_window"]["months"]:
+    window = coverage_report["main_window"]
+    months = [month for month in months if window["start"] <= month <= window["end_inclusive"]]
+    eligible = [r for r in eligible if r["month"] in months]
+archive_ids = {r["record_id"] for r in archive_eligible}
+country_rows = [r for r in assignments(rows, features, country_reviews) if r["record_id"] in archive_ids]
+bank_series = [r for r in aggregate(eligible, months) if r["activity"] == "All exports"]
+score_lookup, all_score_lookup, model_manifest, model_indices = {}, {}, {}, {}
 if (DATA/"contextual_manifest.json").exists():
     model_manifest = load_json("contextual_manifest.json")
     if model_manifest.get("status") == "complete":
@@ -82,15 +151,16 @@ if (DATA/"contextual_manifest.json").exists():
         except ValueError as error:
             st.error("Las predicciones no corresponden al corpus actual: "+str(error))
         else:
-            score_lookup = {r["record_id"]: r for r in model_scores}
+            all_score_lookup = {r["record_id"]: r for r in model_scores}
+            score_lookup = {key: score for key, score in all_score_lookup.items() if key in archive_ids}
             # Rebuild small aggregates directly from verified predictions.
             model_indices = {key: aggregate_scores(model_scores, eligible, months, dictionary_matched=matched)
                              for key, matched in [("all_eligible", False), ("dictionary_matched", True)]}
 
 st.caption("COLOMBIA · EXPORTACIONES DE BIENES AL MUNDO · INVESTIGACIÓN NLP")
-st.title("El lenguaje de las noticias de exportaciones")
-st.write("Sentimiento e incertidumbre en noticias sobre exportaciones colombianas de bienes.")
-st.caption("Marzo de 2020–octubre de 2026 · Mes de publicación · Adaptación independiente de métodos publicados")
+st.title("Exportaciones colombianas: noticias y evidencia")
+st.write("Comparación y evaluación de métodos de sentimiento e incertidumbre sobre exportaciones de bienes.")
+st.caption(f"{months[0]} a {months[-1]} · Mes de publicación · Adaptación independiente de métodos publicados")
 c1, c2, c3, c4 = st.columns(4)
 c1.metric("Artículos elegibles", len(eligible))
 c2.metric("Dominios de fuentes", len({r.get("publisher_group", r["publisher"]) for r in eligible}))
@@ -99,13 +169,13 @@ c4.metric("Etiquetas humanas", validation["n_labeled"])
 results_tab, news_tab, method_tab = st.tabs(["Resultados", "Noticias y destinos", "Metodología y validación"])
 
 
-def article_evidence(article):
+def article_evidence(article, context="article"):
     identity = article["record_id"]
     st.subheader(headline(article))
     st.caption(f"{article['publisher']} · {article['publication_date']}")
-    st.link_button("Leer noticia original", article["article_url"], key="article_source")
-    if identity in score_lookup:
-        score = score_lookup[identity]
+    st.link_button("Leer noticia original", article["article_url"], key=context+"_source")
+    if identity in all_score_lookup:
+        score = all_score_lookup[identity]
         st.write("**Tono estimado por el modelo:** titular y cuerpo se analizan por separado.")
         details = []
         for unit, label in [("headline", "Titular"), ("body", "Cuerpo completo, fragmentado")]:
@@ -165,7 +235,7 @@ def render_review_tools():
         st.caption(country_report["note"])
         st.json(country_report)
     st.subheader("Ejemplo de relación: ¿competidor o destino?")
-    comparison_cases = [(r, hit) for r in eligible for hit in feature_lookup[r["record_id"]].get("non_destination_evidence", [])]
+    comparison_cases = [(r, hit) for r in all_eligible for hit in feature_lookup[r["record_id"]].get("non_destination_evidence", [])]
     if comparison_cases:
         example, hit = next((pair for pair in comparison_cases if pair[0]["record_id"] == "a1348320f184c51f24f5"), comparison_cases[0])
         st.write(example.get("publisher_title") or example["title"])
@@ -256,8 +326,11 @@ with results_tab:
     st.subheader("¿Cómo cambia el tono de las noticias?")
     st.write("El puntaje resume el balance entre lenguaje positivo y negativo estimado en el cuerpo de los artículos. "
              "Describe esta muestra de noticias; no mide el crecimiento de las exportaciones ni demuestra capacidad de pronóstico.")
-    st.warning("Cobertura histórica: entre 2020 y 2025 los artículos elegibles proceden únicamente de Analdex; en 2026 se añaden otros medios. "
-               "Los cambios pueden reflejar tanto el lenguaje como la composición de las fuentes.")
+    if coverage_report:
+        st.info("Corpus principal: archivos directos de Valora Analitik y La República. Analdex y las demás fuentes se conservan como material complementario. "
+                "El período se elige por cobertura mensual, antes de contrastarlo con las exportaciones.")
+    else:
+        st.warning("Esta es la muestra anterior a la recuperación histórica directa. Su cobertura de prensa de 2020–2025 es insuficiente.")
     if model_indices:
         st.plotly_chart(index_chart(model_indices["all_eligible"], "mean_probability_balance", "Tono de las noticias · modelo en español",
                                    [-1.05, 1.05], language="es"), width="stretch", key="general_sentiment")
@@ -271,31 +344,44 @@ with results_tab:
                                language="es"), width="stretch", key="general_uncertainty")
     st.caption("Ocurrencias de seis formas de «incertidumbre / incierto» por cada 1.000 palabras procesadas. "
                "Es una medida léxica de las noticias; no es la incertidumbre del modelo ni el riesgo comprobado de exportar.")
+    render_economic_results()
     with st.expander("Cobertura mensual y sensibilidad a las fuentes"):
-        institutional = [sum(r["month"] == month and r.get("publisher_group") == "analdex.org" for r in eligible) for month in months]
         volume = go.Figure()
-        volume.add_bar(x=months, y=institutional, name="Analdex", marker_color="#8a9cae")
-        volume.add_bar(x=months, y=[r["articles"]-a for r, a in zip(bank_series, institutional)], name="Otros medios", marker_color="#1e465e")
+        domains = sorted({r["publisher_group"] for r in eligible})
+        for domain in domains:
+            volume.add_bar(x=months, y=[sum(r["month"] == month and r["publisher_group"] == domain for r in eligible) for month in months], name=domain)
         volume.update_layout(height=260, barmode="stack", template="plotly_white", yaxis_title="Artículos elegibles",
                              xaxis_title="Mes de publicación", legend={"orientation": "h"})
         st.plotly_chart(volume, width="stretch", key="general_volume")
-        fixed_rows = [r for r in eligible if r.get("publisher_group") == "analdex.org"]
         if score_lookup:
-            fixed_series = aggregate_scores(list(score_lookup.values()), fixed_rows, months)
+            per_source = [aggregate_scores(list(score_lookup.values()), [r for r in eligible if r["publisher_group"] == domain], months) for domain in domains]
+            equal_source_series = [{"month": month, "mean_probability_balance": sum(source[i]["mean_probability_balance"] for source in per_source)/len(domains)
+                                   if all(source[i]["mean_probability_balance"] is not None for source in per_source) else None} for i, month in enumerate(months)]
             fixed_chart = go.Figure()
-            for records, label in [(model_indices["all_eligible"], "Todas las fuentes"), (fixed_series, "Solo Analdex")]:
+            for records, label in [(model_indices["all_eligible"], "Mismo peso por artículo"), (equal_source_series, "Mismo peso por fuente")]:
                 fixed_chart.add_scatter(x=months, y=[r["mean_probability_balance"] for r in records], mode="lines+markers", name=label, connectgaps=False)
-            fixed_chart.update_layout(title="Mismo modelo; composición de fuentes distinta", template="plotly_white", height=300,
+            fixed_chart.update_layout(title="Sensibilidad a la ponderación de las fuentes", template="plotly_white", height=300,
                                       xaxis_title="Mes de publicación", yaxis_title="Balance de probabilidades", legend={"orientation": "h"})
             st.plotly_chart(fixed_chart, width="stretch", key="fixed_source_sentiment")
-        st.caption("Mantener Analdex como fuente permite examinar el cambio de composición. No elimina el sesgo institucional ni demuestra representatividad.")
+        st.caption("El promedio por fuente requiere observaciones de todos los dominios del panel en ese mes. "
+                   "Permite examinar el peso de los medios; ninguna ponderación demuestra representatividad ni corrige automáticamente sesgos editoriales.")
         st.dataframe(monthly_table(model_indices.get("all_eligible", bank_series)), hide_index=True)
+        if coverage_report:
+            st.write("**Selección del período por cobertura, sin consultar cifras de exportaciones:**")
+            st.dataframe(pd.DataFrame(coverage_report["threshold_sensitivity"]), hide_index=True)
+            st.caption("Regla principal: ≥3 artículos por mes, al menos una fuente cada mes y dos fuentes en ≥95% de los meses. "
+                       "La tabla muestra ventanas estrictas de dos fuentes como sensibilidad. Los umbrales no demuestran calidad ni potencia estadística; "
+                       "un mes con una sola fuente se conserva y se identifica, sin inventar otra observación.")
+            st.dataframe(pd.DataFrame(coverage_report["monthly"])[["month", "press_articles", "press_domains", "institutional_articles", "largest_press_source_share"]], hide_index=True)
     st.caption("Fuente: cálculos del proyecto sobre artículos recuperados. Modelos y métodos originales conservan sus créditos. "
                "Las mediciones automáticas están pendientes de evaluación humana.")
 
 with news_tab:
     st.subheader("De la gráfica a la noticia")
     st.write("Consulta las fuentes y compara el titular con el cuerpo. El filtro por país muestra vínculos de destino propuestos, no valores de exportación.")
+    if coverage_report:
+        st.caption(f"Aquí se consulta el archivo completo de prensa: {archive_months[0]} a {archive_months[-1]}. "
+                   "La ventana de la gráfica principal se selecciona por cobertura; las noticias anteriores se conservan para consulta y evaluación de texto.")
     left, right = st.columns(2)
     coverage = country_coverage(country_rows)
     country = left.selectbox("País de destino", ["__all__"]+[r["country"] for r in coverage], format_func=country_name, key="destination_country")
@@ -303,7 +389,7 @@ with news_tab:
     reviewed_only = st.checkbox("Solo vínculos de país confirmados por una persona", key="country_reviewed_only")
     view = assignments(rows, features, country_reviews, reviewed_only=reviewed_only)
     linked_ids = {r["record_id"] for r in view if country == "__all__" or r["country"] == country}
-    visible = [r for r in eligible if (country == "__all__" and not reviewed_only or r["record_id"] in linked_ids)
+    visible = [r for r in archive_eligible if (country == "__all__" and not reviewed_only or r["record_id"] in linked_ids)
                and search.casefold() in headline(r).casefold()]
     st.caption(f"{len(visible)} noticias coinciden. Estos filtros no modifican los resultados generales.")
     if not visible:
@@ -315,9 +401,9 @@ with news_tab:
             st.info(f"{country_name(country)}: {len(visible)} noticias en {observed_months} meses de publicación. "
                     "La cobertura puede ser discontinua; no establece una tendencia representativa del país. El tono corresponde al artículo completo.")
             with st.expander("Resumen mensual de las noticias seleccionadas"):
-                selected_bank = [r for r in aggregate(visible, months) if r["activity"] == "All exports"]
+                selected_bank = [r for r in aggregate(visible, archive_months) if r["activity"] == "All exports"]
                 if score_lookup:
-                    selected_model = aggregate_scores(list(score_lookup.values()), visible, months)
+                    selected_model = aggregate_scores(list(score_lookup.values()), visible, archive_months)
                     st.plotly_chart(index_chart(selected_model, "mean_probability_balance", country_name(country)+" · tono de artículos vinculados",
                                                [-1.05, 1.05], focus_observed=True, language="es"), width="stretch", key="country_sentiment")
                     selected_lookup = {r["month"]: r for r in selected_model}
@@ -337,7 +423,7 @@ with news_tab:
 with method_tab:
     st.subheader("Una adaptación con dos mediciones complementarias")
     st.markdown("**Pregunta descriptiva:** ¿cómo evoluciona el lenguaje de las noticias sobre exportaciones colombianas de bienes? "
-                "**Pregunta posterior:** ¿aporta información adicional a las estadísticas oficiales? Esa segunda pregunta sigue sin evaluar.")
+                "**Pregunta económica:** ¿aporta información adicional al historial exportador? Los resultados retrospectivos y sus diagnósticos están en Resultados; la validación predictiva sigue abierta.")
     st.markdown("Referencias: [Dávila y Chasi · Banco Central del Ecuador](https://doi.org/10.47550/RCE/35.2.1), "
                 "[BE1340 · Banco de la República](https://doi.org/10.32468/be.1340) y "
                 "[código público de PySentimiento](https://github.com/pysentimiento/pysentimiento).")
@@ -348,6 +434,20 @@ with method_tab:
     ], columns=["Referencia", "Qué aporta al diseño", "Estado de la adaptación"]))
     st.info("No se obtuvieron scripts originales de los dos estudios en los registros consultados. Se reutilizan el modelo y el preprocesamiento "
             "públicos de PySentimiento, con sus créditos y condiciones de uso científico/no comercial. No se afirma una réplica exacta de los experimentos originales.")
+    st.subheader("¿Para qué sirve un índice de noticias?")
+    st.write("El Banco de la República comprueba si las señales de noticias añaden información a modelos de actividad económica. "
+             "Su sección 6 combina factores dinámicos y ARMAX, después de hacer estacionarias las series. "
+             "Aquí se compara el tono con una base que incorpora historia exportadora y controles de cobertura, bajo supuestos explícitos de disponibilidad.")
+    st.caption("El procedimiento preparado sobre exportaciones es una adaptación acotada, no la réplica de sus factores, sus variables de actividad ni sus resultados. "
+               "Una correlación contemporánea o una gráfica convincente no demuestran utilidad adicional.")
+    if (DATA/"economic_evaluation.json").exists():
+        economic_report = load_json("economic_evaluation.json")
+        st.write("La evaluación retrospectiva con el archivo recibido se muestra en **Resultados**. "
+                 "El protocolo fija cuatro especificaciones y conserva las sensibilidades de disponibilidad, fuentes y tipo de documento. "
+                 "Los diagnósticos adversos impiden afirmar que el predictor está validado.")
+    else:
+        st.info("Contraste económico pendiente del archivo numérico de la investigadora. El código está preparado para comparar ARMA(1,1), "
+                "ARMAX con tono y ARMAX con tono e incertidumbre, con fechas de disponibilidad y evaluación temporal. No hay resultados económicos estimados todavía.")
     st.subheader("Construcción paso a paso")
     st.markdown("**Noticias reales → extracción y fechas → selección y duplicados → dos rutas de análisis → agregación mensual → revisión humana**")
     st.table(pd.DataFrame([
@@ -386,6 +486,13 @@ with method_tab:
                              columns=["Etapa", "Registros"]))
         st.write("Las reglas de inclusión y las propuestas sobre el tipo de documento no han sido validadas. "
                  "Un informe puede repetir cifras ya publicadas; una expectativa no constituye automáticamente información nueva ni predictiva.")
+        institutional = [r for r in all_eligible if r["publisher_group"] == "analdex.org"]
+        st.write(f"Analdex: {len(institutional)} publicaciones elegibles complementarias. Se conservan aparte del corpus principal de prensa. "
+                 "También en la prensa hay informes que repiten estadísticas; el editor no determina por sí solo el tipo de documento.")
+        role_labels = {"statistical_reporting_candidate": "Indicios de informe estadístico", "event_or_expectation_candidate": "Indicios de acontecimiento o expectativa",
+                       "mixed_cues": "Indicios mixtos", "unresolved": "Sin resolver"}
+        role_table = pd.Series([role_labels[r["document_role_proposal"]] for r in eligible]).value_counts().rename_axis("Propuesta de tipo de documento").rename("Artículos").reset_index()
+        st.dataframe(role_table, hide_index=True)
         subset = [r for r in eligible if r.get("document_role_proposal") not in {"statistical_reporting_candidate", "mixed_cues"}]
         st.caption(f"Diagnóstico al excluir candidatos a informe estadístico o mixto: quedan {len(subset)} de {len(eligible)} artículos. "
                    "Los roles sin resolver permanecen; no es un corpus prospectivo verificado.")
@@ -395,13 +502,27 @@ with method_tab:
         st.dataframe(pd.DataFrame(audit["fetch_status_counts"].items(), columns=["Estado de recuperación", "Registros"]), hide_index=True)
         st.caption("Las solicitudes fallidas o no intentadas no demuestran ausencia de noticias. El archivo local conserva cuerpos y HTML; el repositorio publica metadatos y resultados derivados.")
     st.subheader("Validación: qué falta para afirmar que funciona")
-    st.write("Hay una muestra diagnóstica de 60 registros preparada y sin etiquetas humanas. Primero se revisan las fuentes sin ver las predicciones; "
-             "después se registran discrepancias. La evaluación final requiere una muestra independiente y criterios escritos. "
+    st.write("La muestra diagnóstica y la evaluación independiente tienen funciones distintas. La primera ayuda a estudiar errores conocidos. "
+             "La segunda fija artículos antes de revisar sus predicciones, con hojas para dos revisores y adjudicación posterior. "
              "El modelo fue entrenado con tuits en español, no con noticias de exportaciones colombianas.")
+    if (DATA/"independent_evaluation.json").exists():
+        independent = load_json("independent_evaluation.json")
+        st.write(f"**Muestra independiente fijada: {independent['locked_sample_records']} textos. Referencias de tono adjudicadas: {independent['adjudicated_tone_labels']}.**")
+        if not independent["adjudicated_tone_labels"]:
+            st.caption("Las hojas siguen sin juicios humanos: no se publican porcentajes de precisión ni se reemplazan por acuerdo entre modelos.")
+        else:
+            st.json(independent)
+        for key, label in [("reviewer_a", "Hoja para revisor A"), ("reviewer_b", "Hoja para revisor B")]:
+            st.download_button(label, (DATA/("evaluation_"+key+".csv")).read_bytes(), file_name="evaluation_"+key+".csv", mime="text/csv", key="download_"+key)
     st.markdown("1. Comprobar extracción, fechas y pertenencia al corpus.\n"
                 "2. Separar **tono del texto**, **dirección del acontecimiento exportador** y **período estadístico**.\n"
                 "3. Etiquetar de forma independiente y comparar clases, errores y casos sin respuesta; usar dos revisores cuando sea posible.\n"
                 "4. Contrastar después con tus datos de exportaciones, respetando períodos, publicaciones y una evaluación temporal.")
+    with st.expander("Caso diagnóstico: reactivación y antecedentes de suspensión"):
+        diagnostic = row_lookup.get("b30d353a15880d52e0b3")
+        if diagnostic:
+            st.caption("Caso complementario utilizado para explicar una limitación de medición; no pertenece a la muestra independiente de evaluación.")
+            article_evidence(diagnostic, context="diagnostic")
     with st.expander("Priorizar casos para revisión, sin convertirlos en etiquetas"):
         if score_lookup:
             priority = []

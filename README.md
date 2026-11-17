@@ -1,106 +1,62 @@
-# Colombian Goods Export News: An Auditable NLP Research Sample
+# Colombian Goods Export News: Measurement and Validation
 
-**Research question:** Can Spanish-language news about Colombian goods exports add information beyond already published trade statistics?
+Can Spanish-language news about Colombian goods exports add information beyond the available export history? This independent research project studies corpus construction, text measurement and economic evaluation as separate questions. It adapts published methods and preserves their authorship; it does not claim to reproduce either central bank's original experiment.
 
-This independent research prototype implements the published dictionary measurement in [Mora-Quiñones, Orozco-Gallo & Mora-Pérez (2026), Banco de la República BE1340](https://doi.org/10.32468/be.1340), then examines corpus selection, document roles, source composition and sparse country coverage. Its current contribution is a reproducible measurement and audit pipeline. Incremental economic information and predictive performance remain hypotheses to test.
+## Review the work
 
-Code identifiers stay in English. The consolidated dashboard, model explanation and review notebook are supplied in Spanish first; baseline technical documents remain in English. Original source articles remain in Spanish. Goods exports from Colombia to foreign markets are in scope; service exports, imports and incidental mentions require separate treatment.
+Start with the [Spanish study protocol](docs/STUDY_PROTOCOL_ES.md), [executed economic findings](docs/ECONOMIC_RESULTS_ES.md) and the three dashboard views: **Resultados**, **Noticias y destinos**, **Metodología y validación**. Code identifiers remain in English; articles, dashboard and the first methodological explanation are in Spanish. The two notebooks reproduce saved features without collecting news or downloading a model by default.
 
-## Start here for academic review
+| Evidence | Frozen snapshot |
+| --- | --- |
+| Primary press frame | 1,011 eligible articles, Valora Analitik and La República |
+| Publication coverage | March 2020–October 2026, 80/80 months; both domains in 78 |
+| Complete acquisition archive | 3,517 candidates; 2,868 extracted texts; 1,423 provisionally eligible |
+| Numerical input | 309 national monthly observations, January 2001–September 2026; researcher-supplied workbook |
+| Independent text evaluation | 200 locked records, two blank reviewer sheets and one adjudication sheet |
+| Adjudicated human tone labels | 0; classification accuracy remains unmeasured |
 
-Open **Resultados** for the executed monthly news-tone and uncertainty series, **Noticias y destinos** to inspect their source articles, and **Metodología y validación** for definitions, comparisons and review tools. The [Spanish dashboard guide](docs/DASHBOARD_ES.md) explains the three-tab design. Read the [research brief and validation design](docs/RESEARCH_BRIEF.md) and inspect `trade_news/bank_method.py`, `trade_news/contextual.py` and `trade_news/classification.py`. Implemented results remain separate from claims requiring data and human judgments; third-party methods and code retain their credits.
+The primary period is selected from news coverage, without export outcomes or sentiment values. November 2020 and December 2024 have one primary domain; the strict two-domain window remains a documented sensitivity. Analdex and other publishers are complementary, separately identified. Reports of already released statistics are not treated as verified new information: document-role rules produce review proposals, not gold labels.
 
-## Nueva comparación: primero en español
+## Executed findings
 
-Se adaptó el modelo público [PySentimiento / RoBERTuito](https://huggingface.co/pysentimiento/robertuito-sentiment-analysis) a los artículos del corpus. El repositorio conserva por separado el método léxico de BE1340. La [explicación metodológica en español](docs/CONTEXTUAL_REPLICATION_ES.md) identifica el código reutilizado, los créditos, las restricciones de uso científico/no comercial y las adaptaciones propias. `Comparacion_NLP_Exportaciones_ES.ipynb` reproduce las probabilidades y los agregados guardados; **Noticias y destinos** permite revisar titulares y cuerpos por separado. La comparación entre métodos está en un desplegable de **Metodología y validación**.
+For October 2025–September 2026, adding lagged tone to the coverage-controlled baseline changes RMSE from **8.741 to 8.593** (annual nominal FOB log-growth points, twelve common origins). Adding uncertainty produces **8.964**. These are retrospective scenario results, using an explicitly assumed publication lag and current numerical history.
 
-Se reutilizan los pesos publicados y el preprocesamiento original. La inferencia local emplea Transformers y PyTorch; los artículos largos se procesan completos mediante fragmentos sin superposición. El promedio ponderado de probabilidades de fragmentos y la media mensual por artículo son decisiones explícitas del proyecto. El modelo se entrenó con mensajes de Twitter en español: su utilidad para noticias de exportaciones colombianas requiere evaluación humana. No se presentan como propios los porcentajes de precisión publicados por otros autores.
+**This is not a validated forecasting indicator.** All twelve fits in each of the four main specifications show residual autocorrelation; training ADF tests do not reject a unit root. The small error reduction is insufficient to establish useful incremental prediction. Alternative availability lags, source frames and a reporting-candidate exclusion are reported, including an unestimable La República-only sensitivity. Two simple diagnostic comparators were added after observing the residual failures; their timing is disclosed. No order search is performed on the test months.
 
-La ejecución completa procesó **410 artículos**, 3.883 fragmentos de cuerpos y 463.240 tokens de contenido; produce resultados en 78 meses con textos. El [informe de resultados en español](docs/CONTEXTUAL_RESULTS_ES.md) muestra los conteos reales y el caso de reactivación de exportaciones. No se generaron etiquetas humanas.
+## Methods and code to inspect
 
-Para reconstruir la nueva serie desde los resultados guardados, sin instalar el modelo:
+* `trade_news/history.py`: publisher-declared sitemap discovery, robots/access checks, immutable response hashes and publication-date separation.
+* `trade_news/articles.py`, `classification.py`, `corpus.py`: body extraction, transparent scope/document proposals, exact deduplication and human-review provenance.
+* `trade_news/bank_method.py`: unchanged 188 positive / 376 negative dictionary forms and six uncertainty forms from [BE1340](https://doi.org/10.32468/be.1340). Monthly sentiment is pooled (P−N)/(P+N); uncertainty is 1000U/W. Missing polarity support remains missing.
+* `trade_news/contextual.py`: pinned public [PySentimiento/RoBERTuito](https://huggingface.co/pysentimiento/robertuito-sentiment-analysis), separately scored headlines and complete bodies, nonoverlapping chunks, token-weighted probabilities and equal-article monthly means of P(POS)−P(NEG). Spanish tweet training does not establish export-news accuracy.
+* `trade_news/evaluation.py`: frozen independent sample, reviewer/adjudication provenance, agreement, abstentions, classification and calibration metrics only when human labels exist.
+* `trade_news/economics.py`: availability masks before growth calculation, expanding-origin comparisons, training-only scaling, source/volume controls, common origins and retained diagnostics.
 
-```bash
-python scripts/run_contextual.py --offline
-```
+[Dávila & Chasi, Banco Central del Ecuador](https://doi.org/10.47550/RCE/35.2.1) informs direct acquisition, contextual measurement and independent evaluation. [Mora-Quiñones, Orozco-Gallo & Mora-Pérez, Banco de la República](https://doi.org/10.32468/be.1340) supplies the dictionary instrument and motivates an incremental forecasting comparison. The latter's dynamic-factor ARMAX exercise is not reproduced by this smaller export experiment. The exact author scripts were not obtained from the consulted journal/official records. Public PySentimiento code and weights retain their [credits and scientific/noncommercial conditions](docs/THIRD_PARTY_NOTICES.md).
 
-Para repetir la inferencia, usa un entorno separado y conserva el archivo local de artículos:
-
-```bash
-python -m venv .venv-contextual
-# Activate this separate environment before the following commands.
-python -m pip install -r requirements-contextual.txt
-python scripts/download_contextual_model.py
-python scripts/run_contextual.py --model-dir data/raw/contextual_model
-```
-
-La descarga pública fijada por revisión y SHA-256 incluye unos 415 MiB de pesos. Los pesos y los cuerpos de las noticias no se distribuyen en este repositorio. Las probabilidades guardadas permiten revisar el trabajo sin efectuar esa descarga. El código de `trade_news/contextual.py` es el adaptador del proyecto; `trade_news/pysentimiento_preprocessing.py` conserva explícitamente la autoría del código original reutilizado.
-
-## Executed sample and its limits
-
-Publication window: **March 2020–October 2026**, with all 80 calendar months retained.
-
-| Stage | Executed count |
-| --- | ---: |
-| Real discovery records | 1374 |
-| Retrieved publisher texts | 840 |
-| Eligible, deduplicated texts under conservative automatic scope rules | 410 |
-| Eligible texts with at least one dictionary polarity match | 321 |
-| Months with eligible text | 78 / 80 |
-| Months with a sentiment denominator | 77 / 80 |
-| Human reference labels supplied | 0 |
-
-The previous broad co-occurrence screen admitted texts about imports, investment or general trade with incidental export mentions. The revised screen requires a resolved export focus in the headline for automatic inclusion, retaining ambiguous texts for human review. The old 696-article count is superseded by 410 provisional eligible records. This conservative rule can miss relevant contextual news; it is not a validated classifier.
-
-Google RSS supplied 730 candidates and encountered rate limits. Analdex's public WordPress archive supplied 644 separately identified posts. **Eligible 2020–2025 texts currently come only from Analdex; 2026 adds other publishers.** Analdex includes statistical reports, commentaries and other publications. Its name does not establish document role or information novelty. This is an incomplete historical sample, not a representative press census. Original HTML/text and API responses stay in the ignored local archive.
-
-Document-role cues currently propose **68 statistical-reporting candidates, 23 event/expectation candidates, 2 mixed cases and 317 unresolved roles** among eligible articles. These are auditable proposals, not human labels. An event cue does not prove that a story contains new information or predicts exports. The dashboard separately compares a fixed-source series and a diagnostic holdout of reporting/mixed candidates; neither is an accuracy or causal test.
-
-## Measurement
-
-```text
-SENT_t   = (P_t - N_t) / (P_t + N_t)
-UNCERT_t = 1000 * U_t / W_t
-```
-
-Counts are pooled across eligible article bodies before division. The unchanged Annex 3 dictionary contains 188 positive and 376 negative forms. The six uncertainty forms, processed-word denominator, 50-character text condition and >5 post-stopword-word sentence condition follow the published measurement description. Exact tokenizer, frozen NLTK stopwords and trailing moving-average alignment are documented project choices. See [methodology](docs/METHODOLOGY.md) and [reference comparison](docs/RESEARCH_REFERENCE.md).
-
-No polarity matches means missing sentiment, not neutral; balanced nonzero counts yield zero. The index measures lexical tone, not export growth. A three-month moving average requires three consecutive nonmissing monthly values. Points remain visible when isolated; gaps are never connected or filled. A smoother is omitted if no such window exists. Country charts focus on the observed date span and expose monthly P, N, U, W and article support. The country view remains an automatic relation-extraction pilot, not a continuous destination index or export-value ranking.
-
-## Reproduce the code sample
+## Reproduce the saved research sample
 
 ```bash
 python -m venv .venv
-# Activate using your operating system's normal command.
+# Activate this environment using your operating system's usual command.
 python -m pip install -r requirements.txt
 python -m streamlit run app.py
-
-# Offline decisions, monthly arithmetic and provenance checks.
-python -m trade_news analyze
-python -m trade_news validate
 python scripts/check_snapshot.py
 python -m unittest discover -s tests -v
-
-# Re-run text processing only when the local hash-checked archive is present.
-python -m trade_news analyze --verify-local-text
+python scripts/run_contextual.py --offline
+python scripts/evaluate_news.py evaluate --data-dir data
 ```
 
-The dashboard opens the committed snapshot without collecting new news. `Colombia_Trade_News.ipynb` provides offline feature analysis in Jupyter or Colab; upload the private repository ZIP while signed in, without placing credentials in notebook cells. Full source-to-count reproduction requires the ignored local archive; public re-retrieval may fail or change.
+Optional full text inference uses a separate environment with `requirements-contextual.txt`, `scripts/download_contextual_model.py` and the ignored, hash-checked local article archive. No weights or full publisher bodies are distributed. Optional economic estimation uses Python 3.12+ and `requirements-econometrics.txt` in a separate environment:
 
 ```bash
-# Collect into a NEW directory; preserve existing data and reviews.
-python -m trade_news collect --start 2020-03-01 --end 2026-11-01 --data-dir data_new
-python -m trade_news publisher-archive --start 2020-03-01 --end 2026-11-01 --data-dir data_new
-python -m trade_news fetch --data-dir data_new
-python -m trade_news analyze --data-dir data_new
+python scripts/run_economic_study.py --data-dir data
 ```
 
-Failed discovery leaves its logs and does not create fallback news. Public publisher dates determine the news month; the reported export period is a separate field to verify. Publisher access controls and robots restrictions are respected. Domains are normalized for source counts while the original publisher label is preserved; this does not identify ultimate media ownership.
+That command explicitly reproduces assumed-timing, revised-history scenarios. The strict `scripts/evaluate_exports.py compare` route remains blocked if actual release/vintage dates are missing. The source workbook stays local; `scripts/audit_export_workbook.py --workbook PATH --output-dir data` extracts observed rows and traces each to its sheet, cells and SHA-256 without changing the workbook. The committed derived CSV retains unknown historical dates as blanks.
 
-## Next empirical step
+## Interpretation and limits
 
-`data/review_sample.csv` contains **60 real records with blank judgments**, selected by a reproducible diagnostic sampling procedure. The selection manifest records the feature hash and IDs. Reviewers assess scope, document role and lexical/export-event disagreements before seeing predictions. The sample deliberately includes diagnostic cases and diverse years/cues; it is not a probability sample or held-out benchmark. `python scripts/prepare_review_sample.py` preserves existing human work instead of overwriting it. See [validation instructions](docs/VALIDATION.md).
+Publication month differs from the export reference period discussed in the article. A resumption announcement can coexist with negative historical language; overall tone and export-event direction require separate labels. Nominal FOB growth differs from physical volume. Country links are an unvalidated headline-relation pilot, not destination export totals or representative country sentiment indexes.
 
-Numerical export validation is deferred until the researcher supplies the dataset. A later economic test must align reference periods, release dates and information available at prediction time, then compare predeclared baselines out of sample. Statistical reporting that repeats the target release can otherwise create a circular result. No forecast improvement, validated accuracy or causal effect is claimed.
-
-Further reading: [snapshot tables](docs/SNAPSHOT_REPORT.md), [real diagnostic cases](docs/DIAGNOSTIC_CASES.md), [country protocol](docs/DESTINATIONS.md), [related research](docs/RELATED_WORK.md), [source lineage](docs/DATA_SOURCES.md), [third-party credits and licenses](docs/THIRD_PARTY_NOTICES.md).
+The corpus is a documented retrieval frame, not a census. URL vocabulary, exact-only duplicate detection, editorial selection, extraction and retrospective page changes limit inference. Numeric source checks are partial; unavailable historical releases/vintages and model availability prevent real-time claims. Independent human review and a new, diagnostically adequate forecasting specification with fresh temporal evaluation remain required. A negative or inconclusive result is retained as research evidence.
